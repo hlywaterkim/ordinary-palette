@@ -1,3 +1,4 @@
+import Color from "colorjs.io";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { test } from "node:test";
@@ -35,15 +36,26 @@ const scales = {
   pink,
 } as const;
 
-function relativeLuminance(hex: string): number {
-  const channel = (pair: string) => {
-    const value = Number.parseInt(pair, 16) / 255;
-    return value <= 0.04045 ? value / 12.92 : ((value + 0.055) / 1.055) ** 2.4;
+const LIGHTNESS = {
+  50: 97,
+  100: 89.5,
+  200: 82,
+  300: 74.5,
+  400: 67,
+  500: 59.5,
+  600: 52,
+  700: 44.5,
+  800: 37,
+  900: 29.5,
+  950: 22,
+} as const;
+
+function oklch(hex: string): { l: number; c: number } {
+  const color = new Color(hex).to("oklch");
+  return {
+    l: color.get("oklch.l") * 100,
+    c: color.get("oklch.c") ?? 0,
   };
-  const r = channel(hex.slice(1, 3));
-  const g = channel(hex.slice(3, 5));
-  const b = channel(hex.slice(5, 7));
-  return 0.2126 * r + 0.7152 * g + 0.0722 * b;
 }
 
 test("every family has all 11 steps", () => {
@@ -83,18 +95,51 @@ test("every value matches #RRGGBB", () => {
   assert.equal(colors.white, white);
 });
 
-test("each step is darker than the previous step", () => {
+test("every family matches the shared OKLCH L targets", () => {
+  for (const family of families) {
+    for (const step of steps) {
+      const { l } = oklch(colors[family][step]);
+      const target = LIGHTNESS[step];
+      assert.ok(
+        Math.abs(l - target) <= 0.4,
+        `${family} ${step} OKLCH L ${l} is more than 0.4 from ${target}`,
+      );
+    }
+  }
+});
+
+test("OKLCH L is monotonic within each family", () => {
   for (const family of families) {
     let previous = Number.POSITIVE_INFINITY;
     for (const step of steps) {
-      const luminance = relativeLuminance(colors[family][step]);
-      assert.ok(
-        luminance < previous,
-        `${family} ${step} luminance ${luminance} is not darker than ${previous}`,
-      );
-      previous = luminance;
+      const { l } = oklch(colors[family][step]);
+      assert.ok(l < previous, `${family} ${step} OKLCH L ${l} is not below ${previous}`);
+      previous = l;
     }
   }
+});
+
+test("gray chroma is 0", () => {
+  for (const step of steps) {
+    assert.equal(oklch(gray[step]).c, 0, `gray ${step}`);
+  }
+});
+
+test("yellow chroma curve is not the same shape as blue", () => {
+  const yellowC = steps.map((step) => oklch(yellow[step]).c);
+  const blueC = steps.map((step) => oklch(blue[step]).c);
+  const peak = (curve: number[]) => curve.indexOf(Math.max(...curve));
+
+  assert.ok(peak(yellowC) < peak(blueC));
+  assert.ok(yellowC[0] > blueC[0]);
+  assert.ok(yellowC.at(-1)! < blueC.at(-1)!);
+
+  const ratios = yellowC.map((chroma, index) => chroma / blueC[index]);
+  const mean = ratios.reduce((sum, value) => sum + value, 0) / ratios.length;
+  const deviation = Math.sqrt(
+    ratios.reduce((sum, value) => sum + (value - mean) ** 2, 0) / ratios.length,
+  );
+  assert.ok(deviation / mean > 0.35, `chroma curves are too proportional (${deviation / mean})`);
 });
 
 test("colors.json and colors.css match the palette", () => {

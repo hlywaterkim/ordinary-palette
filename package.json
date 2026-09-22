@@ -1,7 +1,7 @@
 {
-  "name": "opensource-color",
+  "name": "ordinary-palette",
   "version": "0.1.0",
-  "description": "An open-source color palette.",
+  "description": "A natural open-source color palette.",
   "license": "MIT",
   "type": "module",
   "sideEffects": [
@@ -30,6 +30,7 @@
     "preview": "vite --config examples/preview/vite.config.ts --host 0.0.0.0 --port 43123 --strictPort"
   },
   "devDependencies": {
+    "colorjs.io": "^0.7.1",
     "typescript": "^5.9.2",
     "vite": "^7.1.5"
   },
