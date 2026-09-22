@@ -1,0 +1,42 @@
+{
+  "name": "ordinary-palette",
+  "version": "0.1.0",
+  "description": "A natural open-source color palette.",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./colors.json": "./dist/colors.json",
+    "./colors.css": "./dist/colors.css"
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json && node --experimental-strip-types scripts/write-assets.ts",
+    "pretest": "npm run build",
+    "test": "node --experimental-strip-types --test tests/colors.test.ts",
+    "preview": "vite --config examples/preview/vite.config.ts --host 0.0.0.0 --port 43123 --strictPort"
+  },
+  "devDependencies": {
+    "colorjs.io": "^0.7.1",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.5"
+  },
+  "keywords": [
+    "color",
+    "palette",
+    "css"
+  ]
+}
