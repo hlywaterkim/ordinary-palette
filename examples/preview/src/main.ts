@@ -61,7 +61,13 @@ async function copyHex(label: string, hex: string): Promise<void> {
   }
 }
 
-function swatch(label: string, variable: string, hex: string, extraClass = ""): HTMLButtonElement {
+function swatch(
+  visible: string,
+  label: string,
+  variable: string,
+  hex: string,
+  extraClass = "",
+): HTMLButtonElement {
   const button = document.createElement("button");
   button.type = "button";
   button.className = extraClass ? `swatch ${extraClass}` : "swatch";
@@ -72,7 +78,7 @@ function swatch(label: string, variable: string, hex: string, extraClass = ""): 
 
   const step = document.createElement("span");
   step.className = "step";
-  step.textContent = label;
+  step.textContent = visible;
 
   const value = document.createElement("span");
   value.className = "hex";
@@ -117,7 +123,7 @@ for (const family of families) {
   }
 
   for (const step of steps) {
-    row.append(swatch(String(step), `--color-${family}-${step}`, colors[family][step]));
+    row.append(swatch(String(step), `${family} ${step}`, `--color-${family}-${step}`, colors[family][step]));
   }
 
   section.append(heading, row);
@@ -129,8 +135,8 @@ page.append(familyList);
 const neutrals = document.createElement("section");
 neutrals.className = "neutrals";
 neutrals.append(
-  swatch("black", "--color-black", black, "neutral"),
-  swatch("white", "--color-white", white, "neutral"),
+  swatch("black", "black", "--color-black", black, "neutral"),
+  swatch("white", "white", "--color-white", white, "neutral"),
 );
 page.append(neutrals);
 
