@@ -8,7 +8,7 @@ export const opacitySteps = ["00", "05", "10", "20", "30", "40", "50", "60", "70
 export type OpacityStep = (typeof opacitySteps)[number];
 export type OpacityScale = Record<OpacityStep, string>;
 
-/** Light-scale yellow OKLCH L minus gray's L. Positive means yellow is lighter than the shared step. */
+/** Light-scale yellow OKLCH L minus cool-gray's L. Positive means yellow is lighter than the shared step. */
 export const yellowLightnessOffset = {
   50: 1.4,
   100: 2,
@@ -75,9 +75,9 @@ export const orange = {
   900: "#2c0900",
 } as const satisfies ColorScale;
 
-// Light yellow leaves the shared gray L by yellowLightnessOffset.
+// Light yellow leaves the shared cool-gray L by yellowLightnessOffset.
 // Bright steps are only a little lighter, so the tint is not heavier than the other families.
-// Dark steps stay much lighter than gray, with chroma held, so the color still reads as yellow instead of muddy olive.
+// Dark steps stay much lighter than cool-gray, with chroma held, so the color still reads as yellow instead of muddy olive.
 export const yellow = {
   50: "#fffbf4",
   100: "#fff2db",
@@ -169,7 +169,7 @@ export const purple = {
   900: "#100446",
 } as const satisfies ColorScale;
 
-export const gray = {
+export const coolGray = {
   50: "#f5f7f9",
   100: "#eaedf1",
   200: "#dae0e7",
@@ -180,6 +180,21 @@ export const gray = {
   700: "#435260",
   800: "#243342",
   900: "#081725",
+} as const satisfies ColorScale;
+
+// Chroma 0 and no hue. Lightness matches cool-gray at the same step.
+// #666666 only illustrates that zero-chroma character. It is not copied onto these steps.
+export const neutralGray = {
+  50: "#f7f7f7",
+  100: "#ededed",
+  200: "#dfdfdf",
+  300: "#cbcbcb",
+  400: "#aeaeae",
+  500: "#8f8f8f",
+  600: "#6f6f6f",
+  700: "#505050",
+  800: "#313131",
+  900: "#161616",
 } as const satisfies ColorScale;
 
 export const whiteOpacity = {
@@ -342,7 +357,7 @@ export const darkPurple = {
   900: "#01000e",
 } as const satisfies ColorScale;
 
-export const darkGray = {
+export const darkCoolGray = {
   50: "#e9ebee",
   100: "#c8ccd0",
   200: "#a8aeb4",
@@ -353,6 +368,19 @@ export const darkGray = {
   700: "#1a2835",
   800: "#04121e",
   900: "#000205",
+} as const satisfies ColorScale;
+
+export const darkNeutralGray = {
+  50: "#ebebeb",
+  100: "#cbcbcb",
+  200: "#adadad",
+  300: "#909090",
+  400: "#747474",
+  500: "#585858",
+  600: "#3e3e3e",
+  700: "#262626",
+  800: "#111111",
+  900: "#020202",
 } as const satisfies ColorScale;
 
 export const families = [
@@ -366,7 +394,8 @@ export const families = [
   "cloudy-blue",
   "blue",
   "purple",
-  "gray",
+  "cool-gray",
+  "neutral-gray",
 ] as const;
 
 export type ColorFamily = (typeof families)[number];
@@ -382,7 +411,8 @@ export const colors = {
   "cloudy-blue": cloudyBlue,
   blue,
   purple,
-  gray,
+  "cool-gray": coolGray,
+  "neutral-gray": neutralGray,
   "white-opacity": whiteOpacity,
   "black-opacity": blackOpacity,
 } as const;
@@ -398,7 +428,8 @@ export const darkColors = {
   "cloudy-blue": darkCloudyBlue,
   blue: darkBlue,
   purple: darkPurple,
-  gray: darkGray,
+  "cool-gray": darkCoolGray,
+  "neutral-gray": darkNeutralGray,
 } as const;
 
 export type Colors = typeof colors;
@@ -526,7 +557,7 @@ export const sourceHue = {
     "800": 278.27,
     "900": 278.27
   },
-  "gray": {
+  "cool-gray": {
     "50": 246.56,
     "100": 246.56,
     "200": 246.56,
@@ -662,7 +693,7 @@ export const sourceChroma = {
     "800": 0.16,
     "900": 0.112
   },
-  "gray": {
+  "cool-gray": {
     "50": 0.004,
     "100": 0.007,
     "200": 0.011,
@@ -673,5 +704,17 @@ export const sourceChroma = {
     "700": 0.03,
     "800": 0.033,
     "900": 0.034
+  },
+  "neutral-gray": {
+    "50": 0,
+    "100": 0,
+    "200": 0,
+    "300": 0,
+    "400": 0,
+    "500": 0,
+    "600": 0,
+    "700": 0,
+    "800": 0,
+    "900": 0
   }
 } as const;

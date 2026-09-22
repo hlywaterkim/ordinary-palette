@@ -30,7 +30,7 @@ title.textContent = "Ordinary Palette";
 const lede = document.createElement("p");
 lede.className = "lede";
 lede.textContent =
-  "Light steps share gray's OKLCH lightness. Yellow is the exception: each step is lifted by a documented offset so bright yellow is not heavier than the other families and dark yellow still reads as yellow. The dark scale has its own lightness targets and wider gaps. The L under a hex is measured lightness. Click a swatch to copy its color.";
+  "Light steps share cool-gray's OKLCH lightness. Neutral-gray is the same lightness with chroma 0. Yellow is lifted by a documented offset so bright yellow is not heavier than the other families and dark yellow still reads as yellow. The dark scale has its own lightness targets and wider gaps. Click a swatch to copy its color.";
 
 const status = document.createElement("p");
 status.className = "status";
@@ -207,14 +207,14 @@ usage.className = "usage";
 const usageTitle = document.createElement("h2");
 usageTitle.textContent = "Use a step directly";
 const snippet = document.createElement("pre");
-snippet.textContent = `import { blue, cloudyBlue, darkBlue } from "ordinary-palette";
+snippet.textContent = `import { coolGray, neutralGray, darkCoolGray } from "ordinary-palette";
 
-blue[500];
-cloudyBlue[500];
-darkBlue[500];
-var(--color-cloudy-blue-500);
-var(--color-dark-blue-500);
-var(--color-white-opacity-40);`;
+coolGray[500];
+neutralGray[500];
+darkCoolGray[500];
+var(--color-cool-gray-500);
+var(--color-neutral-gray-500);
+var(--color-dark-neutral-gray-500);`;
 usage.append(usageTitle, snippet);
 page.append(usage);
 app.append(page);
