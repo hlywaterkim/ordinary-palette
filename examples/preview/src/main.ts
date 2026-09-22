@@ -1,3 +1,4 @@
+import Color from "colorjs.io";
 import "../../../src/colors.css";
 import { black, colors, families, steps, white } from "../../../src/palette.ts";
 import "./styles.css";
@@ -15,12 +16,12 @@ eyebrow.className = "eyebrow";
 eyebrow.textContent = "Palette";
 
 const title = document.createElement("h1");
-title.textContent = "Opensource Color";
+title.textContent = "Ordinary Palette";
 
 const lede = document.createElement("p");
 lede.className = "lede";
 lede.textContent =
-  "Ten pigment families, eleven steps each. Step 50 is the lightest and step 950 is the darkest. Black and white sit beside the scales. Click a swatch to copy its hex.";
+  "Each column is one OKLCH lightness, shared by every family. The L under the hex is the measured lightness of that swatch. Click a swatch to copy its hex.";
 
 const status = document.createElement("p");
 status.className = "status";
@@ -61,6 +62,10 @@ async function copyHex(label: string, hex: string): Promise<void> {
   }
 }
 
+function oklchL(hex: string): number {
+  return new Color(hex).to("oklch").get("oklch.l") * 100;
+}
+
 function swatch(
   visible: string,
   label: string,
@@ -68,12 +73,13 @@ function swatch(
   hex: string,
   extraClass = "",
 ): HTMLButtonElement {
+  const lightness = oklchL(hex);
   const button = document.createElement("button");
   button.type = "button";
   button.className = extraClass ? `swatch ${extraClass}` : "swatch";
   button.style.background = `var(${variable})`;
   button.style.color = ink(hex);
-  button.setAttribute("aria-label", `${label}, ${hex}`);
+  button.setAttribute("aria-label", `${label}, ${hex}, L ${lightness.toFixed(1)}`);
   button.title = variable;
 
   const step = document.createElement("span");
@@ -84,7 +90,11 @@ function swatch(
   value.className = "hex";
   value.textContent = hex;
 
-  button.append(step, value);
+  const measured = document.createElement("span");
+  measured.className = "lightness";
+  measured.textContent = `L ${lightness.toFixed(1)}`;
+
+  button.append(step, value, measured);
   button.addEventListener("click", () => {
     void copyHex(label, hex);
   });
@@ -145,7 +155,7 @@ usage.className = "usage";
 const usageTitle = document.createElement("h2");
 usageTitle.textContent = "Use a step directly";
 const snippet = document.createElement("pre");
-snippet.textContent = `import { blue } from "opensource-color";
+snippet.textContent = `import { blue } from "ordinary-palette";
 
 blue[500];
 var(--color-blue-500);`;
