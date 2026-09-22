@@ -1,2 +1,86 @@
-# ordinary-palette
-A natural color palette with the same lightness at every step.
+# Ordinary Palette
+
+A natural color palette for ordinary interface work: backgrounds, text, and borders. Eleven families run from step 50 to step 900. On the light scale, every family matches gray's OKLCH lightness at that step. Yellow is the exception: it is lifted by a documented offset so bright yellow is not heavier than the other families and dark yellow still reads as yellow. The dark scale uses its own lightness targets and wider gaps, and it does not reuse the light hex values. White and black ship as opacity scales. The scale is raw color only: there are no semantic roles such as primary, surface, or text.
+
+## Install
+
+```bash
+npm install ordinary-palette
+```
+
+## JavaScript
+
+```ts
+import { blue, colors, darkBlue, whiteOpacity } from "ordinary-palette";
+
+colors.blue[500];
+colors["cloudy-blue"][500];
+darkBlue[500];
+whiteOpacity["40"];
+```
+
+Each light family is also a named export: `pink`, `red`, `orange`, `yellow`, `lime`, `green`, `teal`, `cloudyBlue`, `blue`, `purple`, and `gray`. Dark families export as `darkPink`, `darkRed`, `darkOrange`, `darkYellow`, `darkLime`, `darkGreen`, `darkTeal`, `darkCloudyBlue`, `darkBlue`, `darkPurple`, and `darkGray`, and together as `darkColors`. Opacity scales export as `whiteOpacity` and `blackOpacity`. `yellowLightnessOffset` and `darkLightness` export the documented lightness numbers.
+
+## CSS
+
+```css
+@import "ordinary-palette/colors.css";
+
+.notice {
+  background: var(--color-blue-500);
+  color: var(--color-white-opacity-100);
+}
+
+.notice-dark {
+  background: var(--color-dark-blue-500);
+}
+```
+
+Custom properties are named `--color-<family>-<step>` on the light scale and `--color-dark-<family>-<step>` on the dark scale. That includes `--color-cloudy-blue-500`, `--color-dark-cloudy-blue-500`, `--color-white-opacity-40`, and `--color-black-opacity-05`.
+
+## JSON
+
+```ts
+import palette from "ordinary-palette/colors.json" with { type: "json" };
+
+palette.teal["500"];
+palette.dark.blue["500"];
+```
+
+## Families
+
+| Family | Light 500 | Dark 500 |
+| --- | --- | --- |
+| pink | `#fe2867` | `#a6003c` |
+| red | `#ff3626` | `#a80600` |
+| orange | `#ea5b00` | `#943700` |
+| yellow | `#dd9300` | `#794f00` |
+| lime | `#939701` | `#5b5d00` |
+| green | `#01ab59` | `#006b35` |
+| teal | `#00a87f` | `#00694e` |
+| cloudy-blue | `#538fe6` | `#1a56a8` |
+| blue | `#3c8cff` | `#0053b5` |
+| purple | `#787dff` | `#482ed9` |
+| gray | `#84919d` | `#4f5a65` |
+
+Steps on every color family, light and dark: 50, 100, 200, 300, 400, 500, 600, 700, 800, 900.
+
+Light yellow leaves the shared gray lightness by this OKLCH L offset: 50 +1.4, 100 +2, 200 +2.8, 300 +3.6, 400 +5, 500 +7, 600 +11, 700 +15, 800 +19, 900 +24.
+
+Dark lightness targets: 50 = 94, 100 = 84.44, 200 = 74.89, 300 = 65.33, 400 = 55.78, 500 = 46.22, 600 = 36.67, 700 = 27.11, 800 = 17.56, 900 = 8.
+
+Opacity steps, for both `white-opacity` and `black-opacity`: 00, 05, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100.
+
+## Develop
+
+```bash
+npm install
+npm test
+npm run preview
+```
+
+`npm test` builds the package, then checks steps 50–900, `#RRGGBB` solids, shared light OKLCH L within 0.4 (yellow exempt, with its explicit offset), chroma-only gamut mapping, and dark L targets that differ from the light scale and have stronger contrast. The preview gallery runs at <http://127.0.0.1:43123> and lists both scales, each hex, and measured OKLCH L.
+
+## License
+
+MIT
