@@ -3,172 +3,181 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { test } from "node:test";
 import {
-  black,
+  blackOpacity,
   blue,
+  cloudyBlue,
   colors,
+  darkColors,
+  darkGray,
+  darkLightness,
   families,
   gray,
-  green,
-  indigo,
-  orange,
-  pink,
-  red,
+  opacitySteps,
+  sourceChroma,
+  sourceHue,
   steps,
-  teal,
-  violet,
-  white,
+  whiteOpacity,
   yellow,
+  yellowLightnessOffset,
 } from "../src/palette.ts";
 
 const HEX = /^#[0-9a-f]{6}$/;
-const CSS_FILE = /^:root \{\n(?:  --color-[a-z]+(?:-\d+)?: #[0-9a-f]{6};\n)+\}\n$/;
+const ALPHA_HEX = /^#[0-9a-f]{8}$/;
+const CSS_FILE =
+  /^:root \{\n(?:  --color-[a-z0-9-]+-[0-9]+: #[0-9a-f]{6}(?:[0-9a-f]{2})?;\n)+\}\n$/;
 
-const scales = {
-  gray,
-  red,
-  orange,
-  yellow,
-  green,
-  teal,
-  blue,
-  indigo,
-  violet,
-  pink,
-} as const;
-
-const LIGHTNESS = {
-  50: 97,
-  100: 89.5,
-  200: 82,
-  300: 74.5,
-  400: 67,
-  500: 59.5,
-  600: 52,
-  700: 44.5,
-  800: 37,
-  900: 29.5,
-  950: 22,
-} as const;
-
-function oklch(hex: string): { l: number; c: number } {
+function oklch(hex: string): { l: number; c: number; h: number } {
   const color = new Color(hex).to("oklch");
   return {
     l: color.get("oklch.l") * 100,
     c: color.get("oklch.c") ?? 0,
+    h: color.get("oklch.h") ?? 0,
   };
 }
 
-test("every family has all 11 steps", () => {
+function hueDelta(a: number, b: number): number {
+  const delta = Math.abs(a - b) % 360;
+  return Math.min(delta, 360 - delta);
+}
+
+function chromaLimit(family: (typeof families)[number], step: (typeof steps)[number]): number {
+  return sourceChroma[family][String(step) as keyof (typeof sourceChroma)[typeof family]];
+}
+
+function hueIntent(family: (typeof families)[number], step: (typeof steps)[number]): number {
+  return sourceHue[family][String(step) as keyof (typeof sourceHue)[typeof family]];
+}
+
+test("color families use steps 50–900 and no 950", () => {
   assert.deepEqual([...families], [
-    "gray",
+    "pink",
     "red",
     "orange",
     "yellow",
+    "lime",
     "green",
     "teal",
+    "cloudy-blue",
     "blue",
-    "indigo",
-    "violet",
-    "pink",
+    "purple",
+    "gray",
   ]);
-  assert.deepEqual([...steps], [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950]);
-
-  for (const family of families) {
-    assert.deepEqual(
-      Object.keys(colors[family]).map(Number),
-      [...steps],
-      `${family} steps`,
-    );
-    assert.equal(colors[family], scales[family]);
-  }
+  assert.deepEqual([...steps], [50, 100, 200, 300, 400, 500, 600, 700, 800, 900]);
+  assert.equal("950" in gray, false);
+  assert.equal("indigo" in colors, false);
+  assert.equal("violet" in colors, false);
 });
 
-test("every value matches #RRGGBB", () => {
+test("solid colors are #RRGGBB", () => {
   for (const family of families) {
     for (const step of steps) {
-      assert.match(colors[family][step], HEX, `${family} ${step}`);
+      assert.match(colors[family][step], HEX, `light ${family} ${step}`);
+      assert.match(darkColors[family][step], HEX, `dark ${family} ${step}`);
     }
   }
-  assert.match(black, HEX);
-  assert.match(white, HEX);
-  assert.equal(colors.black, black);
-  assert.equal(colors.white, white);
 });
 
-test("every family matches the shared OKLCH L targets", () => {
-  for (const family of families) {
-    for (const step of steps) {
+test("light families match gray OKLCH L, yellow uses an explicit offset", () => {
+  for (const step of steps) {
+    const target = oklch(gray[step]).l;
+    const offset = yellowLightnessOffset[step];
+    assert.ok(offset > 0, `yellow offset at ${step} should lighten that step`);
+
+    for (const family of families) {
       const { l } = oklch(colors[family][step]);
-      const target = LIGHTNESS[step];
+      if (family === "yellow") {
+        assert.ok(
+          Math.abs(l - (target + offset)) <= 0.4,
+          `yellow ${step} L ${l} is more than 0.4 from gray ${target} + ${offset}`,
+        );
+        assert.ok(l > target, `yellow ${step} should be lighter than gray`);
+        continue;
+      }
       assert.ok(
         Math.abs(l - target) <= 0.4,
-        `${family} ${step} OKLCH L ${l} is more than 0.4 from ${target}`,
+        `${family} ${step} L ${l} is more than 0.4 from gray ${target}`,
       );
     }
   }
 });
 
-test("OKLCH L is monotonic within each family", () => {
+test("gamut mapping lowers chroma only", () => {
   for (const family of families) {
-    let previous = Number.POSITIVE_INFINITY;
     for (const step of steps) {
-      const { l } = oklch(colors[family][step]);
-      assert.ok(l < previous, `${family} ${step} OKLCH L ${l} is not below ${previous}`);
-      previous = l;
+      for (const hex of [colors[family][step], darkColors[family][step]]) {
+        const measured = oklch(hex);
+        assert.ok(
+          measured.c <= chromaLimit(family, step) + 0.015,
+          `${family} ${step} ${hex} chroma ${measured.c} exceeds source ${chromaLimit(family, step)}`,
+        );
+        if (measured.c <= 0.02) continue;
+        const drift = hueDelta(measured.h, hueIntent(family, step));
+        assert.ok(drift <= 8, `${family} ${step} ${hex} hue drifted ${drift}°`);
+      }
     }
   }
 });
 
-test("gray chroma is 0", () => {
+test("dark L targets differ from light and have stronger contrast", () => {
+  const lightLevels = steps.map((step) => oklch(gray[step]).l);
+  const darkLevels = steps.map((step) => oklch(darkGray[step]).l);
+  const gaps = (levels: number[]) => levels.slice(1).map((level, index) => levels[index] - level);
+
   for (const step of steps) {
-    assert.equal(oklch(gray[step]).c, 0, `gray ${step}`);
+    assert.ok(darkLightness[step] !== lightLevels[step]);
+    assert.ok(Math.abs(darkLevels[steps.indexOf(step)] - darkLightness[step]) <= 0.4);
+    for (const family of families) {
+      const { l } = oklch(darkColors[family][step]);
+      assert.ok(
+        Math.abs(l - darkLightness[step]) <= 0.4,
+        `dark ${family} ${step} L ${l} misses ${darkLightness[step]}`,
+      );
+      assert.notEqual(darkColors[family][step], colors[family][step]);
+    }
   }
+
+  const lightGaps = gaps(lightLevels);
+  const darkGaps = gaps(darkLevels);
+  const mean = (values: number[]) => values.reduce((sum, value) => sum + value, 0) / values.length;
+  assert.ok(Math.min(...darkGaps) > Math.min(...lightGaps));
+  assert.ok(mean(darkGaps) > mean(lightGaps));
 });
 
-test("yellow chroma curve is not the same shape as blue", () => {
-  const yellowC = steps.map((step) => oklch(yellow[step]).c);
-  const blueC = steps.map((step) => oklch(blue[step]).c);
-  const peak = (curve: number[]) => curve.indexOf(Math.max(...curve));
-
-  assert.ok(peak(yellowC) < peak(blueC));
-  assert.ok(yellowC[0] > blueC[0]);
-  assert.ok(yellowC.at(-1)! < blueC.at(-1)!);
-
-  const ratios = yellowC.map((chroma, index) => chroma / blueC[index]);
-  const mean = ratios.reduce((sum, value) => sum + value, 0) / ratios.length;
-  const deviation = Math.sqrt(
-    ratios.reduce((sum, value) => sum + (value - mean) ** 2, 0) / ratios.length,
-  );
-  assert.ok(deviation / mean > 0.35, `chroma curves are too proportional (${deviation / mean})`);
+test("opacity scales stay on their own names", () => {
+  const alphas = [0, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1];
+  const byte = (alpha: number) => Math.round(alpha * 255).toString(16).padStart(2, "0");
+  for (const [index, step] of opacitySteps.entries()) {
+    assert.equal(whiteOpacity[step], `#ffffff${byte(alphas[index])}`);
+    assert.equal(blackOpacity[step], `#000000${byte(alphas[index])}`);
+    assert.match(whiteOpacity[step], ALPHA_HEX);
+  }
 });
 
 test("colors.json and colors.css match the palette", () => {
   const json = JSON.parse(readFileSync(new URL("../src/colors.json", import.meta.url), "utf8"));
   const css = readFileSync(new URL("../src/colors.css", import.meta.url), "utf8");
+  const expected = { ...JSON.parse(JSON.stringify(colors)), dark: JSON.parse(JSON.stringify(darkColors)) };
 
-  assert.deepEqual(json, JSON.parse(JSON.stringify(colors)));
+  assert.deepEqual(json, expected);
   assert.match(css, CSS_FILE);
-  assert.equal(css.match(/--color-/g)?.length, families.length * steps.length + 2);
-
-  for (const family of families) {
-    for (const step of steps) {
-      assert.ok(css.includes(`--color-${family}-${step}: ${colors[family][step]};`));
-    }
-  }
-  assert.ok(css.includes(`--color-black: ${black};`));
-  assert.ok(css.includes(`--color-white: ${white};`));
+  assert.equal(css.includes("-950"), false);
+  assert.equal(css.includes("--color-indigo-"), false);
+  assert.ok(css.includes(`--color-blue-500: ${blue[500]};`));
+  assert.ok(css.includes(`--color-dark-blue-500: ${darkColors.blue[500]};`));
+  assert.ok(css.includes(`--color-cloudy-blue-500: ${cloudyBlue[500]};`));
+  assert.ok(css.includes(`--color-dark-cloudy-blue-500: ${darkColors["cloudy-blue"][500]};`));
+  assert.ok(css.includes(`--color-white-opacity-40: ${whiteOpacity["40"]};`));
   assert.doesNotMatch(css, /primary|surface|background|foreground|\btext\b|muted|accent|destructive/);
 });
 
 test("built package matches the source palette", async () => {
   const built = await import("../dist/index.js");
-  const builtJson = JSON.parse(readFileSync(new URL("../dist/colors.json", import.meta.url), "utf8"));
-  const builtCss = readFileSync(new URL("../dist/colors.css", import.meta.url), "utf8");
-
-  assert.equal(built.blue[500], blue[500]);
-  assert.equal(built.colors.pink[950], colors.pink[950]);
-  assert.equal(built.black, black);
-  assert.equal(built.white, white);
-  assert.deepEqual(builtJson, JSON.parse(JSON.stringify(colors)));
-  assert.equal(builtCss, readFileSync(new URL("../src/colors.css", import.meta.url), "utf8"));
+  assert.equal(built.yellow[900], yellow[900]);
+  assert.equal(built.darkYellow[500], darkColors.yellow[500]);
+  assert.equal(built.yellowLightnessOffset[900], 24);
+  assert.equal(built.darkLightness[50], 94);
+  assert.equal(
+    readFileSync(new URL("../dist/colors.css", import.meta.url), "utf8"),
+    readFileSync(new URL("../src/colors.css", import.meta.url), "utf8"),
+  );
 });
