@@ -8,9 +8,12 @@ import {
   cloudyBlue,
   colors,
   coolGray,
+  darkChromaLightnessExceptions,
   darkColors,
   darkCoolGray,
   darkLightness,
+  darkYellow,
+  darkYellowLightnessOffset,
   families,
   neutralGray,
   opacitySteps,
@@ -105,6 +108,44 @@ test("light families match cool-gray OKLCH L, yellow uses an explicit offset", (
   }
 });
 
+test("light yellow hue stays within 15° of step 50", () => {
+  const reference = oklch(yellow[50]).h;
+  for (const step of steps) {
+    const measured = oklch(yellow[step]);
+    const drift = hueDelta(measured.h, reference);
+    assert.ok(drift <= 15, `yellow ${step} hue ${measured.h} is ${drift}° from step 50`);
+    assert.ok(measured.c >= 0.008, `yellow ${step} chroma ${measured.c} is too weak to read as yellow`);
+  }
+  const darkest = oklch(yellow[900]);
+  assert.ok(hueDelta(darkest.h, reference) <= 15);
+  assert.ok(darkest.c >= 0.08, `yellow 900 chroma ${darkest.c} collapsed away from yellow`);
+});
+
+test("dark yellow lightness offset keeps 800 and 900 yellow", () => {
+  const reference = oklch(yellow[50]).h;
+  assert.ok(darkYellowLightnessOffset[800] > 0);
+  assert.ok(darkYellowLightnessOffset[900] > 0);
+  for (const step of steps) {
+    const measured = oklch(darkYellow[step]);
+    const raised = darkChromaLightnessExceptions.yellow[step];
+    const target = raised ?? darkLightness[step] + darkYellowLightnessOffset[step];
+    assert.ok(
+      Math.abs(measured.l - target) <= 0.4,
+      `dark yellow ${step} L ${measured.l} misses ${target}`,
+    );
+    assert.ok(
+      hueDelta(measured.h, reference) <= 15,
+      `dark yellow ${step} hue ${measured.h} drifted ${hueDelta(measured.h, reference)}°`,
+    );
+    assert.notEqual(darkYellow[step], yellow[step]);
+  }
+  for (const step of [800, 900] as const) {
+    const measured = oklch(darkYellow[step]);
+    assert.ok(measured.l >= 28, `dark yellow ${step} L ${measured.l} collapsed toward black`);
+    assert.ok(measured.c >= 0.05, `dark yellow ${step} chroma ${measured.c} is too weak to read as yellow`);
+  }
+});
+
 test("neutral-gray is chroma 0 at cool-gray lightness", () => {
   assert.equal("neutral-gray" in sourceHue, false);
   for (const step of steps) {
@@ -131,7 +172,7 @@ test("gamut mapping lowers chroma only", () => {
           measured.c <= chromaLimit(family, step) + 0.015,
           `${family} ${step} ${hex} chroma ${measured.c} exceeds source ${chromaLimit(family, step)}`,
         );
-        if (family === "neutral-gray" || measured.c <= 0.02) continue;
+        if (family === "neutral-gray" || family === "yellow" || measured.c <= 0.02) continue;
         const drift = hueDelta(measured.h, hueIntent(family, step));
         assert.ok(drift <= 8, `${family} ${step} ${hex} hue drifted ${drift}°`);
       }
@@ -149,7 +190,14 @@ test("dark L targets differ from light and have stronger contrast", () => {
     assert.ok(Math.abs(darkLevels[steps.indexOf(step)] - darkLightness[step]) <= 0.4);
     for (const family of families) {
       const { l } = oklch(darkColors[family][step]);
-      const target = family === "neutral-gray" ? darkLevels[steps.indexOf(step)] : darkLightness[step];
+      const nominal =
+        family === "neutral-gray"
+          ? darkLevels[steps.indexOf(step)]
+          : family === "yellow"
+            ? darkLightness[step] + darkYellowLightnessOffset[step]
+            : darkLightness[step];
+      const raised = darkChromaLightnessExceptions[family]?.[step];
+      const target = raised ?? nominal;
       assert.ok(
         Math.abs(l - target) <= 0.4,
         `dark ${family} ${step} L ${l} misses ${target}`,
@@ -163,6 +211,33 @@ test("dark L targets differ from light and have stronger contrast", () => {
   const mean = (values: number[]) => values.reduce((sum, value) => sum + value, 0) / values.length;
   assert.ok(Math.min(...darkGaps) > Math.min(...lightGaps));
   assert.ok(mean(darkGaps) > mean(lightGaps));
+});
+
+test("dark chroma is at least 90% of light chroma", () => {
+  const chromatic = families.filter((family) => family !== "cool-gray" && family !== "neutral-gray");
+  let lowest = Number.POSITIVE_INFINITY;
+  for (const family of chromatic) {
+    for (const step of steps) {
+      const lightChroma = oklch(colors[family][step]).c;
+      const dark = oklch(darkColors[family][step]);
+      const ratio = dark.c / lightChroma;
+      lowest = Math.min(lowest, ratio);
+      assert.ok(ratio >= 0.9, `${family} ${step} dark/light chroma ${ratio.toFixed(3)}`);
+      const nominal =
+        family === "yellow" ? darkLightness[step] + darkYellowLightnessOffset[step] : darkLightness[step];
+      const raised = darkChromaLightnessExceptions[family][step];
+      if (raised == null) {
+        assert.ok(Math.abs(dark.l - nominal) <= 0.4, `${family} ${step} L ${dark.l} left ${nominal}`);
+      } else {
+        assert.ok(raised > nominal, `${family} ${step} exception ${raised} is not above ${nominal}`);
+        assert.ok(Math.abs(dark.l - raised) <= 0.4, `${family} ${step} L ${dark.l} misses exception ${raised}`);
+      }
+      assert.notEqual(darkColors[family][step], colors[family][step]);
+    }
+  }
+  assert.ok(lowest >= 0.9);
+  assert.equal(darkChromaLightnessExceptions["cool-gray"], undefined);
+  assert.equal(darkCoolGray[500], "#4f5a65");
 });
 
 test("opacity scales stay on their own names", () => {

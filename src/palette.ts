@@ -22,6 +22,38 @@ export const yellowLightnessOffset = {
   900: 24,
 } as const;
 
+/** Dark-scale yellow OKLCH L minus darkLightness. Steps 800 and 900 are lifted so they stay gold instead of black. */
+export const darkYellowLightnessOffset = {
+  50: 0,
+  100: 0,
+  200: 0,
+  300: 0,
+  400: 0,
+  500: 3.78,
+  600: 8.33,
+  700: 12.89,
+  800: 17.44,
+  900: 23,
+} as const;
+
+/**
+ * Dark steps whose OKLCH L is raised above the shared dark target so chroma can reach
+ * 0.9× the light step without moving hue. The number is that raised L on a 0–100 scale.
+ * cool-gray is not listed and stays as fitted. neutral-gray stays chroma 0.
+ */
+export const darkChromaLightnessExceptions = {
+  pink: { 500: 54.51, 600: 48.69, 700: 38.9, 800: 28.42, 900: 18.17 },
+  red: { 500: 52.72, 600: 48.84, 700: 38.91, 800: 28.31, 900: 18.15 },
+  orange: { 500: 58.55, 600: 48.66, 700: 38.92, 800: 27.97, 900: 17.97 },
+  yellow: { 400: 59.21, 500: 64.87, 600: 58.57, 700: 52.51, 800: 45.72, 900: 39.85 },
+  lime: { 400: 66.02, 500: 58.69, 600: 49.21, 700: 38.94, 800: 28.67, 900: 17.86 },
+  green: { 500: 58.41, 600: 49.05, 700: 39.12, 800: 28.51, 900: 17.93 },
+  teal: { 400: 63.52, 500: 58.61, 600: 48.7, 700: 38.93, 800: 28.5, 900: 18.15 },
+  "cloudy-blue": { 600: 37.76, 700: 34.05, 800: 27.71, 900: 17.69 },
+  blue: { 600: 45.66, 700: 37.45, 800: 28.23, 900: 17.31 },
+  purple: { 700: 31.19, 800: 23.8, 900: 16.48 },
+} as const;
+
 /** Dark-scale OKLCH L targets. Adjacent gaps are wider than the light scale, so the same step difference has stronger contrast. */
 export const darkLightness = {
   50: 94,
@@ -77,18 +109,18 @@ export const orange = {
 
 // Light yellow leaves the shared cool-gray L by yellowLightnessOffset.
 // Bright steps are only a little lighter, so the tint is not heavier than the other families.
-// Dark steps stay much lighter than cool-gray, with chroma held, so the color still reads as yellow instead of muddy olive.
+// Hue stays on step 50 (about 82°). Chroma is lowered only to stay in sRGB, so step 900 stays gold instead of brown.
 export const yellow = {
   50: "#fffbf4",
   100: "#fff2db",
   200: "#ffe5b8",
   300: "#fad082",
   400: "#eab54b",
-  500: "#dd9300",
-  600: "#c47e00",
-  700: "#b36404",
-  800: "#984d1a",
-  900: "#7f3c25",
+  500: "#d39900",
+  600: "#b88600",
+  700: "#9e7200",
+  800: "#825d00",
+  900: "#6b4c00",
 } as const satisfies ColorScale;
 
 export const lime = {
@@ -228,133 +260,136 @@ export const blackOpacity = {
 } as const satisfies OpacityScale;
 
 export const darkPink = {
-  50: "#f3e8e9",
-  100: "#dec5c7",
-  200: "#cba1a5",
-  300: "#c17881",
-  400: "#bc445b",
-  500: "#a6003c",
-  600: "#79002a",
-  700: "#4e0018",
-  800: "#280008",
-  900: "#070001",
+  50: "#f2e8e9",
+  100: "#dcc6c8",
+  200: "#c9a2a6",
+  300: "#bc7c83",
+  400: "#b54b5e",
+  500: "#cf014d",
+  600: "#b20041",
+  700: "#83002e",
+  800: "#54001a",
+  900: "#2a0009",
 } as const satisfies ColorScale;
 
 export const darkRed = {
-  50: "#f4e8e6",
-  100: "#e0c5c0",
-  200: "#cea19a",
-  300: "#c5796d",
-  400: "#c04536",
-  500: "#a80600",
-  600: "#7a0400",
-  700: "#500100",
-  800: "#280000",
-  900: "#070000",
+  50: "#f3e9e7",
+  100: "#dcc6c2",
+  200: "#c9a39d",
+  300: "#bc7e74",
+  400: "#b65042",
+  500: "#c90901",
+  600: "#b50a01",
+  700: "#850401",
+  800: "#550100",
+  900: "#2b0000",
 } as const satisfies ColorScale;
 
 export const darkOrange = {
-  50: "#f3e9e4",
-  100: "#ddc6bd",
-  200: "#cba494",
-  300: "#c07d62",
-  400: "#b65223",
-  500: "#943700",
-  600: "#6b2500",
-  700: "#451500",
-  800: "#220700",
-  900: "#030101",
+  50: "#f3e9e5",
+  100: "#dcc7bf",
+  200: "#c9a596",
+  300: "#bc7f67",
+  400: "#b0562f",
+  500: "#cc4e02",
+  600: "#9f3b00",
+  700: "#752901",
+  800: "#491600",
+  900: "#250600",
 } as const satisfies ColorScale;
 
+// Dark yellow uses darkYellowLightnessOffset above the shared dark L.
+// Steps that still cannot hold 0.9× light chroma are listed in darkChromaLightnessExceptions.
+// Hue stays within 15° of light yellow step 50, so 800 and 900 stay dark gold instead of black.
 export const darkYellow = {
-  50: "#f2eadd",
-  100: "#dacaad",
-  200: "#c4aa7b",
-  300: "#b1893a",
-  400: "#956c00",
-  500: "#794f00",
-  600: "#593600",
-  700: "#3d1e00",
-  800: "#200900",
-  900: "#030101",
+  50: "#eeebe4",
+  100: "#d6cab6",
+  200: "#c0ab83",
+  300: "#ae8a46",
+  400: "#a27500",
+  500: "#b78500",
+  600: "#a07300",
+  700: "#896300",
+  800: "#715101",
+  900: "#5d4201",
 } as const satisfies ColorScale;
 
 export const darkLime = {
-  50: "#ebeddb",
-  100: "#cbd0ab",
-  200: "#acb476",
-  300: "#8d9930",
-  400: "#707c00",
-  500: "#5b5d00",
-  600: "#414200",
-  700: "#2b2800",
-  800: "#141100",
-  900: "#020201",
+  50: "#ebeddc",
+  100: "#cbd0ae",
+  200: "#acb47d",
+  300: "#8d983d",
+  400: "#8d9d00",
+  500: "#7f8302",
+  600: "#646601",
+  700: "#4b4701",
+  800: "#312b00",
+  900: "#161100",
 } as const satisfies ColorScale;
 
 export const darkGreen = {
   50: "#e4eee7",
-  100: "#bcd3c2",
-  200: "#91b99d",
-  300: "#60a175",
-  400: "#198a4e",
-  500: "#006b35",
-  600: "#004c26",
-  700: "#003016",
-  800: "#001607",
-  900: "#010201",
+  100: "#bdd2c3",
+  200: "#94b89f",
+  300: "#66a078",
+  400: "#2c8852",
+  500: "#01944c",
+  600: "#00743e",
+  700: "#00542b",
+  800: "#003418",
+  900: "#001707",
 } as const satisfies ColorScale;
 
 export const darkTeal = {
   50: "#e3eee9",
-  100: "#b5d4c7",
-  200: "#7ebda4",
-  300: "#30a782",
-  400: "#018867",
-  500: "#00694e",
-  600: "#004b37",
-  700: "#002f21",
-  800: "#00150d",
-  900: "#010201",
+  100: "#b8d4c7",
+  200: "#84bca5",
+  300: "#42a583",
+  400: "#00a37b",
+  500: "#01926e",
+  600: "#007154",
+  700: "#00523c",
+  800: "#003324",
+  900: "#00170e",
 } as const satisfies ColorScale;
 
 export const darkCloudyBlue = {
-  50: "#e5ecf5",
-  100: "#c0cddf",
-  200: "#9eafc7",
-  300: "#7592bb",
-  400: "#4974b4",
-  500: "#1a56a8",
-  600: "#003b84",
-  700: "#002456",
-  800: "#000f2c",
-  900: "#000207",
+  50: "#e6ecf3",
+  100: "#c2cddd",
+  200: "#9fafc5",
+  300: "#7892b7",
+  400: "#4e75ae",
+  500: "#2357a0",
+  600: "#003d8a",
+  700: "#013477",
+  800: "#002559",
+  900: "#000f2d",
 } as const satisfies ColorScale;
 
 export const darkBlue = {
-  50: "#e1eef3",
-  100: "#b8d0de",
-  200: "#91b3c9",
-  300: "#6295c4",
-  400: "#2d75c3",
-  500: "#0053b5",
-  600: "#003a84",
-  700: "#002456",
-  800: "#000f2c",
-  900: "#000207",
+  50: "#e1edf3",
+  100: "#bad0dc",
+  200: "#94b2c6",
+  300: "#6a95bd",
+  400: "#3d76b7",
+  500: "#0253b5",
+  600: "#0051b3",
+  700: "#003c89",
+  800: "#00265c",
+  900: "#000e2c",
 } as const satisfies ColorScale;
 
 export const darkPurple = {
   50: "#eaebf1",
-  100: "#c9cbd8",
-  200: "#a7acc7",
-  300: "#858cc1",
-  400: "#6165ce",
-  500: "#482ed9",
-  600: "#3400b0",
-  700: "#1f0074",
-  800: "#0c003e",
-  900: "#01000e",
+  100: "#c9cbd7",
+  200: "#a8acc5",
+  300: "#868cbd",
+  400: "#656bb7",
+  500: "#4846b5",
+  600: "#3401b0",
+  700: "#28008d",
+  800: "#180160",
+  900: "#0a0038",
 } as const satisfies ColorScale;
 
 export const darkCoolGray = {

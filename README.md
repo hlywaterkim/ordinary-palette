@@ -51,16 +51,16 @@ palette.dark.blue["500"];
 
 | Family | Light 500 | Dark 500 |
 | --- | --- | --- |
-| pink | `#fe2867` | `#a6003c` |
-| red | `#ff3626` | `#a80600` |
-| orange | `#ea5b00` | `#943700` |
-| yellow | `#dd9300` | `#794f00` |
-| lime | `#939701` | `#5b5d00` |
-| green | `#01ab59` | `#006b35` |
-| teal | `#00a87f` | `#00694e` |
-| cloudy-blue | `#538fe6` | `#1a56a8` |
-| blue | `#3c8cff` | `#0053b5` |
-| purple | `#787dff` | `#482ed9` |
+| pink | `#fe2867` | `#cf014d` |
+| red | `#ff3626` | `#c90901` |
+| orange | `#ea5b00` | `#cc4e02` |
+| yellow | `#d39900` | `#b78500` |
+| lime | `#939701` | `#7f8302` |
+| green | `#01ab59` | `#01944c` |
+| teal | `#00a87f` | `#01926e` |
+| cloudy-blue | `#538fe6` | `#2357a0` |
+| blue | `#3c8cff` | `#0253b5` |
+| purple | `#787dff` | `#4846b5` |
 | cool-gray | `#84919d` | `#4f5a65` |
 | neutral-gray | `#8f8f8f` | `#585858` |
 
@@ -82,7 +82,7 @@ npm test
 npm run preview
 ```
 
-`npm test` builds the package, then checks steps 50–900, `#RRGGBB` solids, shared light OKLCH L within 0.4 of cool-gray (yellow exempt, with its explicit offset), neutral-gray at chroma 0, chroma-only gamut mapping, and dark L targets that differ from the light scale and have stronger contrast. The preview gallery runs at <http://127.0.0.1:43123> and lists both scales, each hex, and measured OKLCH L.
+`npm test` builds the package, then checks steps 50–900, `#RRGGBB` solids, shared light OKLCH L within 0.4 of cool-gray (yellow exempt, with its explicit offset), light yellow hue within 15° of step 50, dark yellow's own lightness offset, dark chroma at least 0.9× light chroma, neutral-gray at chroma 0, chroma-only gamut mapping, and dark L targets that differ from the light scale and have stronger contrast. The preview gallery runs at <http://127.0.0.1:43123> and lists both scales, each hex, and measured OKLCH L.
 
 ## License
 
