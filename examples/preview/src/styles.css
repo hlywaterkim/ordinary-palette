@@ -1,9 +1,10 @@
 :root {
   color-scheme: light;
   --ink: #241c16;
-  --paper: #f3efe6;
-  --line: #ddd4c6;
+  --paper: #fff;
+  --line: #e6e6e6;
   --muted: #6d645b;
+  --edge: #e0e0e0;
   font-family: "Iowan Old Style", Palatino, Georgia, serif;
 }
 
@@ -11,9 +12,10 @@
   box-sizing: border-box;
 }
 
+html,
 body {
   margin: 0;
-  background: var(--paper);
+  background: #fff;
   color: var(--ink);
 }
 
@@ -94,7 +96,7 @@ h1 {
 
 .family {
   display: grid;
-  grid-template-columns: 6.5rem 1fr;
+  grid-template-columns: 10.5rem 1fr;
   gap: 0.75rem;
   align-items: center;
 }
@@ -102,6 +104,8 @@ h1 {
 .family h2,
 .family h3 {
   margin: 0;
+  overflow: visible;
+  white-space: nowrap;
   font-size: 1.15rem;
   font-weight: 560;
 }
@@ -117,7 +121,7 @@ h1 {
 
 .swatch {
   min-height: 6.4rem;
-  border: 0;
+  border: 1px solid transparent;
   border-radius: 10px;
   padding: 0.45rem;
   display: flex;
@@ -125,6 +129,10 @@ h1 {
   justify-content: space-between;
   text-align: left;
   cursor: pointer;
+}
+
+.swatch.edge {
+  border-color: var(--edge);
 }
 
 .swatch:focus-visible {

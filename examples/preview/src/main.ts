@@ -62,6 +62,18 @@ function ink(hex: string): string {
   return luminance(hex) > 0.42 ? "#241c16" : "#f7f4ef";
 }
 
+function needsHairline(hex: string): boolean {
+  const body = hex.slice(1);
+  if (body.length !== 6 && body.length !== 8) return false;
+  const channels = [0, 2, 4].map((index) => Number.parseInt(body.slice(index, index + 2), 16));
+  const alpha = body.length === 8 ? Number.parseInt(body.slice(6, 8), 16) / 255 : 1;
+  const composited = channels.map((channel) => Math.round(channel * alpha + 255 * (1 - alpha)));
+  const min = Math.min(...composited);
+  const max = Math.max(...composited);
+  // Near-white and almost no hue. Tinted chips keep a wider channel spread, so they stay borderless.
+  return 255 - min <= 12 && max - min <= 4;
+}
+
 async function copyHex(label: string, hex: string): Promise<void> {
   try {
     await navigator.clipboard.writeText(hex);
@@ -87,7 +99,10 @@ function swatch(
   const lightnessLabel = note ? `L ${lightness.toFixed(1)} ${note}` : `L ${lightness.toFixed(1)}`;
   const button = document.createElement("button");
   button.type = "button";
-  button.className = extraClass ? `swatch ${extraClass}` : "swatch";
+  const classes = ["swatch"];
+  if (extraClass) classes.push(extraClass);
+  if (!classes.includes("alpha") && needsHairline(hex)) classes.push("edge");
+  button.className = classes.join(" ");
   button.style.background = `var(${variable})`;
   button.style.color = ink(hex);
   button.setAttribute("aria-label", `${label}, ${hex}, ${lightnessLabel}`);
