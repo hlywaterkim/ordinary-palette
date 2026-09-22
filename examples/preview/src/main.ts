@@ -1,6 +1,15 @@
 import Color from "colorjs.io";
 import "../../../src/colors.css";
-import { black, colors, families, steps, white } from "../../../src/palette.ts";
+import {
+  blackOpacity,
+  colors,
+  darkColors,
+  families,
+  opacitySteps,
+  steps,
+  whiteOpacity,
+  yellowLightnessOffset,
+} from "../../../src/palette.ts";
 import "./styles.css";
 
 const app = document.querySelector("#app");
@@ -21,7 +30,7 @@ title.textContent = "Ordinary Palette";
 const lede = document.createElement("p");
 lede.className = "lede";
 lede.textContent =
-  "Each column is one OKLCH lightness, shared by every family. The L under the hex is the measured lightness of that swatch. Click a swatch to copy its hex.";
+  "Light steps share gray's OKLCH lightness. Yellow is the exception: each step is lifted by a documented offset so bright yellow is not heavier than the other families and dark yellow still reads as yellow. The dark scale has its own lightness targets and wider gaps. The L under a hex is measured lightness. Click a swatch to copy its color.";
 
 const status = document.createElement("p");
 status.className = "status";
@@ -72,14 +81,16 @@ function swatch(
   variable: string,
   hex: string,
   extraClass = "",
+  note = "",
 ): HTMLButtonElement {
   const lightness = oklchL(hex);
+  const lightnessLabel = note ? `L ${lightness.toFixed(1)} ${note}` : `L ${lightness.toFixed(1)}`;
   const button = document.createElement("button");
   button.type = "button";
   button.className = extraClass ? `swatch ${extraClass}` : "swatch";
   button.style.background = `var(${variable})`;
   button.style.color = ink(hex);
-  button.setAttribute("aria-label", `${label}, ${hex}, L ${lightness.toFixed(1)}`);
+  button.setAttribute("aria-label", `${label}, ${hex}, ${lightnessLabel}`);
   button.title = variable;
 
   const step = document.createElement("span");
@@ -92,7 +103,7 @@ function swatch(
 
   const measured = document.createElement("span");
   measured.className = "lightness";
-  measured.textContent = `L ${lightness.toFixed(1)}`;
+  measured.textContent = lightnessLabel;
 
   button.append(step, value, measured);
   button.addEventListener("click", () => {
@@ -112,59 +123,105 @@ function rgbToHex(color: string): string | null {
 
 const mismatches: string[] = [];
 
-for (const family of families) {
-  const section = document.createElement("section");
-  section.className = "family";
+function renderScale(title: string, scale: typeof colors, prefix: string): void {
+  const block = document.createElement("section");
+  block.className = "scale";
 
-  const heading = document.createElement("h2");
-  heading.textContent = family;
+  const scaleTitle = document.createElement("h2");
+  scaleTitle.className = "scale-title";
+  scaleTitle.textContent = title;
+  block.append(scaleTitle);
 
-  const row = document.createElement("div");
-  row.className = "swatches";
+  for (const family of families) {
+    const section = document.createElement("section");
+    section.className = "family";
 
-  const missing = steps.filter((step) => !/^#[0-9a-f]{6}$/.test(colors[family][step]));
-  if (missing.length > 0) {
-    const error = document.createElement("p");
-    error.className = "banner";
-    error.textContent = `${family} is missing steps ${missing.join(", ")}.`;
-    section.append(heading, error);
-    familyList.append(section);
-    continue;
+    const heading = document.createElement("h3");
+    heading.textContent = family;
+
+    const row = document.createElement("div");
+    row.className = "swatches";
+
+    const missing = steps.filter((step) => !/^#[0-9a-f]{6}$/.test(scale[family][step]));
+    if (missing.length > 0) {
+      const error = document.createElement("p");
+      error.className = "banner";
+      error.textContent = `${title} ${family} is missing steps ${missing.join(", ")}.`;
+      section.append(heading, error);
+      block.append(section);
+      continue;
+    }
+
+    for (const step of steps) {
+      const note = family === "yellow" && prefix === "" ? `(+${yellowLightnessOffset[step]})` : "";
+      row.append(
+        swatch(
+          String(step),
+          `${title} ${family} ${step}`,
+          `--color-${prefix}${family}-${step}`,
+          scale[family][step],
+          "",
+          note,
+        ),
+      );
+    }
+
+    section.append(heading, row);
+    block.append(section);
   }
 
-  for (const step of steps) {
-    row.append(swatch(String(step), `${family} ${step}`, `--color-${family}-${step}`, colors[family][step]));
-  }
-
-  section.append(heading, row);
-  familyList.append(section);
+  familyList.append(block);
 }
+
+renderScale("Light", colors, "");
+renderScale("Dark", darkColors, "dark-");
 
 page.append(familyList);
 
-const neutrals = document.createElement("section");
-neutrals.className = "neutrals";
-neutrals.append(
-  swatch("black", "black", "--color-black", black, "neutral"),
-  swatch("white", "white", "--color-white", white, "neutral"),
-);
-page.append(neutrals);
+const opacityRows: Array<[string, typeof whiteOpacity, string]> = [
+  ["white-opacity", whiteOpacity, "on-dark"],
+  ["black-opacity", blackOpacity, "on-light"],
+];
+
+for (const [name, scale, tone] of opacityRows) {
+  const section = document.createElement("section");
+  section.className = `family ${tone}`;
+  const heading = document.createElement("h2");
+  heading.textContent = name;
+  const row = document.createElement("div");
+  row.className = "swatches";
+  for (const step of opacitySteps) {
+    const hex = scale[step];
+    const button = swatch(step, `${name} ${step}`, `--color-${name}-${step}`, hex, "alpha");
+    const percent = Math.round((Number.parseInt(hex.slice(7), 16) / 255) * 100);
+    const measured = button.querySelector(".lightness");
+    if (measured) measured.textContent = `${percent}%`;
+    row.append(button);
+  }
+  section.append(heading, row);
+  familyList.append(section);
+}
 
 const usage = document.createElement("section");
 usage.className = "usage";
 const usageTitle = document.createElement("h2");
 usageTitle.textContent = "Use a step directly";
 const snippet = document.createElement("pre");
-snippet.textContent = `import { blue } from "ordinary-palette";
+snippet.textContent = `import { blue, cloudyBlue, darkBlue } from "ordinary-palette";
 
 blue[500];
-var(--color-blue-500);`;
+cloudyBlue[500];
+darkBlue[500];
+var(--color-cloudy-blue-500);
+var(--color-dark-blue-500);
+var(--color-white-opacity-40);`;
 usage.append(usageTitle, snippet);
 page.append(usage);
 app.append(page);
 
 for (const button of page.querySelectorAll<HTMLButtonElement>(".swatch")) {
   const painted = rgbToHex(getComputedStyle(button).backgroundColor);
+  if (button.classList.contains("alpha")) continue;
   const hex = button.querySelector(".hex")?.textContent ?? "";
   if (painted !== hex) {
     const variable = button.title || button.getAttribute("aria-label") || "swatch";
