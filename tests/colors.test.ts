@@ -7,11 +7,12 @@ import {
   blue,
   cloudyBlue,
   colors,
+  coolGray,
   darkColors,
-  darkGray,
+  darkCoolGray,
   darkLightness,
   families,
-  gray,
+  neutralGray,
   opacitySteps,
   sourceChroma,
   sourceHue,
@@ -60,10 +61,13 @@ test("color families use steps 50–900 and no 950", () => {
     "cloudy-blue",
     "blue",
     "purple",
-    "gray",
+    "cool-gray",
+    "neutral-gray",
   ]);
   assert.deepEqual([...steps], [50, 100, 200, 300, 400, 500, 600, 700, 800, 900]);
-  assert.equal("950" in gray, false);
+  assert.equal("950" in coolGray, false);
+  assert.equal("gray" in colors, false);
+  assert.equal("gray" in darkColors, false);
   assert.equal("indigo" in colors, false);
   assert.equal("violet" in colors, false);
 });
@@ -77,9 +81,9 @@ test("solid colors are #RRGGBB", () => {
   }
 });
 
-test("light families match gray OKLCH L, yellow uses an explicit offset", () => {
+test("light families match cool-gray OKLCH L, yellow uses an explicit offset", () => {
   for (const step of steps) {
-    const target = oklch(gray[step]).l;
+    const target = oklch(coolGray[step]).l;
     const offset = yellowLightnessOffset[step];
     assert.ok(offset > 0, `yellow offset at ${step} should lighten that step`);
 
@@ -88,14 +92,31 @@ test("light families match gray OKLCH L, yellow uses an explicit offset", () => 
       if (family === "yellow") {
         assert.ok(
           Math.abs(l - (target + offset)) <= 0.4,
-          `yellow ${step} L ${l} is more than 0.4 from gray ${target} + ${offset}`,
+          `yellow ${step} L ${l} is more than 0.4 from cool-gray ${target} + ${offset}`,
         );
-        assert.ok(l > target, `yellow ${step} should be lighter than gray`);
+        assert.ok(l > target, `yellow ${step} should be lighter than cool-gray`);
         continue;
       }
       assert.ok(
         Math.abs(l - target) <= 0.4,
-        `${family} ${step} L ${l} is more than 0.4 from gray ${target}`,
+        `${family} ${step} L ${l} is more than 0.4 from cool-gray ${target}`,
+      );
+    }
+  }
+});
+
+test("neutral-gray is chroma 0 at cool-gray lightness", () => {
+  assert.equal("neutral-gray" in sourceHue, false);
+  for (const step of steps) {
+    assert.equal(neutralGray[step] === "#666666", false);
+    assert.equal(sourceChroma["neutral-gray"][String(step) as "50"], 0);
+    for (const hex of [colors["neutral-gray"][step], darkColors["neutral-gray"][step]]) {
+      const measured = oklch(hex);
+      const reference = hex === colors["neutral-gray"][step] ? coolGray[step] : darkCoolGray[step];
+      assert.ok(measured.c < 0.001, `${hex} chroma ${measured.c} is not 0`);
+      assert.ok(
+        Math.abs(measured.l - oklch(reference).l) <= 0.4,
+        `${hex} L ${measured.l} misses cool-gray ${oklch(reference).l}`,
       );
     }
   }
@@ -110,7 +131,7 @@ test("gamut mapping lowers chroma only", () => {
           measured.c <= chromaLimit(family, step) + 0.015,
           `${family} ${step} ${hex} chroma ${measured.c} exceeds source ${chromaLimit(family, step)}`,
         );
-        if (measured.c <= 0.02) continue;
+        if (family === "neutral-gray" || measured.c <= 0.02) continue;
         const drift = hueDelta(measured.h, hueIntent(family, step));
         assert.ok(drift <= 8, `${family} ${step} ${hex} hue drifted ${drift}°`);
       }
@@ -119,8 +140,8 @@ test("gamut mapping lowers chroma only", () => {
 });
 
 test("dark L targets differ from light and have stronger contrast", () => {
-  const lightLevels = steps.map((step) => oklch(gray[step]).l);
-  const darkLevels = steps.map((step) => oklch(darkGray[step]).l);
+  const lightLevels = steps.map((step) => oklch(coolGray[step]).l);
+  const darkLevels = steps.map((step) => oklch(darkCoolGray[step]).l);
   const gaps = (levels: number[]) => levels.slice(1).map((level, index) => levels[index] - level);
 
   for (const step of steps) {
@@ -128,9 +149,10 @@ test("dark L targets differ from light and have stronger contrast", () => {
     assert.ok(Math.abs(darkLevels[steps.indexOf(step)] - darkLightness[step]) <= 0.4);
     for (const family of families) {
       const { l } = oklch(darkColors[family][step]);
+      const target = family === "neutral-gray" ? darkLevels[steps.indexOf(step)] : darkLightness[step];
       assert.ok(
-        Math.abs(l - darkLightness[step]) <= 0.4,
-        `dark ${family} ${step} L ${l} misses ${darkLightness[step]}`,
+        Math.abs(l - target) <= 0.4,
+        `dark ${family} ${step} L ${l} misses ${target}`,
       );
       assert.notEqual(darkColors[family][step], colors[family][step]);
     }
@@ -167,12 +189,22 @@ test("colors.json and colors.css match the palette", () => {
   assert.ok(css.includes(`--color-cloudy-blue-500: ${cloudyBlue[500]};`));
   assert.ok(css.includes(`--color-dark-cloudy-blue-500: ${darkColors["cloudy-blue"][500]};`));
   assert.ok(css.includes(`--color-white-opacity-40: ${whiteOpacity["40"]};`));
+  assert.ok(css.includes(`--color-cool-gray-500: ${coolGray[500]};`));
+  assert.ok(css.includes(`--color-neutral-gray-500: ${neutralGray[500]};`));
+  assert.ok(css.includes(`--color-dark-cool-gray-500: ${darkCoolGray[500]};`));
+  assert.ok(css.includes(`--color-dark-neutral-gray-500: ${darkColors["neutral-gray"][500]};`));
+  assert.equal(css.includes("--color-gray-"), false);
+  assert.equal(css.includes("--color-dark-gray-"), false);
   assert.doesNotMatch(css, /primary|surface|background|foreground|\btext\b|muted|accent|destructive/);
 });
 
 test("built package matches the source palette", async () => {
   const built = await import("../dist/index.js");
   assert.equal(built.yellow[900], yellow[900]);
+  assert.equal(built.coolGray[500], "#84919d");
+  assert.equal(built.darkCoolGray[500], "#4f5a65");
+  assert.equal(built.neutralGray[500], neutralGray[500]);
+  assert.equal("gray" in built, false);
   assert.equal(built.darkYellow[500], darkColors.yellow[500]);
   assert.equal(built.yellowLightnessOffset[900], 24);
   assert.equal(built.darkLightness[50], 94);
