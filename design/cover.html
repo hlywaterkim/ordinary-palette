@@ -24,18 +24,18 @@ const W = 1280;
 const H = 640;
 const SCALE = 2;
 const FRAME = 2560;            // width of the Figma frame the SVGs were drawn for
-const BLOOM = { blur: 36, alpha: 0.4 };
+const BLOOM = { blur: 44, alpha: 0.55 };
 // Each pass takes pixels brighter than the threshold, tints and blurs them, keeps only the part that spills
 // outside the bright shape, and blends that ring back on.
 // The tight pass comes from the logo only and is laid over the image, so its fringe stays orange on blue.
 // The wide pass comes from every bright area and is screened on as a warm glow.
 const HALATION = [
-  { from: "logo", threshold: 0.78, blur: 6, alpha: 0.85, color: [255, 110, 40], mode: "source-over" },
-  { from: "scene", threshold: 0.78, blur: 30, alpha: 0.7, color: [255, 70, 40], mode: "screen" },
+  { from: "logo", threshold: 0.78, blur: 8, alpha: 1, color: [255, 110, 40], mode: "source-over" },
+  { from: "scene", threshold: 0.78, blur: 38, alpha: 0.9, color: [255, 70, 40], mode: "screen" },
 ];
-const ABERRATION = 0.008;      // red spreads out and blue pulls in by this share of the distance from the center
-const GRAIN = 8;               // grain strength in 0–255 units
-const LEVELS = 16;             // color levels per channel for the dither
+const ABERRATION = 0.011;      // red spreads out and blue pulls in by this share of the distance from the center
+const GRAIN = 11;              // grain strength in 0–255 units
+const LEVELS = 13;             // color levels per channel for the dither
 const DITHER_PX = 2;           // one dither cell in CSS pixels
 
 const PW = W * SCALE;
