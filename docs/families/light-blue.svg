@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="280" height="22" viewBox="0 0 280 22">
 <clipPath id="r"><rect width="280" height="22" rx="5"/></clipPath>
 <g clip-path="url(#r)">
-<rect x="0" y="0" width="29" height="22" fill="#e7f6fd"/>
-<rect x="28" y="0" width="29" height="22" fill="#ccedff"/>
-<rect x="56" y="0" width="29" height="22" fill="#9adcff"/>
+<rect x="0" y="0" width="29" height="22" fill="#e8f6fc"/>
+<rect x="28" y="0" width="29" height="22" fill="#d0ecfb"/>
+<rect x="56" y="0" width="29" height="22" fill="#a4dbf8"/>
 <rect x="84" y="0" width="29" height="22" fill="#5fc7fa"/>
 <rect x="112" y="0" width="29" height="22" fill="#00aeed"/>
 <rect x="140" y="0" width="29" height="22" fill="#0097d3"/>

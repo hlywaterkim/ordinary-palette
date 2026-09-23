@@ -45,9 +45,9 @@ export const darkLightness = {
 // so 700–900 stay apart and each family keeps its own color instead of settling into brown.
 // Pink sits at hue 356, a true pink, so it stays apart from red (ΔE OK above 0.1 at 500).
 export const pink = {
-  50: "#fcf0f4",
-  100: "#fedde8",
-  200: "#fdbdd3",
+  50: "#feeff4",
+  100: "#fcdee8",
+  200: "#f9bfd3",
   300: "#fb91ba",
   400: "#f95ba2",
   500: "#e7388d",
@@ -58,9 +58,9 @@ export const pink = {
 } as const satisfies ColorScale;
 
 export const red = {
-  50: "#fcf0ee",
+  50: "#feefed",
   100: "#ffdfd9",
-  200: "#fdc1b6",
+  200: "#fcc1b6",
   300: "#ff9383",
   400: "#ff5e4c",
   500: "#ee3828",
@@ -72,9 +72,9 @@ export const red = {
 
 // Orange sits near #ff7700 at 500 (hue 50, chroma about 0.19). Pale steps lean toward apricot (hue 60), dark steps toward 43.
 export const orange = {
-  50: "#fff0e5",
-  100: "#ffe1ca",
-  200: "#ffc494",
+  50: "#fcf1e8",
+  100: "#fae2d0",
+  200: "#f5c8a4",
   300: "#f3a66e",
   400: "#ed7e36",
   500: "#de6100",
@@ -103,9 +103,9 @@ export const yellow = {
 
 // Yellow-green 연두 between yellow and green (hue 124–130). From 300 it stays lighter than green.
 export const lightGreen = {
-  50: "#eff6e5",
-  100: "#dfefc4",
-  200: "#c4dd94",
+  50: "#f0f5e9",
+  100: "#e2ecd2",
+  200: "#c8daa7",
   300: "#a7c959",
   400: "#87b200",
   500: "#739c00",
@@ -116,9 +116,9 @@ export const lightGreen = {
 } as const satisfies ColorScale;
 
 export const green = {
-  50: "#ecf6ee",
-  100: "#d0f1da",
-  200: "#a6e3b9",
+  50: "#ebf6ed",
+  100: "#d5efdd",
+  200: "#afe0be",
   300: "#77d196",
   400: "#47ba75",
   500: "#21a65b",
@@ -131,9 +131,9 @@ export const green = {
 // Cyan at hue 195: aqua like #00ffff at the pale end, teal like #008080 at the dark end. Lighter than the other
 // families from 300, because this hue only holds chroma at high lightness in sRGB.
 export const cyan = {
-  50: "#e3f8f8",
-  100: "#c0f3f2",
-  200: "#86e5e5",
+  50: "#e7f7f7",
+  100: "#cdf0ef",
+  200: "#9be1e1",
   300: "#3fd1d3",
   400: "#00b7b9",
   500: "#00a0a0",
@@ -145,9 +145,9 @@ export const cyan = {
 
 // Sky blue between cyan and blue. Hue runs 232–242, and from 300 it stays lighter than blue.
 export const lightBlue = {
-  50: "#e7f6fd",
-  100: "#ccedff",
-  200: "#9adcff",
+  50: "#e8f6fc",
+  100: "#d0ecfb",
+  200: "#a4dbf8",
   300: "#5fc7fa",
   400: "#00aeed",
   500: "#0097d3",
@@ -160,7 +160,7 @@ export const lightBlue = {
 // Pale steps hold hue near 245–251 so they stay apart from light-blue.
 // 500 is the main step: 600 and 700 stay just under its chroma so 600 does not read as the brand blue.
 export const blue = {
-  50: "#e9f5ff",
+  50: "#eaf5fe",
   100: "#d5eaff",
   200: "#b0d6ff",
   300: "#82baff",
@@ -174,9 +174,9 @@ export const blue = {
 
 // Purple sits at hue 288, just past indigo toward violet, so it stays apart from blue.
 export const purple = {
-  50: "#f2f3fb",
-  100: "#e6e5fa",
-  200: "#cfcbfd",
+  50: "#f1f3ff",
+  100: "#e6e4ff",
+  200: "#cfcbfe",
   300: "#b0a6fb",
   400: "#9884fe",
   500: "#8568f6",
@@ -262,9 +262,9 @@ export const blackOpacity = {
 // Dark steps rise from a tinted dark surface at 50 to a pale tint at 900. Steps 50–200 share L 29, 34, 40.
 // Step 500 sits within 4 L of light 500 (about 1 L above for most families), so the vivid step reads the same on a dark page.
 export const darkPink = {
-  50: "#3e212c",
-  100: "#572439",
-  200: "#75274a",
+  50: "#3b232c",
+  100: "#512939",
+  200: "#6b3249",
   300: "#9f3064",
   400: "#c9357c",
   500: "#eb3c90",
@@ -275,9 +275,9 @@ export const darkPink = {
 } as const satisfies ColorScale;
 
 export const darkRed = {
-  50: "#40221d",
-  100: "#5a261e",
-  200: "#79291f",
+  50: "#3d241f",
+  100: "#542b24",
+  200: "#6e342b",
   300: "#a53126",
   400: "#d03627",
   500: "#f23c2c",
@@ -289,14 +289,14 @@ export const darkRed = {
 
 export const darkOrange = {
   50: "#3c251b",
-  100: "#532c1c",
-  200: "#6f3519",
+  100: "#522c1c",
+  200: "#6d371e",
   300: "#99461b",
   400: "#c15511",
   500: "#e2640a",
   600: "#f17e32",
   700: "#f7a060",
-  800: "#fbc294",
+  800: "#fac294",
   900: "#ffe2cb",
 } as const satisfies ColorScale;
 
@@ -316,34 +316,34 @@ export const darkYellow = {
 
 export const darkLightGreen = {
   50: "#252f1a",
-  100: "#2d3e19",
-  200: "#385113",
+  100: "#2d3e1a",
+  200: "#39501a",
   300: "#4d6e0a",
   400: "#618900",
   500: "#769f00",
   600: "#8ab22b",
   700: "#a7c662",
   800: "#c3d999",
-  900: "#e1edcd",
+  900: "#e1eecd",
 } as const satisfies ColorScale;
 
 export const darkGreen = {
-  50: "#1d3023",
-  100: "#1e402a",
-  200: "#1d5432",
+  50: "#1b3122",
+  100: "#1a4129",
+  200: "#1a5531",
   300: "#217343",
   400: "#1d9152",
   500: "#26a95e",
   600: "#49bc77",
   700: "#79ce96",
-  800: "#a7dfb8",
+  800: "#a7dfb9",
   900: "#d4f0dd",
 } as const satisfies ColorScale;
 
 export const darkCyan = {
-  50: "#1b302f",
-  100: "#193f3f",
-  200: "#105252",
+  50: "#0e3231",
+  100: "#004141",
+  200: "#005353",
   300: "#017070",
   400: "#008c8c",
   500: "#00a3a3",
@@ -354,22 +354,22 @@ export const darkCyan = {
 } as const satisfies ColorScale;
 
 export const darkLightBlue = {
-  50: "#1d2d3a",
-  100: "#1d3b51",
-  200: "#1a4c6d",
+  50: "#182e3e",
+  100: "#163b55",
+  200: "#104c71",
   300: "#186896",
   400: "#0083bd",
   500: "#009ad7",
   600: "#2bafe9",
   700: "#69c4f2",
   800: "#9ed8f7",
-  900: "#d0edfd",
+  900: "#d0edfc",
 } as const satisfies ColorScale;
 
 export const darkBlue = {
-  50: "#1d2c41",
-  100: "#1f385d",
-  200: "#20477f",
+  50: "#1f2c3f",
+  100: "#233858",
+  200: "#294875",
   300: "#275eaf",
   400: "#2b74de",
   500: "#3388ff",
@@ -380,15 +380,15 @@ export const darkBlue = {
 } as const satisfies ColorScale;
 
 export const darkPurple = {
-  50: "#2a2840",
-  100: "#37315b",
-  200: "#463c7d",
+  50: "#2a283e",
+  100: "#373256",
+  200: "#463f72",
   300: "#5e4eaa",
   400: "#745dd7",
   500: "#886bfa",
   600: "#9a87ff",
   700: "#b1a7ff",
-  800: "#cbc6ff",
+  800: "#cac6ff",
   900: "#e6e5ff",
 } as const satisfies ColorScale;
 
@@ -637,9 +637,9 @@ export const sourceHue = {
 /** Primitive chroma before gamut fitting. Stored colors stay at or below this chroma. */
 export const sourceChroma = {
   "pink": {
-    "50": 0.0139,
-    "100": 0.0391,
-    "200": 0.0784,
+    "50": 0.017,
+    "100": 0.036,
+    "200": 0.07,
     "300": 0.1354,
     "400": 0.2029,
     "500": 0.2201,
@@ -649,9 +649,9 @@ export const sourceChroma = {
     "900": 0.1596
   },
   "red": {
-    "50": 0.0133,
-    "100": 0.0365,
-    "200": 0.0711,
+    "50": 0.017,
+    "100": 0.036,
+    "200": 0.07,
     "300": 0.1332,
     "400": 0.1992,
     "500": 0.2197,
@@ -661,9 +661,9 @@ export const sourceChroma = {
     "900": 0.1664
   },
   "orange": {
-    "50": 0.0219,
-    "100": 0.0452,
-    "200": 0.0921,
+    "50": 0.017,
+    "100": 0.036,
+    "200": 0.07,
     "300": 0.1163,
     "400": 0.16,
     "500": 0.1867,
@@ -685,9 +685,9 @@ export const sourceChroma = {
     "900": 0.15
   },
   "light-green": {
-    "50": 0.0236,
-    "100": 0.0591,
-    "200": 0.0993,
+    "50": 0.017,
+    "100": 0.036,
+    "200": 0.07,
     "300": 0.145,
     "400": 0.1802,
     "500": 0.1828,
@@ -697,9 +697,9 @@ export const sourceChroma = {
     "900": 0.123
   },
   "green": {
-    "50": 0.0149,
-    "100": 0.0463,
-    "200": 0.0851,
+    "50": 0.017,
+    "100": 0.036,
+    "200": 0.07,
     "300": 0.1215,
     "400": 0.1452,
     "500": 0.1558,
@@ -709,9 +709,9 @@ export const sourceChroma = {
     "900": 0.1122
   },
   "cyan": {
-    "50": 0.022,
-    "100": 0.0519,
-    "200": 0.0904,
+    "50": 0.017,
+    "100": 0.036,
+    "200": 0.07,
     "300": 0.1197,
     "400": 0.1229,
     "500": 0.1229,
@@ -721,9 +721,9 @@ export const sourceChroma = {
     "900": 0.0767
   },
   "light-blue": {
-    "50": 0.0185,
-    "100": 0.0424,
-    "200": 0.0824,
+    "50": 0.017,
+    "100": 0.036,
+    "200": 0.07,
     "300": 0.1206,
     "400": 0.1509,
     "500": 0.1499,
@@ -733,9 +733,9 @@ export const sourceChroma = {
     "900": 0.1081
   },
   "blue": {
-    "50": 0.0185,
-    "100": 0.0363,
-    "200": 0.0701,
+    "50": 0.017,
+    "100": 0.036,
+    "200": 0.07,
     "300": 0.1154,
     "400": 0.1612,
     "500": 0.201,
@@ -745,9 +745,9 @@ export const sourceChroma = {
     "900": 0.1548
   },
   "purple": {
-    "50": 0.0107,
-    "100": 0.0283,
-    "200": 0.069,
+    "50": 0.017,
+    "100": 0.036,
+    "200": 0.07,
     "300": 0.1204,
     "400": 0.1735,
     "500": 0.2039,
@@ -805,8 +805,8 @@ export const darkSourceHue = {
     "500": 356.2,
     "600": 355.89,
     "700": 356.06,
-    "800": 356.45,
-    "900": 355.77
+    "800": 356.15,
+    "900": 355.66
   },
   "red": {
     "50": 29.69,
@@ -817,7 +817,7 @@ export const darkSourceHue = {
     "500": 29.7,
     "600": 29.45,
     "700": 29.37,
-    "800": 30.41,
+    "800": 30.6,
     "900": 30.37
   },
   "orange": {
@@ -829,8 +829,8 @@ export const darkSourceHue = {
     "500": 46.99,
     "600": 50.03,
     "700": 56.16,
-    "800": 60.28,
-    "900": 59.67
+    "800": 60.34,
+    "900": 59.2
   },
   "yellow": {
     "50": 75.77,
@@ -853,8 +853,8 @@ export const darkSourceHue = {
     "500": 126.07,
     "600": 125.11,
     "700": 123.79,
-    "800": 123.83,
-    "900": 124.14
+    "800": 123.66,
+    "900": 124.27
   },
   "green": {
     "50": 153.96,
@@ -865,8 +865,8 @@ export const darkSourceHue = {
     "500": 152.55,
     "600": 153.79,
     "700": 153.91,
-    "800": 154.23,
-    "900": 155
+    "800": 154.46,
+    "900": 155.4
   },
   "cyan": {
     "50": 194.77,
@@ -877,8 +877,8 @@ export const darkSourceHue = {
     "500": 194.77,
     "600": 196.16,
     "700": 196.36,
-    "800": 195.61,
-    "900": 194.8
+    "800": 195.93,
+    "900": 194.42
   },
   "light-blue": {
     "50": 241.9,
@@ -889,8 +889,8 @@ export const darkSourceHue = {
     "500": 235.72,
     "600": 233.53,
     "700": 232.46,
-    "800": 232.11,
-    "900": 231.71
+    "800": 231.56,
+    "900": 231.11
   },
   "blue": {
     "50": 257.73,
@@ -913,8 +913,8 @@ export const darkSourceHue = {
     "500": 288.38,
     "600": 288.46,
     "700": 288.61,
-    "800": 288.53,
-    "900": 288.02
+    "800": 288.42,
+    "900": 289.07
   },
   "brown": {
     "50": 57.37,
@@ -933,9 +933,9 @@ export const darkSourceHue = {
 /** Dark-scale chroma before gamut fitting: a share of the family's light peak, highest at 500. */
 export const darkSourceChroma = {
   "pink": {
-    "50": 0.0484,
-    "100": 0.0792,
-    "200": 0.1144,
+    "50": 0.04,
+    "100": 0.062,
+    "200": 0.085,
     "300": 0.154,
     "400": 0.1937,
     "500": 0.2201,
@@ -945,9 +945,9 @@ export const darkSourceChroma = {
     "900": 0.055
   },
   "red": {
-    "50": 0.0483,
-    "100": 0.0791,
-    "200": 0.1142,
+    "50": 0.04,
+    "100": 0.062,
+    "200": 0.085,
     "300": 0.1538,
     "400": 0.1933,
     "500": 0.2197,
@@ -957,9 +957,9 @@ export const darkSourceChroma = {
     "900": 0.0549
   },
   "orange": {
-    "50": 0.0389,
-    "100": 0.0637,
-    "200": 0.0919,
+    "50": 0.04,
+    "100": 0.062,
+    "200": 0.085,
     "300": 0.1238,
     "400": 0.1556,
     "500": 0.1768,
@@ -981,9 +981,9 @@ export const darkSourceChroma = {
     "900": 0.0426
   },
   "light-green": {
-    "50": 0.0391,
-    "100": 0.064,
-    "200": 0.0924,
+    "50": 0.04,
+    "100": 0.062,
+    "200": 0.085,
     "300": 0.1244,
     "400": 0.1564,
     "500": 0.1777,
@@ -993,9 +993,9 @@ export const darkSourceChroma = {
     "900": 0.0444
   },
   "green": {
-    "50": 0.0343,
-    "100": 0.0562,
-    "200": 0.0811,
+    "50": 0.04,
+    "100": 0.062,
+    "200": 0.085,
     "300": 0.1092,
     "400": 0.1373,
     "500": 0.156,
@@ -1005,9 +1005,9 @@ export const darkSourceChroma = {
     "900": 0.039
   },
   "cyan": {
-    "50": 0.0265,
-    "100": 0.0433,
-    "200": 0.0626,
+    "50": 0.04,
+    "100": 0.062,
+    "200": 0.085,
     "300": 0.0842,
     "400": 0.1059,
     "500": 0.1203,
@@ -1017,9 +1017,9 @@ export const darkSourceChroma = {
     "900": 0.0301
   },
   "light-blue": {
-    "50": 0.0323,
-    "100": 0.0529,
-    "200": 0.0765,
+    "50": 0.04,
+    "100": 0.062,
+    "200": 0.085,
     "300": 0.1029,
     "400": 0.1294,
     "500": 0.147,
@@ -1029,9 +1029,9 @@ export const darkSourceChroma = {
     "900": 0.0368
   },
   "blue": {
-    "50": 0.0442,
-    "100": 0.0724,
-    "200": 0.1045,
+    "50": 0.04,
+    "100": 0.062,
+    "200": 0.085,
     "300": 0.1407,
     "400": 0.1769,
     "500": 0.201,
@@ -1041,9 +1041,9 @@ export const darkSourceChroma = {
     "900": 0.0503
   },
   "purple": {
-    "50": 0.0447,
-    "100": 0.0732,
-    "200": 0.1058,
+    "50": 0.04,
+    "100": 0.062,
+    "200": 0.085,
     "300": 0.1424,
     "400": 0.179,
     "500": 0.2034,
