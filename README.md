@@ -1,8 +1,19 @@
 # Ordinary Palette
 
-A natural color palette for ordinary interface work: backgrounds, text, and borders. Thirteen families run from step 50 to step 900. Lightness falls the whole way: step 50 stays the lightest, the large drop lands before step 500, and the steps after 500 sit closer together while staying clearly apart, about 5 L each. Chroma starts low, is highest around steps 400–600 (step 600 never exceeds 500, so 500 reads as the main step), then eases without collapsing, so 600–900 keep each family's color. Blue, red, and orange reach the lowest peak chroma found in SEED, Toss TDS, and Montage for the same hue. The other families stay a little quieter. Color families share one lightness on steps 50–200, except yellow, which shares only step 50 so it can carry Toss TDS-level chroma. Gray starts lighter, at L 98, and keeps three steps at L 93 or above for surfaces and borders. From step 400, yellow stays lighter than blue, and yellow 900 is a deep gold that carries text on white and on yellow 100, within 15° of step 50's hue. Cool-gray still ends at a dark 900. Neutral-gray is cool-gray's lightness at chroma 0. The dark scale runs the other way, so each step keeps its role in both modes: dark 50 is a tinted dark surface, dark 500 sits at about the lightness of light 500, and dark 900 is a pale tint for text. It does not reuse the light hex values. White and black ship as opacity scales. The scale is raw color only: there are no semantic roles such as primary, surface, or text.
+평범한 인터페이스 작업(배경, 글자, 테두리)을 위한 자연스러운 색 팔레트입니다. 13개 가족이 50부터 900까지 10단계로 이어집니다. 색 값만 제공하는 원시 팔레트이고, primary·surface·text 같은 의미 역할(토큰)은 없습니다.
 
-## Install
+## 곡선의 성격
+
+- **명도:** 50이 가장 밝고 900이 가장 어둡습니다. 큰 하락은 500 전에 있고, 500 이후는 스텝마다 약 5 L씩 좁지만 분명하게 떨어집니다.
+- **채도:** 50에서 낮고 400–600에서 가장 높으며, 900까지 크게 무너지지 않아서 짙은 스텝도 가족 색이 남습니다. 600은 500보다 채도가 높지 않아서 500이 메인 스텝으로 읽힙니다.
+- **쨍함:** blue·red·orange는 SEED, Toss TDS, Montage의 같은 hue 최저 채도 이상입니다. 나머지 가족도 sRGB가 허락하는 만큼 선명하게 둡니다.
+- **옅은 스텝:** 유색 가족은 50–200의 명도가 같습니다. yellow만 50을 공유하고 100부터 더 밝게 두어, Toss 수준 채도를 sRGB 안에 넣습니다.
+- **회색:** 더 밝은 L 98에서 시작하고, 표면과 테두리용으로 L 93 이상 스텝을 3개 둡니다. cool-gray 900은 어두운 본문 글자색입니다. neutral-gray는 cool-gray와 같은 명도에 채도 0입니다.
+- **yellow:** 400부터 blue보다 밝고, 900은 짙은 금색이라 흰 배경과 yellow 100 위에서 글자로 읽힙니다. hue는 50에서 15° 안입니다.
+- **다크 스케일:** 방향이 반대입니다. 다크 50은 어두운 틴트 배경, 다크 500은 라이트 500과 비슷한 명도, 다크 900은 글자용 밝은 틴트라서 한 스텝이 두 모드에서 같은 역할을 합니다. 라이트 hex를 재사용하지 않습니다.
+- **흰색과 검정:** 투명도 스케일(white-opacity, black-opacity)로 제공합니다.
+
+## 설치
 
 ```bash
 npm install ordinary-palette
@@ -19,7 +30,7 @@ darkBlue[500];
 whiteOpacity["40"];
 ```
 
-Each light family is also a named export: `pink`, `red`, `orange`, `yellow`, `lightGreen`, `green`, `cyan`, `lightBlue`, `blue`, `purple`, `brown`, `coolGray`, and `neutralGray`. Dark families export as `darkPink`, `darkRed`, `darkOrange`, `darkYellow`, `darkLightGreen`, `darkGreen`, `darkCyan`, `darkLightBlue`, `darkBlue`, `darkPurple`, `darkBrown`, `darkCoolGray`, and `darkNeutralGray`, and together as `darkColors`. Opacity scales export as `whiteOpacity` and `blackOpacity`. `yellowLightnessOffset` and `darkLightness` export the documented lightness numbers.
+라이트 가족은 각각 이름으로도 export됩니다: `pink`, `red`, `orange`, `yellow`, `lightGreen`, `green`, `cyan`, `lightBlue`, `blue`, `purple`, `brown`, `coolGray`, `neutralGray`. 다크 가족은 `darkPink`, `darkRed`, `darkOrange`, `darkYellow`, `darkLightGreen`, `darkGreen`, `darkCyan`, `darkLightBlue`, `darkBlue`, `darkPurple`, `darkBrown`, `darkCoolGray`, `darkNeutralGray`로 export되고, 한데 모은 `darkColors`도 있습니다. 투명도 스케일은 `whiteOpacity`, `blackOpacity`입니다. `yellowLightnessOffset`과 `darkLightness`는 아래에 적은 명도 숫자를 export합니다.
 
 ## CSS
 
@@ -27,16 +38,17 @@ Each light family is also a named export: `pink`, `red`, `orange`, `yellow`, `li
 @import "ordinary-palette/colors.css";
 
 .notice {
-  background: var(--color-blue-500);
+  background: var(--color-blue-600);
   color: var(--color-white-opacity-100);
 }
 
 .notice-dark {
   background: var(--color-dark-blue-500);
+  color: var(--color-dark-cool-gray-50);
 }
 ```
 
-Custom properties are named `--color-<family>-<step>` on the light scale and `--color-dark-<family>-<step>` on the dark scale. That includes `--color-cool-gray-500`, `--color-neutral-gray-500`, `--color-dark-cool-gray-500`, `--color-light-blue-500`, `--color-white-opacity-40`, and `--color-black-opacity-05`.
+CSS 변수 이름은 라이트가 `--color-<가족>-<스텝>`, 다크가 `--color-dark-<가족>-<스텝>`입니다. 예를 들어 `--color-cool-gray-500`, `--color-neutral-gray-500`, `--color-dark-cool-gray-500`, `--color-light-blue-500`, `--color-white-opacity-40`, `--color-black-opacity-05`가 있습니다.
 
 ## JSON
 
@@ -47,9 +59,9 @@ palette.cyan["500"];
 palette.dark.blue["500"];
 ```
 
-## Families
+## 가족
 
-| Family | Light 500 | Dark 500 |
+| 가족 | 라이트 500 | 다크 500 |
 | --- | --- | --- |
 | pink | `#e7388d` | `#eb3c90` |
 | red | `#ee3828` | `#f23c2b` |
@@ -65,15 +77,21 @@ palette.dark.blue["500"];
 | cool-gray | `#838a91` | `#797e83` |
 | neutral-gray | `#898989` | `#7d7d7d` |
 
-Steps on every color family, light and dark: 50, 100, 200, 300, 400, 500, 600, 700, 800, 900.
+모든 가족의 스텝은 라이트·다크 모두 50, 100, 200, 300, 400, 500, 600, 700, 800, 900입니다.
 
-Light yellow matches blue on step 50. From step 100 it is lighter than blue by this OKLCH L offset: 100 +1.9, 200 +5.8, 300 +11.3, 400 +16.4, 500 +19.5, 600 +19.7, 700 +18.5, 800 +16.1, 900 +10.9.9, 200 +5.8, 300 +11.3, 400 +16.4, 500 +19.6, 600 +21.5, 700 +23, 800 +24.1, 900 +24.4.9, 400 +11.3, 500 +14.3, 600 +16.4, 700 +17.9, 800 +18.8, 900 +19.2. Orange sits near #ff7700 at step 500 (hue 50) and reaches Toss TDS chroma, as does yellow. Pale orange leans toward apricot to carry more chroma. Light-green is a yellow-green (hue 124–130) lighter than green. Brown (hue 52–62) is a low-chroma warm brown between orange and gray. Cyan (hue 195) runs from an aqua like #00ffff to a teal like #008080, and sits lighter than the other families so it can hold its chroma. Light-blue is a sky blue (hue 232–242) that stays lighter than blue from step 300.
+- **orange:** 500이 #ff7700 근처(hue 50)이고 Toss TDS 채도에 닿습니다. 옅은 스텝은 살구색 쪽으로 기울여 채도를 확보합니다.
+- **yellow:** 500·600에서 Toss TDS 채도 이상입니다. 50은 blue와 명도가 같고, 100부터는 blue보다 이만큼(OKLCH L) 밝습니다: 100 +1.9, 200 +5.8, 300 +11.3, 400 +16.4, 500 +19.5, 600 +19.7, 700 +18.5, 800 +16.1, 900 +10.9.
+- **light-green:** yellow와 green 사이의 연두(hue 124–130)이고, 300부터 green보다 밝습니다.
+- **cyan:** hue 195로 #00ffff 같은 아쿠아에서 #008080 같은 teal로 이어집니다. 이 hue는 밝아야 채도가 나와서 다른 가족보다 밝게 둡니다.
+- **light-blue:** cyan과 blue 사이의 하늘색(hue 232–242)이고, 300부터 blue보다 밝습니다.
+- **pink:** hue 356의 진짜 분홍이라 red와 구분됩니다.
+- **purple:** hue 288로 indigo보다 살짝 보라 쪽입니다.
+- **brown:** orange와 회색 사이의 채도 낮은 따뜻한 갈색(hue 52–62)입니다.
+- **neutral-gray:** cool-gray와 같은 명도에 채도 0입니다. `#666666`은 그 성격을 설명하는 예시일 뿐, 스케일의 스텝이 아닙니다.
 
-Neutral-gray uses chroma 0 at cool-gray's lightness. `#666666` is only an example of that character, not a step in the scale.
+다크 cool-gray 명도는 올라가는 순서입니다: 50 = 22, 100 = 27, 200 = 33, 300 = 40, 400 = 49, 500 = 59, 600 = 70, 700 = 81, 800 = 90, 900 = 97. 다크 유색 가족의 50–200은 L 29, 34, 40을 공유합니다. 다크 500은 라이트 500과 명도 4 이내이고, 다크 900은 L 93 근처의 밝은 틴트입니다. 다크 채도는 500에서 가장 높고, 라이트 최고 채도의 90% 이상입니다.
 
-Dark cool-gray lightness rises: 50 = 22, 100 = 27, 200 = 33, 300 = 40, 400 = 49, 500 = 59, 600 = 70, 700 = 81, 800 = 90, 900 = 97. Dark chromatic steps 50–200 share L 29, 34, and 40. Dark 500 sits about 1 L above light 500, and dark 900 is a pale tint near L 93. Dark chroma peaks at 500 and is at least 90% of the light peak.
-
-Opacity steps, for both `white-opacity` and `black-opacity`: 00, 05, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100.
+투명도 스텝은 `white-opacity`와 `black-opacity` 모두 00, 05, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100입니다.
 
 ## 스텝 사용 가이드
 
@@ -208,7 +226,7 @@ Opacity steps, for both `white-opacity` and `black-opacity`: 00, 05, 10, 20, 30,
 
 위의 표와 수치는 모두 `scripts/usage-table.ts`가 팔레트에서 계산합니다. 색이 바뀌어 표가 어긋나면 `npm test`가 실패합니다. 다시 만들 때는 `node --experimental-strip-types scripts/usage-table.ts`를 실행합니다.
 
-## Develop
+## 개발
 
 ```bash
 npm install
@@ -216,8 +234,8 @@ npm test
 npm run preview
 ```
 
-`npm test` builds the package, then checks steps 50–900, `#RRGGBB` solids, lightness falling from 50 to 900 with the larger drop before 500, steps after 500 at least 3.4 L apart with 900 keeping 62% of peak chroma, a dark scale that rises from a tinted dark 50 to a pale 900, shared lightness on color steps 50–200, a dense pale gray end, blue, red, and orange at reference peak chroma, blue chroma higher at 500 than at 50 and 900, yellow 900 within 15° of yellow 50 and clearly lighter than blue 900, dark peak chroma at least 0.9× light peak chroma, neutral-gray at chroma 0, and chroma-only gamut mapping. The preview gallery runs at <http://127.0.0.1:43123> and lists both scales, each hex, and measured OKLCH L.
+`npm test`는 패키지를 빌드한 뒤 규칙을 검사합니다. 스텝과 hex 형식, 명도가 50에서 900으로 떨어지는지(500 이후 스텝당 3.4 L 이상), 채도 곡선(900은 최고의 62% 이상, 600은 500 이하), 유색 50–200 명도 공유, 회색의 밝은 쪽, blue·red·orange와 orange·yellow의 기준 채도, 각 가족의 hue 자리, 700 위 흰 글자와 100 위 800 글자 대비, yellow 900 대비, 다크 스케일의 방향과 채도, neutral-gray 채도 0, 채도만 낮추는 가멋 처리, 그리고 README 가이드 표가 팔레트와 같은지를 확인합니다. 미리보기는 <http://127.0.0.1:43123>에서 열리고, 두 스케일의 hex와 측정한 OKLCH L을 보여 줍니다.
 
-## License
+## 라이선스
 
 MIT
