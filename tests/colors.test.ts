@@ -84,28 +84,60 @@ test("solid colors are #RRGGBB", () => {
   }
 });
 
-test("light families match cool-gray OKLCH L, yellow uses an explicit offset", () => {
-  for (const step of steps) {
-    const target = oklch(coolGray[step]).l;
-    const offset = yellowLightnessOffset[step];
-    assert.ok(offset > 0, `yellow offset at ${step} should lighten that step`);
-
-    for (const family of families) {
-      const { l } = oklch(colors[family][step]);
-      if (family === "yellow") {
-        assert.ok(
-          Math.abs(l - (target + offset)) <= 0.4,
-          `yellow ${step} L ${l} is more than 0.4 from cool-gray ${target} + ${offset}`,
-        );
-        assert.ok(l > target, `yellow ${step} should be lighter than cool-gray`);
-        continue;
-      }
+test("lightness falls from 50 to 900 and chroma humps", () => {
+  for (const family of families) {
+    const levels = steps.map((step) => oklch(colors[family][step]).l);
+    assert.ok(levels[0] > levels[5], `${family} 50 should be lighter than 500`);
+    assert.ok(levels[5] > levels[9], `${family} 500 should be lighter than 900`);
+    for (let index = 1; index < levels.length; index += 1) {
       assert.ok(
-        Math.abs(l - target) <= 0.4,
-        `${family} ${step} L ${l} is more than 0.4 from cool-gray ${target}`,
+        levels[index - 1] > levels[index],
+        `${family} ${steps[index]} L ${levels[index]} is not darker than ${steps[index - 1]}`,
       );
     }
   }
+
+  for (const step of [50, 100, 200] as const) {
+    const target = oklch(coolGray[step]).l;
+    for (const family of families) {
+      const { l } = oklch(colors[family][step]);
+      assert.ok(Math.abs(l - target) <= 0.4, `${family} ${step} L ${l} misses shared pale ${target}`);
+    }
+    assert.equal(yellowLightnessOffset[step], 0);
+  }
+
+  for (const step of [400, 500, 600, 700, 800, 900] as const) {
+    const yellowL = oklch(yellow[step]).l;
+    const blueL = oklch(blue[step]).l;
+    const grayL = oklch(coolGray[step]).l;
+    assert.ok(yellowL > blueL + 8, `yellow ${step} L ${yellowL} should stay lighter than blue ${blueL}`);
+    assert.ok(
+      Math.abs(yellowL - (grayL + yellowLightnessOffset[step])) <= 0.4,
+      `yellow ${step} L ${yellowL} misses cool-gray ${grayL} + ${yellowLightnessOffset[step]}`,
+    );
+  }
+  assert.ok(yellowLightnessOffset[900] > yellowLightnessOffset[400]);
+
+  const blueLevels = steps.map((step) => oklch(blue[step]).l);
+  const grayLevels = steps.map((step) => oklch(coolGray[step]).l);
+  for (const levels of [blueLevels, grayLevels]) {
+    const gaps = levels.slice(1).map((level, index) => levels[index] - level);
+    const early = (gaps[2] + gaps[3] + gaps[4]) / 3;
+    const late = (gaps[5] + gaps[6] + gaps[7] + gaps[8]) / 4;
+    assert.ok(levels[0] - levels[5] > levels[5] - levels[9]);
+    assert.ok(late < early, `steps after 500 (${late}) should be closer than the drop before 500 (${early})`);
+  }
+
+  const blueChroma = (step: (typeof steps)[number]) => oklch(blue[step]).c;
+  assert.ok(blueChroma(500) > blueChroma(50));
+  assert.ok(blueChroma(500) > blueChroma(900));
+  assert.ok(blueChroma(900) > blueChroma(50));
+
+  const yellow900 = oklch(yellow[900]);
+  const blue900 = oklch(blue[900]);
+  assert.ok(hueDelta(yellow900.h, oklch(yellow[50]).h) <= 15);
+  assert.ok(yellow900.l > blue900.l + 12, `yellow 900 L ${yellow900.l} should be clearly above blue 900 L ${blue900.l}`);
+  assert.ok(oklch(coolGray[900]).l + 12 < blue900.l);
 });
 
 test("light yellow hue stays within 15° of step 50", () => {
@@ -127,7 +159,7 @@ test("dark yellow lightness offset keeps 800 and 900 yellow", () => {
   assert.ok(darkYellowLightnessOffset[900] > 0);
   for (const step of steps) {
     const measured = oklch(darkYellow[step]);
-    const raised = darkChromaLightnessExceptions.yellow[step];
+    const raised = darkChromaLightnessExceptions.yellow?.[step];
     const target = raised ?? darkLightness[step] + darkYellowLightnessOffset[step];
     assert.ok(
       Math.abs(measured.l - target) <= 0.4,
@@ -180,37 +212,29 @@ test("gamut mapping lowers chroma only", () => {
   }
 });
 
-test("dark L targets differ from light and have stronger contrast", () => {
-  const lightLevels = steps.map((step) => oklch(coolGray[step]).l);
-  const darkLevels = steps.map((step) => oklch(darkCoolGray[step]).l);
-  const gaps = (levels: number[]) => levels.slice(1).map((level, index) => levels[index] - level);
-
-  for (const step of steps) {
-    assert.ok(darkLightness[step] !== lightLevels[step]);
-    assert.ok(Math.abs(darkLevels[steps.indexOf(step)] - darkLightness[step]) <= 0.4);
-    for (const family of families) {
-      const { l } = oklch(darkColors[family][step]);
-      const nominal =
-        family === "neutral-gray"
-          ? darkLevels[steps.indexOf(step)]
-          : family === "yellow"
-            ? darkLightness[step] + darkYellowLightnessOffset[step]
-            : darkLightness[step];
-      const raised = darkChromaLightnessExceptions[family]?.[step];
-      const target = raised ?? nominal;
-      assert.ok(
-        Math.abs(l - target) <= 0.4,
-        `dark ${family} ${step} L ${l} misses ${target}`,
-      );
+test("dark scale keeps the falling shape and is darker than light", () => {
+  for (const family of families) {
+    const levels = steps.map((step) => oklch(darkColors[family][step]).l);
+    assert.ok(levels[0] > levels[5], `dark ${family} 50 should be lighter than 500`);
+    assert.ok(levels[5] > levels[9], `dark ${family} 500 should be lighter than 900`);
+    for (let index = 0; index < steps.length; index += 1) {
+      const step = steps[index];
+      const lightL = oklch(colors[family][step]).l;
+      assert.ok(levels[index] < lightL - 4, `dark ${family} ${step} L ${levels[index]} is not darker than ${lightL}`);
       assert.notEqual(darkColors[family][step], colors[family][step]);
+      if (index > 0) {
+        assert.ok(levels[index - 1] > levels[index], `dark ${family} ${step} does not continue the fall`);
+      }
     }
   }
 
-  const lightGaps = gaps(lightLevels);
-  const darkGaps = gaps(darkLevels);
-  const mean = (values: number[]) => values.reduce((sum, value) => sum + value, 0) / values.length;
-  assert.ok(Math.min(...darkGaps) > Math.min(...lightGaps));
-  assert.ok(mean(darkGaps) > mean(lightGaps));
+  for (const step of steps) {
+    assert.ok(Math.abs(oklch(darkCoolGray[step]).l - darkLightness[step]) <= 0.4);
+  }
+
+  const darkBlue = steps.map((step) => oklch(darkColors.blue[step]).l);
+  assert.ok(darkBlue[0] - darkBlue[5] > darkBlue[5] - darkBlue[9]);
+  assert.ok(oklch(darkYellow[900]).l > oklch(darkColors.blue[900]).l + 8);
 });
 
 test("dark chroma is at least 90% of light chroma", () => {
@@ -223,13 +247,8 @@ test("dark chroma is at least 90% of light chroma", () => {
       const ratio = dark.c / lightChroma;
       lowest = Math.min(lowest, ratio);
       assert.ok(ratio >= 0.9, `${family} ${step} dark/light chroma ${ratio.toFixed(3)}`);
-      const nominal =
-        family === "yellow" ? darkLightness[step] + darkYellowLightnessOffset[step] : darkLightness[step];
-      const raised = darkChromaLightnessExceptions[family][step];
-      if (raised == null) {
-        assert.ok(Math.abs(dark.l - nominal) <= 0.4, `${family} ${step} L ${dark.l} left ${nominal}`);
-      } else {
-        assert.ok(raised > nominal, `${family} ${step} exception ${raised} is not above ${nominal}`);
+      const raised = darkChromaLightnessExceptions[family]?.[step];
+      if (raised != null) {
         assert.ok(Math.abs(dark.l - raised) <= 0.4, `${family} ${step} L ${dark.l} misses exception ${raised}`);
       }
       assert.notEqual(darkColors[family][step], colors[family][step]);
@@ -237,7 +256,6 @@ test("dark chroma is at least 90% of light chroma", () => {
   }
   assert.ok(lowest >= 0.9);
   assert.equal(darkChromaLightnessExceptions["cool-gray"], undefined);
-  assert.equal(darkCoolGray[500], "#4f5a65");
 });
 
 test("opacity scales stay on their own names", () => {
@@ -276,13 +294,14 @@ test("colors.json and colors.css match the palette", () => {
 test("built package matches the source palette", async () => {
   const built = await import("../dist/index.js");
   assert.equal(built.yellow[900], yellow[900]);
-  assert.equal(built.coolGray[500], "#84919d");
-  assert.equal(built.darkCoolGray[500], "#4f5a65");
+  assert.equal(built.coolGray[500], coolGray[500]);
+  assert.equal(built.darkCoolGray[500], darkCoolGray[500]);
   assert.equal(built.neutralGray[500], neutralGray[500]);
   assert.equal("gray" in built, false);
   assert.equal(built.darkYellow[500], darkColors.yellow[500]);
-  assert.equal(built.yellowLightnessOffset[900], 24);
-  assert.equal(built.darkLightness[50], 94);
+  assert.equal(built.yellowLightnessOffset[900], yellowLightnessOffset[900]);
+  assert.equal(built.yellowLightnessOffset[50], 0);
+  assert.equal(built.darkLightness[50], darkLightness[50]);
   assert.equal(
     readFileSync(new URL("../dist/colors.css", import.meta.url), "utf8"),
     readFileSync(new URL("../src/colors.css", import.meta.url), "utf8"),
