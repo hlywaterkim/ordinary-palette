@@ -30,7 +30,7 @@ title.textContent = "Ordinary Palette";
 const lede = document.createElement("p");
 lede.className = "lede";
 lede.textContent =
-  "Light steps share cool-gray's OKLCH lightness. Neutral-gray is the same lightness with chroma 0. Yellow is lifted by a documented offset so bright yellow is not heavier than the other families and dark yellow still reads as yellow. The dark scale has its own lightness targets and wider gaps. Click a swatch to copy its color.";
+  "Lightness falls from step 50 to step 900. The large drop is before 500, and later steps sit closer. Chroma is lowest at 50, highest around 400–600, then eases. Steps 50–200 share lightness. From 400, yellow stays lighter than blue. Neutral-gray is cool-gray's lightness at chroma 0. The dark scale repeats that shape, darker than light. Click a swatch to copy its color.";
 
 const status = document.createElement("p");
 status.className = "status";
