@@ -1,6 +1,72 @@
-# Ordinary Palette
+<div align="center">
 
-평범한 인터페이스 작업(배경, 글자, 테두리)을 위한 자연스러운 색 팔레트입니다. 13개 가족이 50부터 900까지 10단계로 이어집니다. 색 값만 제공하는 원시 팔레트이고, primary·surface·text 같은 의미 역할(토큰)은 없습니다.
+![Ordinary Palette.](docs/cover.jpg)
+
+**어디서든 쓸 수 있는 가장 평범하고 완벽한 팔레트**
+
+컬러별, 스텝별로 일정한 명도를 지원해서 UI 제작에 쓰기 좋아요
+
+[![License: MIT](https://img.shields.io/badge/license-MIT-2b84ff?style=flat-square)](LICENSE)
+
+한국어 | [English](README.en.md)
+
+</div>
+
+## 특징
+
+- **컬러별·스텝별로 일정한 명도:** 유색 가족이 명도 곡선 하나를 공유해서 blue 500과 green 500이 같은 밝기로 보입니다. 13개 가족 × 10스텝(50–900), 라이트·다크 스케일을 제공합니다.
+- **스텝마다 정해진 역할:** 50–200은 배경, 600은 흰 배경 위 글자이자 흰 글자를 올리는 채움색입니다. 700 위 흰 글자와 100 위 800 글자는 4.5:1 이상입니다(yellow는 900이 글자 역할).
+- **다크도 같은 역할:** 다크 스케일은 방향을 뒤집어서 한 스텝이 두 모드에서 같은 일을 합니다. 라이트 hex를 재사용하지 않습니다.
+- **규칙을 테스트로 고정:** 명도 간격, 채도, 대비 기준을 `npm test`가 매번 검사합니다.
+- **원시 팔레트만:** primary·surface·text 같은 의미 역할(시맨틱 토큰)은 없습니다. 각자의 디자인 시스템 위에 얹어 씁니다.
+
+## 설치
+
+```bash
+npm install ordinary-palette
+```
+
+## 사용법
+
+### JavaScript
+
+```ts
+import { blue, colors, darkBlue, whiteOpacity } from "ordinary-palette";
+
+colors.blue[500];
+colors["light-blue"][500];
+darkBlue[500];
+whiteOpacity["40"];
+```
+
+라이트 가족은 각각 이름으로도 export됩니다: `pink`, `red`, `orange`, `yellow`, `lightGreen`, `green`, `cyan`, `lightBlue`, `blue`, `purple`, `brown`, `coolGray`, `neutralGray`. 다크 가족은 `darkPink`, `darkRed`, `darkOrange`, `darkYellow`, `darkLightGreen`, `darkGreen`, `darkCyan`, `darkLightBlue`, `darkBlue`, `darkPurple`, `darkBrown`, `darkCoolGray`, `darkNeutralGray`로 export되고, 한데 모은 `darkColors`도 있습니다. 투명도 스케일은 `whiteOpacity`, `blackOpacity`입니다. `yellowLightnessOffset`과 `darkLightness`는 아래에 적은 명도 숫자를 export합니다.
+
+### CSS
+
+```css
+@import "ordinary-palette/colors.css";
+
+.notice {
+  background: var(--color-blue-600);
+  color: var(--color-white-opacity-100);
+}
+
+.notice-dark {
+  background: var(--color-dark-blue-500);
+  color: var(--color-dark-cool-gray-50);
+}
+```
+
+CSS 변수 이름은 라이트가 `--color-<가족>-<스텝>`, 다크가 `--color-dark-<가족>-<스텝>`입니다. 예를 들어 `--color-cool-gray-500`, `--color-neutral-gray-500`, `--color-dark-cool-gray-500`, `--color-light-blue-500`, `--color-white-opacity-40`, `--color-black-opacity-05`가 있습니다.
+
+### JSON
+
+```ts
+import palette from "ordinary-palette/colors.json" with { type: "json" };
+
+palette.cyan["500"];
+palette.dark.blue["500"];
+```
 
 ## 한눈에 보기
 
@@ -30,52 +96,6 @@
 
 - **라이트 명도:** 유색 가족은 끝까지 거의 한 줄로 겹쳐서 내려갑니다. yellow는 100부터 따로 밝게 가고, 회색은 더 밝게 시작해서 더 어둡게 끝납니다.
 - **다크 명도:** 방향이 반대라서 50(어두운 배경)에서 900(밝은 틴트)으로 올라갑니다.
-
-## 설치
-
-```bash
-npm install ordinary-palette
-```
-
-## JavaScript
-
-```ts
-import { blue, colors, darkBlue, whiteOpacity } from "ordinary-palette";
-
-colors.blue[500];
-colors["light-blue"][500];
-darkBlue[500];
-whiteOpacity["40"];
-```
-
-라이트 가족은 각각 이름으로도 export됩니다: `pink`, `red`, `orange`, `yellow`, `lightGreen`, `green`, `cyan`, `lightBlue`, `blue`, `purple`, `brown`, `coolGray`, `neutralGray`. 다크 가족은 `darkPink`, `darkRed`, `darkOrange`, `darkYellow`, `darkLightGreen`, `darkGreen`, `darkCyan`, `darkLightBlue`, `darkBlue`, `darkPurple`, `darkBrown`, `darkCoolGray`, `darkNeutralGray`로 export되고, 한데 모은 `darkColors`도 있습니다. 투명도 스케일은 `whiteOpacity`, `blackOpacity`입니다. `yellowLightnessOffset`과 `darkLightness`는 아래에 적은 명도 숫자를 export합니다.
-
-## CSS
-
-```css
-@import "ordinary-palette/colors.css";
-
-.notice {
-  background: var(--color-blue-600);
-  color: var(--color-white-opacity-100);
-}
-
-.notice-dark {
-  background: var(--color-dark-blue-500);
-  color: var(--color-dark-cool-gray-50);
-}
-```
-
-CSS 변수 이름은 라이트가 `--color-<가족>-<스텝>`, 다크가 `--color-dark-<가족>-<스텝>`입니다. 예를 들어 `--color-cool-gray-500`, `--color-neutral-gray-500`, `--color-dark-cool-gray-500`, `--color-light-blue-500`, `--color-white-opacity-40`, `--color-black-opacity-05`가 있습니다.
-
-## JSON
-
-```ts
-import palette from "ordinary-palette/colors.json" with { type: "json" };
-
-palette.cyan["500"];
-palette.dark.blue["500"];
-```
 
 ## 가족
 

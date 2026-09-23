@@ -1,7 +1,7 @@
 {
   "name": "ordinary-palette",
   "version": "0.2.0",
-  "description": "A natural open-source color palette.",
+  "description": "The most ordinary, perfect color palette you can use anywhere — consistent lightness across every color and step.",
   "license": "MIT",
   "type": "module",
   "sideEffects": [
