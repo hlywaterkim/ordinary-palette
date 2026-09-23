@@ -1,6 +1,6 @@
 <div align="center">
 
-![ORDINARY PALETTE](docs/cover.jpg)
+![Ordinary Palette.](docs/cover.jpg)
 
 **The most ordinary, perfect palette you can use anywhere**
 
