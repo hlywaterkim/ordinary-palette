@@ -106,9 +106,10 @@ test("lightness falls from 50 to 900 and chroma humps", () => {
     }
   }
 
+  const chromatic = families.filter((family) => family !== "cool-gray" && family !== "neutral-gray");
   for (const step of [50, 100, 200] as const) {
-    const target = oklch(coolGray[step]).l;
-    for (const family of families) {
+    const target = oklch(blue[step]).l;
+    for (const family of chromatic) {
       const { l } = oklch(colors[family][step]);
       assert.ok(Math.abs(l - target) <= 0.4, `${family} ${step} L ${l} misses shared pale ${target}`);
     }
@@ -118,22 +119,22 @@ test("lightness falls from 50 to 900 and chroma humps", () => {
   for (const step of [400, 500, 600, 700, 800, 900] as const) {
     const yellowL = oklch(yellow[step]).l;
     const blueL = oklch(blue[step]).l;
-    const grayL = oklch(coolGray[step]).l;
     assert.ok(yellowL > blueL + 8, `yellow ${step} L ${yellowL} should stay lighter than blue ${blueL}`);
     assert.ok(
-      Math.abs(yellowL - (grayL + yellowLightnessOffset[step])) <= 0.4,
-      `yellow ${step} L ${yellowL} misses cool-gray ${grayL} + ${yellowLightnessOffset[step]}`,
+      Math.abs(yellowL - (blueL + yellowLightnessOffset[step])) <= 0.4,
+      `yellow ${step} L ${yellowL} misses blue ${blueL} + ${yellowLightnessOffset[step]}`,
     );
   }
   assert.ok(yellowLightnessOffset[900] > yellowLightnessOffset[400]);
 
   const blueLevels = steps.map((step) => oklch(blue[step]).l);
   const grayLevels = steps.map((step) => oklch(coolGray[step]).l);
+  assert.ok(blueLevels[0] - blueLevels[5] > blueLevels[5] - blueLevels[9]);
   for (const levels of [blueLevels, grayLevels]) {
     const gaps = levels.slice(1).map((level, index) => levels[index] - level);
     const early = (gaps[2] + gaps[3] + gaps[4]) / 3;
     const late = (gaps[5] + gaps[6] + gaps[7] + gaps[8]) / 4;
-    assert.ok(levels[0] - levels[5] > levels[5] - levels[9]);
+    assert.ok(gaps.indexOf(Math.max(...gaps)) < 5, `the largest drop should land before 500`);
     assert.ok(late < early, `steps after 500 (${late}) should be closer than the drop before 500 (${early})`);
   }
 
@@ -177,6 +178,14 @@ test("dark yellow stays yellow and lighter than blue", () => {
     const blueL = oklch(darkColors.blue[step]).l;
     assert.ok(yellowL > blueL + 8, `dark yellow ${step} L ${yellowL} should stay lighter than dark blue ${blueL}`);
   }
+});
+
+test("gray keeps a dense pale end for surfaces and borders", () => {
+  const levels = steps.map((step) => oklch(coolGray[step]).l);
+  assert.ok(levels[0] >= 97.5, `cool-gray 50 L ${levels[0]} should be near white`);
+  assert.ok(levels.filter((level) => level >= 93).length >= 3, `cool-gray needs three steps at L 93 or above`);
+  assert.ok(levels[0] - levels[1] < levels[1] - levels[2], `cool-gray 50–200 should open up gradually`);
+  assert.ok(levels[9] <= 25, `cool-gray 900 L ${levels[9]} should stay a dark text gray`);
 });
 
 test("neutral-gray is chroma 0 at cool-gray lightness", () => {
