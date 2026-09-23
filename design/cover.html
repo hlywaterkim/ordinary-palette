@@ -41,8 +41,9 @@ const ABERRATION = 0.011;      // red spreads out and blue pulls in by this shar
 const GRAIN = 11;              // grain strength in 0–255 units
 const LEVELS = 13;             // color levels per channel for the dither
 const DITHER_PX = 2;           // one dither cell in CSS pixels
-// Corner radius in CSS pixels. 18 at 1280 wide shows as about 12 px in the README, like the swatch images.
-const RADIUS = Number(new URLSearchParams(location.search).get("radius") ?? 18);
+// Corner radius in CSS pixels, with Figma-style corner smoothing (0.6 is Figma's iOS preset, Apple's squircle).
+const RADIUS = Number(new URLSearchParams(location.search).get("radius") ?? 32);
+const SMOOTHING = 0.6;
 
 const PW = W * SCALE;
 const PH = H * SCALE;
@@ -119,6 +120,44 @@ function aberration(ctx) {
   ctx.putImageData(out, 0, 0);
 }
 
+// Figma's smoothed corner: a short circular arc between two Bézier curves that ease the curvature in over
+// (1 + smoothing) × radius along each edge. Same construction as Figma's corner smoothing and figma-squircle.
+function squircle(width, height, radius, smoothing) {
+  const rad = (deg) => (deg * Math.PI) / 180;
+  const budget = Math.min(width, height) / 2;
+  smoothing = Math.min(smoothing, budget / radius - 1);
+  const p = Math.min((1 + smoothing) * radius, budget);
+  const arcMeasure = 90 * (1 - smoothing);
+  const arc = Math.sin(rad(arcMeasure / 2)) * radius * Math.SQRT2;
+  const alpha = (90 - arcMeasure) / 2;
+  const p3ToP4 = radius * Math.tan(rad(alpha / 2));
+  const beta = 45 * smoothing;
+  const c = p3ToP4 * Math.cos(rad(beta));
+  const d = c * Math.tan(rad(beta));
+  const b = (p - arc - c - d) / 3;
+  const a = 2 * b;
+  const r = radius;
+  return new Path2D([
+    `M ${width - p} 0`,
+    `c ${a} 0 ${a + b} 0 ${a + b + c} ${d}`,
+    `a ${r} ${r} 0 0 1 ${arc} ${arc}`,
+    `c ${d} ${c} ${d} ${b + c} ${d} ${a + b + c}`,
+    `L ${width} ${height - p}`,
+    `c 0 ${a} 0 ${a + b} ${-d} ${a + b + c}`,
+    `a ${r} ${r} 0 0 1 ${-arc} ${arc}`,
+    `c ${-c} ${d} ${-(b + c)} ${d} ${-(a + b + c)} ${d}`,
+    `L ${p} ${height}`,
+    `c ${-a} 0 ${-(a + b)} 0 ${-(a + b + c)} ${-d}`,
+    `a ${r} ${r} 0 0 1 ${-arc} ${-arc}`,
+    `c ${-d} ${-c} ${-d} ${-(b + c)} ${-d} ${-(a + b + c)}`,
+    `L 0 ${p}`,
+    `c 0 ${-a} 0 ${-(a + b)} ${d} ${-(a + b + c)}`,
+    `a ${r} ${r} 0 0 1 ${arc} ${-arc}`,
+    `c ${c} ${-d} ${b + c} ${-d} ${a + b + c} ${-d}`,
+    "Z",
+  ].join(" "));
+}
+
 // Film grain, then ordered (Bayer 4 × 4) dither down to a few levels per channel.
 function grainAndDither(ctx) {
   const image = ctx.getImageData(0, 0, PW, PH);
@@ -168,9 +207,7 @@ async function draw() {
   grainAndDither(ctx);
   if (RADIUS > 0) {
     ctx.globalCompositeOperation = "destination-in";
-    ctx.beginPath();
-    ctx.roundRect(0, 0, PW, PH, RADIUS * SCALE);
-    ctx.fill();
+    ctx.fill(squircle(PW, PH, RADIUS * SCALE, SMOOTHING));
   }
   document.body.dataset.ready = "1";
 }
