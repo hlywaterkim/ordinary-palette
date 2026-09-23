@@ -1,10 +1,12 @@
 export {
   blackOpacity,
   blue,
+  brown,
   lightBlue,
   colors,
   coolGray,
   darkBlue,
+  darkBrown,
   darkLightBlue,
   darkColors,
   darkCoolGray,
