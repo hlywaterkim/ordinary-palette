@@ -160,9 +160,7 @@ export function swatchFiles(): Record<string, string> {
     "docs/palette-dark.svg": paletteGrid(darkColors, darkColors["cool-gray"][50], "다크 스케일"),
     "docs/color-vision.svg": visionStrip(),
     "docs/curve-light-lightness.svg": curveChart(colors, "l", false),
-    "docs/curve-light-chroma.svg": curveChart(colors, "c", false),
     "docs/curve-dark-lightness.svg": curveChart(darkColors, "l", true),
-    "docs/curve-dark-chroma.svg": curveChart(darkColors, "c", true),
   };
   for (const family of families) files[`docs/families/${family}.svg`] = familyStrip(family);
   return files;
