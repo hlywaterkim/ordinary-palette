@@ -24,6 +24,9 @@ const W = 1280;
 const H = 640;
 const SCALE = 2;
 const FRAME = 2560;            // width of the Figma frame the SVGs were drawn for
+// Optical centering, in Figma frame pixels. The heavy O and P on the left and the short "Palette." line leave the
+// logo's ink 45 px left of its box center, so the box moves right by about half of that.
+const LOGO_NUDGE_X = 23;
 const BLOOM = { blur: 44, alpha: 0.55 };
 // Each pass takes pixels brighter than the threshold, tints and blurs them, keeps only the part that spills
 // outside the bright shape, and blends that ring back on.
@@ -140,11 +143,12 @@ async function draw() {
   canvas.height = PH;
   const ctx = canvas.getContext("2d", { willReadFrequently: true });
   ctx.drawImage(bg, 0, 0, PW, PH);
-  // Logo at its Figma size, centered both ways.
+  // Logo at its Figma size, centered both ways, then nudged right for optical balance.
   const logoWidth = (logo.naturalWidth / FRAME) * PW;
   const logoHeight = logoWidth * (logo.naturalHeight / logo.naturalWidth);
   const logoLayer = layer();
-  logoLayer.ctx.drawImage(logo, (PW - logoWidth) / 2, (PH - logoHeight) / 2, logoWidth, logoHeight);
+  const nudge = (LOGO_NUDGE_X / FRAME) * PW;
+  logoLayer.ctx.drawImage(logo, (PW - logoWidth) / 2 + nudge, (PH - logoHeight) / 2, logoWidth, logoHeight);
   ctx.drawImage(logoLayer.canvas, 0, 0);
 
   const sources = { scene: layer(canvas).canvas, logo: logoLayer.canvas };
