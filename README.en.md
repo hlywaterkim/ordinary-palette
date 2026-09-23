@@ -1,6 +1,6 @@
 <div align="center">
 
-![Ordinary Palette](docs/cover.svg)
+![ORDINARY COLOR](docs/cover.jpg)
 
 **The most ordinary, perfect palette you can use anywhere**
 

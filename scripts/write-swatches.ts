@@ -55,37 +55,6 @@ function paletteGrid(scales: Record<string, Scale>, background: string, label: s
   return svg(width, height, `${parts.join("\n")}\n`, background);
 }
 
-/** README cover: the wordmark beside a step × family grid, so each row reads as one lightness. */
-function cover(): string {
-  const width = 1280;
-  const height = 640;
-  const chip = 36;
-  const pitch = 42;
-  const gridWidth = families.length * pitch - (pitch - chip);
-  const gridHeight = steps.length * pitch - (pitch - chip);
-  const gridLeft = width - 88 - gridWidth;
-  const gridTop = (height - gridHeight) / 2;
-  const title = colors["cool-gray"][900];
-  const muted = colors["cool-gray"][600];
-  const parts = [
-    `<text x="88" y="276" font-family="${FONT}" font-size="80" font-weight="800" letter-spacing="-1" fill="${title}">ORDINARY</text>`,
-    `<text x="88" y="364" font-family="${FONT}" font-size="80" font-weight="800" letter-spacing="-1" fill="${title}">PALETTE</text>`,
-    `<text x="90" y="420" font-family="${FONT}" font-size="24" font-weight="500" fill="${muted}">${families.length} families × ${steps.length} steps, light and dark</text>`,
-  ];
-  steps.forEach((step, row) => {
-    const y = gridTop + row * pitch;
-    parts.push(
-      `<text x="${gridLeft - 14}" y="${y + chip / 2 + 4}" text-anchor="end" font-family="${MONO}" font-size="12" fill="${muted}">${step}</text>`,
-    );
-    families.forEach((family, column) => {
-      parts.push(
-        `<rect x="${gridLeft + column * pitch}" y="${y}" width="${chip}" height="${chip}" rx="8" fill="${colors[family][step]}"/>`,
-      );
-    });
-  });
-  return svg(width, height, `${parts.join("\n")}\n`, "#ffffff");
-}
-
 function familyStrip(family: (typeof families)[number]): string {
   const cell = 28;
   const height = 22;
@@ -187,7 +156,6 @@ function curveChart(scales: Record<string, Scale>, metric: Metric, dark: boolean
 /** Every README swatch file, keyed by path relative to the repository root. */
 export function swatchFiles(): Record<string, string> {
   const files: Record<string, string> = {
-    "docs/cover.svg": cover(),
     "docs/palette-light.svg": paletteGrid(colors, "#ffffff", "라이트 스케일"),
     "docs/palette-dark.svg": paletteGrid(darkColors, darkColors["cool-gray"][50], "다크 스케일"),
     "docs/color-vision.svg": visionStrip(),

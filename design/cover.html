@@ -1,0 +1,79 @@
+<!doctype html>
+<!--
+  ORDINARY series cover. Sunlight through leaves on a flat surface, with film grain and one line of type.
+  Render the .cover element at 1280 × 640 with device scale 2 and save it as docs/cover.jpg (JPEG quality 90).
+  For another title in the series, change the text and the four colors below. Colors come from the palette.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ORDINARY cover</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@800&display=block" rel="stylesheet">
+<style>
+  :root {
+    --light: #c8daa7;   /* light-green 200: sunlit surface */
+    --shadow: #325600;  /* light-green 800: leaf shadow */
+    --deep: #234200;    /* light-green 900: canopy shadow */
+    --type: #f0f5e9;    /* light-green 50: title */
+  }
+  html, body { margin: 0; background: var(--light); }
+  .cover { position: relative; width: 1280px; height: 640px; overflow: hidden; background: var(--light); }
+  .cover svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .title {
+    position: absolute; inset: 0; display: grid; place-items: center; margin: 0;
+    font-family: "Plus Jakarta Sans", sans-serif; font-weight: 800; font-size: 120px;
+    letter-spacing: -0.03em; line-height: 1; color: var(--type); white-space: nowrap;
+    text-shadow: 0 0 48px rgb(35 66 0 / 0.3);
+  }
+  .grain { mix-blend-mode: overlay; opacity: 0.7; }
+</style>
+</head>
+<body>
+<div class="cover">
+  <svg viewBox="0 0 1280 640" preserveAspectRatio="none" aria-hidden="true">
+    <defs>
+      <!-- Small leaf shadows: noise cut into shapes with soft edges. -->
+      <filter id="leaves" x="0" y="0" width="100%" height="100%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.0085 0.015" numOctaves="5" seed="7"/>
+        <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1 0 0 0 0"/>
+        <feComponentTransfer><feFuncA type="linear" slope="6" intercept="-2.55"/></feComponentTransfer>
+        <feGaussianBlur stdDeviation="3.2"/>
+        <feComposite in="SourceGraphic" operator="in"/>
+      </filter>
+      <!-- Broad soft shadows of branches further away. -->
+      <filter id="broad" x="0" y="0" width="100%" height="100%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.0022 0.0085" numOctaves="2" seed="4"/>
+        <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1 0 0 0 0"/>
+        <feComponentTransfer><feFuncA type="linear" slope="6" intercept="-2.75"/></feComponentTransfer>
+        <feGaussianBlur stdDeviation="22"/>
+        <feComposite in="SourceGraphic" operator="in"/>
+      </filter>
+      <linearGradient id="fade" x1="0" y1="0" x2="0.2" y2="1">
+        <stop offset="0" stop-color="#fff"/>
+        <stop offset="0.62" stop-color="#fff" stop-opacity="0.85"/>
+        <stop offset="0.9" stop-color="#fff" stop-opacity="0"/>
+      </linearGradient>
+      <mask id="upper"><rect width="1280" height="640" fill="url(#fade)"/></mask>
+      <linearGradient id="canopy" x1="0" y1="0" x2="0.15" y2="1">
+        <stop offset="0" stop-color="var(--deep)" stop-opacity="0.9"/>
+        <stop offset="0.35" stop-color="var(--deep)" stop-opacity="0.4"/>
+        <stop offset="0.6" stop-color="var(--deep)" stop-opacity="0"/>
+      </linearGradient>
+      <filter id="grain" x="0" y="0" width="100%" height="100%">
+        <feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="2" seed="11" stitchTiles="stitch"/>
+        <feColorMatrix type="saturate" values="0"/>
+      </filter>
+    </defs>
+    <rect width="1280" height="640" fill="var(--shadow)" filter="url(#broad)" opacity="0.7"/>
+    <rect width="1280" height="640" fill="var(--shadow)" filter="url(#leaves)" mask="url(#upper)" opacity="0.92"/>
+    <rect width="1280" height="640" fill="url(#canopy)"/>
+  </svg>
+  <p class="title">ORDINARY COLOR</p>
+  <svg class="grain" viewBox="0 0 1280 640" preserveAspectRatio="none" aria-hidden="true">
+    <rect width="1280" height="640" filter="url(#grain)"/>
+  </svg>
+</div>
+</body>
+</html>
