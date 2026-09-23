@@ -69,9 +69,9 @@ export function usageTables(): string {
 }
 
 type Family = (typeof families)[number];
-type Vision = "protan" | "deutan" | "tritan";
+export type Vision = "protan" | "deutan" | "tritan";
 
-const VISION_LABEL: Record<Vision, string> = {
+export const VISION_LABEL: Record<Vision, string> = {
   protan: "적색약 (protan)",
   deutan: "녹색약 (deutan)",
   tritan: "청색약 (tritan)",
@@ -107,6 +107,14 @@ function seen(hex: string, vision?: Vision): number[] {
   if (!vision) return rgb;
   const m = VISION_MATRIX[vision];
   return [0, 1, 2].map((row) => Math.min(1, Math.max(0, m[row * 3] * rgb[0] + m[row * 3 + 1] * rgb[1] + m[row * 3 + 2] * rgb[2])));
+}
+
+/** The hex a viewer with the given vision sees for a color. */
+export function simulate(hex: string, vision: Vision): string {
+  const encode = (value: number) => (value <= 0.0031308 ? 12.92 * value : 1.055 * value ** (1 / 2.4) - 0.055);
+  return `#${seen(hex, vision)
+    .map((value) => Math.round(encode(value) * 255).toString(16).padStart(2, "0"))
+    .join("")}`;
 }
 
 /** OKLab distance between two colors as a viewer with the given vision sees them. */

@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="200" viewBox="0 0 800 200">
+<rect width="800" height="200" rx="12" fill="#ffffff"/>
+<text x="16" y="34" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="12" font-weight="600" fill="#1c2023">정상 시각</text>
+<rect x="124" y="12" width="56" height="36" rx="6" fill="#e7388d"/>
+<rect x="184" y="12" width="56" height="36" rx="6" fill="#ee3828"/>
+<rect x="244" y="12" width="56" height="36" rx="6" fill="#f87500"/>
+<rect x="304" y="12" width="56" height="36" rx="6" fill="#feb700"/>
+<rect x="364" y="12" width="56" height="36" rx="6" fill="#88b700"/>
+<rect x="424" y="12" width="56" height="36" rx="6" fill="#26a95e"/>
+<rect x="484" y="12" width="56" height="36" rx="6" fill="#00bcbc"/>
+<rect x="544" y="12" width="56" height="36" rx="6" fill="#00abee"/>
+<rect x="604" y="12" width="56" height="36" rx="6" fill="#2b84ff"/>
+<rect x="664" y="12" width="56" height="36" rx="6" fill="#8163f1"/>
+<rect x="724" y="12" width="56" height="36" rx="6" fill="#985f34"/>
+<text x="16" y="74" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="12" font-weight="600" fill="#1c2023">적색약 (protan)</text>
+<rect x="124" y="52" width="56" height="36" rx="6" fill="#5d6c8f"/>
+<rect x="184" y="52" width="56" height="36" rx="6" fill="#726523"/>
+<rect x="244" y="52" width="56" height="36" rx="6" fill="#9c8800"/>
+<rect x="304" y="52" width="56" height="36" rx="6" fill="#d3b900"/>
+<rect x="364" y="52" width="56" height="36" rx="6" fill="#c1aa00"/>
+<rect x="424" y="52" width="56" height="36" rx="6" fill="#a99a58"/>
+<rect x="484" y="52" width="56" height="36" rx="6" fill="#afb2bc"/>
+<rect x="544" y="52" width="56" height="36" rx="6" fill="#8aabf1"/>
+<rect x="604" y="52" width="56" height="36" rx="6" fill="#3a91ff"/>
+<rect x="664" y="52" width="56" height="36" rx="6" fill="#007ff6"/>
+<rect x="724" y="52" width="56" height="36" rx="6" fill="#706530"/>
+<text x="16" y="114" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="12" font-weight="600" fill="#1c2023">녹색약 (deutan)</text>
+<rect x="124" y="92" width="56" height="36" rx="6" fill="#8d8c89"/>
+<rect x="184" y="92" width="56" height="36" rx="6" fill="#9e8d1d"/>
+<rect x="244" y="92" width="56" height="36" rx="6" fill="#bba600"/>
+<rect x="304" y="92" width="56" height="36" rx="6" fill="#e3cb17"/>
+<rect x="364" y="92" width="56" height="36" rx="6" fill="#bba724"/>
+<rect x="424" y="92" width="56" height="36" rx="6" fill="#9a9063"/>
+<rect x="484" y="92" width="56" height="36" rx="6" fill="#99a2bd"/>
+<rect x="544" y="92" width="56" height="36" rx="6" fill="#6e98ed"/>
+<rect x="604" y="92" width="56" height="36" rx="6" fill="#007efd"/>
+<rect x="664" y="92" width="56" height="36" rx="6" fill="#0078ee"/>
+<rect x="724" y="92" width="56" height="36" rx="6" fill="#7d7134"/>
+<text x="16" y="154" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="12" font-weight="600" fill="#1c2023">청색약 (tritan)</text>
+<rect x="124" y="132" width="56" height="36" rx="6" fill="#fa1f5e"/>
+<rect x="184" y="132" width="56" height="36" rx="6" fill="#ff0037"/>
+<rect x="244" y="132" width="56" height="36" rx="6" fill="#ff5664"/>
+<rect x="304" y="132" width="56" height="36" rx="6" fill="#ffa29c"/>
+<rect x="364" y="132" width="56" height="36" rx="6" fill="#8fae9b"/>
+<rect x="424" y="132" width="56" height="36" rx="6" fill="#00a797"/>
+<rect x="484" y="132" width="56" height="36" rx="6" fill="#00c2bc"/>
+<rect x="544" y="132" width="56" height="36" rx="6" fill="#00bcc2"/>
+<rect x="604" y="132" width="56" height="36" rx="6" fill="#00a2b5"/>
+<rect x="664" y="132" width="56" height="36" rx="6" fill="#5d83a1"/>
+<rect x="724" y="132" width="56" height="36" rx="6" fill="#a65355"/>
+<text x="152" y="186" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" fill="#1c2023" opacity="0.7">pink</text>
+<text x="212" y="186" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" fill="#1c2023" opacity="0.7">red</text>
+<text x="272" y="186" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" fill="#1c2023" opacity="0.7">orange</text>
+<text x="332" y="186" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" fill="#1c2023" opacity="0.7">yellow</text>
+<text x="392" y="186" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" fill="#1c2023" opacity="0.7">light-green</text>
+<text x="452" y="186" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" fill="#1c2023" opacity="0.7">green</text>
+<text x="512" y="186" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" fill="#1c2023" opacity="0.7">cyan</text>
+<text x="572" y="186" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" fill="#1c2023" opacity="0.7">light-blue</text>
+<text x="632" y="186" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" fill="#1c2023" opacity="0.7">blue</text>
+<text x="692" y="186" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" fill="#1c2023" opacity="0.7">purple</text>
+<text x="752" y="186" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" fill="#1c2023" opacity="0.7">brown</text>
+</svg>
