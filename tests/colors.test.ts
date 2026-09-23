@@ -344,6 +344,17 @@ test("light-green and cyan sit between their neighbours", () => {
   }
 });
 
+test("500 reads as the main step: 600 never out-saturates it", () => {
+  const chromatic = families.filter((family) => family !== "cool-gray" && family !== "neutral-gray");
+  for (const family of chromatic) {
+    for (const [label, scale] of [["light", colors[family]], ["dark", darkColors[family]]] as const) {
+      const main = oklch(scale[500]).c;
+      const next = oklch(scale[600]).c;
+      assert.ok(next <= main, `${label} ${family} 600 chroma ${next.toFixed(3)} exceeds 500 ${main.toFixed(3)}`);
+    }
+  }
+});
+
 test("dark step 50 is a tinted dark surface", () => {
   for (const family of families) {
     const { l, c } = oklch(darkColors[family][50]);
