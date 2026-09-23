@@ -5,7 +5,7 @@ import { test } from "node:test";
 import {
   blackOpacity,
   blue,
-  cloudyBlue,
+  lightBlue,
   colors,
   coolGray,
   darkColors,
@@ -70,7 +70,7 @@ test("color families use steps 50–900 and no 950", () => {
     "lime",
     "green",
     "teal",
-    "cloudy-blue",
+    "light-blue",
     "blue",
     "purple",
     "cool-gray",
@@ -300,6 +300,23 @@ test("blue, red, and orange reach the reference peak chroma", () => {
   }
 });
 
+test("light-blue is a sky blue between teal and blue", () => {
+  for (const step of [300, 400, 500, 600, 700, 800, 900] as const) {
+    const sky = oklch(lightBlue[step]);
+    const deep = oklch(blue[step]);
+    assert.ok(sky.l > deep.l + 1.5, `light-blue ${step} L ${sky.l} should stay lighter than blue ${deep.l}`);
+    assert.ok(sky.h > oklch(colors.teal[step]).h + 40 && sky.h < deep.h - 12, `light-blue ${step} hue ${sky.h} is not sky`);
+  }
+});
+
+test("yellow carries strong chroma throughout", () => {
+  const chroma = steps.map((step) => oklch(yellow[step]).c);
+  assert.ok(Math.max(...chroma) >= 0.155, `yellow peak chroma ${Math.max(...chroma)} is too soft`);
+  assert.ok(chroma[0] >= 0.025, `yellow 50 chroma ${chroma[0]} reads as off-white`);
+  assert.ok(chroma[2] >= 0.09, `yellow 200 chroma ${chroma[2]} reads as beige`);
+  assert.ok(chroma[9] >= 0.12, `yellow 900 chroma ${chroma[9]} reads as brown`);
+});
+
 test("dark step 50 is a tinted dark surface", () => {
   for (const family of families) {
     const { l, c } = oklch(darkColors[family][50]);
@@ -331,8 +348,8 @@ test("colors.json and colors.css match the palette", () => {
   assert.equal(css.includes("--color-indigo-"), false);
   assert.ok(css.includes(`--color-blue-500: ${blue[500]};`));
   assert.ok(css.includes(`--color-dark-blue-500: ${darkColors.blue[500]};`));
-  assert.ok(css.includes(`--color-cloudy-blue-500: ${cloudyBlue[500]};`));
-  assert.ok(css.includes(`--color-dark-cloudy-blue-500: ${darkColors["cloudy-blue"][500]};`));
+  assert.ok(css.includes(`--color-light-blue-500: ${lightBlue[500]};`));
+  assert.ok(css.includes(`--color-dark-light-blue-500: ${darkColors["light-blue"][500]};`));
   assert.ok(css.includes(`--color-white-opacity-40: ${whiteOpacity["40"]};`));
   assert.ok(css.includes(`--color-cool-gray-500: ${coolGray[500]};`));
   assert.ok(css.includes(`--color-neutral-gray-500: ${neutralGray[500]};`));

@@ -8,7 +8,7 @@ GitHub: https://github.com/hlywaterkim/ordinary-palette
 
 패키지 `ordinary-palette` 0.2.0, MIT. `prepublishOnly`가 `npm test`(빌드 포함)를 돌린다. 라이트·다크 스케일과 white/black opacity가 있다. 최신 곡선은 `main`에 푸시되어 있다. npm에는 아직 배포하지 않았다.
 
-가족: pink, red, orange, yellow, lime, green, teal, cloudy-blue, blue, purple, cool-gray, neutral-gray.
+가족: pink, red, orange, yellow, lime, green, teal, light-blue, blue, purple, cool-gray, neutral-gray. (light-blue는 예전 cloudy-blue를 바꾼 것)
 
 스텝: 50, 100, 200, 300, 400, 500, 600, 700, 800, 900.
 
@@ -18,9 +18,10 @@ GitHub: https://github.com/hlywaterkim/ordinary-palette
 2. 명도는 50이 가장 밝고 900이 가장 어둡다. 큰 하락은 500 전이고, 500 이후 간격은 더 좁다. 그래도 600–900이 뭉치지 않게 스텝마다 3.4 L 이상, 500→900은 15.5 L 이상 벌린다.
 3. 50–200은 유색 가족끼리 명도를 맞춘다. 회색은 따로 더 밝게 시작한다(50은 L 97.5 이상, L 93 이상 3스텝). 표면과 테두리용이다. 400부터는 가족마다 명도가 달라도 된다. 노랑 900은 파랑 900보다 밝고, hue는 노랑 50과 15° 안이다.
 4. 채도는 50에서 낮고, 400–600에서 가장 높고, 900에서 조금 내려간다. 무너뜨리지 않는다. 900 채도는 400–600 최고값의 62% 이상이다. blue·red·orange의 최고 채도는 SEED·Toss·Montage 같은 hue의 최저값 이상이다(0.198, 0.219, 0.176). 그래야 짙은 스텝이 갈색으로 모이지 않고 가족 색이 남는다.
-5. neutral-gray는 채도 0이고, 같은 스케일의 cool-gray 명도를 따른다.
-6. 다크는 방향이 반대다. 다크 50은 어두운 틴트 배경(L 33 이하), 다크 900은 밝은 틴트(L 90 이상)로, 스텝의 역할이 두 모드에서 같다. SEED·Toss와 같은 방식이다. 다크 50–200은 가족끼리 명도를 맞춘다. 다크 500은 라이트 500과 명도 4 안이다. 다크 최고 채도 / 라이트 최고 채도는 0.9 이상이다. 라이트 hex를 재사용하지 않는다. 가멋 밖이면 채도만 낮춘다.
-7. 공개 API는 `colors`, 가족 export, `colors.json`, `--color-<family>-<step>`, `--color-dark-<family>-<step>`이다.
+5. light-blue는 teal과 blue 사이의 하늘색(hue 232–242)이고, 300부터 blue보다 밝다. yellow는 다른 따뜻한 가족보다 채도가 높다(최고 0.155 이상, 200은 0.09 이상, 900은 0.12 이상). 옅은 스텝이 베이지로 보이지 않게 한다.
+6. neutral-gray는 채도 0이고, 같은 스케일의 cool-gray 명도를 따른다.
+7. 다크는 방향이 반대다. 다크 50은 어두운 틴트 배경(L 33 이하), 다크 900은 밝은 틴트(L 90 이상)로, 스텝의 역할이 두 모드에서 같다. SEED·Toss와 같은 방식이다. 다크 50–200은 가족끼리 명도를 맞춘다. 다크 500은 라이트 500과 명도 4 안이다. 다크 최고 채도 / 라이트 최고 채도는 0.9 이상이다. 라이트 hex를 재사용하지 않는다. 가멋 밖이면 채도만 낮춘다.
+8. 공개 API는 `colors`, 가족 export, `colors.json`, `--color-<family>-<step>`, `--color-dark-<family>-<step>`이다.
 
 숫자와 오프셋의 기준은 `src/palette.ts`와 `tests/colors.test.ts`다. 이 문서에 적은 hex는 오래될 수 있으니 테스트가 우선이다.
 
