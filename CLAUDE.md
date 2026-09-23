@@ -6,7 +6,7 @@ GitHub: https://github.com/hlywaterkim/ordinary-palette
 
 ## 지금 상태
 
-패키지 `ordinary-palette` 0.1.0, MIT. 라이트·다크 스케일과 white/black opacity가 있다. 최신 곡선은 `main`에 푸시되어 있다. npm에는 아직 배포하지 않았다.
+패키지 `ordinary-palette` 0.2.0, MIT. `prepublishOnly`가 `npm test`(빌드 포함)를 돌린다. 라이트·다크 스케일과 white/black opacity가 있다. 최신 곡선은 `main`에 푸시되어 있다. npm에는 아직 배포하지 않았다.
 
 가족: pink, red, orange, yellow, lime, green, teal, cloudy-blue, blue, purple, cool-gray, neutral-gray.
 
@@ -39,5 +39,5 @@ GitHub: https://github.com/hlywaterkim/ordinary-palette
 아래는 시작하지 않는다. 사용자가 고르면 그 항목만 한다.
 
 1. npm 배포. 버전을 올리고 `npm test` 후, 배포 허락이 있으면 publish한다.
-2. 미리보기에 400·500을 버튼과 배경으로 쓰는 예시 한 블록.
+2. ~~미리보기에 400·500을 버튼과 배경으로 쓰는 예시 한 블록.~~ 완료(`400 and 500 in use`).
 3. 본문 후보(900 on 50, 50 on 900)의 대비를 재고, 실패 스텝만 보고한다. 팔레트를 임의로 바꾸지 않는다.

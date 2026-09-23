@@ -1,6 +1,6 @@
 {
   "name": "ordinary-palette",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A natural open-source color palette.",
   "license": "MIT",
   "type": "module",
@@ -27,6 +27,7 @@
     "build": "tsc -p tsconfig.json && node --experimental-strip-types scripts/write-assets.ts",
     "pretest": "npm run build",
     "test": "node --experimental-strip-types --test tests/colors.test.ts",
+    "prepublishOnly": "npm test",
     "preview": "vite --config examples/preview/vite.config.ts --host 0.0.0.0 --port 43123 --strictPort"
   },
   "devDependencies": {

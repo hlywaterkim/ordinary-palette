@@ -58,8 +58,16 @@ function luminance(hex: string): number {
   );
 }
 
+function contrast(a: string, b: string): number {
+  const [light, dark] = [luminance(a), luminance(b)].sort((x, y) => y - x);
+  return (light + 0.05) / (dark + 0.05);
+}
+
+// Pick whichever ink contrasts more with the fill.
 function ink(hex: string): string {
-  return luminance(hex) > 0.42 ? "#241c16" : "#f7f4ef";
+  const dark = "#241c16";
+  const light = "#f7f4ef";
+  return contrast(hex, dark) >= contrast(hex, light) ? dark : light;
 }
 
 function needsHairline(hex: string): boolean {
@@ -217,6 +225,57 @@ for (const [name, scale, tone] of opacityRows) {
   section.append(heading, row);
   familyList.append(section);
 }
+
+const chromaticFamilies = families.filter((family) => family !== "cool-gray" && family !== "neutral-gray");
+
+function renderInUse(title: string, scale: Record<string, Record<number, string>>, prefix: string, extraClass: string): HTMLElement {
+  const panel = document.createElement("section");
+  panel.className = `in-use ${extraClass}`;
+  const heading = document.createElement("h3");
+  heading.textContent = title;
+  const grid = document.createElement("div");
+  grid.className = "in-use-grid";
+
+  for (const family of chromaticFamilies) {
+    const card = document.createElement("div");
+    card.className = "in-use-card";
+    card.style.background = `var(--color-${prefix}${family}-400)`;
+    card.style.color = ink(scale[family][400]);
+
+    const label = document.createElement("span");
+    label.className = "in-use-label";
+    label.textContent = `${family} 400 background`;
+
+    const action = document.createElement("button");
+    action.type = "button";
+    action.className = "in-use-button";
+    action.style.background = `var(--color-${prefix}${family}-500)`;
+    action.style.color = ink(scale[family][500]);
+    action.textContent = "500 button";
+
+    card.append(label, action);
+    grid.append(card);
+  }
+
+  panel.append(heading, grid);
+  return panel;
+}
+
+const inUse = document.createElement("section");
+inUse.className = "usage";
+const inUseTitle = document.createElement("h2");
+inUseTitle.textContent = "400 and 500 in use";
+const inUseNote = document.createElement("p");
+inUseNote.className = "in-use-note";
+inUseNote.textContent =
+  "Each card is a 400 background with a 500 button. Text takes whichever of the dark or light ink contrasts more. The dark panel uses the dark scale on dark neutral-gray 50.";
+inUse.append(
+  inUseTitle,
+  inUseNote,
+  renderInUse("Light", colors, "", "in-use-light"),
+  renderInUse("Dark", darkColors, "dark-", "in-use-dark"),
+);
+page.append(inUse);
 
 const usage = document.createElement("section");
 usage.className = "usage";
