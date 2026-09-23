@@ -338,7 +338,7 @@ test("light-green and cyan sit between their neighbours", () => {
     const leaf = oklch(colors["light-green"][step]);
     const green = oklch(colors.green[step]);
     const cyan = oklch(colors.cyan[step]);
-    assert.ok(leaf.h > oklch(yellow[step]).h + 40 && leaf.h < green.h - 12, `light-green ${step} hue ${leaf.h} is not a leaf green`);
+    assert.ok(leaf.h > oklch(yellow[step]).h + 32 && leaf.h < green.h - 20, `light-green ${step} hue ${leaf.h} is not a leaf green`);
     assert.ok(leaf.l > green.l + 1.5, `light-green ${step} L ${leaf.l} should stay lighter than green ${green.l}`);
     assert.ok(cyan.h > green.h + 35 && cyan.h < oklch(lightBlue[step]).h - 15, `cyan ${step} hue ${cyan.h} is not cyan`);
   }

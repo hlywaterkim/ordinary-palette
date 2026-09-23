@@ -51,22 +51,22 @@ palette.dark.blue["500"];
 
 | Family | Light 500 | Dark 500 |
 | --- | --- | --- |
-| pink | `#e34a6a` | `#e74d6d` |
-| red | `#ee3828` | `#f23c2b` |
-| orange | `#f9732f` | `#fd7632` |
-| yellow | `#fcb81e` | `#f5ac06` |
-| light-green | `#72bb41` | `#75be45` |
-| green | `#3ca764` | `#40aa67` |
-| cyan | `#00a5b5` | `#00a8b9` |
-| light-blue | `#04abee` | `#11aef1` |
-| blue | `#2c84fe` | `#3388ff` |
-| purple | `#6c6feb` | `#6f72ee` |
+| pink | `#ec3b66` | `#f03f69` |
+| red | `#f81b0c` | `#fc2213` |
+| orange | `#f87500` | `#fc780b` |
+| yellow | `#feb700` | `#f6ac00` |
+| light-green | `#88b700` | `#8bba0d` |
+| green | `#26a95e` | `#2bac61` |
+| cyan | `#00bcbc` | `#00c0c0` |
+| light-blue | `#00abee` | `#07aef2` |
+| blue | `#2b84ff` | `#3388ff` |
+| purple | `#6b6bf7` | `#6e6efb` |
 | cool-gray | `#838a91` | `#797e83` |
 | neutral-gray | `#898989` | `#7d7d7d` |
 
 Steps on every color family, light and dark: 50, 100, 200, 300, 400, 500, 600, 700, 800, 900.
 
-Light yellow matches blue on step 50. From step 100 it is lighter than blue by this OKLCH L offset: 100 +1.9, 200 +5.8, 300 +11.3, 400 +16.4, 500 +19.6, 600 +21.5, 700 +23, 800 +24.1, 900 +24.4.9, 400 +11.3, 500 +14.3, 600 +16.4, 700 +17.9, 800 +18.8, 900 +19.2. Orange and yellow reach Toss TDS chroma from step 500 (orange about 0.182, yellow about 0.165). Pale orange leans toward apricot to carry more chroma. Light-green is a leaf green (hue 132–139) lighter than green, and cyan (hue 202–210) sits between green and light-blue. Light-blue is a sky blue (hue 232–242) that stays lighter than blue from step 300.
+Light yellow matches blue on step 50. From step 100 it is lighter than blue by this OKLCH L offset: 100 +1.9, 200 +5.8, 300 +11.3, 400 +16.4, 500 +19.6, 600 +21.5, 700 +23, 800 +24.1, 900 +24.4.9, 400 +11.3, 500 +14.3, 600 +16.4, 700 +17.9, 800 +18.8, 900 +19.2. Orange sits near #ff7700 at step 500 (hue 50) and reaches Toss TDS chroma, as does yellow. Pale orange leans toward apricot to carry more chroma. Light-green is a yellow-green (hue 124–130) lighter than green. Cyan (hue 195) runs from an aqua like #00ffff to a teal like #008080, and sits lighter than the other families so it can hold its chroma. Light-blue is a sky blue (hue 232–242) that stays lighter than blue from step 300.
 
 Neutral-gray uses chroma 0 at cool-gray's lightness. `#666666` is only an example of that character, not a step in the scale.
 
