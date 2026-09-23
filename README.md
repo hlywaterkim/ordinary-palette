@@ -1,6 +1,6 @@
 <div align="center">
 
-![ORDINARY PALETTE](docs/cover.jpg)
+![Ordinary Palette.](docs/cover.jpg)
 
 **어디서든 쓸 수 있는 가장 평범하고 완벽한 팔레트**
 
