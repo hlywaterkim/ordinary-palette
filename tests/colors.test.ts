@@ -562,3 +562,14 @@ test("visual correction keeps blue and purple from reading lighter than their st
     assert.ok(oklch(darkColors[family][400]).c <= 0.156, `dark ${family} 400 reads lighter than its step`);
   }
 });
+
+test("600 is the one text and white-text step in every family but yellow", () => {
+  const white = "#ffffff";
+  const ink = darkColors["cool-gray"][50];
+  for (const family of families.filter((name) => !["yellow", "cool-gray", "neutral-gray"].includes(name))) {
+    const onWhite = contrast(colors[family][600], white);
+    assert.ok(onWhite >= 4.5, `${family} 600 on white is only ${onWhite.toFixed(2)}:1`);
+    const darkInk = contrast(ink, darkColors[family][500]);
+    assert.ok(darkInk >= 4.5, `dark ${family} 500 with dark text is only ${darkInk.toFixed(2)}:1`);
+  }
+});

@@ -82,8 +82,8 @@ palette.dark.blue["500"];
 | 가족 | 50 → 900 | 라이트 500 | 다크 500 |
 | --- | --- | --- | --- |
 | pink | ![pink 50–900](docs/families/pink.svg) | `#e7388d` | `#eb3c90` |
-| red | ![red 50–900](docs/families/red.svg) | `#ee3828` | `#f23c2c` |
-| orange | ![orange 50–900](docs/families/orange.svg) | `#ee5d00` | `#f2600a` |
+| red | ![red 50–900](docs/families/red.svg) | `#ee3635` | `#f33c39` |
+| orange | ![orange 50–900](docs/families/orange.svg) | `#ec5f00` | `#f0620a` |
 | yellow | ![yellow 50–900](docs/families/yellow.svg) | `#feb700` | `#f2ae00` |
 | light-green | ![light-green 50–900](docs/families/light-green.svg) | `#739c00` | `#769f00` |
 | green | ![green 50–900](docs/families/green.svg) | `#21a65b` | `#26a95e` |
@@ -131,9 +131,9 @@ palette.dark.blue["500"];
 | red | 600 | 600 | 어두운 글자 4.1:1 | 700 | 500 |
 | orange | 600 | 600 | 어두운 글자 4.8:1 | 700 | 500 |
 | yellow | 900 | 900 | 어두운 글자 9.4:1 | 900 | 800 |
-| light-green | 700 | 700 | 어두운 글자 5.1:1 | 700 | 500 |
-| green | 700 | 700 | 어두운 글자 5.2:1 | 700 | 500 |
-| cyan | 700 | 700 | 어두운 글자 5.1:1 | 700 | 500 |
+| light-green | 600 | 600 | 어두운 글자 5.1:1 | 700 | 500 |
+| green | 600 | 600 | 어두운 글자 5.2:1 | 700 | 500 |
+| cyan | 600 | 600 | 어두운 글자 5.1:1 | 700 | 500 |
 | light-blue | 600 | 600 | 어두운 글자 5.0:1 | 700 | 500 |
 | blue | 600 | 600 | 어두운 글자 4.6:1 | 700 | 500 |
 | purple | 600 | 600 | 어두운 글자 4.1:1 | 700 | 500 |
@@ -144,7 +144,7 @@ palette.dark.blue["500"];
 | 가족 | 다크 50 위 글자 | 500 채움색에 맞는 글자 | 다크 100 틴트 위 뱃지 글자 |
 | --- | --- | --- | --- |
 | pink | 500 | 어두운 글자 4.6:1 | 700 |
-| red | 600 | 어두운 글자 4.5:1 | 700 |
+| red | 500 | 어두운 글자 4.6:1 | 700 |
 | orange | 500 | 어두운 글자 5.3:1 | 600 |
 | yellow | 400 | 어두운 글자 8.9:1 | 500 |
 | light-green | 500 | 어두운 글자 5.6:1 | 600 |
@@ -180,8 +180,8 @@ palette.dark.blue["500"];
 | 가족 | 500 아이콘 | 600 아이콘 |
 | --- | --- | --- |
 | orange | ❌ 500 3.4:1 | ✅ 600 4.6:1 |
-| light-green | ❌ 500 3.2:1 | ✅ 600 4.4:1 |
-| cyan | ❌ 500 3.2:1 | ✅ 600 4.4:1 |
+| light-green | ❌ 500 3.2:1 | ✅ 600 4.7:1 |
+| cyan | ❌ 500 3.2:1 | ✅ 600 4.7:1 |
 | light-blue | ❌ 500 3.3:1 | ✅ 600 4.6:1 |
 
 **4. yellow를 글자로 쓸 때는 900만 씁니다.**
@@ -236,7 +236,7 @@ palette.dark.blue["500"];
 | 보조 글자 | cool-gray 600 `#61686f` (5.3:1) | dark cool-gray 700 `#bec1c5` (8.3:1) |
 | 입력창 테두리 | cool-gray 500 `#838a91` (3.3:1) | dark cool-gray 500 `#797e83` (3.7:1) |
 | 링크 | blue 700 `#0056bd` (6.4:1) | dark blue 700 `#8cbfff` (7.9:1) |
-| 오류 문구 | red 600 `#d20b1b` (5.2:1) | dark red 700 `#ff9b91` (7.4:1) |
+| 오류 문구 | red 600 `#d20b1b` (5.2:1) | dark red 700 `#ff9c92` (7.5:1) |
 | 기본 버튼 | blue 600 + 흰 글자 (5.0:1) | dark blue 500 + 어두운 글자 (5.0:1) |
 | 성공 뱃지 | green 100 + green 800 (6.9:1) | dark green 100 + dark green 700 (6.4:1) |
 | 경고 배너 | yellow 100 + yellow 900 (4.6:1) | dark yellow 100 + dark yellow 700 (7.9:1) |
