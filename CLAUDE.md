@@ -32,6 +32,7 @@ GitHub: https://github.com/hlywaterkim/ordinary-palette
 - `scripts/write-assets.ts` — CSS, JSON 생성
 - `examples/preview` — 미리보기. 배경은 흰색. 거의 흰 무채색 칩만 옅은 회색 테두리
 - `README.md` — 가족, 스텝, 곡선이 바뀌면 같이 고친다
+- `scripts/write-swatches.ts` — README 색 이미지(`docs/palette-*.svg`, `docs/families/*.svg`, `docs/color-vision.svg`)를 만든다. `npm run build`가 함께 돌린다
 - `scripts/usage-table.ts` — README "스텝 사용 가이드"의 표와 수치(유색 가족, 쓸 때 알아둘 점, 색각 이상 시뮬레이션, 실제 화면 예시)를 만든다. 색이 바뀌면 다시 돌려 README 표를 바꾼다(`npm test`가 어긋나면 실패)
 
 `npm test`는 빌드 후 테스트를 돌린다. 미리보기는 `npm run preview`이고 포트는 43123이다.
