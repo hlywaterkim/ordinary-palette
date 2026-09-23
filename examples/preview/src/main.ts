@@ -168,7 +168,8 @@ function renderScale(title: string, scale: typeof colors, prefix: string): void 
     }
 
     for (const step of steps) {
-      const note = family === "yellow" && prefix === "" ? `(+${yellowLightnessOffset[step]})` : "";
+      const offset = yellowLightnessOffset[step];
+      const note = family === "yellow" && prefix === "" && offset > 0 ? `(+${offset})` : "";
       row.append(
         swatch(
           String(step),

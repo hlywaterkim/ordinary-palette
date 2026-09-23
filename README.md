@@ -1,6 +1,6 @@
 # Ordinary Palette
 
-A natural color palette for ordinary interface work: backgrounds, text, and borders. Twelve families run from step 50 to step 900. On the light scale, every family matches cool-gray's OKLCH lightness at that step. Neutral-gray is that same lightness with chroma 0 and no hue. Yellow is the exception: it is lifted by a documented offset so bright yellow is not heavier than the other families and dark yellow still reads as yellow. The dark scale uses its own lightness targets and wider gaps, and it does not reuse the light hex values. White and black ship as opacity scales. The scale is raw color only: there are no semantic roles such as primary, surface, or text.
+A natural color palette for ordinary interface work: backgrounds, text, and borders. Twelve families run from step 50 to step 900. Lightness falls the whole way: step 50 stays the lightest, the large drop lands before step 500, and the steps after 500 sit closer together. Chroma starts low, is highest around steps 400–600, then eases without collapsing. Steps 50–200 share one lightness. From step 400, yellow stays lighter than blue, and yellow 900 keeps its chroma and hue. Cool-gray still ends at a dark 900. Neutral-gray is cool-gray's lightness at chroma 0. The dark scale repeats that shape, darker than the light scale, and does not reuse the light hex values. White and black ship as opacity scales. The scale is raw color only: there are no semantic roles such as primary, surface, or text.
 
 ## Install
 
@@ -51,26 +51,26 @@ palette.dark.blue["500"];
 
 | Family | Light 500 | Dark 500 |
 | --- | --- | --- |
-| pink | `#fe2867` | `#cf014d` |
-| red | `#ff3626` | `#c90901` |
-| orange | `#ea5b00` | `#cc4e02` |
-| yellow | `#d39900` | `#b78500` |
-| lime | `#939701` | `#7f8302` |
-| green | `#01ab59` | `#01944c` |
-| teal | `#00a87f` | `#01926e` |
-| cloudy-blue | `#538fe6` | `#2357a0` |
-| blue | `#3c8cff` | `#0253b5` |
-| purple | `#787dff` | `#4846b5` |
-| cool-gray | `#84919d` | `#4f5a65` |
-| neutral-gray | `#8f8f8f` | `#585858` |
+| pink | `#e34a6a` | `#b51546` |
+| red | `#e54837` | `#b60d04` |
+| orange | `#ec7d4f` | `#bf5523` |
+| yellow | `#e1ab39` | `#b68400` |
+| lime | `#9a9e18` | `#7e8201` |
+| green | `#3ca764` | `#017f41` |
+| teal | `#26a07c` | `#007d5e` |
+| cloudy-blue | `#598cd5` | `#3464aa` |
+| blue | `#4287eb` | `#175ebf` |
+| purple | `#6c6feb` | `#4a46bf` |
+| cool-gray | `#60686e` | `#3d444a` |
+| neutral-gray | `#676767` | `#434343` |
 
 Steps on every color family, light and dark: 50, 100, 200, 300, 400, 500, 600, 700, 800, 900.
 
-Light yellow leaves cool-gray's lightness by this OKLCH L offset: 50 +1.4, 100 +2, 200 +2.8, 300 +3.6, 400 +5, 500 +7, 600 +11, 700 +15, 800 +19, 900 +24.
+Light yellow matches cool-gray on steps 50–200. From step 300 it is lighter by this OKLCH L offset: 300 +9.2, 400 +18, 500 +26, 600 +29.4, 700 +32.8, 800 +36.4, 900 +40.8.
 
 Neutral-gray uses chroma 0 at cool-gray's lightness. `#666666` is only an example of that character, not a step in the scale.
 
-Dark lightness targets: 50 = 94, 100 = 84.44, 200 = 74.89, 300 = 65.33, 400 = 55.78, 500 = 46.22, 600 = 36.67, 700 = 27.11, 800 = 17.56, 900 = 8.
+Dark cool-gray lightness: 50 = 83.4, 100 = 79.8, 200 = 73.2, 300 = 62.4, 400 = 50, 500 = 38.2, 600 = 31.6, 700 = 25.4, 800 = 19.2, 900 = 12.4. Chromatic families keep their own lightness on that same falling shape.
 
 Opacity steps, for both `white-opacity` and `black-opacity`: 00, 05, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100.
 
@@ -82,7 +82,7 @@ npm test
 npm run preview
 ```
 
-`npm test` builds the package, then checks steps 50–900, `#RRGGBB` solids, shared light OKLCH L within 0.4 of cool-gray (yellow exempt, with its explicit offset), light yellow hue within 15° of step 50, dark yellow's own lightness offset, dark chroma at least 0.9× light chroma, neutral-gray at chroma 0, chroma-only gamut mapping, and dark L targets that differ from the light scale and have stronger contrast. The preview gallery runs at <http://127.0.0.1:43123> and lists both scales, each hex, and measured OKLCH L.
+`npm test` builds the package, then checks steps 50–900, `#RRGGBB` solids, lightness falling from 50 to 900 with the larger drop before 500, shared lightness on steps 50–200, blue chroma higher at 500 than at 50 and 900, yellow 900 within 15° of yellow 50 and clearly lighter than blue 900, dark chroma at least 0.9× light chroma, neutral-gray at chroma 0, and chroma-only gamut mapping. The preview gallery runs at <http://127.0.0.1:43123> and lists both scales, each hex, and measured OKLCH L.
 
 ## License
 
