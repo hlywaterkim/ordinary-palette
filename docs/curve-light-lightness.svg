@@ -22,39 +22,39 @@
 <text x="556" y="348" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">700</text>
 <text x="628" y="348" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">800</text>
 <text x="700" y="348" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">900</text>
-<polyline points="52.0,60.1 124.0,73.4 196.0,96.4 268.0,125.6 340.0,154.5 412.0,178.3 484.0,199.7 556.0,218.7 628.0,236.3 700.0,251.9" fill="none" stroke="#e7388d" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="52.0,60.1 124.0,73.4 196.0,96.4 268.0,125.6 340.0,154.5 412.0,178.3 484.0,205.7 556.0,232.3 628.0,258.8 700.0,284.0" fill="none" stroke="#e7388d" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="52.0" cy="60.1" r="7" fill="transparent"><title>pink 50 · L 96.6</title></circle>
 <circle cx="124.0" cy="73.4" r="7" fill="transparent"><title>pink 100 · L 92.8</title></circle>
 <circle cx="196.0" cy="96.4" r="7" fill="transparent"><title>pink 200 · L 86.3</title></circle>
 <circle cx="268.0" cy="125.6" r="7" fill="transparent"><title>pink 300 · L 78.0</title></circle>
 <circle cx="340.0" cy="154.5" r="7" fill="transparent"><title>pink 400 · L 69.8</title></circle>
 <circle cx="412.0" cy="178.3" r="7" fill="transparent"><title>pink 500 · L 63.0</title></circle>
-<circle cx="484.0" cy="199.7" r="7" fill="transparent"><title>pink 600 · L 57.0</title></circle>
-<circle cx="556.0" cy="218.7" r="7" fill="transparent"><title>pink 700 · L 51.6</title></circle>
-<circle cx="628.0" cy="236.3" r="7" fill="transparent"><title>pink 800 · L 46.6</title></circle>
-<circle cx="700.0" cy="251.9" r="7" fill="transparent"><title>pink 900 · L 42.1</title></circle>
-<polyline points="52.0,60.7 124.0,73.2 196.0,96.6 268.0,127.6 340.0,157.0 412.0,181.3 484.0,201.9 556.0,221.3 628.0,238.9 700.0,255.2" fill="none" stroke="#ee3828" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="484.0" cy="205.7" r="7" fill="transparent"><title>pink 600 · L 55.3</title></circle>
+<circle cx="556.0" cy="232.3" r="7" fill="transparent"><title>pink 700 · L 47.7</title></circle>
+<circle cx="628.0" cy="258.8" r="7" fill="transparent"><title>pink 800 · L 40.2</title></circle>
+<circle cx="700.0" cy="284.0" r="7" fill="transparent"><title>pink 900 · L 33.1</title></circle>
+<polyline points="52.0,60.7 124.0,73.2 196.0,96.6 268.0,127.6 340.0,157.0 412.0,181.3 484.0,208.5 556.0,234.8 628.0,261.6 700.0,287.1" fill="none" stroke="#ee3828" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="52.0" cy="60.7" r="7" fill="transparent"><title>red 50 · L 96.4</title></circle>
 <circle cx="124.0" cy="73.2" r="7" fill="transparent"><title>red 100 · L 92.8</title></circle>
 <circle cx="196.0" cy="96.6" r="7" fill="transparent"><title>red 200 · L 86.2</title></circle>
 <circle cx="268.0" cy="127.6" r="7" fill="transparent"><title>red 300 · L 77.4</title></circle>
 <circle cx="340.0" cy="157.0" r="7" fill="transparent"><title>red 400 · L 69.1</title></circle>
 <circle cx="412.0" cy="181.3" r="7" fill="transparent"><title>red 500 · L 62.2</title></circle>
-<circle cx="484.0" cy="201.9" r="7" fill="transparent"><title>red 600 · L 56.3</title></circle>
-<circle cx="556.0" cy="221.3" r="7" fill="transparent"><title>red 700 · L 50.8</title></circle>
-<circle cx="628.0" cy="238.9" r="7" fill="transparent"><title>red 800 · L 45.8</title></circle>
-<circle cx="700.0" cy="255.2" r="7" fill="transparent"><title>red 900 · L 41.2</title></circle>
-<polyline points="52.0,60.7 124.0,73.2 196.0,96.5 268.0,110.3 340.0,132.5 412.0,151.7 484.0,174.7 556.0,197.7 628.0,215.4 700.0,232.9" fill="none" stroke="#f87500" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="484.0" cy="208.5" r="7" fill="transparent"><title>red 600 · L 54.5</title></circle>
+<circle cx="556.0" cy="234.8" r="7" fill="transparent"><title>red 700 · L 47.0</title></circle>
+<circle cx="628.0" cy="261.6" r="7" fill="transparent"><title>red 800 · L 39.4</title></circle>
+<circle cx="700.0" cy="287.1" r="7" fill="transparent"><title>red 900 · L 32.2</title></circle>
+<polyline points="52.0,60.7 124.0,73.2 196.0,96.5 268.0,115.7 340.0,144.6 412.0,168.6 484.0,196.3 556.0,222.6 628.0,249.0 700.0,273.4" fill="none" stroke="#e26a00" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="52.0" cy="60.7" r="7" fill="transparent"><title>orange 50 · L 96.4</title></circle>
 <circle cx="124.0" cy="73.2" r="7" fill="transparent"><title>orange 100 · L 92.8</title></circle>
 <circle cx="196.0" cy="96.5" r="7" fill="transparent"><title>orange 200 · L 86.2</title></circle>
-<circle cx="268.0" cy="110.3" r="7" fill="transparent"><title>orange 300 · L 82.3</title></circle>
-<circle cx="340.0" cy="132.5" r="7" fill="transparent"><title>orange 400 · L 76.0</title></circle>
-<circle cx="412.0" cy="151.7" r="7" fill="transparent"><title>orange 500 · L 70.6</title></circle>
-<circle cx="484.0" cy="174.7" r="7" fill="transparent"><title>orange 600 · L 64.1</title></circle>
-<circle cx="556.0" cy="197.7" r="7" fill="transparent"><title>orange 700 · L 57.5</title></circle>
-<circle cx="628.0" cy="215.4" r="7" fill="transparent"><title>orange 800 · L 52.5</title></circle>
-<circle cx="700.0" cy="232.9" r="7" fill="transparent"><title>orange 900 · L 47.5</title></circle>
+<circle cx="268.0" cy="115.7" r="7" fill="transparent"><title>orange 300 · L 80.8</title></circle>
+<circle cx="340.0" cy="144.6" r="7" fill="transparent"><title>orange 400 · L 72.6</title></circle>
+<circle cx="412.0" cy="168.6" r="7" fill="transparent"><title>orange 500 · L 65.8</title></circle>
+<circle cx="484.0" cy="196.3" r="7" fill="transparent"><title>orange 600 · L 57.9</title></circle>
+<circle cx="556.0" cy="222.6" r="7" fill="transparent"><title>orange 700 · L 50.5</title></circle>
+<circle cx="628.0" cy="249.0" r="7" fill="transparent"><title>orange 800 · L 43.0</title></circle>
+<circle cx="700.0" cy="273.4" r="7" fill="transparent"><title>orange 900 · L 36.0</title></circle>
 <polyline points="52.0,60.2 124.0,66.7 196.0,75.9 268.0,86.8 340.0,97.2 412.0,110.0 484.0,130.7 556.0,153.9 628.0,180.3 700.0,214.1" fill="none" stroke="#feb700" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="52.0" cy="60.2" r="7" fill="transparent"><title>yellow 50 · L 96.5</title></circle>
 <circle cx="124.0" cy="66.7" r="7" fill="transparent"><title>yellow 100 · L 94.7</title></circle>
@@ -66,83 +66,83 @@
 <circle cx="556.0" cy="153.9" r="7" fill="transparent"><title>yellow 700 · L 69.9</title></circle>
 <circle cx="628.0" cy="180.3" r="7" fill="transparent"><title>yellow 800 · L 62.5</title></circle>
 <circle cx="700.0" cy="214.1" r="7" fill="transparent"><title>yellow 900 · L 52.9</title></circle>
-<polyline points="52.0,60.9 124.0,73.0 196.0,96.8 268.0,111.1 340.0,129.0 412.0,147.1 484.0,176.3 556.0,205.5 628.0,222.8 700.0,239.0" fill="none" stroke="#88b700" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="52.0,60.9 124.0,73.0 196.0,96.8 268.0,115.5 340.0,144.1 412.0,167.8 484.0,196.6 556.0,222.1 628.0,248.8 700.0,273.9" fill="none" stroke="#79a300" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="52.0" cy="60.9" r="7" fill="transparent"><title>light-green 50 · L 96.3</title></circle>
 <circle cx="124.0" cy="73.0" r="7" fill="transparent"><title>light-green 100 · L 92.9</title></circle>
 <circle cx="196.0" cy="96.8" r="7" fill="transparent"><title>light-green 200 · L 86.2</title></circle>
-<circle cx="268.0" cy="111.1" r="7" fill="transparent"><title>light-green 300 · L 82.1</title></circle>
-<circle cx="340.0" cy="129.0" r="7" fill="transparent"><title>light-green 400 · L 77.0</title></circle>
-<circle cx="412.0" cy="147.1" r="7" fill="transparent"><title>light-green 500 · L 71.9</title></circle>
-<circle cx="484.0" cy="176.3" r="7" fill="transparent"><title>light-green 600 · L 63.6</title></circle>
-<circle cx="556.0" cy="205.5" r="7" fill="transparent"><title>light-green 700 · L 55.3</title></circle>
-<circle cx="628.0" cy="222.8" r="7" fill="transparent"><title>light-green 800 · L 50.4</title></circle>
-<circle cx="700.0" cy="239.0" r="7" fill="transparent"><title>light-green 900 · L 45.8</title></circle>
-<polyline points="52.0,60.9 124.0,73.3 196.0,96.3 268.0,121.4 340.0,148.4 412.0,171.7 484.0,192.4 556.0,211.9 628.0,229.8 700.0,244.9" fill="none" stroke="#26a95e" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="268.0" cy="115.5" r="7" fill="transparent"><title>light-green 300 · L 80.9</title></circle>
+<circle cx="340.0" cy="144.1" r="7" fill="transparent"><title>light-green 400 · L 72.7</title></circle>
+<circle cx="412.0" cy="167.8" r="7" fill="transparent"><title>light-green 500 · L 66.0</title></circle>
+<circle cx="484.0" cy="196.6" r="7" fill="transparent"><title>light-green 600 · L 57.9</title></circle>
+<circle cx="556.0" cy="222.1" r="7" fill="transparent"><title>light-green 700 · L 50.6</title></circle>
+<circle cx="628.0" cy="248.8" r="7" fill="transparent"><title>light-green 800 · L 43.0</title></circle>
+<circle cx="700.0" cy="273.9" r="7" fill="transparent"><title>light-green 900 · L 35.9</title></circle>
+<polyline points="52.0,60.9 124.0,73.3 196.0,96.3 268.0,121.4 340.0,148.4 412.0,171.7 484.0,198.5 556.0,225.6 628.0,252.6 700.0,276.3" fill="none" stroke="#26a95e" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="52.0" cy="60.9" r="7" fill="transparent"><title>green 50 · L 96.3</title></circle>
 <circle cx="124.0" cy="73.3" r="7" fill="transparent"><title>green 100 · L 92.8</title></circle>
 <circle cx="196.0" cy="96.3" r="7" fill="transparent"><title>green 200 · L 86.3</title></circle>
 <circle cx="268.0" cy="121.4" r="7" fill="transparent"><title>green 300 · L 79.2</title></circle>
 <circle cx="340.0" cy="148.4" r="7" fill="transparent"><title>green 400 · L 71.5</title></circle>
 <circle cx="412.0" cy="171.7" r="7" fill="transparent"><title>green 500 · L 64.9</title></circle>
-<circle cx="484.0" cy="192.4" r="7" fill="transparent"><title>green 600 · L 59.0</title></circle>
-<circle cx="556.0" cy="211.9" r="7" fill="transparent"><title>green 700 · L 53.5</title></circle>
-<circle cx="628.0" cy="229.8" r="7" fill="transparent"><title>green 800 · L 48.4</title></circle>
-<circle cx="700.0" cy="244.9" r="7" fill="transparent"><title>green 900 · L 44.1</title></circle>
-<polyline points="52.0,60.8 124.0,73.1 196.0,96.1 268.0,108.1 340.0,126.9 412.0,146.7 484.0,176.3 556.0,206.9 628.0,224.3 700.0,242.2" fill="none" stroke="#00bcbc" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="484.0" cy="198.5" r="7" fill="transparent"><title>green 600 · L 57.3</title></circle>
+<circle cx="556.0" cy="225.6" r="7" fill="transparent"><title>green 700 · L 49.6</title></circle>
+<circle cx="628.0" cy="252.6" r="7" fill="transparent"><title>green 800 · L 42.0</title></circle>
+<circle cx="700.0" cy="276.3" r="7" fill="transparent"><title>green 900 · L 35.2</title></circle>
+<polyline points="52.0,60.8 124.0,73.1 196.0,96.1 268.0,115.6 340.0,144.3 412.0,168.0 484.0,196.2 556.0,222.1 628.0,249.0 700.0,273.5" fill="none" stroke="#00a7a7" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="52.0" cy="60.8" r="7" fill="transparent"><title>cyan 50 · L 96.4</title></circle>
 <circle cx="124.0" cy="73.1" r="7" fill="transparent"><title>cyan 100 · L 92.9</title></circle>
 <circle cx="196.0" cy="96.1" r="7" fill="transparent"><title>cyan 200 · L 86.3</title></circle>
-<circle cx="268.0" cy="108.1" r="7" fill="transparent"><title>cyan 300 · L 82.9</title></circle>
-<circle cx="340.0" cy="126.9" r="7" fill="transparent"><title>cyan 400 · L 77.6</title></circle>
-<circle cx="412.0" cy="146.7" r="7" fill="transparent"><title>cyan 500 · L 72.0</title></circle>
-<circle cx="484.0" cy="176.3" r="7" fill="transparent"><title>cyan 600 · L 63.6</title></circle>
-<circle cx="556.0" cy="206.9" r="7" fill="transparent"><title>cyan 700 · L 54.9</title></circle>
-<circle cx="628.0" cy="224.3" r="7" fill="transparent"><title>cyan 800 · L 50.0</title></circle>
-<circle cx="700.0" cy="242.2" r="7" fill="transparent"><title>cyan 900 · L 44.9</title></circle>
-<polyline points="52.0,60.7 124.0,73.4 196.0,96.5 268.0,118.2 340.0,136.1 412.0,153.6 484.0,179.5 556.0,204.7 628.0,222.6 700.0,240.1" fill="none" stroke="#00abee" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="268.0" cy="115.6" r="7" fill="transparent"><title>cyan 300 · L 80.8</title></circle>
+<circle cx="340.0" cy="144.3" r="7" fill="transparent"><title>cyan 400 · L 72.7</title></circle>
+<circle cx="412.0" cy="168.0" r="7" fill="transparent"><title>cyan 500 · L 65.9</title></circle>
+<circle cx="484.0" cy="196.2" r="7" fill="transparent"><title>cyan 600 · L 58.0</title></circle>
+<circle cx="556.0" cy="222.1" r="7" fill="transparent"><title>cyan 700 · L 50.6</title></circle>
+<circle cx="628.0" cy="249.0" r="7" fill="transparent"><title>cyan 800 · L 43.0</title></circle>
+<circle cx="700.0" cy="273.5" r="7" fill="transparent"><title>cyan 900 · L 36.0</title></circle>
+<polyline points="52.0,60.7 124.0,73.4 196.0,96.5 268.0,118.2 340.0,144.7 412.0,168.5 484.0,196.3 556.0,222.2 628.0,249.0 700.0,273.6" fill="none" stroke="#009ddc" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="52.0" cy="60.7" r="7" fill="transparent"><title>light-blue 50 · L 96.4</title></circle>
 <circle cx="124.0" cy="73.4" r="7" fill="transparent"><title>light-blue 100 · L 92.8</title></circle>
 <circle cx="196.0" cy="96.5" r="7" fill="transparent"><title>light-blue 200 · L 86.3</title></circle>
 <circle cx="268.0" cy="118.2" r="7" fill="transparent"><title>light-blue 300 · L 80.1</title></circle>
-<circle cx="340.0" cy="136.1" r="7" fill="transparent"><title>light-blue 400 · L 75.0</title></circle>
-<circle cx="412.0" cy="153.6" r="7" fill="transparent"><title>light-blue 500 · L 70.0</title></circle>
-<circle cx="484.0" cy="179.5" r="7" fill="transparent"><title>light-blue 600 · L 62.7</title></circle>
-<circle cx="556.0" cy="204.7" r="7" fill="transparent"><title>light-blue 700 · L 55.6</title></circle>
-<circle cx="628.0" cy="222.6" r="7" fill="transparent"><title>light-blue 800 · L 50.5</title></circle>
-<circle cx="700.0" cy="240.1" r="7" fill="transparent"><title>light-blue 900 · L 45.5</title></circle>
-<polyline points="52.0,60.6 124.0,73.4 196.0,96.4 268.0,126.5 340.0,155.0 412.0,178.8 484.0,200.3 556.0,219.2 628.0,237.2 700.0,252.4" fill="none" stroke="#2b84ff" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="340.0" cy="144.7" r="7" fill="transparent"><title>light-blue 400 · L 72.6</title></circle>
+<circle cx="412.0" cy="168.5" r="7" fill="transparent"><title>light-blue 500 · L 65.8</title></circle>
+<circle cx="484.0" cy="196.3" r="7" fill="transparent"><title>light-blue 600 · L 57.9</title></circle>
+<circle cx="556.0" cy="222.2" r="7" fill="transparent"><title>light-blue 700 · L 50.6</title></circle>
+<circle cx="628.0" cy="249.0" r="7" fill="transparent"><title>light-blue 800 · L 43.0</title></circle>
+<circle cx="700.0" cy="273.6" r="7" fill="transparent"><title>light-blue 900 · L 36.0</title></circle>
+<polyline points="52.0,60.6 124.0,73.4 196.0,96.4 268.0,126.5 340.0,155.0 412.0,178.8 484.0,206.7 556.0,232.9 628.0,259.3 700.0,283.8" fill="none" stroke="#2b84ff" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="52.0" cy="60.6" r="7" fill="transparent"><title>blue 50 · L 96.4</title></circle>
 <circle cx="124.0" cy="73.4" r="7" fill="transparent"><title>blue 100 · L 92.8</title></circle>
 <circle cx="196.0" cy="96.4" r="7" fill="transparent"><title>blue 200 · L 86.3</title></circle>
 <circle cx="268.0" cy="126.5" r="7" fill="transparent"><title>blue 300 · L 77.7</title></circle>
 <circle cx="340.0" cy="155.0" r="7" fill="transparent"><title>blue 400 · L 69.7</title></circle>
 <circle cx="412.0" cy="178.8" r="7" fill="transparent"><title>blue 500 · L 62.9</title></circle>
-<circle cx="484.0" cy="200.3" r="7" fill="transparent"><title>blue 600 · L 56.8</title></circle>
-<circle cx="556.0" cy="219.2" r="7" fill="transparent"><title>blue 700 · L 51.4</title></circle>
-<circle cx="628.0" cy="237.2" r="7" fill="transparent"><title>blue 800 · L 46.3</title></circle>
-<circle cx="700.0" cy="252.4" r="7" fill="transparent"><title>blue 900 · L 42.0</title></circle>
-<polyline points="52.0,60.1 124.0,73.0 196.0,96.7 268.0,130.5 340.0,162.1 412.0,187.8 484.0,209.1 556.0,228.5 628.0,246.1 700.0,261.6" fill="none" stroke="#8163f1" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="484.0" cy="206.7" r="7" fill="transparent"><title>blue 600 · L 55.0</title></circle>
+<circle cx="556.0" cy="232.9" r="7" fill="transparent"><title>blue 700 · L 47.6</title></circle>
+<circle cx="628.0" cy="259.3" r="7" fill="transparent"><title>blue 800 · L 40.1</title></circle>
+<circle cx="700.0" cy="283.8" r="7" fill="transparent"><title>blue 900 · L 33.1</title></circle>
+<polyline points="52.0,60.1 124.0,73.0 196.0,96.7 268.0,130.5 340.0,162.1 412.0,187.8 484.0,215.5 556.0,242.2 628.0,268.6 700.0,293.6" fill="none" stroke="#8163f1" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="52.0" cy="60.1" r="7" fill="transparent"><title>purple 50 · L 96.6</title></circle>
 <circle cx="124.0" cy="73.0" r="7" fill="transparent"><title>purple 100 · L 92.9</title></circle>
 <circle cx="196.0" cy="96.7" r="7" fill="transparent"><title>purple 200 · L 86.2</title></circle>
 <circle cx="268.0" cy="130.5" r="7" fill="transparent"><title>purple 300 · L 76.6</title></circle>
 <circle cx="340.0" cy="162.1" r="7" fill="transparent"><title>purple 400 · L 67.6</title></circle>
 <circle cx="412.0" cy="187.8" r="7" fill="transparent"><title>purple 500 · L 60.4</title></circle>
-<circle cx="484.0" cy="209.1" r="7" fill="transparent"><title>purple 600 · L 54.3</title></circle>
-<circle cx="556.0" cy="228.5" r="7" fill="transparent"><title>purple 700 · L 48.8</title></circle>
-<circle cx="628.0" cy="246.1" r="7" fill="transparent"><title>purple 800 · L 43.8</title></circle>
-<circle cx="700.0" cy="261.6" r="7" fill="transparent"><title>purple 900 · L 39.4</title></circle>
-<polyline points="52.0,60.5 124.0,73.1 196.0,96.2 268.0,132.6 340.0,174.4 412.0,210.3 484.0,231.3 556.0,250.6 628.0,268.4 700.0,286.1" fill="none" stroke="#985f34" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="484.0" cy="215.5" r="7" fill="transparent"><title>purple 600 · L 52.5</title></circle>
+<circle cx="556.0" cy="242.2" r="7" fill="transparent"><title>purple 700 · L 44.9</title></circle>
+<circle cx="628.0" cy="268.6" r="7" fill="transparent"><title>purple 800 · L 37.4</title></circle>
+<circle cx="700.0" cy="293.6" r="7" fill="transparent"><title>purple 900 · L 30.3</title></circle>
+<polyline points="52.0,60.5 124.0,73.1 196.0,96.2 268.0,132.6 340.0,166.4 412.0,190.0 484.0,217.7 556.0,244.4 628.0,270.9 700.0,296.0" fill="none" stroke="#aa7045" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="52.0" cy="60.5" r="7" fill="transparent"><title>brown 50 · L 96.5</title></circle>
 <circle cx="124.0" cy="73.1" r="7" fill="transparent"><title>brown 100 · L 92.9</title></circle>
 <circle cx="196.0" cy="96.2" r="7" fill="transparent"><title>brown 200 · L 86.3</title></circle>
 <circle cx="268.0" cy="132.6" r="7" fill="transparent"><title>brown 300 · L 76.0</title></circle>
-<circle cx="340.0" cy="174.4" r="7" fill="transparent"><title>brown 400 · L 64.1</title></circle>
-<circle cx="412.0" cy="210.3" r="7" fill="transparent"><title>brown 500 · L 54.0</title></circle>
-<circle cx="484.0" cy="231.3" r="7" fill="transparent"><title>brown 600 · L 48.0</title></circle>
-<circle cx="556.0" cy="250.6" r="7" fill="transparent"><title>brown 700 · L 42.5</title></circle>
-<circle cx="628.0" cy="268.4" r="7" fill="transparent"><title>brown 800 · L 37.5</title></circle>
-<circle cx="700.0" cy="286.1" r="7" fill="transparent"><title>brown 900 · L 32.4</title></circle>
+<circle cx="340.0" cy="166.4" r="7" fill="transparent"><title>brown 400 · L 66.4</title></circle>
+<circle cx="412.0" cy="190.0" r="7" fill="transparent"><title>brown 500 · L 59.7</title></circle>
+<circle cx="484.0" cy="217.7" r="7" fill="transparent"><title>brown 600 · L 51.9</title></circle>
+<circle cx="556.0" cy="244.4" r="7" fill="transparent"><title>brown 700 · L 44.3</title></circle>
+<circle cx="628.0" cy="270.9" r="7" fill="transparent"><title>brown 800 · L 36.8</title></circle>
+<circle cx="700.0" cy="296.0" r="7" fill="transparent"><title>brown 900 · L 29.7</title></circle>
 <polyline points="52.0,55.4 124.0,60.0 196.0,70.7 268.0,92.3 340.0,129.0 412.0,178.5 484.0,219.4 556.0,256.1 628.0,288.3 700.0,315.7" fill="none" stroke="#838a91" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="52.0" cy="55.4" r="7" fill="transparent"><title>cool-gray 50 · L 97.9</title></circle>
 <circle cx="124.0" cy="60.0" r="7" fill="transparent"><title>cool-gray 100 · L 96.6</title></circle>
@@ -169,23 +169,23 @@
 <text x="74" y="378" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="11" fill="#2e3338">pink</text>
 <line x1="144" x2="160" y1="374" y2="374" stroke="#ee3828" stroke-width="3" stroke-linecap="round"/>
 <text x="166" y="378" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="11" fill="#2e3338">red</text>
-<line x1="236" x2="252" y1="374" y2="374" stroke="#f87500" stroke-width="3" stroke-linecap="round"/>
+<line x1="236" x2="252" y1="374" y2="374" stroke="#e26a00" stroke-width="3" stroke-linecap="round"/>
 <text x="258" y="378" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="11" fill="#2e3338">orange</text>
 <line x1="328" x2="344" y1="374" y2="374" stroke="#feb700" stroke-width="3" stroke-linecap="round"/>
 <text x="350" y="378" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="11" fill="#2e3338">yellow</text>
-<line x1="420" x2="436" y1="374" y2="374" stroke="#88b700" stroke-width="3" stroke-linecap="round"/>
+<line x1="420" x2="436" y1="374" y2="374" stroke="#79a300" stroke-width="3" stroke-linecap="round"/>
 <text x="442" y="378" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="11" fill="#2e3338">light-green</text>
 <line x1="512" x2="528" y1="374" y2="374" stroke="#26a95e" stroke-width="3" stroke-linecap="round"/>
 <text x="534" y="378" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="11" fill="#2e3338">green</text>
-<line x1="604" x2="620" y1="374" y2="374" stroke="#00bcbc" stroke-width="3" stroke-linecap="round"/>
+<line x1="604" x2="620" y1="374" y2="374" stroke="#00a7a7" stroke-width="3" stroke-linecap="round"/>
 <text x="626" y="378" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="11" fill="#2e3338">cyan</text>
-<line x1="52" x2="68" y1="394" y2="394" stroke="#00abee" stroke-width="3" stroke-linecap="round"/>
+<line x1="52" x2="68" y1="394" y2="394" stroke="#009ddc" stroke-width="3" stroke-linecap="round"/>
 <text x="74" y="398" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="11" fill="#2e3338">light-blue</text>
 <line x1="144" x2="160" y1="394" y2="394" stroke="#2b84ff" stroke-width="3" stroke-linecap="round"/>
 <text x="166" y="398" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="11" fill="#2e3338">blue</text>
 <line x1="236" x2="252" y1="394" y2="394" stroke="#8163f1" stroke-width="3" stroke-linecap="round"/>
 <text x="258" y="398" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="11" fill="#2e3338">purple</text>
-<line x1="328" x2="344" y1="394" y2="394" stroke="#985f34" stroke-width="3" stroke-linecap="round"/>
+<line x1="328" x2="344" y1="394" y2="394" stroke="#aa7045" stroke-width="3" stroke-linecap="round"/>
 <text x="350" y="398" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="11" fill="#2e3338">brown</text>
 <line x1="420" x2="436" y1="394" y2="394" stroke="#838a91" stroke-width="3" stroke-linecap="round"/>
 <text x="442" y="398" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="11" fill="#2e3338">cool-gray</text>

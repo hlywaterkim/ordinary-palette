@@ -24,14 +24,14 @@
 <text x="415" y="83" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#f95ba2</text>
 <rect x="482" y="44" width="70" height="48" rx="6" fill="#e7388d"/>
 <text x="489" y="83" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#e7388d</text>
-<rect x="556" y="44" width="70" height="48" rx="6" fill="#d01f7b"/>
-<text x="563" y="83" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#d01f7b</text>
-<rect x="630" y="44" width="70" height="48" rx="6" fill="#b90b6c"/>
-<text x="637" y="83" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#b90b6c</text>
-<rect x="704" y="44" width="70" height="48" rx="6" fill="#a00f5d"/>
-<text x="711" y="83" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#a00f5d</text>
-<rect x="778" y="44" width="70" height="48" rx="6" fill="#8a1250"/>
-<text x="785" y="83" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#8a1250</text>
+<rect x="556" y="44" width="70" height="48" rx="6" fill="#ca1476"/>
+<text x="563" y="83" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#ca1476</text>
+<rect x="630" y="44" width="70" height="48" rx="6" fill="#a80061"/>
+<text x="637" y="83" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#a80061</text>
+<rect x="704" y="44" width="70" height="48" rx="6" fill="#85004b"/>
+<text x="711" y="83" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#85004b</text>
+<rect x="778" y="44" width="70" height="48" rx="6" fill="#650038"/>
+<text x="785" y="83" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#650038</text>
 <text x="16" y="124" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="12" font-weight="600" fill="#1c2023">red</text>
 <rect x="112" y="96" width="70" height="48" rx="6" fill="#fcf0ee"/>
 <text x="119" y="135" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#fcf0ee</text>
@@ -45,14 +45,14 @@
 <text x="415" y="135" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#ff5e4c</text>
 <rect x="482" y="96" width="70" height="48" rx="6" fill="#ee3828"/>
 <text x="489" y="135" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#ee3828</text>
-<rect x="556" y="96" width="70" height="48" rx="6" fill="#d81d0f"/>
-<text x="563" y="135" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#d81d0f</text>
-<rect x="630" y="96" width="70" height="48" rx="6" fill="#c00401"/>
-<text x="637" y="135" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#c00401</text>
-<rect x="704" y="96" width="70" height="48" rx="6" fill="#a60900"/>
-<text x="711" y="135" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#a60900</text>
-<rect x="778" y="96" width="70" height="48" rx="6" fill="#900500"/>
-<text x="785" y="135" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#900500</text>
+<rect x="556" y="96" width="70" height="48" rx="6" fill="#d11003"/>
+<text x="563" y="135" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#d11003</text>
+<rect x="630" y="96" width="70" height="48" rx="6" fill="#ad0200"/>
+<text x="637" y="135" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#ad0200</text>
+<rect x="704" y="96" width="70" height="48" rx="6" fill="#870600"/>
+<text x="711" y="135" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#870600</text>
+<rect x="778" y="96" width="70" height="48" rx="6" fill="#660200"/>
+<text x="785" y="135" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#660200</text>
 <text x="16" y="176" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="12" font-weight="600" fill="#1c2023">orange</text>
 <rect x="112" y="148" width="70" height="48" rx="6" fill="#fff0e5"/>
 <text x="119" y="187" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#fff0e5</text>
@@ -60,20 +60,20 @@
 <text x="193" y="187" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#ffe1ca</text>
 <rect x="260" y="148" width="70" height="48" rx="6" fill="#ffc494"/>
 <text x="267" y="187" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#ffc494</text>
-<rect x="334" y="148" width="70" height="48" rx="6" fill="#ffb179"/>
-<text x="341" y="187" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#ffb179</text>
-<rect x="408" y="148" width="70" height="48" rx="6" fill="#ff9045"/>
-<text x="415" y="187" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#ff9045</text>
-<rect x="482" y="148" width="70" height="48" rx="6" fill="#f87500"/>
-<text x="489" y="187" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#f87500</text>
-<rect x="556" y="148" width="70" height="48" rx="6" fill="#de6200"/>
-<text x="563" y="187" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#de6200</text>
-<rect x="630" y="148" width="70" height="48" rx="6" fill="#c45000"/>
-<text x="637" y="187" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#c45000</text>
-<rect x="704" y="148" width="70" height="48" rx="6" fill="#ae4500"/>
-<text x="711" y="187" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#ae4500</text>
-<rect x="778" y="148" width="70" height="48" rx="6" fill="#9a3900"/>
-<text x="785" y="187" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#9a3900</text>
+<rect x="334" y="148" width="70" height="48" rx="6" fill="#faac74"/>
+<text x="341" y="187" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#faac74</text>
+<rect x="408" y="148" width="70" height="48" rx="6" fill="#f38539"/>
+<text x="415" y="187" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#f38539</text>
+<rect x="482" y="148" width="70" height="48" rx="6" fill="#e26a00"/>
+<text x="489" y="187" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#e26a00</text>
+<rect x="556" y="148" width="70" height="48" rx="6" fill="#c25500"/>
+<text x="563" y="187" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#c25500</text>
+<rect x="630" y="148" width="70" height="48" rx="6" fill="#a44200"/>
+<text x="637" y="187" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#a44200</text>
+<rect x="704" y="148" width="70" height="48" rx="6" fill="#843300"/>
+<text x="711" y="187" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#843300</text>
+<rect x="778" y="148" width="70" height="48" rx="6" fill="#692400"/>
+<text x="785" y="187" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#692400</text>
 <text x="16" y="228" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="12" font-weight="600" fill="#1c2023">yellow</text>
 <rect x="112" y="200" width="70" height="48" rx="6" fill="#fdf3da"/>
 <text x="119" y="239" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#fdf3da</text>
@@ -102,20 +102,20 @@
 <text x="193" y="291" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#dfefc4</text>
 <rect x="260" y="252" width="70" height="48" rx="6" fill="#c4dd94"/>
 <text x="267" y="291" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#c4dd94</text>
-<rect x="334" y="252" width="70" height="48" rx="6" fill="#b1d464"/>
-<text x="341" y="291" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#b1d464</text>
-<rect x="408" y="252" width="70" height="48" rx="6" fill="#9ac72b"/>
-<text x="415" y="291" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#9ac72b</text>
-<rect x="482" y="252" width="70" height="48" rx="6" fill="#88b700"/>
-<text x="489" y="291" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#88b700</text>
-<rect x="556" y="252" width="70" height="48" rx="6" fill="#6f9c00"/>
-<text x="563" y="291" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#6f9c00</text>
-<rect x="630" y="252" width="70" height="48" rx="6" fill="#5a8100"/>
-<text x="637" y="291" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#5a8100</text>
-<rect x="704" y="252" width="70" height="48" rx="6" fill="#4c7200"/>
-<text x="711" y="291" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#4c7200</text>
-<rect x="778" y="252" width="70" height="48" rx="6" fill="#406400"/>
-<text x="785" y="291" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#406400</text>
+<rect x="334" y="252" width="70" height="48" rx="6" fill="#add060"/>
+<text x="341" y="291" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#add060</text>
+<rect x="408" y="252" width="70" height="48" rx="6" fill="#8db90e"/>
+<text x="415" y="291" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#8db90e</text>
+<rect x="482" y="252" width="70" height="48" rx="6" fill="#79a300"/>
+<text x="489" y="291" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#79a300</text>
+<rect x="556" y="252" width="70" height="48" rx="6" fill="#618900"/>
+<text x="563" y="291" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#618900</text>
+<rect x="630" y="252" width="70" height="48" rx="6" fill="#4f7200"/>
+<text x="637" y="291" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#4f7200</text>
+<rect x="704" y="252" width="70" height="48" rx="6" fill="#3c5b00"/>
+<text x="711" y="291" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#3c5b00</text>
+<rect x="778" y="252" width="70" height="48" rx="6" fill="#2c4600"/>
+<text x="785" y="291" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#2c4600</text>
 <text x="16" y="332" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="12" font-weight="600" fill="#1c2023">green</text>
 <rect x="112" y="304" width="70" height="48" rx="6" fill="#ecf6ee"/>
 <text x="119" y="343" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#ecf6ee</text>
@@ -129,14 +129,14 @@
 <text x="415" y="343" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#4abd78</text>
 <rect x="482" y="304" width="70" height="48" rx="6" fill="#26a95e"/>
 <text x="489" y="343" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#26a95e</text>
-<rect x="556" y="304" width="70" height="48" rx="6" fill="#009651"/>
-<text x="563" y="343" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#009651</text>
-<rect x="630" y="304" width="70" height="48" rx="6" fill="#008346"/>
-<text x="637" y="343" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#008346</text>
-<rect x="704" y="304" width="70" height="48" rx="6" fill="#00723c"/>
-<text x="711" y="343" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#00723c</text>
-<rect x="778" y="304" width="70" height="48" rx="6" fill="#006434"/>
-<text x="785" y="343" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#006434</text>
+<rect x="556" y="304" width="70" height="48" rx="6" fill="#00904d"/>
+<text x="563" y="343" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#00904d</text>
+<rect x="630" y="304" width="70" height="48" rx="6" fill="#00763e"/>
+<text x="637" y="343" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#00763e</text>
+<rect x="704" y="304" width="70" height="48" rx="6" fill="#005d30"/>
+<text x="711" y="343" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#005d30</text>
+<rect x="778" y="304" width="70" height="48" rx="6" fill="#004824"/>
+<text x="785" y="343" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#004824</text>
 <text x="16" y="384" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="12" font-weight="600" fill="#1c2023">cyan</text>
 <rect x="112" y="356" width="70" height="48" rx="6" fill="#e3f8f8"/>
 <text x="119" y="395" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#e3f8f8</text>
@@ -144,20 +144,20 @@
 <text x="193" y="395" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#c0f3f2</text>
 <rect x="260" y="356" width="70" height="48" rx="6" fill="#86e5e5"/>
 <text x="267" y="395" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#86e5e5</text>
-<rect x="334" y="356" width="70" height="48" rx="6" fill="#51dfe1"/>
-<text x="341" y="395" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#51dfe1</text>
-<rect x="408" y="356" width="70" height="48" rx="6" fill="#31ced0"/>
-<text x="415" y="395" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#31ced0</text>
-<rect x="482" y="356" width="70" height="48" rx="6" fill="#00bcbc"/>
-<text x="489" y="395" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#00bcbc</text>
-<rect x="556" y="356" width="70" height="48" rx="6" fill="#009f9f"/>
-<text x="563" y="395" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#009f9f</text>
-<rect x="630" y="356" width="70" height="48" rx="6" fill="#008282"/>
-<text x="637" y="395" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#008282</text>
-<rect x="704" y="356" width="70" height="48" rx="6" fill="#007272"/>
-<text x="711" y="395" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#007272</text>
-<rect x="778" y="356" width="70" height="48" rx="6" fill="#006262"/>
-<text x="785" y="395" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#006262</text>
+<rect x="334" y="356" width="70" height="48" rx="6" fill="#48d8da"/>
+<text x="341" y="395" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#48d8da</text>
+<rect x="408" y="356" width="70" height="48" rx="6" fill="#08bec0"/>
+<text x="415" y="395" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#08bec0</text>
+<rect x="482" y="356" width="70" height="48" rx="6" fill="#00a7a7"/>
+<text x="489" y="395" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#00a7a7</text>
+<rect x="556" y="356" width="70" height="48" rx="6" fill="#008c8c"/>
+<text x="563" y="395" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#008c8c</text>
+<rect x="630" y="356" width="70" height="48" rx="6" fill="#007474"/>
+<text x="637" y="395" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#007474</text>
+<rect x="704" y="356" width="70" height="48" rx="6" fill="#005c5c"/>
+<text x="711" y="395" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#005c5c</text>
+<rect x="778" y="356" width="70" height="48" rx="6" fill="#004747"/>
+<text x="785" y="395" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#004747</text>
 <text x="16" y="436" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="12" font-weight="600" fill="#1c2023">light-blue</text>
 <rect x="112" y="408" width="70" height="48" rx="6" fill="#e7f6fd"/>
 <text x="119" y="447" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#e7f6fd</text>
@@ -167,18 +167,18 @@
 <text x="267" y="447" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#9adcff</text>
 <rect x="334" y="408" width="70" height="48" rx="6" fill="#64cbff"/>
 <text x="341" y="447" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#64cbff</text>
-<rect x="408" y="408" width="70" height="48" rx="6" fill="#1fbcfe"/>
-<text x="415" y="447" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#1fbcfe</text>
-<rect x="482" y="408" width="70" height="48" rx="6" fill="#00abee"/>
-<text x="489" y="447" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#00abee</text>
-<rect x="556" y="408" width="70" height="48" rx="6" fill="#0092d2"/>
-<text x="563" y="447" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#0092d2</text>
-<rect x="630" y="408" width="70" height="48" rx="6" fill="#007bb5"/>
-<text x="637" y="447" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#007bb5</text>
-<rect x="704" y="408" width="70" height="48" rx="6" fill="#006ba1"/>
-<text x="711" y="447" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#006ba1</text>
-<rect x="778" y="408" width="70" height="48" rx="6" fill="#005c8d"/>
-<text x="785" y="447" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#005c8d</text>
+<rect x="408" y="408" width="70" height="48" rx="6" fill="#06b4f6"/>
+<text x="415" y="447" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#06b4f6</text>
+<rect x="482" y="408" width="70" height="48" rx="6" fill="#009ddc"/>
+<text x="489" y="447" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#009ddc</text>
+<rect x="556" y="408" width="70" height="48" rx="6" fill="#0083bd"/>
+<text x="563" y="447" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#0083bd</text>
+<rect x="630" y="408" width="70" height="48" rx="6" fill="#006c9f"/>
+<text x="637" y="447" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#006c9f</text>
+<rect x="704" y="408" width="70" height="48" rx="6" fill="#005581"/>
+<text x="711" y="447" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#005581</text>
+<rect x="778" y="408" width="70" height="48" rx="6" fill="#004166"/>
+<text x="785" y="447" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#004166</text>
 <text x="16" y="488" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="12" font-weight="600" fill="#1c2023">blue</text>
 <rect x="112" y="460" width="70" height="48" rx="6" fill="#e9f5ff"/>
 <text x="119" y="499" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#e9f5ff</text>
@@ -192,14 +192,14 @@
 <text x="415" y="499" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#549eff</text>
 <rect x="482" y="460" width="70" height="48" rx="6" fill="#2b84ff"/>
 <text x="489" y="499" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#2b84ff</text>
-<rect x="556" y="460" width="70" height="48" rx="6" fill="#1a71e6"/>
-<text x="563" y="499" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#1a71e6</text>
-<rect x="630" y="460" width="70" height="48" rx="6" fill="#0861cf"/>
-<text x="637" y="499" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#0861cf</text>
-<rect x="704" y="460" width="70" height="48" rx="6" fill="#0053b6"/>
-<text x="711" y="499" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#0053b6</text>
-<rect x="778" y="460" width="70" height="48" rx="6" fill="#00489f"/>
-<text x="785" y="499" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#00489f</text>
+<rect x="556" y="460" width="70" height="48" rx="6" fill="#126be0"/>
+<text x="563" y="499" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#126be0</text>
+<rect x="630" y="460" width="70" height="48" rx="6" fill="#0056bd"/>
+<text x="637" y="499" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#0056bd</text>
+<rect x="704" y="460" width="70" height="48" rx="6" fill="#004395"/>
+<text x="711" y="499" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#004395</text>
+<rect x="778" y="460" width="70" height="48" rx="6" fill="#003272"/>
+<text x="785" y="499" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#003272</text>
 <text x="16" y="540" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="12" font-weight="600" fill="#1c2023">purple</text>
 <rect x="112" y="512" width="70" height="48" rx="6" fill="#f2f3fb"/>
 <text x="119" y="551" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#f2f3fb</text>
@@ -213,14 +213,14 @@
 <text x="415" y="551" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#9581fa</text>
 <rect x="482" y="512" width="70" height="48" rx="6" fill="#8163f1"/>
 <text x="489" y="551" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#8163f1</text>
-<rect x="556" y="512" width="70" height="48" rx="6" fill="#6f50dc"/>
-<text x="563" y="551" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#6f50dc</text>
-<rect x="630" y="512" width="70" height="48" rx="6" fill="#6041c4"/>
-<text x="637" y="551" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#6041c4</text>
-<rect x="704" y="512" width="70" height="48" rx="6" fill="#5335ac"/>
-<text x="711" y="551" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#5335ac</text>
-<rect x="778" y="512" width="70" height="48" rx="6" fill="#472c96"/>
-<text x="785" y="551" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#472c96</text>
+<rect x="556" y="512" width="70" height="48" rx="6" fill="#6a4ad6"/>
+<text x="563" y="551" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#6a4ad6</text>
+<rect x="630" y="512" width="70" height="48" rx="6" fill="#5634b7"/>
+<text x="637" y="551" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#5634b7</text>
+<rect x="704" y="512" width="70" height="48" rx="6" fill="#431f97"/>
+<text x="711" y="551" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#431f97</text>
+<rect x="778" y="512" width="70" height="48" rx="6" fill="#320979"/>
+<text x="785" y="551" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#320979</text>
 <text x="16" y="592" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="12" font-weight="600" fill="#1c2023">brown</text>
 <rect x="112" y="564" width="70" height="48" rx="6" fill="#f9f2eb"/>
 <text x="119" y="603" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#f9f2eb</text>
@@ -230,18 +230,18 @@
 <text x="267" y="603" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#e9ccb4</text>
 <rect x="334" y="564" width="70" height="48" rx="6" fill="#d3a784"/>
 <text x="341" y="603" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#d3a784</text>
-<rect x="408" y="564" width="70" height="48" rx="6" fill="#b57f55"/>
-<text x="415" y="603" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#b57f55</text>
-<rect x="482" y="564" width="70" height="48" rx="6" fill="#985f34"/>
-<text x="489" y="603" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#985f34</text>
-<rect x="556" y="564" width="70" height="48" rx="6" fill="#854e25"/>
-<text x="563" y="603" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#854e25</text>
-<rect x="630" y="564" width="70" height="48" rx="6" fill="#72401c"/>
-<text x="637" y="603" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#72401c</text>
-<rect x="704" y="564" width="70" height="48" rx="6" fill="#603416"/>
-<text x="711" y="603" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#603416</text>
-<rect x="778" y="564" width="70" height="48" rx="6" fill="#4e2910"/>
-<text x="785" y="603" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#4e2910</text>
+<rect x="408" y="564" width="70" height="48" rx="6" fill="#bc865c"/>
+<text x="415" y="603" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#bc865c</text>
+<rect x="482" y="564" width="70" height="48" rx="6" fill="#aa7045"/>
+<text x="489" y="603" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#aa7045</text>
+<rect x="556" y="564" width="70" height="48" rx="6" fill="#915930"/>
+<text x="563" y="603" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#915930</text>
+<rect x="630" y="564" width="70" height="48" rx="6" fill="#774521"/>
+<text x="637" y="603" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#774521</text>
+<rect x="704" y="564" width="70" height="48" rx="6" fill="#5e3214"/>
+<text x="711" y="603" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#5e3214</text>
+<rect x="778" y="564" width="70" height="48" rx="6" fill="#462208"/>
+<text x="785" y="603" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#462208</text>
 <text x="16" y="644" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="12" font-weight="600" fill="#1c2023">cool-gray</text>
 <rect x="112" y="616" width="70" height="48" rx="6" fill="#f7f8fa"/>
 <text x="119" y="655" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#f7f8fa</text>
