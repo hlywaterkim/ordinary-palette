@@ -1,7 +1,7 @@
 {
   "name": "ordinary-palette",
   "version": "0.2.0",
-  "description": "A natural open-source color palette.",
+  "description": "A natural color palette for everyday UI — 13 families × 10 steps, in light and dark.",
   "license": "MIT",
   "type": "module",
   "sideEffects": [
