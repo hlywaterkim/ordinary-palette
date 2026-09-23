@@ -421,13 +421,16 @@ test("pink stays apart from red", () => {
 });
 
 test("color families share one lightness curve within 1.3 L of blue", () => {
-  // Yellow keeps its own lighter curve, and gray has its own surface ramp.
+  // Yellow keeps its own lighter curve, and gray has its own surface ramp. Orange rides 3 L above the curve
+  // from 400 (1.5 L at 300), since it only turns vivid when light.
   const aligned = families.filter((family) => !["yellow", "cool-gray", "neutral-gray"].includes(family));
+  const lift = (family: string, step: number) => (family !== "orange" || step < 300 ? 0 : step === 300 ? 1.5 : 3);
   for (const step of steps) {
     const reference = oklch(blue[step]).l;
     for (const family of aligned) {
       const { l } = oklch(colors[family][step]);
-      assert.ok(Math.abs(l - reference) <= 1.3, `${family} ${step} L ${l} strays from blue ${reference}`);
+      const offset = l - reference - lift(family, step);
+      assert.ok(Math.abs(offset) <= 1.3, `${family} ${step} L ${l} strays from blue ${reference}`);
     }
   }
   const tail = [600, 700, 800, 900].map((step) => oklch(blue[step]).l);
