@@ -74,49 +74,49 @@ Dark cool-gray lightness rises: 50 = 22, 100 = 27, 200 = 33, 300 = 40, 400 = 49,
 
 Opacity steps, for both `white-opacity` and `black-opacity`: 00, 05, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100.
 
-## Using the steps
+## 스텝 사용 가이드
 
-The palette has no semantic roles, so these are measured starting points, not rules. Numbers are WCAG 2 contrast: 4.5:1 for text, 3:1 for icons and control borders.
+이 팔레트에는 primary, surface 같은 의미 역할이 없습니다. 아래 내용은 규칙이 아니라, 실제로 측정해 본 출발점입니다. 숫자는 WCAG 2 대비입니다. 글자는 4.5:1, 아이콘과 입력창 테두리는 3:1이 기준입니다.
 
-**Gray, light scale:** page and card surfaces 50 and 100, dividers 200, visible borders 300, input and control borders that must be seen 500 (3.5:1), secondary text 600 (5.7:1), body text 800–900.
+**회색 (라이트):** 페이지·카드 배경은 50과 100, 구분선은 200, 눈에 보이는 테두리는 300입니다. 입력창처럼 반드시 보여야 하는 테두리는 500(3.5:1), 보조 글자는 600(5.7:1), 본문은 800–900입니다.
 
-**Gray, dark scale:** surfaces dark 50–200, control borders dark 500 (4.2:1), secondary text dark 600 (6.5:1), body text dark 800–900.
+**회색 (다크):** 배경은 다크 50–200, 입력창 테두리는 다크 500(4.2:1), 보조 글자는 다크 600(6.5:1), 본문은 다크 800–900입니다.
 
-**Color families, light scale.** Each cell names the first step that passes. "500 fill takes" names the ink that reads better on the 500 fill: dark ink is cool-gray 900 (dark cool-gray 50 on the dark scale).
+**유색 가족 (라이트).** 각 칸은 기준을 처음 통과하는 스텝입니다. "500 채움색에 맞는 글자"는 500 위에서 더 잘 읽히는 글자색과 그 대비입니다. 어두운 글자는 cool-gray 900이고, 다크 스케일에서는 다크 cool-gray 50입니다.
 
-| Family | Text on white | White text on fill | 500 fill takes | Tint badge on 100 | Icon on white |
+| 가족 | 흰 배경 위 글자 | 흰 글자를 올리는 채움색 | 500 채움색에 맞는 글자 | 100 틴트 위 뱃지 글자 | 흰 배경 위 아이콘 |
 | --- | --- | --- | --- | --- | --- |
-| pink | 600 | 600 | dark ink 4.2:1 | 700 | 500 |
-| red | 600 | 600 | dark ink 4.1:1 | 700 | 400 |
-| orange | 700 | 700 | dark ink 5.9:1 | 800 | 600 |
-| yellow | — | — | dark ink 9.4:1 | — | 900 |
-| light-green | 700 | 700 | dark ink 6.9:1 | 800 | 600 |
-| green | 700 | 700 | dark ink 5.4:1 | 800 | 500 |
-| cyan | 700 | 700 | dark ink 7.0:1 | 800 | 600 |
-| light-blue | 700 | 700 | dark ink 6.3:1 | 800 | 600 |
-| blue | 600 | 600 | dark ink 4.6:1 | 700 | 500 |
-| purple | 600 | 600 | white 4.1:1 | 700 | 400 |
+| pink | 600 | 600 | 어두운 글자 4.2:1 | 700 | 500 |
+| red | 600 | 600 | 어두운 글자 4.1:1 | 700 | 400 |
+| orange | 700 | 700 | 어두운 글자 5.9:1 | 800 | 600 |
+| yellow | — | — | 어두운 글자 9.4:1 | — | 900 |
+| light-green | 700 | 700 | 어두운 글자 6.9:1 | 800 | 600 |
+| green | 700 | 700 | 어두운 글자 5.4:1 | 800 | 500 |
+| cyan | 700 | 700 | 어두운 글자 7.0:1 | 800 | 600 |
+| light-blue | 700 | 700 | 어두운 글자 6.3:1 | 800 | 600 |
+| blue | 600 | 600 | 어두운 글자 4.6:1 | 700 | 500 |
+| purple | 600 | 600 | 흰 글자 4.1:1 | 700 | 400 |
 
-Dark scale, on a dark cool-gray 50 page:
+다크 스케일 (다크 cool-gray 50 배경):
 
-| Family | Text on dark 50 | 500 fill takes | Tint badge on dark 100 |
+| 가족 | 다크 50 위 글자 | 500 채움색에 맞는 글자 | 다크 100 틴트 위 뱃지 글자 |
 | --- | --- | --- | --- |
-| pink | 500 | dark ink 4.6:1 | 700 |
-| red | 500 | dark ink 4.5:1 | 700 |
-| orange | 400 | dark ink 6.5:1 | 500 |
-| yellow | 400 | dark ink 8.9:1 | 500 |
-| light-green | 400 | dark ink 7.5:1 | 500 |
-| green | 500 | dark ink 5.9:1 | 600 |
-| cyan | 400 | dark ink 7.6:1 | 500 |
-| light-blue | 400 | dark ink 6.9:1 | 500 |
-| blue | 500 | dark ink 5.0:1 | 700 |
-| purple | 600 | dark ink 4.4:1 | 700 |
+| pink | 500 | 어두운 글자 4.6:1 | 700 |
+| red | 500 | 어두운 글자 4.5:1 | 700 |
+| orange | 400 | 어두운 글자 6.5:1 | 500 |
+| yellow | 400 | 어두운 글자 8.9:1 | 500 |
+| light-green | 400 | 어두운 글자 7.5:1 | 500 |
+| green | 500 | 어두운 글자 5.9:1 | 600 |
+| cyan | 400 | 어두운 글자 7.6:1 | 500 |
+| light-blue | 400 | 어두운 글자 6.9:1 | 500 |
+| blue | 500 | 어두운 글자 5.0:1 | 700 |
+| purple | 600 | 어두운 글자 4.4:1 | 700 |
 
-- Yellow never carries text on white. Put dark ink on yellow fills, and use orange 800 or darker for warning text.
-- Pink, red, and purple 500 reach only 4.1–4.4:1 with either ink. Use 600 with white for filled buttons, or keep 500 for large bold labels (3:1).
-- For hover and pressed states, step one darker on the light scale (600 → 700) and one lighter on the dark scale.
+- yellow는 흰 배경 위 글자로 쓰지 않습니다. yellow 채움색에는 어두운 글자를 올리고, 경고 문구는 orange 800 이상을 씁니다.
+- pink·red·purple 500은 어느 글자색을 올려도 4.1–4.4:1입니다. 흰 글자 버튼에는 600을 쓰고, 500은 크고 굵은 글자(3:1)에만 씁니다.
+- hover와 pressed 상태는 라이트에서는 한 단계 어둡게(600 → 700), 다크에서는 한 단계 밝게 씁니다.
 
-The tables come from `scripts/usage-table.ts`, and `npm test` fails if they drift from the palette. Regenerate them with `node --experimental-strip-types scripts/usage-table.ts`.
+표는 `scripts/usage-table.ts`가 팔레트에서 계산합니다. 색이 바뀌어 표가 어긋나면 `npm test`가 실패합니다. 다시 만들 때는 `node --experimental-strip-types scripts/usage-table.ts`를 실행합니다.
 
 ## Develop
 
