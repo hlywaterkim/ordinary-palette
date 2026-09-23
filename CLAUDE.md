@@ -1,0 +1,43 @@
+# ordinary-palette 작업 플랜
+
+GitHub: https://github.com/hlywaterkim/ordinary-palette
+
+이 파일만 읽고 바로 이어서 작업한다. 시맨틱 토큰, 테마, 컴포넌트 토큰은 만들지 않는다.
+
+## 지금 상태
+
+패키지 `ordinary-palette` 0.1.0, MIT. 라이트·다크 스케일과 white/black opacity가 있다. 최신 곡선은 `main`에 푸시되어 있다. npm에는 아직 배포하지 않았다.
+
+가족: pink, red, orange, yellow, lime, green, teal, cloudy-blue, blue, purple, cool-gray, neutral-gray.
+
+스텝: 50, 100, 200, 300, 400, 500, 600, 700, 800, 900.
+
+## 규칙
+
+1. 색값은 직접 고친다. Toss, Tailwind, Open Color, LifeT hex를 복사하지 않는다. 곡선 형태만 참고한다.
+2. 명도는 50이 가장 밝고 900이 가장 어둡다. 큰 하락은 500 전이고, 500 이후 간격은 더 좁다.
+3. 50–200은 가족끼리 명도를 맞춘다. 400부터는 가족마다 명도가 달라도 된다. 노랑 900은 파랑 900보다 밝고, hue는 노랑 50과 15° 안이다.
+4. 채도는 50에서 낮고, 400–600에서 가장 높고, 900에서 조금 내려간다. 무너뜨리지 않는다.
+5. neutral-gray는 채도 0이고, 같은 스케일의 cool-gray 명도를 따른다.
+6. 다크는 라이트 hex를 재사용하지 않는다. 다크 채도 / 라이트 채도는 0.9 이상이다. 가멋 밖이면 채도만 낮춘다.
+7. 공개 API는 `colors`, 가족 export, `colors.json`, `--color-<family>-<step>`, `--color-dark-<family>-<step>`이다.
+
+숫자와 오프셋의 기준은 `src/palette.ts`와 `tests/colors.test.ts`다. 이 문서에 적은 hex는 오래될 수 있으니 테스트가 우선이다.
+
+## 고치는 곳
+
+- `src/palette.ts` — 색과 오프셋
+- `tests/colors.test.ts` — 규칙을 테스트로 고정
+- `scripts/write-assets.ts` — CSS, JSON 생성
+- `examples/preview` — 미리보기. 배경은 흰색. 거의 흰 무채색 칩만 옅은 회색 테두리
+- `README.md` — 가족, 스텝, 곡선이 바뀌면 같이 고친다
+
+`npm test`는 빌드 후 테스트를 돌린다. 미리보기는 `npm run preview`이고 포트는 43123이다.
+
+## 요청이 있을 때만
+
+아래는 시작하지 않는다. 사용자가 고르면 그 항목만 한다.
+
+1. npm 배포. 버전을 올리고 `npm test` 후, 배포 허락이 있으면 publish한다.
+2. 미리보기에 400·500을 버튼과 배경으로 쓰는 예시 한 블록.
+3. 본문 후보(900 on 50, 50 on 900)의 대비를 재고, 실패 스텝만 보고한다. 팔레트를 임의로 바꾸지 않는다.
