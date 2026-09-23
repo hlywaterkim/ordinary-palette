@@ -512,3 +512,20 @@ test("README swatch images match the palette", () => {
     assert.ok(readme.includes(`](${path})`), `README does not show ${path}`);
   }
 });
+
+test("tint steps 50–200 carry the same chroma across families", () => {
+  // Toss's first complaint: the same 100 looked blotchy across hues. Yellow and the low-chroma brown keep their own tints.
+  const tinted = families.filter((family) => !["yellow", "brown", "cool-gray", "neutral-gray"].includes(family));
+  for (const [label, scale] of [["light", colors], ["dark", darkColors]] as const) {
+    for (const step of [50, 100, 200] as const) {
+      const chroma = tinted.map((family) => {
+        const { l, c, h } = oklch(scale[family][step]);
+        return { family, c, full: maxChroma(l, h) - c < 0.002 };
+      });
+      const top = Math.max(...chroma.map(({ c }) => c));
+      for (const { family, c, full } of chroma) {
+        assert.ok(top - c <= 0.004 || full, `${label} ${family} ${step} chroma ${c.toFixed(3)} is paler than the other tints ${top.toFixed(3)}`);
+      }
+    }
+  }
+});
