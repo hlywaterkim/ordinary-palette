@@ -16,10 +16,10 @@ export const yellowLightnessOffset = {
   300: 11.3,
   400: 16.4,
   500: 19.5,
-  600: 21.6,
-  700: 23,
-  800: 24.1,
-  900: 24.4,
+  600: 19.7,
+  700: 18.5,
+  800: 16.1,
+  900: 10.9,
 } as const;
 
 /**
@@ -86,7 +86,8 @@ export const orange = {
 
 // Yellow shares only step 50 with the other color families. From 100 it sits lighter, so chroma
 // reaches the Toss TDS level (about 0.165 at 500) inside sRGB and pale steps read yellow, not beige.
-// From 500, hue leans toward amber but stays within 15° of step 50. Chroma peaks around 500 and eases, so 900 stays gold.
+// From 500, hue leans toward amber but stays within 15° of step 50. Steps 600–900 fall faster, so 900 is a deep
+// gold that carries 4.5:1 text on white and on yellow 100.
 export const yellow = {
   50: "#fdf3da",
   100: "#ffecbd",
@@ -94,10 +95,10 @@ export const yellow = {
   300: "#ffd576",
   400: "#ffc84c",
   500: "#feb700",
-  600: "#f1a900",
-  700: "#e49c00",
-  800: "#d59000",
-  900: "#c68400",
+  600: "#e9a400",
+  700: "#d28f00",
+  800: "#b57a00",
+  900: "#916000",
 } as const satisfies ColorScale;
 
 // Yellow-green 연두 between yellow and green (hue 124–130). From 300 it stays lighter than green.
@@ -291,7 +292,7 @@ export const darkYellow = {
   200: "#614000",
   300: "#986600",
   400: "#cc8b00",
-  500: "#f6ac00",
+  500: "#f2ae00",
   600: "#fcba32",
   700: "#fbcd6d",
   800: "#f9dfa0",
@@ -493,16 +494,16 @@ export const sourceHue = {
     "900": 42.68
   },
   "yellow": {
-    "50": 88.37,
+    "50": 88.77,
     "100": 88.62,
     "200": 88.23,
     "300": 85.99,
     "400": 84.19,
-    "500": 80.64,
+    "500": 80.39,
     "600": 77.97,
     "700": 75.85,
     "800": 74.95,
-    "900": 73.92
+    "900": 74.6
   },
   "light-green": {
     "50": 125.19,
@@ -629,16 +630,16 @@ export const sourceChroma = {
     "900": 0.1483
   },
   "yellow": {
-    "50": 0.035,
-    "100": 0.0717,
-    "200": 0.106,
-    "300": 0.1379,
-    "400": 0.1676,
-    "500": 0.1847,
-    "600": 0.183,
-    "700": 0.1753,
-    "800": 0.1666,
-    "900": 0.1578
+    "50": 0.0345,
+    "100": 0.064,
+    "200": 0.0946,
+    "300": 0.1231,
+    "400": 0.1497,
+    "500": 0.1705,
+    "600": 0.165,
+    "700": 0.16,
+    "800": 0.155,
+    "900": 0.15
   },
   "light-green": {
     "50": 0.0236,
@@ -782,7 +783,7 @@ export const darkSourceHue = {
     "200": 75.77,
     "300": 75.77,
     "400": 75.77,
-    "500": 77.97,
+    "500": 80.39,
     "600": 80.39,
     "700": 84.19,
     "800": 88.23,

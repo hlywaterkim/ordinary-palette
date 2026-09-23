@@ -131,7 +131,6 @@ test("lightness falls from 50 to 900 and chroma humps", () => {
       `yellow ${step} L ${yellowL} misses blue ${blueL} + ${yellowLightnessOffset[step]}`,
     );
   }
-  assert.ok(yellowLightnessOffset[900] > yellowLightnessOffset[400]);
 
   const blueLevels = steps.map((step) => oklch(blue[step]).l);
   const grayLevels = steps.map((step) => oklch(coolGray[step]).l);
@@ -152,7 +151,7 @@ test("lightness falls from 50 to 900 and chroma humps", () => {
   const yellow900 = oklch(yellow[900]);
   const blue900 = oklch(blue[900]);
   assert.ok(hueDelta(yellow900.h, oklch(yellow[50]).h) <= 15);
-  assert.ok(yellow900.l > blue900.l + 12, `yellow 900 L ${yellow900.l} should be clearly above blue 900 L ${blue900.l}`);
+  assert.ok(yellow900.l > blue900.l + 8, `yellow 900 L ${yellow900.l} should stay above blue 900 L ${blue900.l}`);
   assert.ok(oklch(coolGray[900]).l + 12 < blue900.l);
 });
 
@@ -320,7 +319,7 @@ test("yellow carries strong chroma throughout", () => {
   assert.ok(Math.max(...chroma) >= 0.155, `yellow peak chroma ${Math.max(...chroma)} is too soft`);
   assert.ok(chroma[0] >= 0.025, `yellow 50 chroma ${chroma[0]} reads as off-white`);
   assert.ok(chroma[2] >= 0.09, `yellow 200 chroma ${chroma[2]} reads as beige`);
-  assert.ok(chroma[9] >= 0.12, `yellow 900 chroma ${chroma[9]} reads as brown`);
+  assert.ok(chroma[9] >= 0.1, `yellow 900 chroma ${chroma[9]} reads as brown`);
 });
 
 test("orange and yellow reach Toss TDS chroma from 500", () => {
@@ -378,6 +377,13 @@ test("white text reads on 700 and 800 text reads on a 100 tint", () => {
     const badge = contrast(scale[800], scale[100]);
     assert.ok(badge >= 4.5, `${family} 800 on 100 is ${badge.toFixed(2)}:1`);
   }
+});
+
+test("yellow 900 carries text on yellow 100 and on white", () => {
+  const onTint = contrast(yellow[900], yellow[100]);
+  assert.ok(onTint >= 4.5, `yellow 900 on 100 is ${onTint.toFixed(2)}:1`);
+  const onWhite = contrast(yellow[900], "#ffffff");
+  assert.ok(onWhite >= 4.5, `yellow 900 on white is ${onWhite.toFixed(2)}:1`);
 });
 
 test("pink stays apart from red", () => {

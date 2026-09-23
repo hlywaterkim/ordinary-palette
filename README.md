@@ -1,6 +1,6 @@
 # Ordinary Palette
 
-A natural color palette for ordinary interface work: backgrounds, text, and borders. Twelve families run from step 50 to step 900. Lightness falls the whole way: step 50 stays the lightest, the large drop lands before step 500, and the steps after 500 sit closer together while staying clearly apart, about 5 L each. Chroma starts low, is highest around steps 400–600 (step 600 never exceeds 500, so 500 reads as the main step), then eases without collapsing, so 600–900 keep each family's color. Blue, red, and orange reach the lowest peak chroma found in SEED, Toss TDS, and Montage for the same hue. The other families stay a little quieter. Color families share one lightness on steps 50–200, except yellow, which shares only step 50 so it can carry Toss TDS-level chroma. Gray starts lighter, at L 98, and keeps three steps at L 93 or above for surfaces and borders. From step 400, yellow stays lighter than blue, and yellow 900 keeps its chroma, leaning toward amber within 15° of step 50's hue. Cool-gray still ends at a dark 900. Neutral-gray is cool-gray's lightness at chroma 0. The dark scale runs the other way, so each step keeps its role in both modes: dark 50 is a tinted dark surface, dark 500 sits at about the lightness of light 500, and dark 900 is a pale tint for text. It does not reuse the light hex values. White and black ship as opacity scales. The scale is raw color only: there are no semantic roles such as primary, surface, or text.
+A natural color palette for ordinary interface work: backgrounds, text, and borders. Twelve families run from step 50 to step 900. Lightness falls the whole way: step 50 stays the lightest, the large drop lands before step 500, and the steps after 500 sit closer together while staying clearly apart, about 5 L each. Chroma starts low, is highest around steps 400–600 (step 600 never exceeds 500, so 500 reads as the main step), then eases without collapsing, so 600–900 keep each family's color. Blue, red, and orange reach the lowest peak chroma found in SEED, Toss TDS, and Montage for the same hue. The other families stay a little quieter. Color families share one lightness on steps 50–200, except yellow, which shares only step 50 so it can carry Toss TDS-level chroma. Gray starts lighter, at L 98, and keeps three steps at L 93 or above for surfaces and borders. From step 400, yellow stays lighter than blue, and yellow 900 is a deep gold that carries text on white and on yellow 100, within 15° of step 50's hue. Cool-gray still ends at a dark 900. Neutral-gray is cool-gray's lightness at chroma 0. The dark scale runs the other way, so each step keeps its role in both modes: dark 50 is a tinted dark surface, dark 500 sits at about the lightness of light 500, and dark 900 is a pale tint for text. It does not reuse the light hex values. White and black ship as opacity scales. The scale is raw color only: there are no semantic roles such as primary, surface, or text.
 
 ## Install
 
@@ -54,7 +54,7 @@ palette.dark.blue["500"];
 | pink | `#e7388d` | `#eb3c90` |
 | red | `#ee3828` | `#f23c2b` |
 | orange | `#f87500` | `#fc780b` |
-| yellow | `#feb700` | `#f6ac00` |
+| yellow | `#feb700` | `#f2ae00` |
 | light-green | `#88b700` | `#8bba0d` |
 | green | `#26a95e` | `#2bac61` |
 | cyan | `#00bcbc` | `#0fbfbf` |
@@ -66,7 +66,7 @@ palette.dark.blue["500"];
 
 Steps on every color family, light and dark: 50, 100, 200, 300, 400, 500, 600, 700, 800, 900.
 
-Light yellow matches blue on step 50. From step 100 it is lighter than blue by this OKLCH L offset: 100 +1.9, 200 +5.8, 300 +11.3, 400 +16.4, 500 +19.6, 600 +21.5, 700 +23, 800 +24.1, 900 +24.4.9, 400 +11.3, 500 +14.3, 600 +16.4, 700 +17.9, 800 +18.8, 900 +19.2. Orange sits near #ff7700 at step 500 (hue 50) and reaches Toss TDS chroma, as does yellow. Pale orange leans toward apricot to carry more chroma. Light-green is a yellow-green (hue 124–130) lighter than green. Cyan (hue 195) runs from an aqua like #00ffff to a teal like #008080, and sits lighter than the other families so it can hold its chroma. Light-blue is a sky blue (hue 232–242) that stays lighter than blue from step 300.
+Light yellow matches blue on step 50. From step 100 it is lighter than blue by this OKLCH L offset: 100 +1.9, 200 +5.8, 300 +11.3, 400 +16.4, 500 +19.5, 600 +19.7, 700 +18.5, 800 +16.1, 900 +10.9.9, 200 +5.8, 300 +11.3, 400 +16.4, 500 +19.6, 600 +21.5, 700 +23, 800 +24.1, 900 +24.4.9, 400 +11.3, 500 +14.3, 600 +16.4, 700 +17.9, 800 +18.8, 900 +19.2. Orange sits near #ff7700 at step 500 (hue 50) and reaches Toss TDS chroma, as does yellow. Pale orange leans toward apricot to carry more chroma. Light-green is a yellow-green (hue 124–130) lighter than green. Cyan (hue 195) runs from an aqua like #00ffff to a teal like #008080, and sits lighter than the other families so it can hold its chroma. Light-blue is a sky blue (hue 232–242) that stays lighter than blue from step 300.
 
 Neutral-gray uses chroma 0 at cool-gray's lightness. `#666666` is only an example of that character, not a step in the scale.
 
@@ -89,7 +89,7 @@ Opacity steps, for both `white-opacity` and `black-opacity`: 00, 05, 10, 20, 30,
 | pink | 600 | 600 | 어두운 글자 4.2:1 | 700 | 500 |
 | red | 600 | 600 | 어두운 글자 4.1:1 | 700 | 400 |
 | orange | 700 | 700 | 어두운 글자 5.9:1 | 800 | 600 |
-| yellow | — | — | 어두운 글자 9.4:1 | — | 900 |
+| yellow | 900 | 900 | 어두운 글자 9.4:1 | 900 | 800 |
 | light-green | 700 | 700 | 어두운 글자 6.9:1 | 800 | 600 |
 | green | 700 | 700 | 어두운 글자 5.4:1 | 800 | 500 |
 | cyan | 700 | 700 | 어두운 글자 7.0:1 | 800 | 600 |
@@ -112,7 +112,7 @@ Opacity steps, for both `white-opacity` and `black-opacity`: 00, 05, 10, 20, 30,
 | blue | 500 | 어두운 글자 5.0:1 | 700 |
 | purple | 600 | 어두운 글자 4.4:1 | 700 |
 
-- yellow는 흰 배경 위 글자로 쓰지 않습니다. yellow 채움색에는 어두운 글자를 올리고, 경고 문구는 orange 800 이상을 씁니다.
+- yellow는 900만 글자로 씁니다(흰 배경 5.4:1, yellow 100 위 4.6:1). yellow 채움색에는 어두운 글자를 올립니다.
 - pink·red·purple 500은 어느 글자색을 올려도 4.1–4.4:1입니다. 흰 글자 버튼에는 600을 쓰고, 500은 크고 굵은 글자(3:1)에만 씁니다.
 - hover와 pressed 상태는 라이트에서는 한 단계 어둡게(600 → 700), 다크에서는 한 단계 밝게 씁니다.
 
