@@ -24,7 +24,7 @@ import {
   yellow,
   yellowLightnessOffset,
 } from "../src/palette.ts";
-import { usageTables } from "../scripts/usage-table.ts";
+import { guideBlocks } from "../scripts/usage-table.ts";
 
 const HEX = /^#[0-9a-f]{6}$/;
 const ALPHA_HEX = /^#[0-9a-f]{8}$/;
@@ -465,7 +465,9 @@ test("built package matches the source palette", async () => {
   );
 });
 
-test("README usage tables match the palette", () => {
+test("README guide tables match the palette", () => {
   const readme = readFileSync(new URL("../README.md", import.meta.url), "utf8");
-  assert.ok(readme.includes(usageTables()), "README usage tables are stale: run scripts/usage-table.ts");
+  for (const block of guideBlocks()) {
+    assert.ok(readme.includes(block), `README guide is stale: run scripts/usage-table.ts\n${block.slice(0, 80)}`);
+  }
 });
