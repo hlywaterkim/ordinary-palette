@@ -108,8 +108,8 @@
 <text x="415" y="291" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#8cb809</text>
 <rect x="482" y="252" width="70" height="48" rx="6" fill="#739c00"/>
 <text x="489" y="291" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#739c00</text>
-<rect x="556" y="252" width="70" height="48" rx="6" fill="#5a8400"/>
-<text x="563" y="291" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#5a8400</text>
+<rect x="556" y="252" width="70" height="48" rx="6" fill="#588000"/>
+<text x="563" y="291" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#588000</text>
 <rect x="630" y="252" width="70" height="48" rx="6" fill="#466c00"/>
 <text x="637" y="291" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#466c00</text>
 <rect x="704" y="252" width="70" height="48" rx="6" fill="#325600"/>
@@ -129,8 +129,8 @@
 <text x="415" y="343" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#4dbf7a</text>
 <rect x="482" y="304" width="70" height="48" rx="6" fill="#21a65b"/>
 <text x="489" y="343" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#21a65b</text>
-<rect x="556" y="304" width="70" height="48" rx="6" fill="#008b4b"/>
-<text x="563" y="343" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#008b4b</text>
+<rect x="556" y="304" width="70" height="48" rx="6" fill="#008849"/>
+<text x="563" y="343" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#008849</text>
 <rect x="630" y="304" width="70" height="48" rx="6" fill="#00723c"/>
 <text x="637" y="343" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#00723c</text>
 <rect x="704" y="304" width="70" height="48" rx="6" fill="#005a2e"/>
@@ -150,8 +150,8 @@
 <text x="415" y="395" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#18bcbe</text>
 <rect x="482" y="356" width="70" height="48" rx="6" fill="#00a0a0"/>
 <text x="489" y="395" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#00a0a0</text>
-<rect x="556" y="356" width="70" height="48" rx="6" fill="#008686"/>
-<text x="563" y="395" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#008686</text>
+<rect x="556" y="356" width="70" height="48" rx="6" fill="#008282"/>
+<text x="563" y="395" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#008282</text>
 <rect x="630" y="356" width="70" height="48" rx="6" fill="#006d6d"/>
 <text x="637" y="395" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#006d6d</text>
 <rect x="704" y="356" width="70" height="48" rx="6" fill="#005656"/>

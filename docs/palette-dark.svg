@@ -39,18 +39,18 @@
 <text x="193" y="135" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#542a26</text>
 <rect x="260" y="96" width="70" height="48" rx="6" fill="#6e332e"/>
 <text x="267" y="135" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#6e332e</text>
-<rect x="334" y="96" width="70" height="48" rx="6" fill="#a02b28"/>
-<text x="341" y="135" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#a02b28</text>
-<rect x="408" y="96" width="70" height="48" rx="6" fill="#c92d2b"/>
-<text x="415" y="135" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#c92d2b</text>
-<rect x="482" y="96" width="70" height="48" rx="6" fill="#f23a38"/>
-<text x="489" y="135" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#f23a38</text>
-<rect x="556" y="96" width="70" height="48" rx="6" fill="#ff6e65"/>
-<text x="563" y="135" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#ff6e65</text>
-<rect x="630" y="96" width="70" height="48" rx="6" fill="#ff9b91"/>
-<text x="637" y="135" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#ff9b91</text>
-<rect x="704" y="96" width="70" height="48" rx="6" fill="#ffbfb7"/>
-<text x="711" y="135" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#ffbfb7</text>
+<rect x="334" y="96" width="70" height="48" rx="6" fill="#a02b29"/>
+<text x="341" y="135" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#a02b29</text>
+<rect x="408" y="96" width="70" height="48" rx="6" fill="#ca2e2c"/>
+<text x="415" y="135" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#ca2e2c</text>
+<rect x="482" y="96" width="70" height="48" rx="6" fill="#f33c39"/>
+<text x="489" y="135" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#f33c39</text>
+<rect x="556" y="96" width="70" height="48" rx="6" fill="#ff7067"/>
+<text x="563" y="135" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#ff7067</text>
+<rect x="630" y="96" width="70" height="48" rx="6" fill="#ff9c92"/>
+<text x="637" y="135" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#ff9c92</text>
+<rect x="704" y="96" width="70" height="48" rx="6" fill="#ffc0b7"/>
+<text x="711" y="135" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#ffc0b7</text>
 <rect x="778" y="96" width="70" height="48" rx="6" fill="#ffe0db"/>
 <text x="785" y="135" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#ffe0db</text>
 <text x="16" y="176" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="12" font-weight="600" fill="#f7f8fa">orange</text>
@@ -125,8 +125,8 @@
 <text x="267" y="343" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#1a5531</text>
 <rect x="334" y="304" width="70" height="48" rx="6" fill="#1a6e3f"/>
 <text x="341" y="343" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#1a6e3f</text>
-<rect x="408" y="304" width="70" height="48" rx="6" fill="#108b4d"/>
-<text x="415" y="343" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#108b4d</text>
+<rect x="408" y="304" width="70" height="48" rx="6" fill="#118b4d"/>
+<text x="415" y="343" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#f7f8fa">#118b4d</text>
 <rect x="482" y="304" width="70" height="48" rx="6" fill="#26a95e"/>
 <text x="489" y="343" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#1c2023">#26a95e</text>
 <rect x="556" y="304" width="70" height="48" rx="6" fill="#4fc17c"/>

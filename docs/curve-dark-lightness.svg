@@ -33,16 +33,16 @@
 <circle cx="556.0" cy="120.6" r="7" fill="transparent"><title>pink 700 · L 79.4</title></circle>
 <circle cx="628.0" cy="96.2" r="7" fill="transparent"><title>pink 800 · L 86.3</title></circle>
 <circle cx="700.0" cy="72.3" r="7" fill="transparent"><title>pink 900 · L 93.1</title></circle>
-<polyline points="52.0,298.6 124.0,280.7 196.0,260.0 268.0,234.0 340.0,207.3 412.0,177.8 484.0,148.7 556.0,122.1 628.0,97.1 700.0,72.4" fill="none" stroke="#f23a38" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="52.0,298.6 124.0,280.7 196.0,260.0 268.0,234.0 340.0,206.3 412.0,176.6 484.0,147.6 556.0,121.4 628.0,96.5 700.0,72.4" fill="none" stroke="#f33c39" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="52.0" cy="298.6" r="7" fill="transparent"><title>red 50 · L 28.9</title></circle>
 <circle cx="124.0" cy="280.7" r="7" fill="transparent"><title>red 100 · L 34.0</title></circle>
 <circle cx="196.0" cy="260.0" r="7" fill="transparent"><title>red 200 · L 39.9</title></circle>
 <circle cx="268.0" cy="234.0" r="7" fill="transparent"><title>red 300 · L 47.2</title></circle>
-<circle cx="340.0" cy="207.3" r="7" fill="transparent"><title>red 400 · L 54.8</title></circle>
-<circle cx="412.0" cy="177.8" r="7" fill="transparent"><title>red 500 · L 63.2</title></circle>
-<circle cx="484.0" cy="148.7" r="7" fill="transparent"><title>red 600 · L 71.4</title></circle>
-<circle cx="556.0" cy="122.1" r="7" fill="transparent"><title>red 700 · L 79.0</title></circle>
-<circle cx="628.0" cy="97.1" r="7" fill="transparent"><title>red 800 · L 86.1</title></circle>
+<circle cx="340.0" cy="206.3" r="7" fill="transparent"><title>red 400 · L 55.1</title></circle>
+<circle cx="412.0" cy="176.6" r="7" fill="transparent"><title>red 500 · L 63.5</title></circle>
+<circle cx="484.0" cy="147.6" r="7" fill="transparent"><title>red 600 · L 71.7</title></circle>
+<circle cx="556.0" cy="121.4" r="7" fill="transparent"><title>red 700 · L 79.2</title></circle>
+<circle cx="628.0" cy="96.5" r="7" fill="transparent"><title>red 800 · L 86.3</title></circle>
 <circle cx="700.0" cy="72.4" r="7" fill="transparent"><title>red 900 · L 93.1</title></circle>
 <polyline points="52.0,298.1 124.0,280.6 196.0,259.6 268.0,230.1 340.0,199.0 412.0,165.0 484.0,139.3 556.0,115.8 628.0,94.1 700.0,72.4" fill="none" stroke="#f0620a" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="52.0" cy="298.1" r="7" fill="transparent"><title>orange 50 · L 29.1</title></circle>
@@ -82,7 +82,7 @@
 <circle cx="124.0" cy="280.9" r="7" fill="transparent"><title>green 100 · L 33.9</title></circle>
 <circle cx="196.0" cy="259.1" r="7" fill="transparent"><title>green 200 · L 40.1</title></circle>
 <circle cx="268.0" cy="232.3" r="7" fill="transparent"><title>green 300 · L 47.7</title></circle>
-<circle cx="340.0" cy="202.9" r="7" fill="transparent"><title>green 400 · L 56.0</title></circle>
+<circle cx="340.0" cy="202.9" r="7" fill="transparent"><title>green 400 · L 56.1</title></circle>
 <circle cx="412.0" cy="171.7" r="7" fill="transparent"><title>green 500 · L 64.9</title></circle>
 <circle cx="484.0" cy="143.9" r="7" fill="transparent"><title>green 600 · L 72.8</title></circle>
 <circle cx="556.0" cy="119.3" r="7" fill="transparent"><title>green 700 · L 79.8</title></circle>
@@ -167,7 +167,7 @@
 <circle cx="700.0" cy="58.5" r="7" fill="transparent"><title>neutral-gray 900 · L 97.0</title></circle>
 <line x1="52" x2="68" y1="374" y2="374" stroke="#eb3c90" stroke-width="3" stroke-linecap="round"/>
 <text x="74" y="378" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="11" fill="#dcdee0">pink</text>
-<line x1="144" x2="160" y1="374" y2="374" stroke="#f23a38" stroke-width="3" stroke-linecap="round"/>
+<line x1="144" x2="160" y1="374" y2="374" stroke="#f33c39" stroke-width="3" stroke-linecap="round"/>
 <text x="166" y="378" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="11" fill="#dcdee0">red</text>
 <line x1="236" x2="252" y1="374" y2="374" stroke="#f0620a" stroke-width="3" stroke-linecap="round"/>
 <text x="258" y="378" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="11" fill="#dcdee0">orange</text>
