@@ -66,17 +66,17 @@
 <circle cx="556.0" cy="153.9" r="7" fill="transparent"><title>yellow 700 · L 69.9</title></circle>
 <circle cx="628.0" cy="180.3" r="7" fill="transparent"><title>yellow 800 · L 62.5</title></circle>
 <circle cx="700.0" cy="214.1" r="7" fill="transparent"><title>yellow 900 · L 52.9</title></circle>
-<polyline points="52.0,61.0 124.0,73.2 196.0,96.7 268.0,118.7 340.0,145.2 412.0,175.4 484.0,203.0 556.0,229.9 628.0,255.9 700.0,280.1" fill="none" stroke="#739c00" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="52.0,61.0 124.0,73.2 196.0,96.7 268.0,118.7 340.0,145.2 412.0,175.4 484.0,202.8 556.0,229.9 628.0,256.1 700.0,280.2" fill="none" stroke="#739c00" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="52.0" cy="61.0" r="7" fill="transparent"><title>light-green 50 · L 96.3</title></circle>
 <circle cx="124.0" cy="73.2" r="7" fill="transparent"><title>light-green 100 · L 92.9</title></circle>
 <circle cx="196.0" cy="96.7" r="7" fill="transparent"><title>light-green 200 · L 86.2</title></circle>
 <circle cx="268.0" cy="118.7" r="7" fill="transparent"><title>light-green 300 · L 79.9</title></circle>
 <circle cx="340.0" cy="145.2" r="7" fill="transparent"><title>light-green 400 · L 72.4</title></circle>
 <circle cx="412.0" cy="175.4" r="7" fill="transparent"><title>light-green 500 · L 63.9</title></circle>
-<circle cx="484.0" cy="203.0" r="7" fill="transparent"><title>light-green 600 · L 56.0</title></circle>
+<circle cx="484.0" cy="202.8" r="7" fill="transparent"><title>light-green 600 · L 56.1</title></circle>
 <circle cx="556.0" cy="229.9" r="7" fill="transparent"><title>light-green 700 · L 48.4</title></circle>
-<circle cx="628.0" cy="255.9" r="7" fill="transparent"><title>light-green 800 · L 41.0</title></circle>
-<circle cx="700.0" cy="280.1" r="7" fill="transparent"><title>light-green 900 · L 34.2</title></circle>
+<circle cx="628.0" cy="256.1" r="7" fill="transparent"><title>light-green 800 · L 41.0</title></circle>
+<circle cx="700.0" cy="280.2" r="7" fill="transparent"><title>light-green 900 · L 34.1</title></circle>
 <polyline points="52.0,61.2 124.0,73.3 196.0,96.2 268.0,118.2 340.0,146.1 412.0,175.1 484.0,203.6 556.0,229.8 628.0,255.9 700.0,280.9" fill="none" stroke="#21a65b" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="52.0" cy="61.2" r="7" fill="transparent"><title>green 50 · L 96.2</title></circle>
 <circle cx="124.0" cy="73.3" r="7" fill="transparent"><title>green 100 · L 92.8</title></circle>
@@ -121,7 +121,7 @@
 <circle cx="556.0" cy="232.9" r="7" fill="transparent"><title>blue 700 · L 47.6</title></circle>
 <circle cx="628.0" cy="259.3" r="7" fill="transparent"><title>blue 800 · L 40.1</title></circle>
 <circle cx="700.0" cy="283.8" r="7" fill="transparent"><title>blue 900 · L 33.1</title></circle>
-<polyline points="52.0,59.9 124.0,73.2 196.0,96.6 268.0,125.4 340.0,152.6 412.0,182.5 484.0,210.3 556.0,236.9 628.0,263.0 700.0,287.8" fill="none" stroke="#8568f6" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="52.0,59.9 124.0,73.2 196.0,96.6 268.0,125.4 340.0,152.6 412.0,182.5 484.0,210.3 556.0,236.8 628.0,262.9 700.0,287.5" fill="none" stroke="#8568f6" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="52.0" cy="59.9" r="7" fill="transparent"><title>purple 50 · L 96.6</title></circle>
 <circle cx="124.0" cy="73.2" r="7" fill="transparent"><title>purple 100 · L 92.9</title></circle>
 <circle cx="196.0" cy="96.6" r="7" fill="transparent"><title>purple 200 · L 86.2</title></circle>
@@ -129,9 +129,9 @@
 <circle cx="340.0" cy="152.6" r="7" fill="transparent"><title>purple 400 · L 70.3</title></circle>
 <circle cx="412.0" cy="182.5" r="7" fill="transparent"><title>purple 500 · L 61.8</title></circle>
 <circle cx="484.0" cy="210.3" r="7" fill="transparent"><title>purple 600 · L 54.0</title></circle>
-<circle cx="556.0" cy="236.9" r="7" fill="transparent"><title>purple 700 · L 46.4</title></circle>
-<circle cx="628.0" cy="263.0" r="7" fill="transparent"><title>purple 800 · L 39.0</title></circle>
-<circle cx="700.0" cy="287.8" r="7" fill="transparent"><title>purple 900 · L 32.0</title></circle>
+<circle cx="556.0" cy="236.8" r="7" fill="transparent"><title>purple 700 · L 46.5</title></circle>
+<circle cx="628.0" cy="262.9" r="7" fill="transparent"><title>purple 800 · L 39.0</title></circle>
+<circle cx="700.0" cy="287.5" r="7" fill="transparent"><title>purple 900 · L 32.1</title></circle>
 <polyline points="52.0,60.6 124.0,72.7 196.0,96.0 268.0,125.5 340.0,153.0 412.0,182.4 484.0,210.1 556.0,236.3 628.0,263.4 700.0,287.7" fill="none" stroke="#aa7a53" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="52.0" cy="60.6" r="7" fill="transparent"><title>brown 50 · L 96.4</title></circle>
 <circle cx="124.0" cy="72.7" r="7" fill="transparent"><title>brown 100 · L 93.0</title></circle>
