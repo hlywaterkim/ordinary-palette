@@ -6,6 +6,8 @@
 
 컬러별, 스텝별로 일정한 명도를 지원해서 UI 제작에 쓰기 좋아요
 
+[![npm](https://img.shields.io/npm/v/ordinary-palette?style=flat-square&color=2b84ff&label=npm)](https://www.npmjs.com/package/ordinary-palette)
+[![downloads](https://img.shields.io/npm/dm/ordinary-palette?style=flat-square&color=2b84ff&label=downloads)](https://www.npmjs.com/package/ordinary-palette)
 [![License: MIT](https://img.shields.io/badge/license-MIT-2b84ff?style=flat-square)](LICENSE)
 
 한국어 | [English](README.en.md)
@@ -19,6 +21,10 @@
 - **다크도 같은 역할:** 다크 스케일은 방향을 뒤집어서 한 스텝이 두 모드에서 같은 일을 합니다. 라이트 hex를 재사용하지 않습니다.
 - **규칙을 테스트로 고정:** 명도 간격, 채도, 대비 기준을 `npm test`가 매번 검사합니다.
 - **원시 팔레트만:** primary·surface·text 같은 의미 역할(시맨틱 토큰)은 없습니다. 각자의 디자인 시스템 위에 얹어 씁니다.
+
+## 만든 이유
+
+바이브코딩을 할 때 화면마다 색이 흔들리지 않도록, 같은 스텝이 같은 밝기로 보이는 팔레트를 만들었습니다. 시작한 이유 중 하나는 Toss의 [달리는 기차 바퀴 칠하기: 7년만의 컬러 시스템 업데이트](https://toss.tech/article/43385)입니다. 그 글처럼 명도 곡선 하나를 공유하는 형태만 참고했고, 색값은 직접 정했습니다.
 
 ## 설치
 
@@ -67,6 +73,10 @@ import palette from "ordinary-palette/colors.json" with { type: "json" };
 palette.cyan["500"];
 palette.dark.blue["500"];
 ```
+
+## Figma에서 쓰기
+
+Figma Community 파일과 Variables로 가져오는 방법은 나중에 제공합니다.
 
 ## 한눈에 보기
 
@@ -286,6 +296,23 @@ npm run preview
 - **다크:** 방향(어두운 틴트 50 → 밝은 900), 다크 50 틴트, 다크 최고 채도가 라이트의 90% 이상인지.
 - **시각 보정:** purple 700–900 채도 비율이 blue 이하, 다크 blue·purple 300·400 채도 상한.
 - **문서:** README 가이드 표와 색 이미지가 팔레트와 같은지.
+
+## 변경 기록
+
+0.2.0이 현재 버전입니다. npm 배지는 첫 배포 뒤에 버전과 월간 다운로드를 보여 줍니다.
+
+### 0.2.0
+
+- 가족 이름을 바꿨습니다. `lime` → `light-green`, `teal` → `cyan`, `cloudy-blue` → `light-blue`.
+- `brown` 가족을 추가했습니다.
+- 유색 가족은 명도 곡선 하나를 공유합니다. yellow와 회색은 따로 둡니다.
+- yellow를 뺀 유색 가족은 600이 흰 배경 위 글자이자 흰 글자 채움색입니다. yellow 글자는 900입니다.
+- 0.1.0의 hex는 그대로 두지 않았습니다.
+
+### 0.1.0
+
+- 12가족(`lime`, `teal`, `cloudy-blue`, brown 없음), 스텝 50–900, 라이트·다크, white/black opacity.
+- JavaScript, CSS 변수, JSON.
 
 ## 라이선스
 
