@@ -277,6 +277,74 @@ inUse.append(
 );
 page.append(inUse);
 
+function renderSameStep(title: string, prefix: string, extraClass: string): HTMLElement {
+  const panel = document.createElement("section");
+  panel.className = `in-use ${extraClass}`;
+  const heading = document.createElement("h3");
+  heading.textContent = title;
+  panel.append(heading);
+
+  const rows: Array<[string, (family: string) => HTMLElement]> = [
+    ["100 circle, 500 icon", (family) => {
+      const circle = document.createElement("span");
+      circle.className = "same-circle";
+      circle.style.background = `var(--color-${prefix}${family}-100)`;
+      const icon = document.createElement("span");
+      icon.style.background = `var(--color-${prefix}${family}-500)`;
+      circle.append(icon);
+      return circle;
+    }],
+    ["100 badge, 700 text", (family) => {
+      const badge = document.createElement("span");
+      badge.className = "same-badge";
+      badge.style.background = `var(--color-${prefix}${family}-100)`;
+      badge.style.color = `var(--color-${prefix}${family}-700)`;
+      badge.textContent = family;
+      return badge;
+    }],
+    ...([300, 500, 800] as const).map((step): [string, (family: string) => HTMLElement] => [`${step} fill`, (family) => {
+      const fill = document.createElement("span");
+      fill.className = "same-fill";
+      fill.style.background = `var(--color-${prefix}${family}-${step})`;
+      return fill;
+    }]),
+  ];
+
+  for (const [label, render] of rows) {
+    const row = document.createElement("div");
+    row.className = "same-row";
+    const name = document.createElement("span");
+    name.className = "in-use-label";
+    name.textContent = label;
+    const cells = document.createElement("div");
+    cells.className = "same-cells";
+    for (const family of chromaticFamilies) {
+      const cell = render(family);
+      cell.title = family;
+      cells.append(cell);
+    }
+    row.append(name, cells);
+    panel.append(row);
+  }
+  return panel;
+}
+
+const same = document.createElement("section");
+same.className = "usage";
+const sameTitle = document.createElement("h2");
+sameTitle.textContent = "Same step across families";
+const sameNote = document.createElement("p");
+sameNote.className = "in-use-note";
+sameNote.textContent =
+  "Only the family changes; the step stays the same. If one family looks darker, lighter, or stronger than the rest, its lightness or chroma is off. Yellow is the planned exception.";
+same.append(
+  sameTitle,
+  sameNote,
+  renderSameStep("Light", "", "in-use-light"),
+  renderSameStep("Dark", "dark-", "in-use-dark"),
+);
+page.append(same);
+
 const usage = document.createElement("section");
 usage.className = "usage";
 const usageTitle = document.createElement("h2");

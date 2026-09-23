@@ -278,6 +278,17 @@ test("dark peak chroma is at least 90% of light peak chroma", () => {
   }
 });
 
+function maxChroma(l: number, h: number) {
+  let low = 0;
+  let high = 0.4;
+  for (let index = 0; index < 30; index += 1) {
+    const middle = (low + high) / 2;
+    if (new Color("oklch", [l / 100, middle, h]).inGamut("srgb")) low = middle;
+    else high = middle;
+  }
+  return low;
+}
+
 test("steps after 500 stay apart and keep their chroma", () => {
   const chromatic = families.filter((family) => family !== "cool-gray" && family !== "neutral-gray");
   for (const family of chromatic) {
@@ -294,8 +305,11 @@ test("steps after 500 stay apart and keep their chroma", () => {
     const chroma = steps.map((step) => oklch(colors[family][step]).c);
     const peak = Math.max(chroma[4], chroma[5], chroma[6]);
     assert.equal(Math.max(...chroma), peak, `${family} chroma should peak in 400–600`);
-    // 900 now sits near L 33, where sRGB holds less chroma for cyan and green hues, so the floor is half the peak.
-    assert.ok(chroma[9] >= peak * 0.5, `${family} 900 chroma ${chroma[9]} fell below 50% of peak ${peak}`);
+    // 900 sits near L 33, where sRGB holds less chroma for cyan and green hues. The floor is half the peak,
+    // or whatever sRGB holds at that lightness and hue when that is lower (cyan).
+    const deep = oklch(colors[family][900]);
+    const limit = Math.min(peak * 0.5, maxChroma(deep.l, deep.h) - 0.002);
+    assert.ok(chroma[9] >= limit, `${family} 900 chroma ${chroma[9]} fell below 50% of peak ${peak}`);
   }
 });
 
@@ -406,14 +420,17 @@ test("pink stays apart from red", () => {
   assert.ok(hue > 340 || hue < 5, `pink 500 hue ${hue} leans toward red`);
 });
 
-test("color families share one lightness curve within 3.5 L of blue", () => {
-  // Yellow keeps its own lighter curve, and gray has its own surface ramp.
+test("color families share one lightness curve within 1.3 L of blue", () => {
+  // Yellow keeps its own lighter curve, and gray has its own surface ramp. Orange rides 3 L above the curve
+  // from 400 (1.5 L at 300), since it only turns vivid when light.
   const aligned = families.filter((family) => !["yellow", "cool-gray", "neutral-gray"].includes(family));
+  const lift = (family: string, step: number) => (family !== "orange" || step < 300 ? 0 : step === 300 ? 1.5 : 3);
   for (const step of steps) {
     const reference = oklch(blue[step]).l;
     for (const family of aligned) {
       const { l } = oklch(colors[family][step]);
-      assert.ok(Math.abs(l - reference) <= 3.5, `${family} ${step} L ${l} strays from blue ${reference}`);
+      const offset = l - reference - lift(family, step);
+      assert.ok(Math.abs(offset) <= 1.3, `${family} ${step} L ${l} strays from blue ${reference}`);
     }
   }
   const tail = [600, 700, 800, 900].map((step) => oklch(blue[step]).l);
@@ -496,5 +513,52 @@ test("README swatch images match the palette", () => {
     const onDisk = readFileSync(new URL(`../${path}`, import.meta.url), "utf8");
     assert.equal(onDisk, content, `${path} is stale: run npm run build`);
     assert.ok(readme.includes(`](${path})`), `README does not show ${path}`);
+  }
+});
+
+test("tint steps 50–200 carry the same chroma across families", () => {
+  // Toss's first complaint: the same 100 looked blotchy across hues. Yellow and the low-chroma brown keep their own tints.
+  const tinted = families.filter((family) => !["yellow", "brown", "cool-gray", "neutral-gray"].includes(family));
+  for (const [label, scale] of [["light", colors], ["dark", darkColors]] as const) {
+    for (const step of [50, 100, 200] as const) {
+      const chroma = tinted.map((family) => {
+        const { l, c, h } = oklch(scale[family][step]);
+        return { family, c, full: maxChroma(l, h) - c < 0.002 };
+      });
+      const top = Math.max(...chroma.map(({ c }) => c));
+      for (const { family, c, full } of chroma) {
+        assert.ok(top - c <= 0.004 || full, `${label} ${family} ${step} chroma ${c.toFixed(3)} is paler than the other tints ${top.toFixed(3)}`);
+      }
+    }
+  }
+});
+
+test("steps 200–900 sit an even distance apart", () => {
+  // 50–200 stay close on purpose (surfaces). From 200 on, each step should look like the same size of change.
+  const even = families.filter((family) => !["yellow", "cool-gray", "neutral-gray"].includes(family));
+  const run = [200, 300, 400, 500, 600, 700, 800, 900] as const;
+  for (const [label, scale] of [["light", colors], ["dark", darkColors]] as const) {
+    for (const family of even) {
+      for (let index = 1; index < run.length; index += 1) {
+        const gap = new Color(scale[family][run[index - 1]]).deltaE(new Color(scale[family][run[index]]), "OK");
+        assert.ok(gap >= 0.065 && gap <= 0.105, `${label} ${family} ${run[index - 1]}→${run[index]} is ΔE ${gap.toFixed(3)} apart`);
+      }
+    }
+  }
+});
+
+test("visual correction keeps blue and purple from reading lighter than their step", () => {
+  // Helmholtz–Kohlrausch: at equal L, saturated blue and purple look lighter. Their deep light steps and
+  // dark 300–400 carry less chroma than the lightness curve alone would allow.
+  const ratio = (family: "blue" | "purple", step: 700 | 800 | 900) => {
+    const peak = Math.max(...([400, 500, 600] as const).map((s) => oklch(colors[family][s]).c));
+    return oklch(colors[family][step]).c / peak;
+  };
+  for (const step of [700, 800, 900] as const) {
+    assert.ok(ratio("purple", step) <= ratio("blue", step) + 0.03, `purple ${step} keeps more chroma than blue`);
+  }
+  for (const family of ["blue", "purple"] as const) {
+    assert.ok(oklch(darkColors[family][300]).c <= 0.116, `dark ${family} 300 reads lighter than its step`);
+    assert.ok(oklch(darkColors[family][400]).c <= 0.156, `dark ${family} 400 reads lighter than its step`);
   }
 });

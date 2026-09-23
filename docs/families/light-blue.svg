@@ -1,15 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="280" height="22" viewBox="0 0 280 22">
 <clipPath id="r"><rect width="280" height="22" rx="5"/></clipPath>
 <g clip-path="url(#r)">
-<rect x="0" y="0" width="29" height="22" fill="#e7f6fd"/>
-<rect x="28" y="0" width="29" height="22" fill="#ccedff"/>
-<rect x="56" y="0" width="29" height="22" fill="#9adcff"/>
+<rect x="0" y="0" width="29" height="22" fill="#e8f6fc"/>
+<rect x="28" y="0" width="29" height="22" fill="#d0ecfb"/>
+<rect x="56" y="0" width="29" height="22" fill="#a4dbf8"/>
 <rect x="84" y="0" width="29" height="22" fill="#64cbff"/>
-<rect x="112" y="0" width="29" height="22" fill="#06b4f6"/>
-<rect x="140" y="0" width="29" height="22" fill="#009ddc"/>
-<rect x="168" y="0" width="29" height="22" fill="#0083bd"/>
-<rect x="196" y="0" width="29" height="22" fill="#006c9f"/>
-<rect x="224" y="0" width="29" height="22" fill="#005581"/>
-<rect x="252" y="0" width="28" height="22" fill="#004166"/>
+<rect x="112" y="0" width="29" height="22" fill="#01b3f5"/>
+<rect x="140" y="0" width="29" height="22" fill="#0097d3"/>
+<rect x="168" y="0" width="29" height="22" fill="#007db5"/>
+<rect x="196" y="0" width="29" height="22" fill="#006697"/>
+<rect x="224" y="0" width="29" height="22" fill="#004f79"/>
+<rect x="252" y="0" width="28" height="22" fill="#003c5e"/>
 </g>
 </svg>

@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="280" height="22" viewBox="0 0 280 22">
 <clipPath id="r"><rect width="280" height="22" rx="5"/></clipPath>
 <g clip-path="url(#r)">
-<rect x="0" y="0" width="29" height="22" fill="#fcf0f4"/>
-<rect x="28" y="0" width="29" height="22" fill="#fedde8"/>
-<rect x="56" y="0" width="29" height="22" fill="#fdbdd3"/>
-<rect x="84" y="0" width="29" height="22" fill="#fb91ba"/>
-<rect x="112" y="0" width="29" height="22" fill="#f95ba2"/>
+<rect x="0" y="0" width="29" height="22" fill="#feeff4"/>
+<rect x="28" y="0" width="29" height="22" fill="#fcdee8"/>
+<rect x="56" y="0" width="29" height="22" fill="#f9bfd3"/>
+<rect x="84" y="0" width="29" height="22" fill="#ff95be"/>
+<rect x="112" y="0" width="29" height="22" fill="#ff61a7"/>
 <rect x="140" y="0" width="29" height="22" fill="#e7388d"/>
 <rect x="168" y="0" width="29" height="22" fill="#ca1476"/>
 <rect x="196" y="0" width="29" height="22" fill="#a80061"/>
