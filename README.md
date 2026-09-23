@@ -60,7 +60,7 @@ palette.dark.blue["500"];
 | cyan | `#00bcbc` | `#0fbfbf` |
 | light-blue | `#00abee` | `#07aef2` |
 | blue | `#2b84ff` | `#3388ff` |
-| purple | `#6b6bf7` | `#6e6efb` |
+| purple | `#8163f1` | `#8466f4` |
 | cool-gray | `#838a91` | `#797e83` |
 | neutral-gray | `#898989` | `#7d7d7d` |
 
@@ -95,7 +95,7 @@ Opacity steps, for both `white-opacity` and `black-opacity`: 00, 05, 10, 20, 30,
 | cyan | 700 | 700 | 어두운 글자 7.0:1 | 800 | 600 |
 | light-blue | 700 | 700 | 어두운 글자 6.3:1 | 800 | 600 |
 | blue | 600 | 600 | 어두운 글자 4.6:1 | 700 | 500 |
-| purple | 600 | 600 | 흰 글자 4.1:1 | 700 | 400 |
+| purple | 600 | 600 | 흰 글자 4.2:1 | 700 | 400 |
 
 다크 스케일 (다크 cool-gray 50 배경):
 
@@ -110,7 +110,7 @@ Opacity steps, for both `white-opacity` and `black-opacity`: 00, 05, 10, 20, 30,
 | cyan | 400 | 어두운 글자 7.6:1 | 500 |
 | light-blue | 400 | 어두운 글자 6.9:1 | 500 |
 | blue | 500 | 어두운 글자 5.0:1 | 700 |
-| purple | 600 | 어두운 글자 4.4:1 | 700 |
+| purple | 600 | 어두운 글자 4.3:1 | 700 |
 
 - yellow는 900만 글자로 씁니다(흰 배경 5.4:1, yellow 100 위 4.6:1). yellow 채움색에는 어두운 글자를 올립니다.
 - pink·red·purple 500은 어느 글자색을 올려도 4.1–4.4:1입니다. 흰 글자 버튼에는 600을 쓰고, 500은 크고 굵은 글자(3:1)에만 씁니다.
