@@ -24,6 +24,7 @@ import {
   yellow,
   yellowLightnessOffset,
 } from "../src/palette.ts";
+import { usageTables } from "../scripts/usage-table.ts";
 
 const HEX = /^#[0-9a-f]{6}$/;
 const ALPHA_HEX = /^#[0-9a-f]{8}$/;
@@ -444,4 +445,9 @@ test("built package matches the source palette", async () => {
     readFileSync(new URL("../dist/colors.css", import.meta.url), "utf8"),
     readFileSync(new URL("../src/colors.css", import.meta.url), "utf8"),
   );
+});
+
+test("README usage tables match the palette", () => {
+  const readme = readFileSync(new URL("../README.md", import.meta.url), "utf8");
+  assert.ok(readme.includes(usageTables()), "README usage tables are stale: run scripts/usage-table.ts");
 });
