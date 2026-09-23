@@ -1,12 +1,20 @@
-# Ordinary Palette
+<div align="center">
 
-평범한 인터페이스(배경, 글자, 테두리)를 위한 자연스러운 색 팔레트입니다. 13개 가족 × 10스텝, 라이트·다크 스케일을 제공합니다.
+![Ordinary Palette](docs/cover.svg)
 
-A natural color palette for everyday UI — 13 families × 10 steps, in light and dark.
+**어디서든 쓸 수 있는 가장 평범하고 완벽한 팔레트**
 
-![라이트 스케일: 13개 가족 × 50–900](docs/palette-light.svg)
+컬러별, 스텝별로 일정한 명도를 지원해서 UI 제작에 쓰기 좋아요
 
-- **같은 스텝, 같은 밝기:** 유색 가족이 명도 곡선 하나를 공유해서 blue 500과 green 500이 같은 밝기로 보입니다.
+[![License: MIT](https://img.shields.io/badge/license-MIT-2b84ff?style=flat-square)](LICENSE)
+
+한국어 | [English](README.en.md)
+
+</div>
+
+## 특징
+
+- **컬러별·스텝별로 일정한 명도:** 유색 가족이 명도 곡선 하나를 공유해서 blue 500과 green 500이 같은 밝기로 보입니다. 13개 가족 × 10스텝(50–900), 라이트·다크 스케일을 제공합니다.
 - **스텝마다 정해진 역할:** 50–200은 배경, 600은 흰 배경 위 글자이자 흰 글자를 올리는 채움색입니다. 700 위 흰 글자와 100 위 800 글자는 4.5:1 이상입니다(yellow는 900이 글자 역할).
 - **다크도 같은 역할:** 다크 스케일은 방향을 뒤집어서 한 스텝이 두 모드에서 같은 일을 합니다. 라이트 hex를 재사용하지 않습니다.
 - **규칙을 테스트로 고정:** 명도 간격, 채도, 대비 기준을 `npm test`가 매번 검사합니다.
@@ -60,7 +68,9 @@ palette.cyan["500"];
 palette.dark.blue["500"];
 ```
 
-## 다크 스케일
+## 한눈에 보기
+
+![라이트 스케일: 13개 가족 × 50–900](docs/palette-light.svg)
 
 ![다크 스케일: 13개 가족 × 50–900](docs/palette-dark.svg)
 
