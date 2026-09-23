@@ -16,9 +16,9 @@ GitHub: https://github.com/hlywaterkim/ordinary-palette
 
 1. 색값은 직접 고친다. Toss, Tailwind, Open Color, LifeT hex를 복사하지 않는다. 곡선 형태만 참고한다.
 2. 명도는 50이 가장 밝고 900이 가장 어둡다. 큰 하락은 500 전이고, 500 이후 간격은 더 좁다. 그래도 600–900이 뭉치지 않게 스텝마다 3.4 L 이상, 500→900은 15.5 L 이상 벌린다.
-3. 50–200은 유색 가족끼리 명도를 맞춘다. 단 yellow는 50만 맞추고 100부터 더 밝다(Toss 수준 채도를 sRGB 안에 넣기 위해). 회색은 따로 더 밝게 시작한다(50은 L 97.5 이상, L 93 이상 3스텝). 표면과 테두리용이다. 400부터는 가족마다 명도가 달라도 된다. 노랑 900은 파랑 900보다 밝고, hue는 노랑 50과 15° 안이다.
-4. 채도는 50에서 낮고, 400–600에서 가장 높고, 900에서 조금 내려간다. 무너뜨리지 않는다. 900 채도는 400–600 최고값의 62% 이상이다. 500이 메인 스텝으로 보이도록 600 채도는 500을 넘지 않는다. blue·red·orange의 최고 채도는 SEED·Toss·Montage 같은 hue의 최저값 이상이다(0.198, 0.219, 0.176). 그래야 짙은 스텝이 갈색으로 모이지 않고 가족 색이 남는다.
-5. light-green은 yellow와 green 사이 연두(hue 124–130), cyan은 #00ffff–teal(#008080) 계열 청록(hue 195), light-blue는 cyan과 blue 사이 하늘색(hue 232–242, 인쇄 cyan #00aeef와 같은 자리)이다. orange 500은 #ff7700 근처(hue 50)다. 전체 채도는 sRGB가 허락하는 만큼 쨍하게 둔다. light-green·light-blue는 300부터 각각 green·blue보다 밝다. orange·yellow는 500·600에서 Toss TDS 채도 이상이다(0.173, 0.154). yellow는 최고 0.155 이상, 200은 0.09 이상, 900은 0.12 이상. 옅은 orange는 살구색(hue 60) 쪽으로 기울여 채도를 확보한다.
+3. 50–200은 유색 가족끼리 명도를 맞춘다. 단 yellow는 50만 맞추고 100부터 더 밝다(Toss 수준 채도를 sRGB 안에 넣기 위해). 회색은 따로 더 밝게 시작한다(50은 L 97.5 이상, L 93 이상 3스텝). 표면과 테두리용이다. 400부터는 가족마다 명도가 달라도 된다. 노랑 900은 파랑 900보다 8 이상 밝고, hue는 노랑 50과 15° 안이다. 노랑 600–900은 빠르게 내려가서 900이 흰 배경과 yellow 100 위에서 글자(4.5:1 이상)로 읽힌다.
+4. 채도는 50에서 낮고, 400–600에서 가장 높고, 900에서 조금 내려간다. 무너뜨리지 않는다. 900 채도는 400–600 최고값의 62% 이상이다. 500이 메인 스텝으로 보이도록 600 채도는 500을 넘지 않는다. yellow를 뺀 모든 유색 가족은 700 위 흰 글자가 4.5:1 이상, 100 위 800 글자가 4.5:1 이상이다. yellow는 900이 그 역할을 한다. pink는 hue 356(진짜 분홍)으로 red와 500에서 ΔE 0.1 이상 떨어진다. blue·red·orange의 최고 채도는 SEED·Toss·Montage 같은 hue의 최저값 이상이다(0.198, 0.219, 0.176). 그래야 짙은 스텝이 갈색으로 모이지 않고 가족 색이 남는다.
+5. light-green은 yellow와 green 사이 연두(hue 124–130), cyan은 #00ffff–teal(#008080) 계열 청록(hue 195), light-blue는 cyan과 blue 사이 하늘색(hue 232–242, 인쇄 cyan #00aeef와 같은 자리)이다. orange 500은 #ff7700 근처(hue 50)다. 전체 채도는 sRGB가 허락하는 만큼 쨍하게 둔다. light-green·light-blue는 300부터 각각 green·blue보다 밝다. orange·yellow는 500·600에서 Toss TDS 채도 이상이다(0.173, 0.154). yellow는 최고 0.155 이상, 200은 0.09 이상, 900은 0.10 이상(L 53에서 sRGB 한계). 옅은 orange는 살구색(hue 60) 쪽으로 기울여 채도를 확보한다.
 6. neutral-gray는 채도 0이고, 같은 스케일의 cool-gray 명도를 따른다.
 7. 다크는 방향이 반대다. 다크 50은 어두운 틴트 배경(L 33 이하), 다크 900은 밝은 틴트(L 90 이상)로, 스텝의 역할이 두 모드에서 같다. SEED·Toss와 같은 방식이다. 다크 50–200은 가족끼리 명도를 맞춘다. 다크 500은 라이트 500과 명도 4 안이다. 다크 최고 채도 / 라이트 최고 채도는 0.9 이상이다. 라이트 hex를 재사용하지 않는다. 가멋 밖이면 채도만 낮춘다.
 8. 공개 API는 `colors`, 가족 export, `colors.json`, `--color-<family>-<step>`, `--color-dark-<family>-<step>`이다.
@@ -32,6 +32,7 @@ GitHub: https://github.com/hlywaterkim/ordinary-palette
 - `scripts/write-assets.ts` — CSS, JSON 생성
 - `examples/preview` — 미리보기. 배경은 흰색. 거의 흰 무채색 칩만 옅은 회색 테두리
 - `README.md` — 가족, 스텝, 곡선이 바뀌면 같이 고친다
+- `scripts/usage-table.ts` — README "스텝 사용 가이드" 표를 만든다. 색이 바뀌면 다시 돌려 README 표를 바꾼다(`npm test`가 어긋나면 실패)
 
 `npm test`는 빌드 후 테스트를 돌린다. 미리보기는 `npm run preview`이고 포트는 43123이다.
 

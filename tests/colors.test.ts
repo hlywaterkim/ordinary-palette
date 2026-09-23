@@ -24,6 +24,7 @@ import {
   yellow,
   yellowLightnessOffset,
 } from "../src/palette.ts";
+import { usageTables } from "../scripts/usage-table.ts";
 
 const HEX = /^#[0-9a-f]{6}$/;
 const ALPHA_HEX = /^#[0-9a-f]{8}$/;
@@ -130,7 +131,6 @@ test("lightness falls from 50 to 900 and chroma humps", () => {
       `yellow ${step} L ${yellowL} misses blue ${blueL} + ${yellowLightnessOffset[step]}`,
     );
   }
-  assert.ok(yellowLightnessOffset[900] > yellowLightnessOffset[400]);
 
   const blueLevels = steps.map((step) => oklch(blue[step]).l);
   const grayLevels = steps.map((step) => oklch(coolGray[step]).l);
@@ -151,7 +151,7 @@ test("lightness falls from 50 to 900 and chroma humps", () => {
   const yellow900 = oklch(yellow[900]);
   const blue900 = oklch(blue[900]);
   assert.ok(hueDelta(yellow900.h, oklch(yellow[50]).h) <= 15);
-  assert.ok(yellow900.l > blue900.l + 12, `yellow 900 L ${yellow900.l} should be clearly above blue 900 L ${blue900.l}`);
+  assert.ok(yellow900.l > blue900.l + 8, `yellow 900 L ${yellow900.l} should stay above blue 900 L ${blue900.l}`);
   assert.ok(oklch(coolGray[900]).l + 12 < blue900.l);
 });
 
@@ -319,7 +319,7 @@ test("yellow carries strong chroma throughout", () => {
   assert.ok(Math.max(...chroma) >= 0.155, `yellow peak chroma ${Math.max(...chroma)} is too soft`);
   assert.ok(chroma[0] >= 0.025, `yellow 50 chroma ${chroma[0]} reads as off-white`);
   assert.ok(chroma[2] >= 0.09, `yellow 200 chroma ${chroma[2]} reads as beige`);
-  assert.ok(chroma[9] >= 0.12, `yellow 900 chroma ${chroma[9]} reads as brown`);
+  assert.ok(chroma[9] >= 0.1, `yellow 900 chroma ${chroma[9]} reads as brown`);
 });
 
 test("orange and yellow reach Toss TDS chroma from 500", () => {
@@ -353,6 +353,44 @@ test("500 reads as the main step: 600 never out-saturates it", () => {
       assert.ok(next <= main, `${label} ${family} 600 chroma ${next.toFixed(3)} exceeds 500 ${main.toFixed(3)}`);
     }
   }
+});
+
+function contrast(a: string, b: string): number {
+  const luminance = (hex: string) => {
+    const channel = (index: number) => {
+      const value = Number.parseInt(hex.slice(index, index + 2), 16) / 255;
+      return value <= 0.04045 ? value / 12.92 : ((value + 0.055) / 1.055) ** 2.4;
+    };
+    return 0.2126 * channel(1) + 0.7152 * channel(3) + 0.0722 * channel(5);
+  };
+  const [light, dark] = [luminance(a), luminance(b)].sort((x, y) => y - x);
+  return (light + 0.05) / (dark + 0.05);
+}
+
+test("white text reads on 700 and 800 text reads on a 100 tint", () => {
+  // Yellow stays light by design, so it takes dark ink instead.
+  const chromatic = families.filter((family) => !["cool-gray", "neutral-gray", "yellow"].includes(family));
+  for (const family of chromatic) {
+    const scale = colors[family];
+    const onFill = contrast("#ffffff", scale[700]);
+    assert.ok(onFill >= 4.5, `white on ${family} 700 is ${onFill.toFixed(2)}:1`);
+    const badge = contrast(scale[800], scale[100]);
+    assert.ok(badge >= 4.5, `${family} 800 on 100 is ${badge.toFixed(2)}:1`);
+  }
+});
+
+test("yellow 900 carries text on yellow 100 and on white", () => {
+  const onTint = contrast(yellow[900], yellow[100]);
+  assert.ok(onTint >= 4.5, `yellow 900 on 100 is ${onTint.toFixed(2)}:1`);
+  const onWhite = contrast(yellow[900], "#ffffff");
+  assert.ok(onWhite >= 4.5, `yellow 900 on white is ${onWhite.toFixed(2)}:1`);
+});
+
+test("pink stays apart from red", () => {
+  const gap = new Color(colors.pink[500]).deltaE(new Color(colors.red[500]), "OK");
+  assert.ok(gap >= 0.1, `pink 500 and red 500 are only ΔE ${gap.toFixed(3)} apart`);
+  const hue = oklch(colors.pink[500]).h;
+  assert.ok(hue > 340 || hue < 5, `pink 500 hue ${hue} leans toward red`);
 });
 
 test("dark step 50 is a tinted dark surface", () => {
@@ -413,4 +451,9 @@ test("built package matches the source palette", async () => {
     readFileSync(new URL("../dist/colors.css", import.meta.url), "utf8"),
     readFileSync(new URL("../src/colors.css", import.meta.url), "utf8"),
   );
+});
+
+test("README usage tables match the palette", () => {
+  const readme = readFileSync(new URL("../README.md", import.meta.url), "utf8");
+  assert.ok(readme.includes(usageTables()), "README usage tables are stale: run scripts/usage-table.ts");
 });
