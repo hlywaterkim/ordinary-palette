@@ -5,7 +5,7 @@ import { test } from "node:test";
 import {
   blackOpacity,
   blue,
-  cloudyBlue,
+  lightBlue,
   colors,
   coolGray,
   darkColors,
@@ -67,10 +67,10 @@ test("color families use steps 50–900 and no 950", () => {
     "red",
     "orange",
     "yellow",
-    "lime",
+    "light-green",
     "green",
-    "teal",
-    "cloudy-blue",
+    "cyan",
+    "light-blue",
     "blue",
     "purple",
     "cool-gray",
@@ -110,10 +110,15 @@ test("lightness falls from 50 to 900 and chroma humps", () => {
   for (const step of [50, 100, 200] as const) {
     const target = oklch(blue[step]).l;
     for (const family of chromatic) {
+      // Yellow shares only step 50. Its 100 and 200 sit lighter so Toss-level chroma fits.
+      if (family === "yellow" && step !== 50) continue;
       const { l } = oklch(colors[family][step]);
       assert.ok(Math.abs(l - target) <= 0.4, `${family} ${step} L ${l} misses shared pale ${target}`);
     }
-    assert.equal(yellowLightnessOffset[step], 0);
+  }
+  assert.equal(yellowLightnessOffset[50], 0);
+  for (const step of [100, 200] as const) {
+    assert.ok(yellowLightnessOffset[step] > 0, `yellow ${step} should sit above the shared pale lightness`);
   }
 
   for (const step of [400, 500, 600, 700, 800, 900] as const) {
@@ -300,6 +305,56 @@ test("blue, red, and orange reach the reference peak chroma", () => {
   }
 });
 
+test("light-blue is a sky blue between cyan and blue", () => {
+  for (const step of [300, 400, 500, 600, 700, 800, 900] as const) {
+    const sky = oklch(lightBlue[step]);
+    const deep = oklch(blue[step]);
+    assert.ok(sky.l > deep.l + 1.5, `light-blue ${step} L ${sky.l} should stay lighter than blue ${deep.l}`);
+    assert.ok(sky.h > oklch(colors.cyan[step]).h + 15 && sky.h < deep.h - 12, `light-blue ${step} hue ${sky.h} is not sky`);
+  }
+});
+
+test("yellow carries strong chroma throughout", () => {
+  const chroma = steps.map((step) => oklch(yellow[step]).c);
+  assert.ok(Math.max(...chroma) >= 0.155, `yellow peak chroma ${Math.max(...chroma)} is too soft`);
+  assert.ok(chroma[0] >= 0.025, `yellow 50 chroma ${chroma[0]} reads as off-white`);
+  assert.ok(chroma[2] >= 0.09, `yellow 200 chroma ${chroma[2]} reads as beige`);
+  assert.ok(chroma[9] >= 0.12, `yellow 900 chroma ${chroma[9]} reads as brown`);
+});
+
+test("orange and yellow reach Toss TDS chroma from 500", () => {
+  // Toss TDS orange 500 and yellow 500 chroma, measured from @toss/tds-colors.
+  const floor = { orange: 0.173, yellow: 0.154 } as const;
+  for (const [family, minimum] of Object.entries(floor) as Array<[keyof typeof floor, number]>) {
+    for (const step of [500, 600] as const) {
+      const { c } = oklch(colors[family][step]);
+      assert.ok(c >= minimum, `${family} ${step} chroma ${c.toFixed(3)} is below Toss ${minimum}`);
+    }
+  }
+});
+
+test("light-green and cyan sit between their neighbours", () => {
+  for (const step of [300, 400, 500, 600, 700, 800, 900] as const) {
+    const leaf = oklch(colors["light-green"][step]);
+    const green = oklch(colors.green[step]);
+    const cyan = oklch(colors.cyan[step]);
+    assert.ok(leaf.h > oklch(yellow[step]).h + 32 && leaf.h < green.h - 20, `light-green ${step} hue ${leaf.h} is not a leaf green`);
+    assert.ok(leaf.l > green.l + 1.5, `light-green ${step} L ${leaf.l} should stay lighter than green ${green.l}`);
+    assert.ok(cyan.h > green.h + 35 && cyan.h < oklch(lightBlue[step]).h - 15, `cyan ${step} hue ${cyan.h} is not cyan`);
+  }
+});
+
+test("500 reads as the main step: 600 never out-saturates it", () => {
+  const chromatic = families.filter((family) => family !== "cool-gray" && family !== "neutral-gray");
+  for (const family of chromatic) {
+    for (const [label, scale] of [["light", colors[family]], ["dark", darkColors[family]]] as const) {
+      const main = oklch(scale[500]).c;
+      const next = oklch(scale[600]).c;
+      assert.ok(next <= main, `${label} ${family} 600 chroma ${next.toFixed(3)} exceeds 500 ${main.toFixed(3)}`);
+    }
+  }
+});
+
 test("dark step 50 is a tinted dark surface", () => {
   for (const family of families) {
     const { l, c } = oklch(darkColors[family][50]);
@@ -331,8 +386,8 @@ test("colors.json and colors.css match the palette", () => {
   assert.equal(css.includes("--color-indigo-"), false);
   assert.ok(css.includes(`--color-blue-500: ${blue[500]};`));
   assert.ok(css.includes(`--color-dark-blue-500: ${darkColors.blue[500]};`));
-  assert.ok(css.includes(`--color-cloudy-blue-500: ${cloudyBlue[500]};`));
-  assert.ok(css.includes(`--color-dark-cloudy-blue-500: ${darkColors["cloudy-blue"][500]};`));
+  assert.ok(css.includes(`--color-light-blue-500: ${lightBlue[500]};`));
+  assert.ok(css.includes(`--color-dark-light-blue-500: ${darkColors["light-blue"][500]};`));
   assert.ok(css.includes(`--color-white-opacity-40: ${whiteOpacity["40"]};`));
   assert.ok(css.includes(`--color-cool-gray-500: ${coolGray[500]};`));
   assert.ok(css.includes(`--color-neutral-gray-500: ${neutralGray[500]};`));
