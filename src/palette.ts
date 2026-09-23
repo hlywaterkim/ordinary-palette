@@ -11,15 +11,15 @@ export type OpacityScale = Record<OpacityStep, string>;
 /** Light-scale yellow OKLCH L minus blue L. Zero on steps 50–200, where every color family shares lightness. Positive from 300, where yellow stays lighter than blue. */
 export const yellowLightnessOffset = {
   50: 0,
-  100: 0,
-  200: 0,
-  300: 6.9,
-  400: 11.3,
-  500: 14.3,
-  600: 16.4,
-  700: 17.9,
-  800: 18.8,
-  900: 19.2,
+  100: 1.9,
+  200: 5.8,
+  300: 11.3,
+  400: 16.4,
+  500: 19.6,
+  600: 21.5,
+  700: 23,
+  800: 24.1,
+  900: 24.4,
 } as const;
 
 /**
@@ -67,46 +67,48 @@ export const red = {
   900: "#900500",
 } as const satisfies ColorScale;
 
+// Orange reaches Toss TDS chroma from 500. Pale steps lean toward apricot (hue 60) so they carry more chroma in sRGB.
 export const orange = {
-  50: "#fdf0eb",
-  100: "#fee0d4",
-  200: "#fec2aa",
-  300: "#ffaf90",
-  400: "#ff8f60",
-  500: "#f87338",
-  600: "#e26120",
-  700: "#cb5311",
-  800: "#b64810",
-  900: "#a23e14",
+  50: "#fff0e5",
+  100: "#ffe1ca",
+  200: "#ffc494",
+  300: "#ffb17b",
+  400: "#ff904d",
+  500: "#f9732f",
+  600: "#e55e1b",
+  700: "#cf4f02",
+  800: "#b94400",
+  900: "#a73900",
 } as const satisfies ColorScale;
 
-// Steps 50–200 share the color families' pale lightness. From 300, yellow stays lighter than blue.
-// Chroma sits about 20% above the other warm families, so pale steps read yellow rather than beige.
+// Yellow shares only step 50 with the other color families. From 100 it sits lighter, so chroma
+// reaches the Toss TDS level (about 0.165 at 500) inside sRGB and pale steps read yellow, not beige.
 // From 500, hue leans toward amber but stays within 15° of step 50. Chroma peaks around 500 and eases, so 900 stays gold.
 export const yellow = {
-  50: "#fef2dd",
-  100: "#fce4b9",
-  200: "#f3cb86",
-  300: "#f9c35b",
-  400: "#f3b52f",
-  500: "#e8a800",
-  600: "#dd9a00",
-  700: "#d08d00",
-  800: "#c37f00",
-  900: "#b77200",
+  50: "#fcf3dd",
+  100: "#ffecbd",
+  200: "#ffe29b",
+  300: "#ffd576",
+  400: "#ffc84c",
+  500: "#fcb81e",
+  600: "#f1a900",
+  700: "#e49c00",
+  800: "#d59000",
+  900: "#c68400",
 } as const satisfies ColorScale;
 
-export const lime = {
-  50: "#f3f5e7",
-  100: "#e7ebc9",
-  200: "#d0d89f",
-  300: "#bcc970",
-  400: "#a4b44b",
-  500: "#9a9e18",
-  600: "#888b13",
-  700: "#7b790f",
-  800: "#6e690c",
-  900: "#625b09",
+// Fresh leaf green between yellow and green (hue 132–139). From 300 it stays lighter than green.
+export const lightGreen = {
+  50: "#eef6e9",
+  100: "#dbefcd",
+  200: "#bbdfa2",
+  300: "#a3d67d",
+  400: "#88ca5a",
+  500: "#72bb41",
+  600: "#61aa36",
+  700: "#52972f",
+  800: "#46872b",
+  900: "#3a7727",
 } as const satisfies ColorScale;
 
 export const green = {
@@ -122,20 +124,21 @@ export const green = {
   900: "#0c6336",
 } as const satisfies ColorScale;
 
-export const teal = {
-  50: "#ecf6f1",
-  100: "#d3efe3",
-  200: "#acdfca",
-  300: "#7ccaac",
-  400: "#4fb491",
-  500: "#26a07c",
-  600: "#1e8c6b",
-  700: "#187a5d",
-  800: "#126a50",
-  900: "#0d5b44",
+// Cyan between green and light-blue (hue 202–210).
+export const cyan = {
+  50: "#e8f7f8",
+  100: "#c9f0f4",
+  200: "#9ae0e8",
+  300: "#62cdda",
+  400: "#1cbbcb",
+  500: "#00a5b5",
+  600: "#0092a2",
+  700: "#00808f",
+  800: "#00707e",
+  900: "#00616d",
 } as const satisfies ColorScale;
 
-// Sky blue between teal and blue. Hue runs 232–242, and from 300 it stays lighter than blue.
+// Sky blue between cyan and blue. Hue runs 232–242, and from 300 it stays lighter than blue.
 export const lightBlue = {
   50: "#e9f6fc",
   100: "#ccedff",
@@ -236,7 +239,7 @@ export const blackOpacity = {
 } as const satisfies OpacityScale;
 
 // Dark steps rise from a tinted dark surface at 50 to a pale tint at 900. Steps 50–200 share L 29, 34, 40.
-// Step 500 sits about 1 L above light 500, so the vivid step reads the same on a dark page.
+// Step 500 sits within 4 L of light 500 (about 1 L above for most families), so the vivid step reads the same on a dark page.
 export const darkPink = {
   50: "#3d2226",
   100: "#55282f",
@@ -264,43 +267,43 @@ export const darkRed = {
 } as const satisfies ColorScale;
 
 export const darkOrange = {
-  50: "#3c251c",
-  100: "#532c1b",
-  200: "#70341a",
-  300: "#a24c28",
-  400: "#d3622e",
-  500: "#fc763c",
-  600: "#ff9060",
-  700: "#ffac89",
-  800: "#ffc6b0",
-  900: "#ffe0d6",
+  50: "#3d241c",
+  100: "#542b1c",
+  200: "#71331b",
+  300: "#a44b26",
+  400: "#d5612d",
+  500: "#fd7632",
+  600: "#ff914f",
+  700: "#ffae75",
+  800: "#ffc89c",
+  900: "#ffe2cb",
 } as const satisfies ColorScale;
 
 // Dark yellow 500 stays lighter than dark blue 500. Hue follows the light yellow step nearest in lightness.
 export const darkYellow = {
-  50: "#372818",
-  100: "#4b3214",
-  200: "#643e08",
-  300: "#9a6215",
-  400: "#c8880a",
-  500: "#ebab0e",
-  600: "#f3b83e",
-  700: "#f8c872",
-  800: "#f8d9a1",
-  900: "#f9eace",
+  50: "#362916",
+  100: "#4a3310",
+  200: "#623f00",
+  300: "#996504",
+  400: "#ce8a00",
+  500: "#f5ac06",
+  600: "#fabb3c",
+  700: "#face71",
+  800: "#f9e0a3",
+  900: "#fbefd1",
 } as const satisfies ColorScale;
 
-export const darkLime = {
-  50: "#2e2c1a",
-  100: "#3c3917",
-  200: "#4e4912",
-  300: "#6d6915",
-  400: "#858818",
-  500: "#9da11e",
-  600: "#a5b54a",
-  700: "#bac675",
-  800: "#d1d8a3",
-  900: "#e8ebd0",
+export const darkLightGreen = {
+  50: "#22301e",
+  100: "#264020",
+  200: "#2c5321",
+  300: "#437a32",
+  400: "#5c9f3b",
+  500: "#75be45",
+  600: "#89cb5b",
+  700: "#a5d77f",
+  800: "#c0e3a9",
+  900: "#ddefd1",
 } as const satisfies ColorScale;
 
 export const darkGreen = {
@@ -316,17 +319,17 @@ export const darkGreen = {
   900: "#d7efdd",
 } as const satisfies ColorScale;
 
-export const darkTeal = {
-  50: "#1f3028",
-  100: "#203f34",
-  200: "#215241",
-  300: "#277058",
-  400: "#278c6c",
-  500: "#2ba37f",
-  600: "#50b692",
-  700: "#7dc9ac",
-  800: "#aadbc7",
-  900: "#d6efe4",
+export const darkCyan = {
+  50: "#1b2f32",
+  100: "#193e44",
+  200: "#11515a",
+  300: "#0d717e",
+  400: "#008f9f",
+  500: "#00a8b9",
+  600: "#36bac9",
+  700: "#70ccd7",
+  800: "#a3dde4",
+  900: "#d2eef1",
 } as const satisfies ColorScale;
 
 export const darkLightBlue = {
@@ -399,9 +402,9 @@ export const families = [
   "red",
   "orange",
   "yellow",
-  "lime",
+  "light-green",
   "green",
-  "teal",
+  "cyan",
   "light-blue",
   "blue",
   "purple",
@@ -416,9 +419,9 @@ export const colors = {
   red,
   orange,
   yellow,
-  lime,
+  "light-green": lightGreen,
   green,
-  teal,
+  cyan,
   "light-blue": lightBlue,
   blue,
   purple,
@@ -433,9 +436,9 @@ export const darkColors = {
   red: darkRed,
   orange: darkOrange,
   yellow: darkYellow,
-  lime: darkLime,
+  "light-green": darkLightGreen,
   green: darkGreen,
-  teal: darkTeal,
+  cyan: darkCyan,
   "light-blue": darkLightBlue,
   blue: darkBlue,
   purple: darkPurple,
@@ -473,40 +476,40 @@ export const sourceHue = {
     "900": 29.74
   },
   "orange": {
-    "50": 42.38,
-    "100": 43.08,
-    "200": 42.81,
-    "300": 42,
-    "400": 43.04,
-    "500": 42.42,
-    "600": 43.02,
-    "700": 43.34,
-    "800": 42.32,
-    "900": 40.27
+    "50": 60,
+    "100": 60,
+    "200": 60,
+    "300": 55,
+    "400": 50,
+    "500": 44,
+    "600": 42.5,
+    "700": 42.5,
+    "800": 42,
+    "900": 40.5
   },
   "yellow": {
-    "50": 80.69,
-    "100": 82.03,
-    "200": 81.17,
-    "300": 81.04,
-    "400": 81.44,
-    "500": 80.77,
-    "600": 77.86,
-    "700": 75.23,
-    "800": 71.91,
-    "900": 68.84
+    "50": 88,
+    "100": 88,
+    "200": 88,
+    "300": 86,
+    "400": 84,
+    "500": 81,
+    "600": 78,
+    "700": 76,
+    "800": 75,
+    "900": 74
   },
-  "lime": {
-    "50": 113.34,
-    "100": 112.73,
-    "200": 114.5,
-    "300": 115.85,
-    "400": 117.01,
-    "500": 111.54,
-    "600": 111.25,
-    "700": 108.44,
-    "800": 106.16,
-    "900": 104.06
+  "light-green": {
+    "50": 132,
+    "100": 132,
+    "200": 133,
+    "300": 133,
+    "400": 134,
+    "500": 135,
+    "600": 136,
+    "700": 137,
+    "800": 138,
+    "900": 139
   },
   "green": {
     "50": 152.6,
@@ -520,17 +523,17 @@ export const sourceHue = {
     "800": 153.47,
     "900": 153.9
   },
-  "teal": {
-    "50": 164.8,
-    "100": 167.95,
-    "200": 167.79,
-    "300": 167.58,
-    "400": 167.63,
-    "500": 168.06,
-    "600": 167.46,
-    "700": 167.64,
-    "800": 167.43,
-    "900": 167.29
+  "cyan": {
+    "50": 204,
+    "100": 205,
+    "200": 205,
+    "300": 206,
+    "400": 206,
+    "500": 207,
+    "600": 208,
+    "700": 209,
+    "800": 210,
+    "900": 210
   },
   "light-blue": {
     "50": 230,
@@ -609,40 +612,40 @@ export const sourceChroma = {
     "900": 0.176
   },
   "orange": {
-    "50": 0.0156,
-    "100": 0.0371,
-    "200": 0.0767,
-    "300": 0.123,
-    "400": 0.1664,
-    "500": 0.1781,
-    "600": 0.1764,
-    "700": 0.1673,
-    "800": 0.1553,
-    "900": 0.1424
+    "50": 0.0282,
+    "100": 0.0708,
+    "200": 0.1105,
+    "300": 0.1434,
+    "400": 0.1632,
+    "500": 0.182,
+    "600": 0.182,
+    "700": 0.176,
+    "800": 0.166,
+    "900": 0.156
   },
   "yellow": {
     "50": 0.03,
-    "100": 0.062,
-    "200": 0.098,
-    "300": 0.135,
-    "400": 0.155,
+    "100": 0.0642,
+    "200": 0.0976,
+    "300": 0.1262,
+    "400": 0.152,
     "500": 0.165,
-    "600": 0.163,
-    "700": 0.155,
-    "800": 0.145,
-    "900": 0.135
+    "600": 0.165,
+    "700": 0.16,
+    "800": 0.155,
+    "900": 0.15
   },
-  "lime": {
-    "50": 0.0186,
-    "100": 0.045,
-    "200": 0.0755,
-    "300": 0.1146,
-    "400": 0.1313,
-    "500": 0.1426,
-    "600": 0.13,
-    "700": 0.1165,
-    "800": 0.1045,
-    "900": 0.0942
+  "light-green": {
+    "50": 0.02,
+    "100": 0.05,
+    "200": 0.09,
+    "300": 0.13,
+    "400": 0.16,
+    "500": 0.172,
+    "600": 0.166,
+    "700": 0.155,
+    "800": 0.142,
+    "900": 0.13
   },
   "green": {
     "50": 0.0133,
@@ -656,17 +659,17 @@ export const sourceChroma = {
     "800": 0.1164,
     "900": 0.1063
   },
-  "teal": {
-    "50": 0.0125,
-    "100": 0.0335,
-    "200": 0.0602,
-    "300": 0.0891,
-    "400": 0.1086,
-    "500": 0.1175,
-    "600": 0.1081,
-    "700": 0.0981,
-    "800": 0.0895,
-    "900": 0.081
+  "cyan": {
+    "50": 0.016,
+    "100": 0.04,
+    "200": 0.07,
+    "300": 0.1,
+    "400": 0.12,
+    "500": 0.13,
+    "600": 0.125,
+    "700": 0.115,
+    "800": 0.105,
+    "900": 0.095
   },
   "light-blue": {
     "50": 0.016,
@@ -730,7 +733,7 @@ export const sourceChroma = {
   }
 } as const;
 
-/** Dark-scale hue before gamut fitting. Each step takes the hue of the light step nearest in lightness for yellow, lime, and blue. */
+/** Dark-scale hue before gamut fitting. Each step takes the hue of the light step nearest in lightness for yellow, orange, light-green, cyan, light-blue, and blue. */
 export const darkSourceHue = {
   "pink": {
     "50": 10.99,
@@ -757,40 +760,40 @@ export const darkSourceHue = {
     "900": 29.74
   },
   "orange": {
-    "50": 42.38,
-    "100": 43.08,
-    "200": 42.81,
-    "300": 42,
-    "400": 43.04,
-    "500": 42.42,
-    "600": 43.02,
-    "700": 43.34,
-    "800": 42.32,
-    "900": 40.27
+    "50": 40.47,
+    "100": 40.47,
+    "200": 40.47,
+    "300": 41.95,
+    "400": 42.27,
+    "500": 44.15,
+    "600": 49.66,
+    "700": 55.1,
+    "800": 60.28,
+    "900": 59.67
   },
   "yellow": {
-    "50": 68.5,
-    "100": 68.5,
-    "200": 68.5,
-    "300": 68.5,
-    "400": 75.25,
-    "500": 81.05,
-    "600": 81.34,
-    "700": 80.5,
-    "800": 82.09,
-    "900": 82.09
+    "50": 73.92,
+    "100": 73.92,
+    "200": 73.92,
+    "300": 73.92,
+    "400": 73.92,
+    "500": 77.97,
+    "600": 80.64,
+    "700": 84.19,
+    "800": 88.23,
+    "900": 88.62
   },
-  "lime": {
-    "50": 104.06,
-    "100": 104.06,
-    "200": 104.06,
-    "300": 106.16,
-    "400": 111.25,
-    "500": 111.54,
-    "600": 117.01,
-    "700": 115.85,
-    "800": 114.5,
-    "900": 112.73
+  "light-green": {
+    "50": 139.08,
+    "100": 139.08,
+    "200": 139.08,
+    "300": 139.08,
+    "400": 136.93,
+    "500": 135.03,
+    "600": 134.17,
+    "700": 132.92,
+    "800": 132.88,
+    "900": 132.35
   },
   "green": {
     "50": 152.6,
@@ -804,17 +807,17 @@ export const darkSourceHue = {
     "800": 153.47,
     "900": 153.9
   },
-  "teal": {
-    "50": 164.8,
-    "100": 167.95,
-    "200": 167.79,
-    "300": 167.58,
-    "400": 167.63,
-    "500": 168.06,
-    "600": 167.46,
-    "700": 167.64,
-    "800": 167.43,
-    "900": 167.29
+  "cyan": {
+    "50": 209.43,
+    "100": 209.43,
+    "200": 209.43,
+    "300": 209.82,
+    "400": 208.37,
+    "500": 206.96,
+    "600": 206.05,
+    "700": 206.01,
+    "800": 204.95,
+    "900": 204.1
   },
   "light-blue": {
     "50": 242.24,
@@ -881,40 +884,40 @@ export const darkSourceChroma = {
     "900": 0.0549
   },
   "orange": {
-    "50": 0.0392,
-    "100": 0.0641,
-    "200": 0.0926,
-    "300": 0.1247,
-    "400": 0.1567,
-    "500": 0.1781,
-    "600": 0.1657,
-    "700": 0.1318,
-    "800": 0.0891,
-    "900": 0.0445
+    "50": 0.0402,
+    "100": 0.0658,
+    "200": 0.095,
+    "300": 0.1279,
+    "400": 0.1608,
+    "500": 0.1827,
+    "600": 0.1699,
+    "700": 0.1352,
+    "800": 0.0913,
+    "900": 0.0457
   },
   "yellow": {
-    "50": 0.0351,
-    "100": 0.0574,
-    "200": 0.0829,
-    "300": 0.1116,
-    "400": 0.1403,
-    "500": 0.1594,
-    "600": 0.1483,
-    "700": 0.118,
-    "800": 0.0797,
-    "900": 0.0399
+    "50": 0.0363,
+    "100": 0.0594,
+    "200": 0.0857,
+    "300": 0.1154,
+    "400": 0.1451,
+    "500": 0.1649,
+    "600": 0.1534,
+    "700": 0.122,
+    "800": 0.0825,
+    "900": 0.0412
   },
-  "lime": {
-    "50": 0.0314,
-    "100": 0.0513,
-    "200": 0.0742,
-    "300": 0.0998,
-    "400": 0.1255,
-    "500": 0.1426,
-    "600": 0.1326,
-    "700": 0.1055,
-    "800": 0.0713,
-    "900": 0.0357
+  "light-green": {
+    "50": 0.0378,
+    "100": 0.0619,
+    "200": 0.0894,
+    "300": 0.1203,
+    "400": 0.1512,
+    "500": 0.1718,
+    "600": 0.1598,
+    "700": 0.1272,
+    "800": 0.0859,
+    "900": 0.043
   },
   "green": {
     "50": 0.0307,
@@ -928,17 +931,17 @@ export const darkSourceChroma = {
     "800": 0.0699,
     "900": 0.0349
   },
-  "teal": {
-    "50": 0.0258,
-    "100": 0.0423,
-    "200": 0.0611,
-    "300": 0.0822,
-    "400": 0.1034,
-    "500": 0.1175,
-    "600": 0.1093,
-    "700": 0.0869,
-    "800": 0.0587,
-    "900": 0.0294
+  "cyan": {
+    "50": 0.0264,
+    "100": 0.0432,
+    "200": 0.0624,
+    "300": 0.084,
+    "400": 0.1056,
+    "500": 0.12,
+    "600": 0.1116,
+    "700": 0.0888,
+    "800": 0.06,
+    "900": 0.03
   },
   "light-blue": {
     "50": 0.0329,
