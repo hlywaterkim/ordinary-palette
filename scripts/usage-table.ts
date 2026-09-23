@@ -109,6 +109,12 @@ function seen(hex: string, vision?: Vision): number[] {
   return [0, 1, 2].map((row) => Math.min(1, Math.max(0, m[row * 3] * rgb[0] + m[row * 3 + 1] * rgb[1] + m[row * 3 + 2] * rgb[2])));
 }
 
+/** OKLCH lightness (0–100) and chroma of a color. */
+export function lightnessChroma(hex: string): { l: number; c: number } {
+  const [l, a, b] = oklab(linearRgb(hex));
+  return { l: l * 100, c: Math.hypot(a, b) };
+}
+
 /** The hex a viewer with the given vision sees for a color. */
 export function simulate(hex: string, vision: Vision): string {
   const encode = (value: number) => (value <= 0.0031308 ? 12.92 * value : 1.055 * value ** (1 / 2.4) - 0.055);
