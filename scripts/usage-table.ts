@@ -25,10 +25,10 @@ function firstStep(test: (step: Step) => boolean): string {
 function inkOn(fill: string, dark: string, light: string): string {
   const onDark = contrast(fill, dark);
   const onLight = contrast(fill, light);
-  return onDark >= onLight ? `dark ink ${onDark.toFixed(1)}:1` : `white ${onLight.toFixed(1)}:1`;
+  return onDark >= onLight ? `어두운 글자 ${onDark.toFixed(1)}:1` : `흰 글자 ${onLight.toFixed(1)}:1`;
 }
 
-/** Markdown tables for the README "Using the steps" section, measured with WCAG 2 contrast. */
+/** Markdown tables for the README usage guide section (스텝 사용 가이드), measured with WCAG 2 contrast. */
 export function usageTables(): string {
   const chromatic = families.filter((family) => family !== "cool-gray" && family !== "neutral-gray");
   const lightInk = colors["cool-gray"][900];
@@ -36,7 +36,7 @@ export function usageTables(): string {
   const darkInk = darkColors["cool-gray"][50];
 
   const light = [
-    "| Family | Text on white | White text on fill | 500 fill takes | Tint badge on 100 | Icon on white |",
+    "| 가족 | 흰 배경 위 글자 | 흰 글자를 올리는 채움색 | 500 채움색에 맞는 글자 | 100 틴트 위 뱃지 글자 | 흰 배경 위 아이콘 |",
     "| --- | --- | --- | --- | --- | --- |",
     ...chromatic.map((family) => {
       const scale = colors[family];
@@ -52,7 +52,7 @@ export function usageTables(): string {
   ];
 
   const dark = [
-    "| Family | Text on dark 50 | 500 fill takes | Tint badge on dark 100 |",
+    "| 가족 | 다크 50 위 글자 | 500 채움색에 맞는 글자 | 다크 100 틴트 위 뱃지 글자 |",
     "| --- | --- | --- | --- |",
     ...chromatic.map((family) => {
       const scale = darkColors[family];
@@ -65,7 +65,7 @@ export function usageTables(): string {
     }).map((row) => `| ${row} |`),
   ];
 
-  return `${light.join("\n")}\n\nDark scale, on a dark cool-gray 50 page:\n\n${dark.join("\n")}\n`;
+  return `${light.join("\n")}\n\n다크 스케일 (다크 cool-gray 50 배경):\n\n${dark.join("\n")}\n`;
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
