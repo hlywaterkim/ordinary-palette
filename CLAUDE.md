@@ -8,6 +8,8 @@ GitHub: https://github.com/hlywaterkim/ordinary-palette
 
 패키지 `ordinary-palette` 0.2.0, MIT. `prepublishOnly`가 `npm test`(빌드 포함)를 돌린다. 라이트·다크 스케일과 white/black opacity가 있다. 최신 곡선은 `main`에 푸시되어 있다. npm에는 아직 배포하지 않았다.
 
+README 순서: 특징 → 만든 이유 → 설치 → 사용법 → Figma에서 쓰기(추후 제공) → 한눈에 보기 → 곡선의 성격 → 가족 → 스텝 사용 가이드 → 개발 → 변경 기록 → 라이선스. 상단에 npm 버전·월간 다운로드 배지가 있다. 영어판도 같은 절을 두고, 가이드 표 대신 요약과 한국어 링크를 둔다.
+
 가족: pink, red, orange, yellow, light-green, green, cyan, light-blue, blue, purple, brown, cool-gray, neutral-gray. (예전 이름: lime → light-green, teal → cyan, cloudy-blue → light-blue)
 
 스텝: 50, 100, 200, 300, 400, 500, 600, 700, 800, 900.
@@ -32,7 +34,7 @@ GitHub: https://github.com/hlywaterkim/ordinary-palette
 - `tests/colors.test.ts` — 규칙을 테스트로 고정
 - `scripts/write-assets.ts` — CSS, JSON 생성
 - `examples/preview` — 미리보기. 배경은 흰색. 거의 흰 무채색 칩만 옅은 회색 테두리
-- `README.md`(한국어, 기본), `README.en.md`(영어) — 가족, 스텝, 곡선이 바뀌면 둘 다 같이 고친다. 상단은 커버, 태그라인, 언어 링크 순서다. 영어판은 가이드 표 대신 요약과 한국어 링크를 둔다
+- `README.md`(한국어, 기본), `README.en.md`(영어) — 가족, 스텝, 곡선이 바뀌면 둘 다 같이 고친다. 상단은 커버, 태그라인, npm 배지, 라이선스 배지, 언어 링크 순서다. 영어판은 가이드 표 대신 요약과 한국어 링크를 둔다
 - `scripts/write-swatches.ts` — README 색 이미지(`docs/palette-*.svg`, `docs/families/*.svg`, `docs/color-vision.svg`, 명도 곡선 `docs/curve-*-lightness.svg`)를 만든다. `npm run build`가 함께 돌린다
 - `design/cover.html` — ORDINARY 시리즈 커버(`docs/cover.jpg`, 소셜 프리뷰 `docs/social-preview.jpg`). Figma에서 받은 `design/bg.svg`(파란 방사형 그라디언트)와 `design/logo.svg`(흰 워드마크, 2560 프레임 기준 크기로 가운데 정렬) 위에 글로우, 할레이션(로고 둘레 주황 번짐 + 밝은 곳의 따뜻한 넓은 글로우), 렌즈 색수차, 필름 그레인, Bayer 디더를 이 순서로 올린다. 고정 시드라 같은 파일은 늘 같은 이미지다. 캔버스가 자기 픽셀을 읽으므로 `design/`을 http로 띄워서 `.cover`를 1280×640에서 `body[data-ready]` 뒤에 렌더링한다. 커버는 device scale 2·JPEG 90, 소셜 프리뷰는 scale 1·JPEG 92(1MB 이하)
 - `scripts/usage-table.ts` — README "스텝 사용 가이드"의 표와 수치(유색 가족, 쓸 때 알아둘 점, 색각 이상 시뮬레이션, 실제 화면 예시)를 만든다. 색이 바뀌면 다시 돌려 README 표를 바꾼다(`npm test`가 어긋나면 실패)

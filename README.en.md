@@ -6,6 +6,8 @@
 
 Every color keeps the same lightness at each step, so it's easy to build UI with
 
+[![npm](https://img.shields.io/npm/v/ordinary-palette?style=flat-square&color=2b84ff&label=npm)](https://www.npmjs.com/package/ordinary-palette)
+[![downloads](https://img.shields.io/npm/dm/ordinary-palette?style=flat-square&color=2b84ff&label=downloads)](https://www.npmjs.com/package/ordinary-palette)
 [![License: MIT](https://img.shields.io/badge/license-MIT-2b84ff?style=flat-square)](LICENSE)
 
 [한국어](README.md) | English
@@ -19,6 +21,10 @@ Every color keeps the same lightness at each step, so it's easy to build UI with
 - **Dark keeps the same jobs:** The dark scale runs the other way, so a step does the same work in both modes. It does not reuse light hex values.
 - **Rules locked in by tests:** `npm test` checks lightness spacing, chroma, and contrast on every run.
 - **Raw palette only:** There are no semantic roles such as primary, surface, or text. Put your own design system on top.
+
+## Why
+
+Made so vibe coding gets consistent color: the same step looks equally bright across families. One reason the project started is Toss's article on rebuilding the TDS color system, [달리는 기차 바퀴 칠하기](https://toss.tech/article/tds-color-system-update) (a color-system update after seven years). The shared lightness curve follows that article. The hex values are original.
 
 ## Install
 
@@ -67,6 +73,10 @@ import palette from "ordinary-palette/colors.json" with { type: "json" };
 palette.cyan["500"];
 palette.dark.blue["500"];
 ```
+
+## Figma
+
+A Figma Community file and a way to import Variables will come later.
 
 ## At a glance
 
@@ -129,6 +139,23 @@ npm run preview
 ```
 
 `npm test` builds the package and then checks the palette rules: step format, lightness, spacing, chroma, family hue, contrast, the dark scale, visual correction, and whether the README tables and images match the palette.
+
+## Changelog
+
+0.2.0 is the current version. The npm badges show the version and monthly downloads after the first publish.
+
+### 0.2.0
+
+- Renamed families: `lime` → `light-green`, `teal` → `cyan`, `cloudy-blue` → `light-blue`.
+- Added the `brown` family.
+- Chromatic families share one lightness curve. Yellow and the grays stay on their own.
+- For every chromatic family except yellow, 600 is text on white and a fill for white text. Yellow text is 900.
+- The 0.1.0 hex values were not kept.
+
+### 0.1.0
+
+- Twelve families (`lime`, `teal`, `cloudy-blue`, no brown), steps 50–900, light and dark scales, and white/black opacity.
+- JavaScript, CSS variables, and JSON.
 
 ## License
 
