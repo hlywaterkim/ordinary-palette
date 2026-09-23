@@ -186,6 +186,20 @@ export const purple = {
   900: "#472c96",
 } as const satisfies ColorScale;
 
+// Warm brown between orange and gray (hue 52–62), with low chroma so it reads as wood and earth, not orange.
+export const brown = {
+  50: "#f9f2eb",
+  100: "#f5e4d6",
+  200: "#e9ccb4",
+  300: "#d3a784",
+  400: "#b57f55",
+  500: "#985f34",
+  600: "#854e25",
+  700: "#72401c",
+  800: "#603416",
+  900: "#4e2910",
+} as const satisfies ColorScale;
+
 // Gray keeps a denser pale end than the color families (L 98, 96.5, 93.5) for surfaces and borders.
 export const coolGray = {
   50: "#f7f8fa",
@@ -378,6 +392,19 @@ export const darkPurple = {
   900: "#e6e5ff",
 } as const satisfies ColorScale;
 
+export const darkBrown = {
+  50: "#342922",
+  100: "#463328",
+  200: "#5d402f",
+  300: "#744d32",
+  400: "#8a5834",
+  500: "#9b6237",
+  600: "#b27d53",
+  700: "#c89d7b",
+  800: "#dec0a8",
+  900: "#f4e5d8",
+} as const satisfies ColorScale;
+
 export const darkCoolGray = {
   50: "#161b20",
   100: "#22272c",
@@ -415,6 +442,7 @@ export const families = [
   "light-blue",
   "blue",
   "purple",
+  "brown",
   "cool-gray",
   "neutral-gray",
 ] as const;
@@ -432,6 +460,7 @@ export const colors = {
   "light-blue": lightBlue,
   blue,
   purple,
+  brown,
   "cool-gray": coolGray,
   "neutral-gray": neutralGray,
   "white-opacity": whiteOpacity,
@@ -449,6 +478,7 @@ export const darkColors = {
   "light-blue": darkLightBlue,
   blue: darkBlue,
   purple: darkPurple,
+  brown: darkBrown,
   "cool-gray": darkCoolGray,
   "neutral-gray": darkNeutralGray,
 } as const;
@@ -577,6 +607,18 @@ export const sourceHue = {
     "700": 288.15,
     "800": 288.31,
     "900": 288.39
+  },
+  "brown": {
+    "50": 62,
+    "100": 62,
+    "200": 62,
+    "300": 60,
+    "400": 58,
+    "500": 56,
+    "600": 55,
+    "700": 54,
+    "800": 53,
+    "900": 52
   },
   "cool-gray": {
     "50": 246.56,
@@ -713,6 +755,18 @@ export const sourceChroma = {
     "700": 0.1935,
     "800": 0.1791,
     "900": 0.163
+  },
+  "brown": {
+    "50": 0.012,
+    "100": 0.026,
+    "200": 0.046,
+    "300": 0.07,
+    "400": 0.088,
+    "500": 0.095,
+    "600": 0.092,
+    "700": 0.085,
+    "800": 0.076,
+    "900": 0.066
   },
   "cool-gray": {
     "50": 0.003,
@@ -861,6 +915,18 @@ export const darkSourceHue = {
     "700": 288.61,
     "800": 288.53,
     "900": 288.02
+  },
+  "brown": {
+    "50": 52.1,
+    "100": 52.1,
+    "200": 52.34,
+    "300": 54.93,
+    "400": 54.93,
+    "500": 56.07,
+    "600": 58.23,
+    "700": 59.95,
+    "800": 61.77,
+    "900": 61.99
   }
 } as const;
 
@@ -985,5 +1051,17 @@ export const darkSourceChroma = {
     "700": 0.1509,
     "800": 0.1019,
     "900": 0.051
+  },
+  "brown": {
+    "50": 0.0208,
+    "100": 0.034,
+    "200": 0.0491,
+    "300": 0.0661,
+    "400": 0.0831,
+    "500": 0.0945,
+    "600": 0.0878,
+    "700": 0.0699,
+    "800": 0.0472,
+    "900": 0.0236
   }
 } as const;

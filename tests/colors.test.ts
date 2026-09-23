@@ -74,6 +74,7 @@ test("color families use steps 50–900 and no 950", () => {
     "light-blue",
     "blue",
     "purple",
+    "brown",
     "cool-gray",
     "neutral-gray",
   ]);
@@ -384,6 +385,17 @@ test("yellow 900 carries text on yellow 100 and on white", () => {
   assert.ok(onTint >= 4.5, `yellow 900 on 100 is ${onTint.toFixed(2)}:1`);
   const onWhite = contrast(yellow[900], "#ffffff");
   assert.ok(onWhite >= 4.5, `yellow 900 on white is ${onWhite.toFixed(2)}:1`);
+});
+
+test("brown is a low-chroma warm brown apart from orange", () => {
+  const chroma = steps.map((step) => oklch(colors.brown[step]).c);
+  assert.ok(Math.max(...chroma) <= 0.11, `brown peak chroma ${Math.max(...chroma)} reads as orange`);
+  for (const step of [300, 400, 500, 600, 700, 800, 900] as const) {
+    const { h } = oklch(colors.brown[step]);
+    assert.ok(h >= 48 && h <= 66, `brown ${step} hue ${h} leaves the warm brown range`);
+  }
+  const gap = new Color(colors.brown[500]).deltaE(new Color(colors.orange[500]), "OK");
+  assert.ok(gap >= 0.15, `brown 500 and orange 500 are only ΔE ${gap.toFixed(3)} apart`);
 });
 
 test("pink stays apart from red", () => {
