@@ -8,12 +8,12 @@ import {
   cloudyBlue,
   colors,
   coolGray,
-  darkChromaLightnessExceptions,
   darkColors,
   darkCoolGray,
   darkLightness,
+  darkSourceChroma,
+  darkSourceHue,
   darkYellow,
-  darkYellowLightnessOffset,
   families,
   neutralGray,
   opacitySteps,
@@ -46,6 +46,15 @@ function hueDelta(a: number, b: number): number {
 
 function chromaLimit(family: (typeof families)[number], step: (typeof steps)[number]): number {
   return sourceChroma[family][String(step) as keyof (typeof sourceChroma)[typeof family]];
+}
+
+function darkChromaLimit(family: (typeof families)[number], step: (typeof steps)[number]): number {
+  if (!(family in darkSourceChroma)) return chromaLimit(family, step);
+  return darkSourceChroma[family as keyof typeof darkSourceChroma][String(step) as "50"];
+}
+
+function darkHueIntent(family: (typeof families)[number], step: (typeof steps)[number]): number {
+  return darkSourceHue[family as keyof typeof darkSourceHue][String(step) as "50"];
 }
 
 function hueIntent(family: (typeof families)[number], step: (typeof steps)[number]): number {
@@ -153,28 +162,20 @@ test("light yellow hue stays within 15° of step 50", () => {
   assert.ok(darkest.c >= 0.08, `yellow 900 chroma ${darkest.c} collapsed away from yellow`);
 });
 
-test("dark yellow lightness offset keeps 800 and 900 yellow", () => {
+test("dark yellow stays yellow and lighter than blue", () => {
   const reference = oklch(yellow[50]).h;
-  assert.ok(darkYellowLightnessOffset[800] > 0);
-  assert.ok(darkYellowLightnessOffset[900] > 0);
   for (const step of steps) {
     const measured = oklch(darkYellow[step]);
-    const raised = darkChromaLightnessExceptions.yellow?.[step];
-    const target = raised ?? darkLightness[step] + darkYellowLightnessOffset[step];
-    assert.ok(
-      Math.abs(measured.l - target) <= 0.4,
-      `dark yellow ${step} L ${measured.l} misses ${target}`,
-    );
     assert.ok(
       hueDelta(measured.h, reference) <= 15,
       `dark yellow ${step} hue ${measured.h} drifted ${hueDelta(measured.h, reference)}°`,
     );
     assert.notEqual(darkYellow[step], yellow[step]);
   }
-  for (const step of [800, 900] as const) {
-    const measured = oklch(darkYellow[step]);
-    assert.ok(measured.l >= 28, `dark yellow ${step} L ${measured.l} collapsed toward black`);
-    assert.ok(measured.c >= 0.05, `dark yellow ${step} chroma ${measured.c} is too weak to read as yellow`);
+  for (const step of [400, 500, 600] as const) {
+    const yellowL = oklch(darkYellow[step]).l;
+    const blueL = oklch(darkColors.blue[step]).l;
+    assert.ok(yellowL > blueL + 8, `dark yellow ${step} L ${yellowL} should stay lighter than dark blue ${blueL}`);
   }
 });
 
@@ -198,33 +199,33 @@ test("neutral-gray is chroma 0 at cool-gray lightness", () => {
 test("gamut mapping lowers chroma only", () => {
   for (const family of families) {
     for (const step of steps) {
-      for (const hex of [colors[family][step], darkColors[family][step]]) {
+      for (const [hex, dark] of [[colors[family][step], false], [darkColors[family][step], true]] as const) {
         const measured = oklch(hex);
+        const limit = dark ? darkChromaLimit(family, step) : chromaLimit(family, step);
         assert.ok(
-          measured.c <= chromaLimit(family, step) + 0.015,
-          `${family} ${step} ${hex} chroma ${measured.c} exceeds source ${chromaLimit(family, step)}`,
+          measured.c <= limit + 0.015,
+          `${family} ${step} ${hex} chroma ${measured.c} exceeds source ${limit}`,
         );
-        if (family === "neutral-gray" || family === "yellow" || measured.c <= 0.02) continue;
-        const drift = hueDelta(measured.h, hueIntent(family, step));
+        if (family === "neutral-gray" || family === "cool-gray" || measured.c <= 0.02) continue;
+        if (!dark && family === "yellow") continue;
+        const intent = dark ? darkHueIntent(family, step) : hueIntent(family, step);
+        const drift = hueDelta(measured.h, intent);
         assert.ok(drift <= 8, `${family} ${step} ${hex} hue drifted ${drift}°`);
       }
     }
   }
 });
 
-test("dark scale keeps the falling shape and is darker than light", () => {
+test("dark scale rises from a tinted dark 50 to a pale 900", () => {
   for (const family of families) {
     const levels = steps.map((step) => oklch(darkColors[family][step]).l);
-    assert.ok(levels[0] > levels[5], `dark ${family} 50 should be lighter than 500`);
-    assert.ok(levels[5] > levels[9], `dark ${family} 500 should be lighter than 900`);
-    for (let index = 0; index < steps.length; index += 1) {
-      const step = steps[index];
-      const lightL = oklch(colors[family][step]).l;
-      assert.ok(levels[index] < lightL - 4, `dark ${family} ${step} L ${levels[index]} is not darker than ${lightL}`);
+    for (let index = 1; index < steps.length; index += 1) {
+      assert.ok(levels[index] > levels[index - 1], `dark ${family} ${steps[index]} does not rise above ${steps[index - 1]}`);
+    }
+    assert.ok(levels[0] <= 33, `dark ${family} 50 L ${levels[0]} is not a dark surface`);
+    assert.ok(levels[9] >= 90, `dark ${family} 900 L ${levels[9]} is not a pale tint`);
+    for (const step of steps) {
       assert.notEqual(darkColors[family][step], colors[family][step]);
-      if (index > 0) {
-        assert.ok(levels[index - 1] > levels[index], `dark ${family} ${step} does not continue the fall`);
-      }
     }
   }
 
@@ -232,42 +233,45 @@ test("dark scale keeps the falling shape and is darker than light", () => {
     assert.ok(Math.abs(oklch(darkCoolGray[step]).l - darkLightness[step]) <= 0.4);
   }
 
-  const darkBlue = steps.map((step) => oklch(darkColors.blue[step]).l);
-  assert.ok(darkBlue[0] - darkBlue[5] > darkBlue[5] - darkBlue[9]);
-  assert.ok(oklch(darkYellow[900]).l > oklch(darkColors.blue[900]).l + 8);
-});
-
-test("dark chroma is at least 90% of light chroma", () => {
   const chromatic = families.filter((family) => family !== "cool-gray" && family !== "neutral-gray");
-  let lowest = Number.POSITIVE_INFINITY;
   for (const family of chromatic) {
-    for (const step of steps) {
-      const lightChroma = oklch(colors[family][step]).c;
-      const dark = oklch(darkColors[family][step]);
-      const ratio = dark.c / lightChroma;
-      lowest = Math.min(lowest, ratio);
-      assert.ok(ratio >= 0.9, `${family} ${step} dark/light chroma ${ratio.toFixed(3)}`);
-      const raised = darkChromaLightnessExceptions[family]?.[step];
-      if (raised != null) {
-        assert.ok(Math.abs(dark.l - raised) <= 0.4, `${family} ${step} L ${dark.l} misses exception ${raised}`);
-      }
-      assert.notEqual(darkColors[family][step], colors[family][step]);
+    const light = oklch(colors[family][500]).l;
+    const dark = oklch(darkColors[family][500]).l;
+    assert.ok(Math.abs(dark - light) <= 4, `dark ${family} 500 L ${dark} strays from light 500 L ${light}`);
+  }
+  for (const step of [50, 100, 200] as const) {
+    const target = oklch(darkColors.blue[step]).l;
+    for (const family of chromatic) {
+      const { l } = oklch(darkColors[family][step]);
+      assert.ok(Math.abs(l - target) <= 0.4, `dark ${family} ${step} L ${l} misses shared ${target}`);
     }
   }
-  assert.ok(lowest >= 0.9);
-  assert.equal(darkChromaLightnessExceptions["cool-gray"], undefined);
+});
+
+test("dark peak chroma is at least 90% of light peak chroma", () => {
+  const chromatic = families.filter((family) => family !== "cool-gray" && family !== "neutral-gray");
+  for (const family of chromatic) {
+    const peak = (scale: Record<(typeof steps)[number], string>) => {
+      const chroma = steps.map((step) => oklch(scale[step]).c);
+      const mid = Math.max(chroma[4], chroma[5], chroma[6]);
+      assert.equal(Math.max(...chroma), mid, `${family} chroma should peak in 400–600`);
+      return mid;
+    };
+    const ratio = peak(darkColors[family]) / peak(colors[family]);
+    assert.ok(ratio >= 0.9, `${family} dark/light peak chroma ${ratio.toFixed(3)}`);
+  }
 });
 
 test("steps after 500 stay apart and keep their chroma", () => {
   const chromatic = families.filter((family) => family !== "cool-gray" && family !== "neutral-gray");
   for (const family of chromatic) {
-    for (const [label, scale] of [["light", colors[family]], ["dark", darkColors[family]]] as const) {
+    for (const [label, scale, sign] of [["light", colors[family], 1], ["dark", darkColors[family], -1]] as const) {
       const levels = steps.map((step) => oklch(scale[step]).l);
       for (let index = 6; index < steps.length; index += 1) {
-        const gap = levels[index - 1] - levels[index];
-        assert.ok(gap >= 3.4, `${label} ${family} ${steps[index]} is only ${gap.toFixed(2)} L below ${steps[index - 1]}`);
+        const gap = (levels[index - 1] - levels[index]) * sign;
+        assert.ok(gap >= 3.4, `${label} ${family} ${steps[index]} is only ${gap.toFixed(2)} L from ${steps[index - 1]}`);
       }
-      const span = levels[5] - levels[9];
+      const span = (levels[5] - levels[9]) * sign;
       assert.ok(span >= 15.5, `${label} ${family} 500→900 spans only ${span.toFixed(2)} L`);
     }
 
@@ -278,12 +282,13 @@ test("steps after 500 stay apart and keep their chroma", () => {
   }
 });
 
-test("dark step 50 stays clear", () => {
-  const shared = oklch(darkCoolGray[50]).l;
+test("dark step 50 is a tinted dark surface", () => {
   for (const family of families) {
-    const { l } = oklch(darkColors[family][50]);
-    assert.ok(l >= 89, `dark ${family} 50 L ${l} is too dim`);
-    assert.ok(Math.abs(l - shared) <= 0.4, `dark ${family} 50 L ${l} misses shared ${shared}`);
+    const { l, c } = oklch(darkColors[family][50]);
+    assert.ok(l >= 20 && l <= 33, `dark ${family} 50 L ${l} is not a dark surface`);
+    if (family !== "cool-gray" && family !== "neutral-gray") {
+      assert.ok(c >= 0.02, `dark ${family} 50 chroma ${c} is too gray to carry its family`);
+    }
   }
 });
 
