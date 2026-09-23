@@ -2,6 +2,12 @@
 
 평범한 인터페이스 작업(배경, 글자, 테두리)을 위한 자연스러운 색 팔레트입니다. 13개 가족이 50부터 900까지 10단계로 이어집니다. 색 값만 제공하는 원시 팔레트이고, primary·surface·text 같은 의미 역할(토큰)은 없습니다.
 
+## 한눈에 보기
+
+![라이트 스케일: 13개 가족 × 50–900](docs/palette-light.svg)
+
+![다크 스케일: 13개 가족 × 50–900](docs/palette-dark.svg)
+
 ## 곡선의 성격
 
 - **명도:** 50이 가장 밝고 900이 가장 어둡습니다. 큰 하락은 500 전에 있고, 500 이후는 스텝마다 약 5 L씩 좁지만 분명하게 떨어집니다.
@@ -61,21 +67,21 @@ palette.dark.blue["500"];
 
 ## 가족
 
-| 가족 | 라이트 500 | 다크 500 |
-| --- | --- | --- |
-| pink | `#e7388d` | `#eb3c90` |
-| red | `#ee3828` | `#f23c2b` |
-| orange | `#f87500` | `#fc780b` |
-| yellow | `#feb700` | `#f2ae00` |
-| light-green | `#88b700` | `#8bba0d` |
-| green | `#26a95e` | `#2bac61` |
-| cyan | `#00bcbc` | `#0fbfbf` |
-| light-blue | `#00abee` | `#07aef2` |
-| blue | `#2b84ff` | `#3388ff` |
-| purple | `#8163f1` | `#8466f4` |
-| brown | `#985f34` | `#9b6237` |
-| cool-gray | `#838a91` | `#797e83` |
-| neutral-gray | `#898989` | `#7d7d7d` |
+| 가족 | 50 → 900 | 라이트 500 | 다크 500 |
+| --- | --- | --- | --- |
+| pink | ![pink 50–900](docs/families/pink.svg) | `#e7388d` | `#eb3c90` |
+| red | ![red 50–900](docs/families/red.svg) | `#ee3828` | `#f23c2b` |
+| orange | ![orange 50–900](docs/families/orange.svg) | `#f87500` | `#fc780b` |
+| yellow | ![yellow 50–900](docs/families/yellow.svg) | `#feb700` | `#f2ae00` |
+| light-green | ![light-green 50–900](docs/families/light-green.svg) | `#88b700` | `#8bba0d` |
+| green | ![green 50–900](docs/families/green.svg) | `#26a95e` | `#2bac61` |
+| cyan | ![cyan 50–900](docs/families/cyan.svg) | `#00bcbc` | `#0fbfbf` |
+| light-blue | ![light-blue 50–900](docs/families/light-blue.svg) | `#00abee` | `#07aef2` |
+| blue | ![blue 50–900](docs/families/blue.svg) | `#2b84ff` | `#3388ff` |
+| purple | ![purple 50–900](docs/families/purple.svg) | `#8163f1` | `#8466f4` |
+| brown | ![brown 50–900](docs/families/brown.svg) | `#985f34` | `#9b6237` |
+| cool-gray | ![cool-gray 50–900](docs/families/cool-gray.svg) | `#838a91` | `#797e83` |
+| neutral-gray | ![neutral-gray 50–900](docs/families/neutral-gray.svg) | `#898989` | `#7d7d7d` |
 
 모든 가족의 스텝은 라이트·다크 모두 50, 100, 200, 300, 400, 500, 600, 700, 800, 900입니다.
 
@@ -189,6 +195,8 @@ palette.dark.blue["500"];
 
 적색약·녹색약·청색약을 Machado(2009) 모델로 시뮬레이션해서, 500끼리 거의 같아 보이는 조합을 찾았습니다. 정상 시각에서 이웃 가족끼리는 모두 ΔE 0.10 이상 떨어집니다.
 
+![색각 이상 시뮬레이션: 11개 유색 가족의 500](docs/color-vision.svg)
+
 | 시뮬레이션 | 500에서 헷갈리는 조합 (ΔE OK 0.07 미만) |
 | --- | --- |
 | 정상 시각 | 없음 |
@@ -224,7 +232,7 @@ palette.dark.blue["500"];
 - 링크는 카드 배경 위에서 blue 600이 4.3:1로 모자라서 700을 씁니다. 흰 배경 위라면 600(4.6:1)도 됩니다.
 - 카드 테두리(1.1–1.2:1)는 장식용 구분선입니다. 카드 배경과 페이지 배경의 차이가 작으므로, 카드 구분이 꼭 필요하면 테두리를 300으로 올리거나 그림자를 함께 씁니다.
 
-위의 표와 수치는 모두 `scripts/usage-table.ts`가 팔레트에서 계산합니다. 색이 바뀌어 표가 어긋나면 `npm test`가 실패합니다. 다시 만들 때는 `node --experimental-strip-types scripts/usage-table.ts`를 실행합니다.
+위의 표와 수치는 모두 `scripts/usage-table.ts`가, README의 색 이미지(`docs/`)는 `scripts/write-swatches.ts`가 팔레트에서 만듭니다. 이미지는 빌드할 때 자동으로 다시 만들어집니다. 색이 바뀌어 표나 이미지가 어긋나면 `npm test`가 실패합니다. 표를 다시 만들 때는 `node --experimental-strip-types scripts/usage-table.ts`를 실행합니다.
 
 ## 개발
 

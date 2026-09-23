@@ -25,6 +25,7 @@ import {
   yellowLightnessOffset,
 } from "../src/palette.ts";
 import { guideBlocks } from "../scripts/usage-table.ts";
+import { swatchFiles } from "../scripts/write-swatches.ts";
 
 const HEX = /^#[0-9a-f]{6}$/;
 const ALPHA_HEX = /^#[0-9a-f]{8}$/;
@@ -469,5 +470,14 @@ test("README guide tables match the palette", () => {
   const readme = readFileSync(new URL("../README.md", import.meta.url), "utf8");
   for (const block of guideBlocks()) {
     assert.ok(readme.includes(block), `README guide is stale: run scripts/usage-table.ts\n${block.slice(0, 80)}`);
+  }
+});
+
+test("README swatch images match the palette", () => {
+  const readme = readFileSync(new URL("../README.md", import.meta.url), "utf8");
+  for (const [path, content] of Object.entries(swatchFiles())) {
+    const onDisk = readFileSync(new URL(`../${path}`, import.meta.url), "utf8");
+    assert.equal(onDisk, content, `${path} is stale: run npm run build`);
+    assert.ok(readme.includes(`](${path})`), `README does not show ${path}`);
   }
 });
