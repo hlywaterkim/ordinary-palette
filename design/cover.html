@@ -4,15 +4,16 @@
   Glow (bloom), halation (a warm red-orange bleed around bright areas), lens chromatic aberration,
   film grain, and an ordered dither, applied in that order.
   bg.svg and logo.svg are exported from Figma for a 2560 × 1280 frame. Serve this folder over http (the canvas
-  reads its own pixels, which file:// blocks), render .cover at 1280 × 640 after body[data-ready], and save
-  docs/cover.jpg at device scale 2 and docs/social-preview.jpg at scale 1.
+  reads its own pixels, which file:// blocks) and render .cover at 1280 × 640 after body[data-ready].
+  README cover: device scale 2 with a transparent background, saved as docs/cover.webp (rounded corners need alpha).
+  Social preview: cover.html?radius=0 at scale 1, saved as docs/social-preview.jpg (GitHub rounds it itself).
 -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <title>ORDINARY cover</title>
 <style>
-  html, body { margin: 0; background: #000000; }
+  html, body { margin: 0; background: transparent; }
   .cover { width: 1280px; height: 640px; }
   .cover canvas { display: block; width: 1280px; height: 640px; }
 </style>
@@ -40,6 +41,8 @@ const ABERRATION = 0.011;      // red spreads out and blue pulls in by this shar
 const GRAIN = 11;              // grain strength in 0–255 units
 const LEVELS = 13;             // color levels per channel for the dither
 const DITHER_PX = 2;           // one dither cell in CSS pixels
+// Corner radius in CSS pixels. 18 at 1280 wide shows as about 12 px in the README, like the swatch images.
+const RADIUS = Number(new URLSearchParams(location.search).get("radius") ?? 18);
 
 const PW = W * SCALE;
 const PH = H * SCALE;
@@ -163,6 +166,12 @@ async function draw() {
   }
   aberration(ctx);
   grainAndDither(ctx);
+  if (RADIUS > 0) {
+    ctx.globalCompositeOperation = "destination-in";
+    ctx.beginPath();
+    ctx.roundRect(0, 0, PW, PH, RADIUS * SCALE);
+    ctx.fill();
+  }
   document.body.dataset.ready = "1";
 }
 draw();
