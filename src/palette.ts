@@ -8,18 +8,18 @@ export const opacitySteps = ["00", "05", "10", "20", "30", "40", "50", "60", "70
 export type OpacityStep = (typeof opacitySteps)[number];
 export type OpacityScale = Record<OpacityStep, string>;
 
-/** Light-scale yellow OKLCH L minus cool-gray L. Zero on steps 50–200, where every family shares lightness. Positive from 300, where yellow stays lighter than blue. */
+/** Light-scale yellow OKLCH L minus blue L. Zero on steps 50–200, where every color family shares lightness. Positive from 300, where yellow stays lighter than blue. */
 export const yellowLightnessOffset = {
   50: 0,
   100: 0,
   200: 0,
-  300: 9.2,
-  400: 18,
-  500: 25.9,
-  600: 28.7,
-  700: 30.9,
-  800: 32.9,
-  900: 35.8,
+  300: 6.8,
+  400: 11.4,
+  500: 14.3,
+  600: 16.4,
+  700: 17.9,
+  800: 18.9,
+  900: 19.3,
 } as const;
 
 /**
@@ -80,7 +80,7 @@ export const orange = {
   900: "#994627",
 } as const satisfies ColorScale;
 
-// Steps 50–200 share cool-gray lightness. From 300, yellow stays lighter than blue.
+// Steps 50–200 share the color families' pale lightness. From 300, yellow stays lighter than blue.
 // From 500, hue leans toward amber but stays within 15° of step 50. Chroma peaks around 500 and eases, so 900 stays gold.
 export const yellow = {
   50: "#fbf2e3",
@@ -173,32 +173,33 @@ export const purple = {
   900: "#383691",
 } as const satisfies ColorScale;
 
+// Gray keeps a denser pale end than the color families (L 98, 96.5, 93.5) for surfaces and borders.
 export const coolGray = {
-  50: "#f3f3f3",
-  100: "#e7e7e8",
-  200: "#cfd2d4",
-  300: "#aab0b5",
-  400: "#838a91",
-  500: "#60686e",
-  600: "#4f555a",
-  700: "#3f4449",
-  800: "#303437",
-  900: "#202325",
+  50: "#f7f8fa",
+  100: "#f2f4f5",
+  200: "#e7eaed",
+  300: "#d2d6db",
+  400: "#afb5bb",
+  500: "#838a91",
+  600: "#61686f",
+  700: "#454b51",
+  800: "#2e3338",
+  900: "#1c2023",
 } as const satisfies ColorScale;
 
 // Chroma 0 and no hue. Lightness matches cool-gray at the same step.
 // #666666 only illustrates that zero-chroma character. It is not copied onto these steps.
 export const neutralGray = {
-  50: "#f3f3f3",
-  100: "#e7e7e7",
-  200: "#d1d1d1",
-  300: "#afafaf",
-  400: "#898989",
-  500: "#676767",
-  600: "#545454",
-  700: "#434343",
+  50: "#f8f8f8",
+  100: "#f3f3f3",
+  200: "#e9e9e9",
+  300: "#d6d6d6",
+  400: "#b4b4b4",
+  500: "#898989",
+  600: "#676767",
+  700: "#4a4a4a",
   800: "#333333",
-  900: "#222222",
+  900: "#1f1f1f",
 } as const satisfies ColorScale;
 
 export const whiteOpacity = {
