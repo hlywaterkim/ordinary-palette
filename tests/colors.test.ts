@@ -529,3 +529,17 @@ test("tint steps 50–200 carry the same chroma across families", () => {
     }
   }
 });
+
+test("steps 200–900 sit an even distance apart", () => {
+  // 50–200 stay close on purpose (surfaces). From 200 on, each step should look like the same size of change.
+  const even = families.filter((family) => !["yellow", "cool-gray", "neutral-gray"].includes(family));
+  const run = [200, 300, 400, 500, 600, 700, 800, 900] as const;
+  for (const [label, scale] of [["light", colors], ["dark", darkColors]] as const) {
+    for (const family of even) {
+      for (let index = 1; index < run.length; index += 1) {
+        const gap = new Color(scale[family][run[index - 1]]).deltaE(new Color(scale[family][run[index]]), "OK");
+        assert.ok(gap >= 0.065 && gap <= 0.105, `${label} ${family} ${run[index - 1]}→${run[index]} is ΔE ${gap.toFixed(3)} apart`);
+      }
+    }
+  }
+});
