@@ -2,8 +2,8 @@
 <rect width="800" height="200" rx="12" fill="#ffffff"/>
 <text x="16" y="34" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="12" font-weight="600" fill="#1c2023">정상 시각</text>
 <rect x="124" y="12" width="56" height="36" rx="6" fill="#e7388d"/>
-<rect x="184" y="12" width="56" height="36" rx="6" fill="#ee3828"/>
-<rect x="244" y="12" width="56" height="36" rx="6" fill="#de6100"/>
+<rect x="184" y="12" width="56" height="36" rx="6" fill="#ee3635"/>
+<rect x="244" y="12" width="56" height="36" rx="6" fill="#ec5f00"/>
 <rect x="304" y="12" width="56" height="36" rx="6" fill="#feb700"/>
 <rect x="364" y="12" width="56" height="36" rx="6" fill="#739c00"/>
 <rect x="424" y="12" width="56" height="36" rx="6" fill="#21a65b"/>
@@ -14,8 +14,8 @@
 <rect x="724" y="12" width="56" height="36" rx="6" fill="#aa7a53"/>
 <text x="16" y="74" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="12" font-weight="600" fill="#1c2023">적색약 (protan)</text>
 <rect x="124" y="52" width="56" height="36" rx="6" fill="#5d6c8f"/>
-<rect x="184" y="52" width="56" height="36" rx="6" fill="#726523"/>
-<rect x="244" y="52" width="56" height="36" rx="6" fill="#867500"/>
+<rect x="184" y="52" width="56" height="36" rx="6" fill="#706532"/>
+<rect x="244" y="52" width="56" height="36" rx="6" fill="#897700"/>
 <rect x="304" y="52" width="56" height="36" rx="6" fill="#d3b900"/>
 <rect x="364" y="52" width="56" height="36" rx="6" fill="#a59100"/>
 <rect x="424" y="52" width="56" height="36" rx="6" fill="#a69855"/>
@@ -26,8 +26,8 @@
 <rect x="724" y="52" width="56" height="36" rx="6" fill="#897e50"/>
 <text x="16" y="114" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="12" font-weight="600" fill="#1c2023">녹색약 (deutan)</text>
 <rect x="124" y="92" width="56" height="36" rx="6" fill="#8d8c89"/>
-<rect x="184" y="92" width="56" height="36" rx="6" fill="#9e8d1d"/>
-<rect x="244" y="92" width="56" height="36" rx="6" fill="#a49100"/>
+<rect x="184" y="92" width="56" height="36" rx="6" fill="#9d8d2d"/>
+<rect x="244" y="92" width="56" height="36" rx="6" fill="#ab9800"/>
 <rect x="304" y="92" width="56" height="36" rx="6" fill="#e3cb17"/>
 <rect x="364" y="92" width="56" height="36" rx="6" fill="#9f8e1d"/>
 <rect x="424" y="92" width="56" height="36" rx="6" fill="#978d60"/>
@@ -38,8 +38,8 @@
 <rect x="724" y="92" width="56" height="36" rx="6" fill="#948853"/>
 <text x="16" y="154" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="12" font-weight="600" fill="#1c2023">청색약 (tritan)</text>
 <rect x="124" y="132" width="56" height="36" rx="6" fill="#fa1f5e"/>
-<rect x="184" y="132" width="56" height="36" rx="6" fill="#ff0037"/>
-<rect x="244" y="132" width="56" height="36" rx="6" fill="#f44253"/>
+<rect x="184" y="132" width="56" height="36" rx="6" fill="#ff0039"/>
+<rect x="244" y="132" width="56" height="36" rx="6" fill="#ff3951"/>
 <rect x="304" y="132" width="56" height="36" rx="6" fill="#ffa29c"/>
 <rect x="364" y="132" width="56" height="36" rx="6" fill="#799484"/>
 <rect x="424" y="132" width="56" height="36" rx="6" fill="#00a494"/>
