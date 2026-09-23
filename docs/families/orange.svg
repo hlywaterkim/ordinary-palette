@@ -4,12 +4,12 @@
 <rect x="0" y="0" width="29" height="22" fill="#fff0e5"/>
 <rect x="28" y="0" width="29" height="22" fill="#ffe1ca"/>
 <rect x="56" y="0" width="29" height="22" fill="#ffc494"/>
-<rect x="84" y="0" width="29" height="22" fill="#faac74"/>
-<rect x="112" y="0" width="29" height="22" fill="#f38539"/>
-<rect x="140" y="0" width="29" height="22" fill="#e26a00"/>
-<rect x="168" y="0" width="29" height="22" fill="#c25500"/>
-<rect x="196" y="0" width="29" height="22" fill="#a44200"/>
-<rect x="224" y="0" width="29" height="22" fill="#843300"/>
-<rect x="252" y="0" width="28" height="22" fill="#692400"/>
+<rect x="84" y="0" width="29" height="22" fill="#f3a66e"/>
+<rect x="112" y="0" width="29" height="22" fill="#ed7e36"/>
+<rect x="140" y="0" width="29" height="22" fill="#de6100"/>
+<rect x="168" y="0" width="29" height="22" fill="#bb4f00"/>
+<rect x="196" y="0" width="29" height="22" fill="#9c3e00"/>
+<rect x="224" y="0" width="29" height="22" fill="#7c2f00"/>
+<rect x="252" y="0" width="28" height="22" fill="#602100"/>
 </g>
 </svg>
