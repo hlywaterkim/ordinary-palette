@@ -1,6 +1,6 @@
 <div align="center">
 
-![Ordinary Palette.](docs/cover.webp)
+![Ordinary Palette.](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/cover.webp)
 
 **The most ordinary, perfect palette you can use anywhere**
 
@@ -80,9 +80,9 @@ A Figma Community file and a way to import Variables will come later.
 
 ## At a glance
 
-![Light scale: 13 families × 50–900](docs/palette-light.svg)
+![Light scale: 13 families × 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/palette-light.svg)
 
-![Dark scale: 13 families × 50–900](docs/palette-dark.svg)
+![Dark scale: 13 families × 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/palette-dark.svg)
 
 ## How the curves behave
 
@@ -94,27 +94,27 @@ A Figma Community file and a way to import Variables will come later.
 - **Visual correction:** Lightness stays on the shared curve. Where colors still look off (for example, saturated blue and purple look brighter), only chroma and hue are adjusted, so contrast does not change.
 - **White and black:** Available as opacity scales (`white-opacity`, `black-opacity`) with steps 00, 05, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100.
 
-![Light lightness curve](docs/curve-light-lightness.svg)
+![Light lightness curve](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/curve-light-lightness.svg)
 
-![Dark lightness curve](docs/curve-dark-lightness.svg)
+![Dark lightness curve](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/curve-dark-lightness.svg)
 
 ## Families
 
 | Family | 50 → 900 | Character |
 | --- | --- | --- |
-| pink | ![pink 50–900](docs/families/pink.svg) | A true pink (hue 356), kept apart from red. |
-| red | ![red 50–900](docs/families/red.svg) | A little redder than orange so the two stay apart. |
-| orange | ![orange 50–900](docs/families/orange.svg) | A vivid orange at 500. Light steps lean apricot, dark steps lean red. |
-| yellow | ![yellow 50–900](docs/families/yellow.svg) | Brighter than the shared curve from 100 on. 900 is a deep gold that works as text. |
-| light-green | ![light-green 50–900](docs/families/light-green.svg) | Yellow-green between yellow and green. Dark steps lean green so they do not look olive. |
-| green | ![green 50–900](docs/families/green.svg) | A clear green. |
-| cyan | ![cyan 50–900](docs/families/cyan.svg) | From aqua to teal. Dark steps are less saturated because of the sRGB limit. |
-| light-blue | ![light-blue 50–900](docs/families/light-blue.svg) | Sky blue between cyan and blue. |
-| blue | ![blue 50–900](docs/families/blue.svg) | The reference family for the shared lightness curve. |
-| purple | ![purple 50–900](docs/families/purple.svg) | Slightly more violet than indigo. |
-| brown | ![brown 50–900](docs/families/brown.svg) | A low-chroma warm brown between orange and gray. |
-| cool-gray | ![cool-gray 50–900](docs/families/cool-gray.svg) | A slightly cool gray for surfaces, borders, and text. |
-| neutral-gray | ![neutral-gray 50–900](docs/families/neutral-gray.svg) | cool-gray's lightness with zero chroma. |
+| pink | ![pink 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/families/pink.svg) | A true pink (hue 356), kept apart from red. |
+| red | ![red 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/families/red.svg) | A little redder than orange so the two stay apart. |
+| orange | ![orange 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/families/orange.svg) | A vivid orange at 500. Light steps lean apricot, dark steps lean red. |
+| yellow | ![yellow 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/families/yellow.svg) | Brighter than the shared curve from 100 on. 900 is a deep gold that works as text. |
+| light-green | ![light-green 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/families/light-green.svg) | Yellow-green between yellow and green. Dark steps lean green so they do not look olive. |
+| green | ![green 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/families/green.svg) | A clear green. |
+| cyan | ![cyan 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/families/cyan.svg) | From aqua to teal. Dark steps are less saturated because of the sRGB limit. |
+| light-blue | ![light-blue 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/families/light-blue.svg) | Sky blue between cyan and blue. |
+| blue | ![blue 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/families/blue.svg) | The reference family for the shared lightness curve. |
+| purple | ![purple 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/families/purple.svg) | Slightly more violet than indigo. |
+| brown | ![brown 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/families/brown.svg) | A low-chroma warm brown between orange and gray. |
+| cool-gray | ![cool-gray 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/families/cool-gray.svg) | A slightly cool gray for surfaces, borders, and text. |
+| neutral-gray | ![neutral-gray 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/families/neutral-gray.svg) | cool-gray's lightness with zero chroma. |
 
 Every family has the steps 50, 100, 200, 300, 400, 500, 600, 700, 800, 900 in both light and dark.
 
@@ -135,10 +135,9 @@ The full guide, with measured contrast tables, color vision simulation, and scre
 ```bash
 npm install
 npm test
-npm run preview
 ```
 
-`npm test` builds the package and then checks the palette rules: step format, lightness, spacing, chroma, family hue, contrast, the dark scale, visual correction, and whether the README tables and images match the palette.
+`npm test` builds the package and then checks the palette rules: step format, lightness, spacing, chroma, family hue, contrast, the dark scale, visual correction, and whether the README tables match the palette and the README points to every swatch image. When the `assets` branch is fetched, it also checks that those images match the palette.
 
 ## Changelog
 

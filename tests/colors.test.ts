@@ -1,5 +1,6 @@
 import Color from "colorjs.io";
 import assert from "node:assert/strict";
+import { execFileSync } from "node:child_process";
 import { readFileSync } from "node:fs";
 import { test } from "node:test";
 import {
@@ -25,7 +26,7 @@ import {
   yellowLightnessOffset,
 } from "../src/palette.ts";
 import { guideBlocks } from "../scripts/usage-table.ts";
-import { swatchFiles } from "../scripts/write-swatches.ts";
+import { ASSETS_URL, swatchFiles } from "../scripts/write-swatches.ts";
 
 const HEX = /^#[0-9a-f]{6}$/;
 const ALPHA_HEX = /^#[0-9a-f]{8}$/;
@@ -507,12 +508,35 @@ test("README guide tables match the palette", () => {
   }
 });
 
-test("README swatch images match the palette", () => {
+test("README shows every swatch image from the assets branch", () => {
   const readme = readFileSync(new URL("../README.md", import.meta.url), "utf8");
+  for (const path of Object.keys(swatchFiles())) {
+    assert.ok(readme.includes(`](${ASSETS_URL}${path})`), `README does not show ${path}`);
+  }
+  // The English README shows a subset; it must not point at the docs/ folder main no longer has.
+  for (const readmeFile of ["README.md", "README.en.md"]) {
+    const text = readFileSync(new URL(`../${readmeFile}`, import.meta.url), "utf8");
+    assert.ok(!text.includes("](docs/"), `${readmeFile} links to docs/ on main`);
+  }
+});
+
+test("assets branch swatch images match the palette", (t) => {
+  // The images live on the assets branch so main stays palette-only. Skip when that branch was not fetched.
+  const ref = ["origin/assets", "assets"].find((name) => {
+    try {
+      execFileSync("git", ["rev-parse", "--verify", "--quiet", name], { stdio: "ignore" });
+      return true;
+    } catch {
+      return false;
+    }
+  });
+  if (!ref) {
+    t.skip("assets branch not fetched");
+    return;
+  }
   for (const [path, content] of Object.entries(swatchFiles())) {
-    const onDisk = readFileSync(new URL(`../${path}`, import.meta.url), "utf8");
-    assert.equal(onDisk, content, `${path} is stale: run npm run build`);
-    assert.ok(readme.includes(`](${path})`), `README does not show ${path}`);
+    const published = execFileSync("git", ["show", `${ref}:${path}`], { encoding: "utf8" });
+    assert.equal(published, content, `${path} on the assets branch is stale: run scripts/update-assets.sh`);
   }
 });
 

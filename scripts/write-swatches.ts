@@ -5,6 +5,11 @@ import { colors, darkColors, families, steps } from "../src/palette.ts";
 import { contrast, lightnessChroma, simulate, VISION_LABEL, type Vision } from "./usage-table.ts";
 
 // SVG swatches for the README. GitHub strips inline styles, so the README shows color through these images.
+// They are built into docs/ (ignored by git) and published on the assets branch by scripts/update-assets.sh,
+// so main holds only the palette.
+
+/** Where the README loads the published images from. */
+export const ASSETS_URL = "https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const FONT = "ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif";

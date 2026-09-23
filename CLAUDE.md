@@ -23,7 +23,7 @@ README 순서: 특징 → 만든 이유 → 설치 → 사용법 → Figma에서
 5. light-green은 yellow와 green 사이 연두(hue 124–133, 600–900은 올리브로 보이지 않게 초록 쪽), cyan은 #00ffff–teal(#008080) 계열 청록(hue 195), light-blue는 cyan과 blue 사이 하늘색(hue 232–242, 인쇄 cyan #00aeef와 같은 자리)이다. orange 500은 채도 0.19의 쨍한 주황(hue 44)이고, 300–900 hue는 53, 47, 44, 43, 42, 42, 42로 짙을수록 붉다. red는 3° 더 붉게(hue 약 27) 두어 orange와 500에서 ΔE 0.07 이상 떨어진다. purple은 hue 288로 indigo보다 살짝 보라 쪽이다. brown은 orange와 회색 사이의 따뜻한 갈색(hue 56–64)으로, 채도는 최고 0.11 이하로 낮게 두고 orange 500과 ΔE 0.1 이상 떨어진다. 명도가 같으므로 채도와 hue로만 떨어진다. 전체 채도는 sRGB가 허락하는 만큼 쨍하게 둔다. orange·yellow는 500에서 Toss TDS 채도 이상이다(0.173, 0.154). yellow는 최고 0.155 이상, 200은 0.09 이상, 900은 0.10 이상(L 53에서 sRGB 한계). 옅은 orange는 살구색(hue 60) 쪽이다.
 6. neutral-gray는 채도 0이고, 같은 스케일의 cool-gray 명도를 따른다.
 7. 다크는 방향이 반대다. 다크 50은 어두운 틴트 배경(L 33 이하), 다크 900은 밝은 틴트(L 90 이상)로, 스텝의 역할이 두 모드에서 같다. SEED·Toss와 같은 방식이다. 다크 50–200은 가족끼리 명도를 맞춘다. 다크 500은 라이트 500과 명도 4 안이다. 다크 최고 채도 / 라이트 최고 채도는 0.9 이상이다. 라이트 hex를 재사용하지 않는다. 가멋 밖이면 채도만 낮춘다.
-8. 시각 보정: 명도는 공유 곡선을 지키고, 눈으로 어긋나는 건 채도·hue로만 고친다(명도를 바꾸면 같은 스텝의 대비가 달라진다). purple 700–900 채도 비율은 blue 이하, 다크 blue·purple 300은 채도 0.115, 400은 0.155 이하(H-K 효과). 확인은 미리보기의 "같은 스텝 비교"로 한다.
+8. 시각 보정: 명도는 공유 곡선을 지키고, 눈으로 어긋나는 건 채도·hue로만 고친다(명도를 바꾸면 같은 스텝의 대비가 달라진다). purple 700–900 채도 비율은 blue 이하, 다크 blue·purple 300은 채도 0.115, 400은 0.155 이하(H-K 효과). 확인은 빌드한 `docs/palette-light.svg`·`docs/palette-dark.svg`에서 같은 스텝 열을 나란히 본다.
 9. 공개 API는 `colors`, 가족 export, `colors.json`, `--color-<family>-<step>`, `--color-dark-<family>-<step>`이다.
 
 숫자와 오프셋의 기준은 `src/palette.ts`와 `tests/colors.test.ts`다. 이 문서에 적은 hex는 오래될 수 있으니 테스트가 우선이다.
@@ -33,13 +33,13 @@ README 순서: 특징 → 만든 이유 → 설치 → 사용법 → Figma에서
 - `src/palette.ts` — 색과 오프셋
 - `tests/colors.test.ts` — 규칙을 테스트로 고정
 - `scripts/write-assets.ts` — CSS, JSON 생성
-- `examples/preview` — 미리보기. 배경은 흰색. 거의 흰 무채색 칩만 옅은 회색 테두리
+- `main`에는 팔레트만 둔다(`src`, `tests`, `scripts`, README, 패키지 파일). README 이미지, 커버 원본, 예전 미리보기는 `assets` 브랜치에 있다. `docs/`, `design/`, `examples/`를 `main`에 커밋하지 않는다(`docs/`는 `.gitignore`에 있다). 이 셋은 과거 기록에서도 지웠다
 - `README.md`(한국어, 기본), `README.en.md`(영어) — 가족, 스텝, 곡선이 바뀌면 둘 다 같이 고친다. 상단은 커버, 태그라인, npm 배지, 라이선스 배지, 언어 링크 순서다. 영어판은 가이드 표 대신 요약과 한국어 링크를 둔다
-- `scripts/write-swatches.ts` — README 색 이미지(`docs/palette-*.svg`, `docs/families/*.svg`, `docs/color-vision.svg`, 명도 곡선 `docs/curve-*-lightness.svg`)를 만든다. `npm run build`가 함께 돌린다
-- `design/cover.html` — ORDINARY 시리즈 커버(`docs/cover.webp`, 소셜 프리뷰 `docs/social-preview.jpg`). Figma에서 받은 `design/bg.svg`(파란 방사형 그라디언트)와 `design/logo.svg`(흰 워드마크, 2560 프레임 기준 크기로 가운데 정렬한 뒤 시각 보정으로 오른쪽 23px. 왼쪽 O·P가 무겁고 `Palette.`가 짧아 글자 무게 중심이 박스 가운데보다 45px 왼쪽이라 그 절반만 옮긴다) 위에 글로우, 할레이션(로고 둘레 주황 번짐 + 밝은 곳의 따뜻한 넓은 글로우), 렌즈 색수차, 필름 그레인, Bayer 디더를 이 순서로 올린다. 고정 시드라 같은 파일은 늘 같은 이미지다. 캔버스가 자기 픽셀을 읽으므로 `design/`을 http로 띄워서 `.cover`를 1280×640에서 `body[data-ready]` 뒤에 렌더링한다. README 커버는 모서리가 radius 32px에 Figma식 corner smoothing 60%(iOS 프리셋, 애플 스퀴클)라 투명 배경이 필요해서 device scale 2로 렌더링해 WebP 90으로 저장한다. 소셜 프리뷰는 GitHub가 직접 모서리를 깎으므로 `cover.html?radius=0`을 scale 1·JPEG 92(1MB 이하)로 저장한다
+- `scripts/write-swatches.ts` — README 색 이미지(`docs/palette-*.svg`, `docs/families/*.svg`, `docs/color-vision.svg`, 명도 곡선 `docs/curve-*-lightness.svg`)를 `docs/`에 만든다. `npm run build`가 함께 돌린다. README는 `assets` 브랜치의 이미지를 `ASSETS_URL`(raw.githubusercontent.com) 주소로 불러온다. 색이 바뀌면 `scripts/update-assets.sh`로 빌드해서 `assets` 브랜치에 커밋·푸시한다. `npm test`는 두 README가 모든 이미지를 가리키는지 보고, `assets` 브랜치를 받아 둔 경우 그 이미지가 팔레트와 같은지도 본다
+- `assets` 브랜치의 `design/cover.html` — ORDINARY 시리즈 커버(`docs/cover.webp`, 소셜 프리뷰 `docs/social-preview.jpg`). Figma에서 받은 `design/bg.svg`(파란 방사형 그라디언트)와 `design/logo.svg`(흰 워드마크, 2560 프레임 기준 크기로 가운데 정렬한 뒤 시각 보정으로 오른쪽 23px. 왼쪽 O·P가 무겁고 `Palette.`가 짧아 글자 무게 중심이 박스 가운데보다 45px 왼쪽이라 그 절반만 옮긴다) 위에 글로우, 할레이션(로고 둘레 주황 번짐 + 밝은 곳의 따뜻한 넓은 글로우), 렌즈 색수차, 필름 그레인, Bayer 디더를 이 순서로 올린다. 고정 시드라 같은 파일은 늘 같은 이미지다. 캔버스가 자기 픽셀을 읽으므로 `design/`을 http로 띄워서 `.cover`를 1280×640에서 `body[data-ready]` 뒤에 렌더링한다. README 커버는 모서리가 radius 32px에 Figma식 corner smoothing 60%(iOS 프리셋, 애플 스퀴클)라 투명 배경이 필요해서 device scale 2로 렌더링해 WebP 90으로 저장한다. 소셜 프리뷰는 GitHub가 직접 모서리를 깎으므로 `cover.html?radius=0`을 scale 1·JPEG 92(1MB 이하)로 저장한다
 - `scripts/usage-table.ts` — README "스텝 사용 가이드"의 표와 수치(유색 가족, 쓸 때 알아둘 점, 색각 이상 시뮬레이션, 실제 화면 예시)를 만든다. 색이 바뀌면 다시 돌려 README 표를 바꾼다(`npm test`가 어긋나면 실패)
 
-`npm test`는 빌드 후 테스트를 돌린다. 미리보기는 `npm run preview`이고 포트는 43123이다.
+`npm test`는 빌드 후 테스트를 돌린다. 미리보기(`examples/preview`)는 `main`에서 뺐고 `assets` 브랜치에 보관만 한다.
 
 ## 요청이 있을 때만
 

@@ -1,6 +1,6 @@
 <div align="center">
 
-![Ordinary Palette.](docs/cover.webp)
+![Ordinary Palette.](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/cover.webp)
 
 **어디서든 쓸 수 있는 가장 평범하고 완벽한 팔레트**
 
@@ -80,9 +80,9 @@ Figma Community 파일과 Variables로 가져오는 방법은 나중에 제공�
 
 ## 한눈에 보기
 
-![라이트 스케일: 13개 가족 × 50–900](docs/palette-light.svg)
+![라이트 스케일: 13개 가족 × 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/palette-light.svg)
 
-![다크 스케일: 13개 가족 × 50–900](docs/palette-dark.svg)
+![다크 스케일: 13개 가족 × 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/palette-dark.svg)
 
 ## 곡선의 성격
 
@@ -100,9 +100,9 @@ Figma Community 파일과 Variables로 가져오는 방법은 나중에 제공�
 
 가로축은 스텝, 세로축은 OKLCH 명도(L)입니다. 선 색은 각 가족의 500입니다.
 
-![라이트 명도 곡선](docs/curve-light-lightness.svg)
+![라이트 명도 곡선](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/curve-light-lightness.svg)
 
-![다크 명도 곡선](docs/curve-dark-lightness.svg)
+![다크 명도 곡선](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/curve-dark-lightness.svg)
 
 - **라이트 명도:** 유색 가족은 끝까지 거의 한 줄로 겹쳐서 내려갑니다. yellow는 100부터 따로 밝게 가고, 회색은 더 밝게 시작해서 더 어둡게 끝납니다.
 - **다크 명도:** 방향이 반대라서 50(어두운 배경)에서 900(밝은 틴트)으로 올라갑니다.
@@ -111,19 +111,19 @@ Figma Community 파일과 Variables로 가져오는 방법은 나중에 제공�
 
 | 가족 | 50 → 900 | 라이트 500 | 다크 500 |
 | --- | --- | --- | --- |
-| pink | ![pink 50–900](docs/families/pink.svg) | `#e7388d` | `#eb3c90` |
-| red | ![red 50–900](docs/families/red.svg) | `#ee3635` | `#f33c39` |
-| orange | ![orange 50–900](docs/families/orange.svg) | `#ec5f00` | `#f0620a` |
-| yellow | ![yellow 50–900](docs/families/yellow.svg) | `#feb700` | `#f2ae00` |
-| light-green | ![light-green 50–900](docs/families/light-green.svg) | `#739c00` | `#769f00` |
-| green | ![green 50–900](docs/families/green.svg) | `#21a65b` | `#26a95e` |
-| cyan | ![cyan 50–900](docs/families/cyan.svg) | `#00a0a0` | `#00a3a3` |
-| light-blue | ![light-blue 50–900](docs/families/light-blue.svg) | `#0097d3` | `#009ad7` |
-| blue | ![blue 50–900](docs/families/blue.svg) | `#2b84ff` | `#3388ff` |
-| purple | ![purple 50–900](docs/families/purple.svg) | `#8568f6` | `#886bfa` |
-| brown | ![brown 50–900](docs/families/brown.svg) | `#aa7a53` | `#ad7d56` |
-| cool-gray | ![cool-gray 50–900](docs/families/cool-gray.svg) | `#838a91` | `#797e83` |
-| neutral-gray | ![neutral-gray 50–900](docs/families/neutral-gray.svg) | `#898989` | `#7d7d7d` |
+| pink | ![pink 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/families/pink.svg) | `#e7388d` | `#eb3c90` |
+| red | ![red 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/families/red.svg) | `#ee3635` | `#f33c39` |
+| orange | ![orange 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/families/orange.svg) | `#ec5f00` | `#f0620a` |
+| yellow | ![yellow 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/families/yellow.svg) | `#feb700` | `#f2ae00` |
+| light-green | ![light-green 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/families/light-green.svg) | `#739c00` | `#769f00` |
+| green | ![green 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/families/green.svg) | `#21a65b` | `#26a95e` |
+| cyan | ![cyan 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/families/cyan.svg) | `#00a0a0` | `#00a3a3` |
+| light-blue | ![light-blue 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/families/light-blue.svg) | `#0097d3` | `#009ad7` |
+| blue | ![blue 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/families/blue.svg) | `#2b84ff` | `#3388ff` |
+| purple | ![purple 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/families/purple.svg) | `#8568f6` | `#886bfa` |
+| brown | ![brown 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/families/brown.svg) | `#aa7a53` | `#ad7d56` |
+| cool-gray | ![cool-gray 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/families/cool-gray.svg) | `#838a91` | `#797e83` |
+| neutral-gray | ![neutral-gray 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/families/neutral-gray.svg) | `#898989` | `#7d7d7d` |
 
 모든 가족의 스텝은 라이트·다크 모두 50, 100, 200, 300, 400, 500, 600, 700, 800, 900입니다.
 
@@ -237,7 +237,7 @@ Figma Community 파일과 Variables로 가져오는 방법은 나중에 제공�
 
 적색약·녹색약·청색약을 Machado(2009) 모델로 시뮬레이션해서, 500끼리 거의 같아 보이는 조합을 찾았습니다. 정상 시각에서 이웃 가족끼리는 모두 ΔE 0.10 이상 떨어집니다.
 
-![색각 이상 시뮬레이션: 11개 유색 가족의 500](docs/color-vision.svg)
+![색각 이상 시뮬레이션: 11개 유색 가족의 500](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/color-vision.svg)
 
 | 시뮬레이션 | 500에서 헷갈리는 조합 (ΔE OK 0.07 미만) |
 | --- | --- |
@@ -275,14 +275,13 @@ Figma Community 파일과 Variables로 가져오는 방법은 나중에 제공�
 - 링크는 카드 배경 위에서 blue 600이 4.3:1로 모자라서 700을 씁니다. 흰 배경 위라면 600(4.6:1)도 됩니다.
 - 카드 테두리(1.1–1.2:1)는 장식용 구분선입니다. 카드 배경과 페이지 배경의 차이가 작으므로, 카드 구분이 꼭 필요하면 테두리를 300으로 올리거나 그림자를 함께 씁니다.
 
-위의 표와 수치는 모두 `scripts/usage-table.ts`가, README의 색 이미지와 명도 곡선 차트(`docs/`)는 `scripts/write-swatches.ts`가 팔레트에서 만듭니다. 이미지는 빌드할 때 자동으로 다시 만들어집니다. 색이 바뀌어 표나 이미지가 어긋나면 `npm test`가 실패합니다. 표를 다시 만들 때는 `node --experimental-strip-types scripts/usage-table.ts`를 실행합니다.
+위의 표와 수치는 모두 `scripts/usage-table.ts`가, README의 색 이미지와 명도 곡선 차트는 `scripts/write-swatches.ts`가 팔레트에서 만들고, `assets` 브랜치에 올려 README에서 불러옵니다. 색이 바뀌어 표나 이미지가 어긋나면 `npm test`가 실패하고, 이미지는 `scripts/update-assets.sh`로 다시 올립니다. 표를 다시 만들 때는 `node --experimental-strip-types scripts/usage-table.ts`를 실행합니다.
 
 ## 개발
 
 ```bash
 npm install
 npm test
-npm run preview
 ```
 
 `npm test`는 패키지를 빌드한 뒤 아래 규칙을 검사합니다.
@@ -295,7 +294,7 @@ npm run preview
 - **대비:** 700 위 흰 글자와 100 위 800 글자, yellow 900 글자.
 - **다크:** 방향(어두운 틴트 50 → 밝은 900), 다크 50 틴트, 다크 최고 채도가 라이트의 90% 이상인지.
 - **시각 보정:** purple 700–900 채도 비율이 blue 이하, 다크 blue·purple 300·400 채도 상한.
-- **문서:** README 가이드 표와 색 이미지가 팔레트와 같은지.
+- **문서:** README 가이드 표가 팔레트와 같은지, README가 모든 색 이미지를 가리키는지, `assets` 브랜치를 받아 둔 경우 그 이미지가 팔레트와 같은지.
 
 ## 변경 기록
 

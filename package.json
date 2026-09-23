@@ -27,13 +27,11 @@
     "build": "tsc -p tsconfig.json && node --experimental-strip-types scripts/write-assets.ts && node --experimental-strip-types scripts/write-swatches.ts",
     "pretest": "npm run build",
     "test": "node --experimental-strip-types --test tests/colors.test.ts",
-    "prepublishOnly": "npm test",
-    "preview": "vite --config examples/preview/vite.config.ts --host 0.0.0.0 --port 43123 --strictPort"
+    "prepublishOnly": "npm test"
   },
   "devDependencies": {
     "colorjs.io": "^0.7.1",
-    "typescript": "^5.9.2",
-    "vite": "^7.1.5"
+    "typescript": "^5.9.2"
   },
   "keywords": [
     "color",
