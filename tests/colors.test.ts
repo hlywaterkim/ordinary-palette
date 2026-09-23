@@ -543,3 +543,19 @@ test("steps 200–900 sit an even distance apart", () => {
     }
   }
 });
+
+test("visual correction keeps blue and purple from reading lighter than their step", () => {
+  // Helmholtz–Kohlrausch: at equal L, saturated blue and purple look lighter. Their deep light steps and
+  // dark 300–400 carry less chroma than the lightness curve alone would allow.
+  const ratio = (family: "blue" | "purple", step: 700 | 800 | 900) => {
+    const peak = Math.max(...([400, 500, 600] as const).map((s) => oklch(colors[family][s]).c));
+    return oklch(colors[family][step]).c / peak;
+  };
+  for (const step of [700, 800, 900] as const) {
+    assert.ok(ratio("purple", step) <= ratio("blue", step) + 0.03, `purple ${step} keeps more chroma than blue`);
+  }
+  for (const family of ["blue", "purple"] as const) {
+    assert.ok(oklch(darkColors[family][300]).c <= 0.116, `dark ${family} 300 reads lighter than its step`);
+    assert.ok(oklch(darkColors[family][400]).c <= 0.156, `dark ${family} 400 reads lighter than its step`);
+  }
+});
