@@ -74,6 +74,50 @@ Dark cool-gray lightness rises: 50 = 22, 100 = 27, 200 = 33, 300 = 40, 400 = 49,
 
 Opacity steps, for both `white-opacity` and `black-opacity`: 00, 05, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100.
 
+## Using the steps
+
+The palette has no semantic roles, so these are measured starting points, not rules. Numbers are WCAG 2 contrast: 4.5:1 for text, 3:1 for icons and control borders.
+
+**Gray, light scale:** page and card surfaces 50 and 100, dividers 200, visible borders 300, input and control borders that must be seen 500 (3.5:1), secondary text 600 (5.7:1), body text 800–900.
+
+**Gray, dark scale:** surfaces dark 50–200, control borders dark 500 (4.2:1), secondary text dark 600 (6.5:1), body text dark 800–900.
+
+**Color families, light scale.** Each cell names the first step that passes. "500 fill takes" names the ink that reads better on the 500 fill: dark ink is cool-gray 900 (dark cool-gray 50 on the dark scale).
+
+| Family | Text on white | White text on fill | 500 fill takes | Tint badge on 100 | Icon on white |
+| --- | --- | --- | --- | --- | --- |
+| pink | 600 | 600 | dark ink 4.2:1 | 700 | 500 |
+| red | 600 | 600 | dark ink 4.1:1 | 700 | 400 |
+| orange | 700 | 700 | dark ink 5.9:1 | 800 | 600 |
+| yellow | — | — | dark ink 9.4:1 | — | 900 |
+| light-green | 700 | 700 | dark ink 6.9:1 | 800 | 600 |
+| green | 700 | 700 | dark ink 5.4:1 | 800 | 500 |
+| cyan | 700 | 700 | dark ink 7.0:1 | 800 | 600 |
+| light-blue | 700 | 700 | dark ink 6.3:1 | 800 | 600 |
+| blue | 600 | 600 | dark ink 4.6:1 | 700 | 500 |
+| purple | 600 | 600 | white 4.1:1 | 700 | 400 |
+
+Dark scale, on a dark cool-gray 50 page:
+
+| Family | Text on dark 50 | 500 fill takes | Tint badge on dark 100 |
+| --- | --- | --- | --- |
+| pink | 500 | dark ink 4.6:1 | 700 |
+| red | 500 | dark ink 4.5:1 | 700 |
+| orange | 400 | dark ink 6.5:1 | 500 |
+| yellow | 400 | dark ink 8.9:1 | 500 |
+| light-green | 400 | dark ink 7.5:1 | 500 |
+| green | 500 | dark ink 5.9:1 | 600 |
+| cyan | 400 | dark ink 7.6:1 | 500 |
+| light-blue | 400 | dark ink 6.9:1 | 500 |
+| blue | 500 | dark ink 5.0:1 | 700 |
+| purple | 600 | dark ink 4.4:1 | 700 |
+
+- Yellow never carries text on white. Put dark ink on yellow fills, and use orange 800 or darker for warning text.
+- Pink, red, and purple 500 reach only 4.1–4.4:1 with either ink. Use 600 with white for filled buttons, or keep 500 for large bold labels (3:1).
+- For hover and pressed states, step one darker on the light scale (600 → 700) and one lighter on the dark scale.
+
+The tables come from `scripts/usage-table.ts`, and `npm test` fails if they drift from the palette. Regenerate them with `node --experimental-strip-types scripts/usage-table.ts`.
+
 ## Develop
 
 ```bash
