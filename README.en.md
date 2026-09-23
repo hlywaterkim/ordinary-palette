@@ -24,7 +24,7 @@ Every color keeps the same lightness at each step, so it's easy to build UI with
 
 ## Why
 
-Made so vibe coding gets consistent color: the same step looks equally bright across families. One reason the project started is Toss's article on rebuilding the TDS color system, [달리는 기차 바퀴 칠하기](https://toss.tech/article/tds-color-system-update) (a color-system update after seven years). The shared lightness curve follows that article. The hex values are original.
+Made so vibe coding gets consistent color: the same step looks equally bright across families. One reason the project started is Toss's article on rebuilding the TDS color system, [달리는 기차 바퀴 칠하기](https://toss.tech/article/43385) (a color-system update after seven years). The shared lightness curve follows that article. The hex values are original.
 
 ## Install
 
