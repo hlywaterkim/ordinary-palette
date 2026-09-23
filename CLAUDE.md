@@ -33,7 +33,8 @@ GitHub: https://github.com/hlywaterkim/ordinary-palette
 - `scripts/write-assets.ts` — CSS, JSON 생성
 - `examples/preview` — 미리보기. 배경은 흰색. 거의 흰 무채색 칩만 옅은 회색 테두리
 - `README.md`(한국어, 기본), `README.en.md`(영어) — 가족, 스텝, 곡선이 바뀌면 둘 다 같이 고친다. 상단은 커버, 태그라인, 언어 링크 순서다. 영어판은 가이드 표 대신 요약과 한국어 링크를 둔다
-- `scripts/write-swatches.ts` — README 색 이미지(커버 `docs/cover.svg`, `docs/palette-*.svg`, `docs/families/*.svg`, `docs/color-vision.svg`, 명도 곡선 `docs/curve-*-lightness.svg`)를 만든다. `npm run build`가 함께 돌린다
+- `scripts/write-swatches.ts` — README 색 이미지(`docs/palette-*.svg`, `docs/families/*.svg`, `docs/color-vision.svg`, 명도 곡선 `docs/curve-*-lightness.svg`)를 만든다. `npm run build`가 함께 돌린다
+- `design/cover.html` — ORDINARY 시리즈 커버(`docs/cover.jpg`). 햇빛과 나뭇잎 그림자, 필름 그레인, Plus Jakarta Sans 800으로 제목 한 줄만 쓴다. 색은 팔레트에서 가져온다(지금은 light-green 50·200·800·900). 1280×640, device scale 2로 렌더링해 JPEG(품질 90, 1MB 이하)로 저장한다. 같은 파일을 GitHub 소셜 프리뷰로도 쓴다
 - `scripts/usage-table.ts` — README "스텝 사용 가이드"의 표와 수치(유색 가족, 쓸 때 알아둘 점, 색각 이상 시뮬레이션, 실제 화면 예시)를 만든다. 색이 바뀌면 다시 돌려 README 표를 바꾼다(`npm test`가 어긋나면 실패)
 
 `npm test`는 빌드 후 테스트를 돌린다. 미리보기는 `npm run preview`이고 포트는 43123이다.
