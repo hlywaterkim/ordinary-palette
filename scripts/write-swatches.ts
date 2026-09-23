@@ -2,7 +2,7 @@ import { mkdir, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { colors, darkColors, families, steps } from "../src/palette.ts";
-import { contrast, simulate, VISION_LABEL, type Vision } from "./usage-table.ts";
+import { contrast, lightnessChroma, simulate, VISION_LABEL, type Vision } from "./usage-table.ts";
 
 // SVG swatches for the README. GitHub strips inline styles, so the README shows color through these images.
 
@@ -98,12 +98,71 @@ function visionStrip(): string {
   return svg(width, height, `${parts.join("\n")}\n`, "#ffffff");
 }
 
+type Metric = "l" | "c";
+
+/** Line chart of OKLCH lightness or chroma across steps, one line per family in its own 500 color. */
+function curveChart(scales: Record<string, Scale>, metric: Metric, dark: boolean): string {
+  const width = 720;
+  const plot = { left: 52, right: 700, top: 48, bottom: 330 };
+  const background = dark ? darkColors["cool-gray"][50] : "#ffffff";
+  const textInk = dark ? darkColors["cool-gray"][800] : colors["cool-gray"][800];
+  const mutedInk = dark ? darkColors["cool-gray"][600] : colors["cool-gray"][600];
+  const grid = dark ? darkColors["cool-gray"][200] : colors["cool-gray"][100];
+  const axis = dark ? darkColors["cool-gray"][300] : colors["cool-gray"][300];
+  const [min, max, ticks, format] =
+    metric === "l"
+      ? [20, 100, [20, 40, 60, 80, 100], (v: number) => String(v)]
+      : [0, 0.25, [0, 0.05, 0.1, 0.15, 0.2, 0.25], (v: number) => v.toFixed(2)];
+  const x = (index: number) => plot.left + (index * (plot.right - plot.left)) / (steps.length - 1);
+  const y = (value: number) => plot.bottom - ((value - min) / (max - min)) * (plot.bottom - plot.top);
+  const title = `${dark ? "다크" : "라이트"} · ${metric === "l" ? "명도 (OKLCH L)" : "채도 (OKLCH C)"}`;
+  const parts: string[] = [
+    `<text x="${plot.left}" y="26" font-family="${FONT}" font-size="14" font-weight="700" fill="${textInk}">${title}</text>`,
+  ];
+  for (const tick of ticks) {
+    parts.push(
+      `<line x1="${plot.left}" x2="${plot.right}" y1="${y(tick)}" y2="${y(tick)}" stroke="${grid}" stroke-width="1"/>`,
+      `<text x="${plot.left - 8}" y="${y(tick) + 4}" text-anchor="end" font-family="${MONO}" font-size="10" fill="${mutedInk}">${format(tick)}</text>`,
+    );
+  }
+  parts.push(`<line x1="${plot.left}" x2="${plot.right}" y1="${plot.bottom}" y2="${plot.bottom}" stroke="${axis}" stroke-width="1"/>`);
+  steps.forEach((step, index) => {
+    parts.push(`<text x="${x(index)}" y="${plot.bottom + 18}" text-anchor="middle" font-family="${MONO}" font-size="10" fill="${mutedInk}">${step}</text>`);
+  });
+  for (const family of families) {
+    const values = steps.map((step) => lightnessChroma(scales[family][step])[metric]);
+    const stroke = scales[family][500];
+    const points = values.map((value, index) => `${x(index).toFixed(1)},${y(value).toFixed(1)}`).join(" ");
+    parts.push(`<polyline points="${points}" fill="none" stroke="${stroke}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>`);
+    values.forEach((value, index) => {
+      const label = `${family} ${steps[index]} · ${metric === "l" ? `L ${value.toFixed(1)}` : `C ${value.toFixed(3)}`}`;
+      parts.push(`<circle cx="${x(index).toFixed(1)}" cy="${y(value).toFixed(1)}" r="7" fill="transparent"><title>${label}</title></circle>`);
+    });
+  }
+  const perRow = 7;
+  const legendTop = plot.bottom + 44;
+  families.forEach((family, index) => {
+    const lx = plot.left + (index % perRow) * 92;
+    const ly = legendTop + Math.floor(index / perRow) * 20;
+    parts.push(
+      `<line x1="${lx}" x2="${lx + 16}" y1="${ly}" y2="${ly}" stroke="${scales[family][500]}" stroke-width="3" stroke-linecap="round"/>`,
+      `<text x="${lx + 22}" y="${ly + 4}" font-family="${FONT}" font-size="11" fill="${textInk}">${family}</text>`,
+    );
+  });
+  const height = legendTop + Math.ceil(families.length / perRow) * 20 + 8;
+  return svg(width, height, `${parts.join("\n")}\n`, background);
+}
+
 /** Every README swatch file, keyed by path relative to the repository root. */
 export function swatchFiles(): Record<string, string> {
   const files: Record<string, string> = {
     "docs/palette-light.svg": paletteGrid(colors, "#ffffff", "라이트 스케일"),
     "docs/palette-dark.svg": paletteGrid(darkColors, darkColors["cool-gray"][50], "다크 스케일"),
     "docs/color-vision.svg": visionStrip(),
+    "docs/curve-light-lightness.svg": curveChart(colors, "l", false),
+    "docs/curve-light-chroma.svg": curveChart(colors, "c", false),
+    "docs/curve-dark-lightness.svg": curveChart(darkColors, "l", true),
+    "docs/curve-dark-chroma.svg": curveChart(darkColors, "c", true),
   };
   for (const family of families) files[`docs/families/${family}.svg`] = familyStrip(family);
   return files;
