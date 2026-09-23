@@ -198,6 +198,83 @@ h1 {
   font-size: 1.2rem;
 }
 
+.in-use-note {
+  max-width: 40rem;
+  margin: 0 0 1rem;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.in-use {
+  margin-top: 1rem;
+  padding: 1.25rem;
+  border-radius: 12px;
+}
+
+.in-use h3 {
+  margin: 0 0 0.75rem;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.in-use-light {
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+.in-use-light h3 {
+  color: var(--muted);
+}
+
+.in-use-dark {
+  background: var(--color-dark-neutral-gray-50);
+}
+
+.in-use-dark h3 {
+  color: var(--color-dark-neutral-gray-700);
+}
+
+.in-use-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+  gap: 0.6rem;
+}
+
+.in-use-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  padding: 0.9rem;
+  border-radius: 10px;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+}
+
+.in-use-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.in-use-button {
+  align-self: flex-start;
+  padding: 0.55rem 1rem;
+  border: 0;
+  border-radius: 8px;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.in-use-button:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
 pre {
   margin: 0;
   padding: 0.9rem 1rem;
