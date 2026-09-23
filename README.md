@@ -10,7 +10,7 @@
 
 ## 곡선의 성격
 
-- **명도:** 50이 가장 밝고 900이 가장 어둡습니다. yellow와 회색을 뺀 유색 가족은 명도 곡선 하나를 같이 씁니다. 모든 스텝이 blue에서 약 3 L 안에 있어서, 가족이 달라도 같은 스텝이면 같은 밝기로 보입니다(Toss TDS 2025 개편과 같은 방식). 500 이후는 스텝마다 약 7.5 L씩 떨어져서 700–900도 한 가족 안에서 뚜렷하게 구분됩니다.
+- **명도:** 50이 가장 밝고 900이 가장 어둡습니다. yellow와 회색을 뺀 유색 가족은 명도 곡선 하나를 같이 씁니다. 모든 스텝이 blue에서 약 1 L 안에 있어서, 가족이 달라도 같은 스텝이면 같은 밝기로 보입니다(Toss TDS 2025 개편과 같은 방식). 500 이후는 스텝마다 약 7.5 L씩 떨어져서 700–900도 한 가족 안에서 뚜렷하게 구분됩니다.
 - **채도:** 50에서 낮고 400–600에서 가장 높으며, 900까지 크게 무너지지 않아서 짙은 스텝도 가족 색이 남습니다. 600은 500보다 채도가 높지 않아서 500이 메인 스텝으로 읽힙니다.
 - **쨍함:** blue·red·orange는 SEED, Toss TDS, Montage의 같은 hue 최저 채도 이상입니다. 나머지 가족도 sRGB가 허락하는 만큼 선명하게 둡니다.
 - **옅은 스텝:** 유색 가족은 50–200의 명도가 같습니다. yellow만 50을 공유하고 100부터 더 밝게 두어, Toss 수준 채도를 sRGB 안에 넣습니다.
@@ -82,28 +82,28 @@ palette.dark.blue["500"];
 | --- | --- | --- | --- |
 | pink | ![pink 50–900](docs/families/pink.svg) | `#e7388d` | `#eb3c90` |
 | red | ![red 50–900](docs/families/red.svg) | `#ee3828` | `#f23c2c` |
-| orange | ![orange 50–900](docs/families/orange.svg) | `#e26a00` | `#e66d0a` |
+| orange | ![orange 50–900](docs/families/orange.svg) | `#de6100` | `#e2640a` |
 | yellow | ![yellow 50–900](docs/families/yellow.svg) | `#feb700` | `#f2ae00` |
-| light-green | ![light-green 50–900](docs/families/light-green.svg) | `#79a300` | `#7ca600` |
-| green | ![green 50–900](docs/families/green.svg) | `#26a95e` | `#2bac61` |
-| cyan | ![cyan 50–900](docs/families/cyan.svg) | `#00a7a7` | `#00aaaa` |
-| light-blue | ![light-blue 50–900](docs/families/light-blue.svg) | `#009ddc` | `#00a0e0` |
+| light-green | ![light-green 50–900](docs/families/light-green.svg) | `#739c00` | `#769f00` |
+| green | ![green 50–900](docs/families/green.svg) | `#21a65b` | `#26a95e` |
+| cyan | ![cyan 50–900](docs/families/cyan.svg) | `#00a0a0` | `#00a3a3` |
+| light-blue | ![light-blue 50–900](docs/families/light-blue.svg) | `#0097d3` | `#009ad7` |
 | blue | ![blue 50–900](docs/families/blue.svg) | `#2b84ff` | `#3388ff` |
-| purple | ![purple 50–900](docs/families/purple.svg) | `#8163f1` | `#8466f5` |
-| brown | ![brown 50–900](docs/families/brown.svg) | `#aa7045` | `#ad7348` |
+| purple | ![purple 50–900](docs/families/purple.svg) | `#8568f6` | `#886bfa` |
+| brown | ![brown 50–900](docs/families/brown.svg) | `#aa7a53` | `#ad7d56` |
 | cool-gray | ![cool-gray 50–900](docs/families/cool-gray.svg) | `#838a91` | `#797e83` |
 | neutral-gray | ![neutral-gray 50–900](docs/families/neutral-gray.svg) | `#898989` | `#7d7d7d` |
 
 모든 가족의 스텝은 라이트·다크 모두 50, 100, 200, 300, 400, 500, 600, 700, 800, 900입니다.
 
-- **orange:** 500이 #ff7700 계열(hue 50)이고 Toss TDS 채도에 닿습니다. 명도를 다른 가족에 맞춰서 #ff7700보다 한 톤 짙습니다. 옅은 스텝은 살구색 쪽으로 기울여 채도를 확보합니다.
+- **orange:** 500이 #ff7700 계열(hue 47)이고 Toss TDS 채도에 닿습니다. 명도를 다른 가족에 맞춰서 #ff7700보다 한 톤 짙고, 그 명도에서 채도를 지키려고 hue를 살짝 붉은 쪽으로 둡니다. 옅은 스텝은 살구색 쪽으로 기울여 채도를 확보합니다.
 - **yellow:** 500·600에서 Toss TDS 채도 이상입니다. 50은 blue와 명도가 같고, 100부터는 blue보다 이만큼(OKLCH L) 밝습니다: 100 +1.9, 200 +5.8, 300 +11.3, 400 +16.4, 500 +19.5, 600 +21.6, 700 +22.4, 800 +22.4, 900 +19.8.
 - **light-green:** yellow와 green 사이의 연두(hue 124–130)입니다.
-- **cyan:** hue 195로 #00ffff 같은 아쿠아에서 #008080 같은 teal로 이어집니다. 이 hue는 밝아야 채도가 나와서, 공유 곡선 안에서 밝은 쪽에 둡니다.
+- **cyan:** hue 195로 #00ffff 같은 아쿠아에서 #008080 같은 teal로 이어집니다. 이 hue는 밝아야 채도가 나와서, 명도를 맞춘 짙은 스텝은 다른 가족보다 채도가 낮습니다(sRGB 한계).
 - **light-blue:** cyan과 blue 사이의 하늘색(hue 232–242)입니다.
 - **pink:** hue 356의 진짜 분홍이라 red와 구분됩니다.
 - **purple:** hue 288로 indigo보다 살짝 보라 쪽입니다.
-- **brown:** orange와 회색 사이의 채도 낮은 따뜻한 갈색(hue 52–62)입니다.
+- **brown:** orange와 회색 사이의 채도 낮은 따뜻한 갈색(hue 56–64)입니다. 명도가 orange와 같아서, 채도를 더 낮추고 hue를 노란 쪽으로 옮겨 구분합니다.
 - **neutral-gray:** cool-gray와 같은 명도에 채도 0입니다. `#666666`은 그 성격을 설명하는 예시일 뿐, 스케일의 스텝이 아닙니다.
 
 다크 cool-gray 명도는 올라가는 순서입니다: 50 = 22, 100 = 27, 200 = 33, 300 = 40, 400 = 49, 500 = 59, 600 = 70, 700 = 81, 800 = 90, 900 = 97. 다크 유색 가족의 50–200은 L 29, 34, 40을 공유합니다. 다크 500은 라이트 500과 명도 4 이내이고, 다크 900은 L 93 근처의 밝은 틴트입니다. 다크 채도는 500에서 가장 높고, 라이트 최고 채도의 90% 이상입니다.
@@ -128,15 +128,15 @@ palette.dark.blue["500"];
 | --- | --- | --- | --- | --- | --- |
 | pink | 600 | 600 | 어두운 글자 4.2:1 | 700 | 500 |
 | red | 600 | 600 | 어두운 글자 4.1:1 | 700 | 400 |
-| orange | 600 | 600 | 어두운 글자 4.9:1 | 700 | 500 |
+| orange | 600 | 600 | 어두운 글자 4.5:1 | 700 | 500 |
 | yellow | 900 | 900 | 어두운 글자 9.4:1 | 900 | 800 |
-| light-green | 700 | 700 | 어두운 글자 5.5:1 | 700 | 600 |
-| green | 700 | 700 | 어두운 글자 5.4:1 | 700 | 500 |
-| cyan | 700 | 700 | 어두운 글자 5.5:1 | 700 | 600 |
-| light-blue | 700 | 700 | 어두운 글자 5.4:1 | 700 | 500 |
+| light-green | 700 | 700 | 어두운 글자 5.1:1 | 700 | 500 |
+| green | 700 | 700 | 어두운 글자 5.2:1 | 700 | 500 |
+| cyan | 700 | 700 | 어두운 글자 5.1:1 | 700 | 500 |
+| light-blue | 600 | 600 | 어두운 글자 5.0:1 | 700 | 500 |
 | blue | 600 | 600 | 어두운 글자 4.6:1 | 700 | 500 |
-| purple | 600 | 600 | 흰 글자 4.2:1 | 600 | 400 |
-| brown | 600 | 600 | 흰 글자 4.1:1 | 600 | 400 |
+| purple | 600 | 600 | 어두운 글자 4.1:1 | 700 | 500 |
+| brown | 600 | 600 | 어두운 글자 4.4:1 | 700 | 500 |
 
 다크 스케일 (다크 cool-gray 50 배경):
 
@@ -144,15 +144,15 @@ palette.dark.blue["500"];
 | --- | --- | --- | --- |
 | pink | 500 | 어두운 글자 4.6:1 | 700 |
 | red | 500 | 어두운 글자 4.5:1 | 700 |
-| orange | 500 | 어두운 글자 5.4:1 | 600 |
+| orange | 500 | 어두운 글자 5.0:1 | 700 |
 | yellow | 400 | 어두운 글자 8.9:1 | 500 |
-| light-green | 500 | 어두운 글자 6.0:1 | 600 |
-| green | 500 | 어두운 글자 5.9:1 | 600 |
-| cyan | 400 | 어두운 글자 6.0:1 | 600 |
-| light-blue | 500 | 어두운 글자 5.9:1 | 600 |
+| light-green | 500 | 어두운 글자 5.6:1 | 600 |
+| green | 500 | 어두운 글자 5.7:1 | 600 |
+| cyan | 500 | 어두운 글자 5.6:1 | 600 |
+| light-blue | 500 | 어두운 글자 5.4:1 | 600 |
 | blue | 500 | 어두운 글자 5.0:1 | 700 |
-| purple | 600 | 어두운 글자 4.3:1 | 700 |
-| brown | 600 | 어두운 글자 4.4:1 | 700 |
+| purple | 500 | 어두운 글자 4.6:1 | 700 |
+| brown | 500 | 어두운 글자 4.8:1 | 700 |
 
 ### 쓸 때 알아둘 점
 
@@ -160,11 +160,11 @@ palette.dark.blue["500"];
 
 | 채움색 | 어두운 글자 | 흰 글자 |
 | --- | --- | --- |
-| orange 500 `#e26a00` | ✅ 어두운 글자 4.9:1 | ❌ 흰 글자 3.3:1 |
+| orange 500 `#de6100` | ✅ 어두운 글자 4.5:1 | ❌ 흰 글자 3.6:1 |
 | yellow 500 `#feb700` | ✅ 어두운 글자 9.4:1 | ❌ 흰 글자 1.8:1 |
-| light-green 500 `#79a300` | ✅ 어두운 글자 5.5:1 | ❌ 흰 글자 3.0:1 |
-| cyan 500 `#00a7a7` | ✅ 어두운 글자 5.5:1 | ❌ 흰 글자 3.0:1 |
-| light-blue 500 `#009ddc` | ✅ 어두운 글자 5.4:1 | ❌ 흰 글자 3.1:1 |
+| light-green 500 `#739c00` | ✅ 어두운 글자 5.1:1 | ❌ 흰 글자 3.2:1 |
+| cyan 500 `#00a0a0` | ✅ 어두운 글자 5.1:1 | ❌ 흰 글자 3.2:1 |
+| light-blue 500 `#0097d3` | ✅ 어두운 글자 5.0:1 | ❌ 흰 글자 3.3:1 |
 
 **2. pink·red·purple의 흰 글자 버튼은 600부터 씁니다.** 500은 크고 굵은 글자(3:1)에만 씁니다.
 
@@ -172,16 +172,16 @@ palette.dark.blue["500"];
 | --- | --- | --- |
 | pink | ⚠️ 500 `#e7388d` + 흰 글자 3.9:1 | ✅ 600 `#ca1476` + 흰 글자 5.4:1 |
 | red | ⚠️ 500 `#ee3828` + 흰 글자 4.0:1 | ✅ 600 `#d11003` + 흰 글자 5.5:1 |
-| purple | ⚠️ 500 `#8163f1` + 흰 글자 4.2:1 | ✅ 600 `#6a4ad6` + 흰 글자 5.9:1 |
+| purple | ⚠️ 500 `#8568f6` + 흰 글자 4.0:1 | ✅ 600 `#6e4fdb` + 흰 글자 5.5:1 |
 
 **3. 흰 배경 위 단독 아이콘은 600 이상을 씁니다.** 아이콘은 3:1이 기준입니다.
 
 | 가족 | 500 아이콘 | 600 아이콘 |
 | --- | --- | --- |
-| orange | ❌ 500 3.3:1 | ✅ 600 4.6:1 |
-| light-green | ❌ 500 3.0:1 | ✅ 600 4.1:1 |
-| cyan | ❌ 500 3.0:1 | ✅ 600 4.1:1 |
-| light-blue | ❌ 500 3.1:1 | ✅ 600 4.2:1 |
+| orange | ❌ 500 3.6:1 | ✅ 600 5.0:1 |
+| light-green | ❌ 500 3.2:1 | ✅ 600 4.5:1 |
+| cyan | ❌ 500 3.2:1 | ✅ 600 4.4:1 |
+| light-blue | ❌ 500 3.3:1 | ✅ 600 4.6:1 |
 
 **4. yellow를 글자로 쓸 때는 900만 씁니다.**
 
@@ -197,8 +197,8 @@ palette.dark.blue["500"];
 | 가족 | 틴트 | 채움색 |
 | --- | --- | --- |
 | pink/red | 100끼리 ΔE 0.023 | 500끼리 ΔE 0.127 |
-| light-blue/blue | 100끼리 ΔE 0.013 | 500끼리 ΔE 0.092 |
-| cyan/light-blue | 100끼리 ΔE 0.031 | 500끼리 ΔE 0.094 |
+| light-blue/blue | 100끼리 ΔE 0.013 | 500끼리 ΔE 0.091 |
+| cyan/light-blue | 100끼리 ΔE 0.031 | 500끼리 ΔE 0.090 |
 
 **6. hover와 pressed 상태는 라이트에서 한 단계 어둡게(600 → 700), 다크에서 한 단계 밝게 씁니다.**
 
@@ -211,11 +211,11 @@ palette.dark.blue["500"];
 | 시뮬레이션 | 500에서 헷갈리는 조합 (ΔE OK 0.07 미만) |
 | --- | --- |
 | 정상 시각 | 없음 |
-| 적색약 (protan) | red/brown 0.058, orange/brown 0.053, light-green/green 0.053, blue/purple 0.058 |
-| 녹색약 (deutan) | pink/green 0.059, pink/cyan 0.044, red/orange 0.036, red/light-green 0.026, red/green 0.063, red/brown 0.055, orange/light-green 0.013, light-green/green 0.069, green/brown 0.050, blue/purple 0.026 |
-| 청색약 (tritan) | pink/red 0.043, pink/orange 0.054, red/orange 0.059, green/cyan 0.026, green/light-blue 0.042, green/blue 0.053, cyan/light-blue 0.018, cyan/blue 0.045, light-blue/blue 0.035 |
+| 적색약 (protan) | red/orange 0.062, orange/brown 0.059, light-green/green 0.052, blue/purple 0.046 |
+| 녹색약 (deutan) | pink/green 0.058, pink/cyan 0.041, red/orange 0.018, red/light-green 0.004, red/green 0.062, red/brown 0.054, orange/light-green 0.015, orange/brown 0.069, light-green/green 0.063, light-green/brown 0.055, green/brown 0.018, blue/purple 0.015 |
+| 청색약 (tritan) | pink/red 0.043, pink/orange 0.042, red/orange 0.045, green/cyan 0.017, green/light-blue 0.035, green/blue 0.053, cyan/light-blue 0.018, cyan/blue 0.038, light-blue/blue 0.023 |
 
-차트처럼 색만으로 구분해야 할 때 쓰기 좋은 500 순서: blue → orange → yellow → pink → green → brown. 앞에서부터 고르면 정상 시각과 세 가지 시뮬레이션 모두에서 서로 떨어진 최소 거리가 4색 ΔE 0.054, 5색 0.053, 6색 0.050입니다. 0.07보다 작아지는 개수부터는 색 외에 모양이나 라벨을 함께 씁니다.
+차트처럼 색만으로 구분해야 할 때 쓰기 좋은 500 순서: blue → orange → yellow → brown → pink → cyan. 앞에서부터 고르면 정상 시각과 세 가지 시뮬레이션 모두에서 서로 떨어진 최소 거리가 4색 ΔE 0.059, 5색 0.042, 6색 0.038입니다. 0.07보다 작아지는 개수부터는 색 외에 모양이나 라벨을 함께 씁니다.
 
 - **성공과 오류를 red와 green만으로 구분하지 않습니다.** 녹색약(남성의 약 5%)에게는 red 500과 green 500이 거의 같아 보입니다. 아이콘(✓, !)이나 문구를 함께 씁니다.
 - 적색약에게는 red와 brown, 녹색약에게는 blue와 purple, 청색약에게는 cyan과 light-blue가 거의 같아 보입니다. 이 쌍을 나란히 쓸 때는 명도를 두 단계 이상 벌리거나(예: red 500과 brown 800) 라벨을 붙입니다.
@@ -237,7 +237,7 @@ palette.dark.blue["500"];
 | 링크 | blue 700 `#0056bd` (6.4:1) | dark blue 700 `#81b9ff` (7.4:1) |
 | 오류 문구 | red 600 `#d11003` (5.2:1) | dark red 700 `#ff9282` (6.9:1) |
 | 기본 버튼 | blue 600 + 흰 글자 (5.0:1) | dark blue 500 + 어두운 글자 (5.0:1) |
-| 성공 뱃지 | green 100 + green 800 (6.6:1) | dark green 100 + dark green 700 (6.2:1) |
+| 성공 뱃지 | green 100 + green 800 (6.9:1) | dark green 100 + dark green 700 (6.1:1) |
 | 경고 배너 | yellow 100 + yellow 900 (4.6:1) | dark yellow 100 + dark yellow 700 (7.9:1) |
 | 오류 배너 | red 100 + red 800 (8.2:1) | dark red 100 + dark red 700 (5.6:1) |
 
