@@ -51,13 +51,13 @@ palette.dark.blue["500"];
 
 | Family | Light 500 | Dark 500 |
 | --- | --- | --- |
-| pink | `#ec3b66` | `#f03f69` |
+| pink | `#e7388d` | `#eb3c90` |
 | red | `#ee3828` | `#f23c2b` |
 | orange | `#f87500` | `#fc780b` |
 | yellow | `#feb700` | `#f6ac00` |
 | light-green | `#88b700` | `#8bba0d` |
 | green | `#26a95e` | `#2bac61` |
-| cyan | `#00bcbc` | `#00c0c0` |
+| cyan | `#00bcbc` | `#0fbfbf` |
 | light-blue | `#00abee` | `#07aef2` |
 | blue | `#2b84ff` | `#3388ff` |
 | purple | `#6b6bf7` | `#6e6efb` |

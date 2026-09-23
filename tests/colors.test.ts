@@ -355,6 +355,37 @@ test("500 reads as the main step: 600 never out-saturates it", () => {
   }
 });
 
+function contrast(a: string, b: string): number {
+  const luminance = (hex: string) => {
+    const channel = (index: number) => {
+      const value = Number.parseInt(hex.slice(index, index + 2), 16) / 255;
+      return value <= 0.04045 ? value / 12.92 : ((value + 0.055) / 1.055) ** 2.4;
+    };
+    return 0.2126 * channel(1) + 0.7152 * channel(3) + 0.0722 * channel(5);
+  };
+  const [light, dark] = [luminance(a), luminance(b)].sort((x, y) => y - x);
+  return (light + 0.05) / (dark + 0.05);
+}
+
+test("white text reads on 700 and 800 text reads on a 100 tint", () => {
+  // Yellow stays light by design, so it takes dark ink instead.
+  const chromatic = families.filter((family) => !["cool-gray", "neutral-gray", "yellow"].includes(family));
+  for (const family of chromatic) {
+    const scale = colors[family];
+    const onFill = contrast("#ffffff", scale[700]);
+    assert.ok(onFill >= 4.5, `white on ${family} 700 is ${onFill.toFixed(2)}:1`);
+    const badge = contrast(scale[800], scale[100]);
+    assert.ok(badge >= 4.5, `${family} 800 on 100 is ${badge.toFixed(2)}:1`);
+  }
+});
+
+test("pink stays apart from red", () => {
+  const gap = new Color(colors.pink[500]).deltaE(new Color(colors.red[500]), "OK");
+  assert.ok(gap >= 0.1, `pink 500 and red 500 are only ΔE ${gap.toFixed(3)} apart`);
+  const hue = oklch(colors.pink[500]).h;
+  assert.ok(hue > 340 || hue < 5, `pink 500 hue ${hue} leans toward red`);
+});
+
 test("dark step 50 is a tinted dark surface", () => {
   for (const family of families) {
     const { l, c } = oklch(darkColors[family][50]);
