@@ -1,0 +1,217 @@
+<!doctype html>
+<!--
+  ORDINARY series cover: the Figma background (bg.svg) and logo (logo.svg), finished like a photo on film.
+  Glow (bloom), halation (a warm red-orange bleed around bright areas), lens chromatic aberration,
+  film grain, and an ordered dither, applied in that order.
+  bg.svg and logo.svg are exported from Figma for a 2560 × 1280 frame. Serve this folder over http (the canvas
+  reads its own pixels, which file:// blocks) and render .cover at 1280 × 640 after body[data-ready].
+  README cover: device scale 2 with a transparent background, saved as docs/cover.webp (rounded corners need alpha).
+  Social preview: cover.html?radius=0 at scale 1, saved as docs/social-preview.jpg (GitHub rounds it itself).
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ORDINARY cover</title>
+<style>
+  html, body { margin: 0; background: transparent; }
+  .cover { width: 1280px; height: 640px; }
+  .cover canvas { display: block; width: 1280px; height: 640px; }
+</style>
+</head>
+<body>
+<div class="cover"><canvas></canvas></div>
+<script>
+const W = 1280;
+const H = 640;
+const SCALE = 2;
+const FRAME = 2560;            // width of the Figma frame the SVGs were drawn for
+// Optical centering, in Figma frame pixels. The heavy O and P on the left and the short "Palette." line leave the
+// logo's ink 45 px left of its box center, so the box moves right by about half of that.
+const LOGO_NUDGE_X = 23;
+const BLOOM = { blur: 44, alpha: 0.55 };
+// Each pass takes pixels brighter than the threshold, tints and blurs them, keeps only the part that spills
+// outside the bright shape, and blends that ring back on.
+// The tight pass comes from the logo only and is laid over the image, so its fringe stays orange on blue.
+// The wide pass comes from every bright area and is screened on as a warm glow.
+const HALATION = [
+  { from: "logo", threshold: 0.78, blur: 8, alpha: 1, color: [255, 110, 40], mode: "source-over" },
+  { from: "scene", threshold: 0.78, blur: 38, alpha: 0.9, color: [255, 70, 40], mode: "screen" },
+];
+const ABERRATION = 0.011;      // red spreads out and blue pulls in by this share of the distance from the center
+const GRAIN = 11;              // grain strength in 0–255 units
+const LEVELS = 13;             // color levels per channel for the dither
+const DITHER_PX = 2;           // one dither cell in CSS pixels
+// Corner radius in CSS pixels, with Figma-style corner smoothing (0.6 is Figma's iOS preset, Apple's squircle).
+const RADIUS = Number(new URLSearchParams(location.search).get("radius") ?? 32);
+const SMOOTHING = 0.6;
+
+const PW = W * SCALE;
+const PH = H * SCALE;
+
+// Seeded random numbers, so every render is the same image.
+let seed = 20260923;
+function rand() {
+  seed |= 0; seed = (seed + 0x6d2b79f5) | 0;
+  let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+  t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+  return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+}
+
+function load(src) {
+  return new Promise((resolve, reject) => {
+    const image = new Image();
+    image.onload = () => resolve(image);
+    image.onerror = () => reject(new Error(`Could not load ${src}`));
+    image.src = src;
+  });
+}
+
+function layer(source) {
+  const canvas = document.createElement("canvas");
+  canvas.width = PW;
+  canvas.height = PH;
+  const ctx = canvas.getContext("2d", { willReadFrequently: true });
+  if (source) ctx.drawImage(source, 0, 0);
+  return { canvas, ctx };
+}
+
+function paste(ctx, source, blur = 0, alpha = 1, mode = "source-over") {
+  ctx.save();
+  ctx.filter = blur ? `blur(${blur * SCALE}px)` : "none";
+  ctx.globalAlpha = alpha;
+  ctx.globalCompositeOperation = mode;
+  ctx.drawImage(source, 0, 0);
+  ctx.restore();
+}
+
+// Bright pixels only, tinted, with brightness above the threshold as alpha.
+function highlights(source, threshold, [r, g, b]) {
+  const { canvas, ctx } = layer(source);
+  const image = ctx.getImageData(0, 0, PW, PH);
+  const px = image.data;
+  for (let i = 0; i < px.length; i += 4) {
+    const lum = (0.2126 * px[i] + 0.7152 * px[i + 1] + 0.0722 * px[i + 2]) / 255;
+    px[i] = r; px[i + 1] = g; px[i + 2] = b;
+    px[i + 3] = Math.max(0, (lum - threshold) / (1 - threshold)) * 255;
+  }
+  ctx.putImageData(image, 0, 0);
+  return canvas;
+}
+
+// Lateral chromatic aberration: red and blue are scaled away from and toward the center.
+function aberration(ctx) {
+  const source = ctx.getImageData(0, 0, PW, PH).data;
+  const out = ctx.createImageData(PW, PH);
+  const px = out.data;
+  const cx = PW / 2;
+  const cy = PH / 2;
+  const at = (x, y) => (Math.min(PH - 1, Math.max(0, Math.round(y))) * PW + Math.min(PW - 1, Math.max(0, Math.round(x)))) * 4;
+  for (let y = 0; y < PH; y++) {
+    for (let x = 0; x < PW; x++) {
+      const i = (y * PW + x) * 4;
+      const dx = x - cx;
+      const dy = y - cy;
+      px[i] = source[at(cx + dx * (1 + ABERRATION), cy + dy * (1 + ABERRATION))];
+      px[i + 1] = source[i + 1];
+      px[i + 2] = source[at(cx + dx * (1 - ABERRATION), cy + dy * (1 - ABERRATION)) + 2];
+      px[i + 3] = 255;
+    }
+  }
+  ctx.putImageData(out, 0, 0);
+}
+
+// Figma's smoothed corner: a short circular arc between two Bézier curves that ease the curvature in over
+// (1 + smoothing) × radius along each edge. Same construction as Figma's corner smoothing and figma-squircle.
+function squircle(width, height, radius, smoothing) {
+  const rad = (deg) => (deg * Math.PI) / 180;
+  const budget = Math.min(width, height) / 2;
+  smoothing = Math.min(smoothing, budget / radius - 1);
+  const p = Math.min((1 + smoothing) * radius, budget);
+  const arcMeasure = 90 * (1 - smoothing);
+  const arc = Math.sin(rad(arcMeasure / 2)) * radius * Math.SQRT2;
+  const alpha = (90 - arcMeasure) / 2;
+  const p3ToP4 = radius * Math.tan(rad(alpha / 2));
+  const beta = 45 * smoothing;
+  const c = p3ToP4 * Math.cos(rad(beta));
+  const d = c * Math.tan(rad(beta));
+  const b = (p - arc - c - d) / 3;
+  const a = 2 * b;
+  const r = radius;
+  return new Path2D([
+    `M ${width - p} 0`,
+    `c ${a} 0 ${a + b} 0 ${a + b + c} ${d}`,
+    `a ${r} ${r} 0 0 1 ${arc} ${arc}`,
+    `c ${d} ${c} ${d} ${b + c} ${d} ${a + b + c}`,
+    `L ${width} ${height - p}`,
+    `c 0 ${a} 0 ${a + b} ${-d} ${a + b + c}`,
+    `a ${r} ${r} 0 0 1 ${-arc} ${arc}`,
+    `c ${-c} ${d} ${-(b + c)} ${d} ${-(a + b + c)} ${d}`,
+    `L ${p} ${height}`,
+    `c ${-a} 0 ${-(a + b)} 0 ${-(a + b + c)} ${-d}`,
+    `a ${r} ${r} 0 0 1 ${-arc} ${-arc}`,
+    `c ${-d} ${-c} ${-d} ${-(b + c)} ${-d} ${-(a + b + c)}`,
+    `L 0 ${p}`,
+    `c 0 ${-a} 0 ${-(a + b)} ${d} ${-(a + b + c)}`,
+    `a ${r} ${r} 0 0 1 ${arc} ${-arc}`,
+    `c ${c} ${-d} ${b + c} ${-d} ${a + b + c} ${-d}`,
+    "Z",
+  ].join(" "));
+}
+
+// Film grain, then ordered (Bayer 4 × 4) dither down to a few levels per channel.
+function grainAndDither(ctx) {
+  const image = ctx.getImageData(0, 0, PW, PH);
+  const px = image.data;
+  const bayer = [0, 8, 2, 10, 12, 4, 14, 6, 3, 11, 1, 9, 15, 7, 13, 5];
+  const step = 255 / (LEVELS - 1);
+  const cell = DITHER_PX * SCALE;
+  for (let y = 0; y < PH; y++) {
+    for (let x = 0; x < PW; x++) {
+      const i = (y * PW + x) * 4;
+      const noise = (rand() + rand() + rand() - 1.5) * 2 * GRAIN;
+      const threshold = (bayer[((Math.floor(y / cell) & 3) << 2) | (Math.floor(x / cell) & 3)] + 0.5) / 16 - 0.5;
+      for (let c = 0; c < 3; c++) {
+        px[i + c] = Math.max(0, Math.min(255, Math.round((px[i + c] + noise) / step + threshold) * step));
+      }
+    }
+  }
+  ctx.putImageData(image, 0, 0);
+}
+
+async function draw() {
+  const [bg, logo] = await Promise.all([load("bg.svg"), load("logo.svg")]);
+  const canvas = document.querySelector("canvas");
+  canvas.width = PW;
+  canvas.height = PH;
+  const ctx = canvas.getContext("2d", { willReadFrequently: true });
+  ctx.drawImage(bg, 0, 0, PW, PH);
+  // Logo at its Figma size, centered both ways, then nudged right for optical balance.
+  const logoWidth = (logo.naturalWidth / FRAME) * PW;
+  const logoHeight = logoWidth * (logo.naturalHeight / logo.naturalWidth);
+  const logoLayer = layer();
+  const nudge = (LOGO_NUDGE_X / FRAME) * PW;
+  logoLayer.ctx.drawImage(logo, (PW - logoWidth) / 2 + nudge, (PH - logoHeight) / 2, logoWidth, logoHeight);
+  ctx.drawImage(logoLayer.canvas, 0, 0);
+
+  const sources = { scene: layer(canvas).canvas, logo: logoLayer.canvas };
+  const scene = sources.scene;
+  paste(ctx, scene, BLOOM.blur, BLOOM.alpha, "screen");
+  for (const pass of HALATION) {
+    const bright = highlights(sources[pass.from], pass.threshold, pass.color);
+    const ring = layer();
+    paste(ring.ctx, bright, pass.blur);
+    paste(ring.ctx, bright, 0, 1, "destination-out");
+    paste(ctx, ring.canvas, 0, pass.alpha, pass.mode);
+  }
+  aberration(ctx);
+  grainAndDither(ctx);
+  if (RADIUS > 0) {
+    ctx.globalCompositeOperation = "destination-in";
+    ctx.fill(squircle(PW, PH, RADIUS * SCALE, SMOOTHING));
+  }
+  document.body.dataset.ready = "1";
+}
+draw();
+</script>
+</body>
+</html>

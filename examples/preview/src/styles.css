@@ -1,0 +1,353 @@
+:root {
+  color-scheme: light;
+  --ink: #241c16;
+  --paper: #fff;
+  --line: #e6e6e6;
+  --muted: #6d645b;
+  --edge: #e0e0e0;
+  font-family: "Iowan Old Style", Palatino, Georgia, serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  background: #fff;
+  color: var(--ink);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.page {
+  width: min(1120px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 2.5rem 0 4rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.4rem;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.4rem, 6vw, 4.4rem);
+  font-weight: 560;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+}
+
+.lede {
+  max-width: 40rem;
+  margin: 1rem 0 0;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 1.02rem;
+  line-height: 1.5;
+}
+
+.status {
+  min-height: 1.4rem;
+  margin: 1rem 0 0;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+.banner {
+  margin: 1rem 0 0;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid #8d3b32;
+  border-radius: 10px;
+  background: #fff4f1;
+  color: #6d241d;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+}
+
+.families {
+  display: grid;
+  gap: 2.5rem;
+  margin-top: 2rem;
+}
+
+.scale {
+  display: grid;
+  gap: 1rem;
+}
+
+.scale-dark {
+  padding: 1.25rem;
+  border-radius: 12px;
+  background: var(--color-dark-neutral-gray-50);
+  color: var(--color-dark-neutral-gray-900);
+}
+
+.scale-dark .scale-title {
+  color: var(--color-dark-neutral-gray-700);
+}
+
+.scale-title {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.family {
+  display: grid;
+  grid-template-columns: 10.5rem 1fr;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.family h2,
+.family h3 {
+  margin: 0;
+  overflow: visible;
+  white-space: nowrap;
+  font-size: 1.15rem;
+  font-weight: 560;
+}
+
+.swatches {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(5.15rem, 1fr);
+  gap: 0.4rem;
+  overflow-x: auto;
+  padding-bottom: 0.2rem;
+}
+
+.swatch {
+  min-height: 6.4rem;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 0.45rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+  cursor: pointer;
+}
+
+.swatch.edge {
+  border-color: var(--edge);
+}
+
+.swatch:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+.step,
+.hex,
+.lightness {
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+
+.step {
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.hex,
+.lightness {
+  font-size: 0.68rem;
+}
+
+.neutrals {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.on-dark {
+  padding: 0.75rem;
+  border-radius: 12px;
+  background: var(--color-cool-gray-800);
+  color: #f7f4ef;
+}
+
+.on-light {
+  padding: 0.75rem;
+  border-radius: 12px;
+  background: var(--color-cool-gray-50);
+}
+
+.usage {
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+}
+
+.usage h2 {
+  margin: 0 0 0.6rem;
+  font-size: 1.2rem;
+}
+
+.in-use-note {
+  max-width: 40rem;
+  margin: 0 0 1rem;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.in-use {
+  margin-top: 1rem;
+  padding: 1.25rem;
+  border-radius: 12px;
+}
+
+.in-use h3 {
+  margin: 0 0 0.75rem;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.in-use-light {
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+.in-use-light h3 {
+  color: var(--muted);
+}
+
+.in-use-dark {
+  background: var(--color-dark-neutral-gray-50);
+}
+
+.in-use-dark h3 {
+  color: var(--color-dark-neutral-gray-700);
+}
+
+.in-use-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+  gap: 0.6rem;
+}
+
+.in-use-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  padding: 0.9rem;
+  border-radius: 10px;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+}
+
+.in-use-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.in-use-button {
+  align-self: flex-start;
+  padding: 0.55rem 1rem;
+  border: 0;
+  border-radius: 8px;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.in-use-button:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+pre {
+  margin: 0;
+  padding: 0.9rem 1rem;
+  overflow-x: auto;
+  border-radius: 10px;
+  background: #241c16;
+  color: #f6f1e8;
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+
+@media (max-width: 720px) {
+  .page {
+    width: min(100% - 1.25rem, 1120px);
+    padding-top: 1.5rem;
+  }
+
+  .family,
+  .neutrals {
+    grid-template-columns: 1fr;
+  }
+}
+
+.same-row {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  display: grid;
+  grid-template-columns: 10rem 1fr;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.35rem 0;
+}
+
+.in-use-dark .same-row .in-use-label {
+  color: var(--color-dark-neutral-gray-700);
+}
+
+.same-cells {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.same-circle {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+}
+
+.same-circle span {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 4px;
+}
+
+.same-badge {
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.same-fill {
+  width: 3.25rem;
+  height: 2rem;
+  border-radius: 6px;
+}
+
+@media (max-width: 640px) {
+  .same-row {
+    grid-template-columns: 1fr;
+  }
+}
