@@ -291,6 +291,15 @@ test("steps after 500 stay apart and keep their chroma", () => {
   }
 });
 
+test("blue, red, and orange reach the reference peak chroma", () => {
+  // Lowest peak among SEED, Toss TDS, and Montage for the same hue.
+  const floor = { blue: 0.198, red: 0.219, orange: 0.176 } as const;
+  for (const [family, minimum] of Object.entries(floor) as Array<[keyof typeof floor, number]>) {
+    const peak = Math.max(...steps.map((step) => oklch(colors[family][step]).c));
+    assert.ok(peak >= minimum, `${family} peak chroma ${peak.toFixed(3)} is below ${minimum}`);
+  }
+});
+
 test("dark step 50 is a tinted dark surface", () => {
   for (const family of families) {
     const { l, c } = oklch(darkColors[family][50]);
