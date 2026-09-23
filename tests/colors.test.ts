@@ -258,6 +258,35 @@ test("dark chroma is at least 90% of light chroma", () => {
   assert.equal(darkChromaLightnessExceptions["cool-gray"], undefined);
 });
 
+test("steps after 500 stay apart and keep their chroma", () => {
+  const chromatic = families.filter((family) => family !== "cool-gray" && family !== "neutral-gray");
+  for (const family of chromatic) {
+    for (const [label, scale] of [["light", colors[family]], ["dark", darkColors[family]]] as const) {
+      const levels = steps.map((step) => oklch(scale[step]).l);
+      for (let index = 6; index < steps.length; index += 1) {
+        const gap = levels[index - 1] - levels[index];
+        assert.ok(gap >= 3.4, `${label} ${family} ${steps[index]} is only ${gap.toFixed(2)} L below ${steps[index - 1]}`);
+      }
+      const span = levels[5] - levels[9];
+      assert.ok(span >= 15.5, `${label} ${family} 500→900 spans only ${span.toFixed(2)} L`);
+    }
+
+    const chroma = steps.map((step) => oklch(colors[family][step]).c);
+    const peak = Math.max(chroma[4], chroma[5], chroma[6]);
+    assert.equal(Math.max(...chroma), peak, `${family} chroma should peak in 400–600`);
+    assert.ok(chroma[9] >= peak * 0.62, `${family} 900 chroma ${chroma[9]} fell below 62% of peak ${peak}`);
+  }
+});
+
+test("dark step 50 stays clear", () => {
+  const shared = oklch(darkCoolGray[50]).l;
+  for (const family of families) {
+    const { l } = oklch(darkColors[family][50]);
+    assert.ok(l >= 89, `dark ${family} 50 L ${l} is too dim`);
+    assert.ok(Math.abs(l - shared) <= 0.4, `dark ${family} 50 L ${l} misses shared ${shared}`);
+  }
+});
+
 test("opacity scales stay on their own names", () => {
   const alphas = [0, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1];
   const byte = (alpha: number) => Math.round(alpha * 255).toString(16).padStart(2, "0");
