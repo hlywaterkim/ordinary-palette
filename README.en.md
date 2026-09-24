@@ -141,7 +141,7 @@ npm test
 
 ## Changelog
 
-0.2.0 is the current version. The npm badges show the version and monthly downloads after the first publish.
+0.2.0 is the current version, published on npm.
 
 ### 0.2.0
 

@@ -6,7 +6,7 @@ GitHub: https://github.com/hlywaterkim/ordinary-palette
 
 ## 지금 상태
 
-패키지 `ordinary-palette` 0.2.0, MIT. `prepublishOnly`가 `npm test`(빌드 포함)를 돌린다. 라이트·다크 스케일과 white/black opacity가 있다. 최신 곡선은 `main`에 푸시되어 있다. npm에는 아직 배포하지 않았다.
+패키지 `ordinary-palette` 0.2.0, MIT. `prepublishOnly`가 `npm test`(빌드 포함)를 돌린다. 라이트·다크 스케일과 white/black opacity가 있다. 최신 곡선은 `main`에 푸시되어 있다. npm에 0.2.0을 배포했다(2026-09-24). 다음 배포는 버전을 올려서 한다.
 
 README 순서: 특징 → 만든 이유 → 설치 → 사용법 → Figma에서 쓰기(추후 제공) → 한눈에 보기 → 곡선의 성격 → 가족 → 스텝 사용 가이드 → 개발 → 변경 기록 → 라이선스. 상단에 npm 버전·월간 다운로드 배지가 있다. 영어판도 같은 절을 두고, 가이드 표 대신 요약과 한국어 링크를 둔다.
 
