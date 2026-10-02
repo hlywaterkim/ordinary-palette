@@ -24,9 +24,17 @@
 
 ## 예시 UI
 
-![Ordinary Palette로 만든 예시 화면: 라이트와 다크](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/example-ui.webp)
+버튼, 뱃지, 알림, 폼, 차트 같은 컴포넌트를 모아 두고, 같은 화면을 Ordinary Palette와 Tailwind CSS 기본 컬러로 각각 만들었습니다. 두 화면은 스텝 번호까지 같습니다(채움색 600, 뱃지 100 배경에 800 글자, 차트 500).
 
-카드, 폼, 알림이 있는 화면을 Ordinary Palette의 스텝만으로 만들었습니다. 배경은 cool-gray, 기본 버튼은 blue 600(다크는 500), 뱃지는 100 배경에 800 글자(다크는 700), 막대 그래프는 blue → orange → yellow → brown → cyan → pink 500입니다. 요소별 스텝과 대비 수치는 [실제 화면 적용 예시](#실제-화면-적용-예시)에 있습니다.
+![같은 컴포넌트를 Ordinary Palette와 Tailwind CSS로 만든 비교](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/example-ui-compare.webp)
+
+- **버튼:** 600 위 흰 글자 대비가 Ordinary Palette는 6개 컬러 모두 4.5:1 이상입니다. Tailwind는 green(3.2:1), cyan(3.6:1), orange(3.6:1)가 못 미칩니다. 그래서 Tailwind에서는 컬러마다 스텝이나 글자색을 따로 골라야 합니다.
+- **차트:** 같은 500인데 Tailwind는 orange, yellow, cyan이 blue나 pink보다 확연히 밝아서 막대마다 무게가 다릅니다. Ordinary Palette는 yellow를 빼면 밝기가 같아 보입니다.
+- **뱃지·알림:** 둘 다 100 배경에 800 글자(yellow는 900)로 읽힙니다.
+
+다크도 같은 스텝 구조입니다(채움색 500 위 어두운 글자, 뱃지 글자 700).
+
+![Ordinary Palette 다크 스케일로 만든 컴포넌트](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/example-ui-dark.webp)
 
 ## 설치
 

@@ -24,9 +24,17 @@ Every color keeps the same lightness at each step, so it's easy to build UI with
 
 ## Example UI
 
-![Example screens built with Ordinary Palette, in light and dark](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/example-ui.webp)
+A set of components (buttons, badges, alerts, a form, charts), built twice: once with Ordinary Palette and once with Tailwind CSS default colors. Both use the same step numbers (600 fills, 100 backgrounds with 800 text on badges, 500 in charts).
 
-A screen with cards, a form, and an alert, built only from Ordinary Palette steps. Backgrounds are cool-gray, the primary button is blue 600 (500 in dark), badges are 800 text on a 100 background (700 in dark), and the bars are the 500 steps of blue → orange → yellow → brown → cyan → pink.
+![The same components in Ordinary Palette and in Tailwind CSS](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/example-ui-compare.webp)
+
+- **Buttons:** White text on a 600 fill reaches 4.5:1 in all six Ordinary Palette colors. In Tailwind, green (3.2:1), cyan (3.6:1), and orange (3.6:1) fall short, so each color needs its own step or text color.
+- **Charts:** At the same 500, Tailwind's orange, yellow, and cyan look clearly lighter than blue or pink, so the bars carry uneven weight. In Ordinary Palette the bars look equally bright, yellow aside.
+- **Badges and alerts:** Both read as 800 text on a 100 background (900 for yellow).
+
+The dark scale keeps the same step structure (dark text on a 500 fill, 700 badge text).
+
+![Components built with the Ordinary Palette dark scale](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/example-ui-dark.webp)
 
 ## Install
 
