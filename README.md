@@ -336,9 +336,9 @@ npm test
 
 ## 변경 기록
 
-0.2.0이 현재 버전이며 npm에 배포되어 있습니다.
+0.3.0이 현재 버전입니다.
 
-### 다음 버전 (아직 배포 전)
+### 0.3.0
 
 - `cyan`을 `teal`로 바꿨습니다. `colors.teal`, `teal` export, `darkTeal`, `--color-teal-*`, `--color-dark-teal-*`가 새 이름이고, `cyan`은 더 이상 없습니다. 0.2.0에서 `teal`을 `cyan`으로 바꿨던 것을 되돌린 것입니다. 색값은 그대로입니다.
 
