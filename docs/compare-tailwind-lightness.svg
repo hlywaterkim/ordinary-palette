@@ -1,0 +1,494 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="988" viewBox="0 0 720 988">
+<rect width="720" height="988" rx="12" fill="#ffffff"/>
+<text x="52" y="34" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="14" font-weight="700" fill="#2e3338">Tailwind CSS v4.3.3 · lightness (OKLCH L)</text>
+<line x1="52" x2="700" y1="250" y2="250" stroke="#f2f4f5" stroke-width="1"/>
+<text x="44" y="254" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">20</text>
+<line x1="52" x2="700" y1="200" y2="200" stroke="#f2f4f5" stroke-width="1"/>
+<text x="44" y="204" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">40</text>
+<line x1="52" x2="700" y1="150" y2="150" stroke="#f2f4f5" stroke-width="1"/>
+<text x="44" y="154" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">60</text>
+<line x1="52" x2="700" y1="100" y2="100" stroke="#f2f4f5" stroke-width="1"/>
+<text x="44" y="104" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">80</text>
+<line x1="52" x2="700" y1="50" y2="50" stroke="#f2f4f5" stroke-width="1"/>
+<text x="44" y="54" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">100</text>
+<line x1="52" x2="700" y1="250" y2="250" stroke="#d2d6db" stroke-width="1"/>
+<text x="52" y="268" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">50</text>
+<text x="116.8" y="268" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">100</text>
+<text x="181.6" y="268" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">200</text>
+<text x="246.4" y="268" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">300</text>
+<text x="311.2" y="268" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">400</text>
+<text x="376" y="268" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">500</text>
+<text x="440.8" y="268" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">600</text>
+<text x="505.6" y="268" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">700</text>
+<text x="570.4" y="268" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">800</text>
+<text x="635.2" y="268" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">900</text>
+<text x="700" y="268" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">950</text>
+<polyline points="52.0,57.3 116.8,66.0 181.6,78.8 246.4,98.0 311.2,124.0 376.0,140.8 440.8,155.7 505.6,173.8 570.4,189.0 635.2,201.0 700.0,235.5" fill="none" stroke="#fb2c36" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="52.0" cy="57.3" r="7" fill="transparent"><title>red 50 · L 97.1</title></circle>
+<circle cx="116.8" cy="66.0" r="7" fill="transparent"><title>red 100 · L 93.6</title></circle>
+<circle cx="181.6" cy="78.8" r="7" fill="transparent"><title>red 200 · L 88.5</title></circle>
+<circle cx="246.4" cy="98.0" r="7" fill="transparent"><title>red 300 · L 80.8</title></circle>
+<circle cx="311.2" cy="124.0" r="7" fill="transparent"><title>red 400 · L 70.4</title></circle>
+<circle cx="376.0" cy="140.8" r="7" fill="transparent"><title>red 500 · L 63.7</title></circle>
+<circle cx="440.8" cy="155.7" r="7" fill="transparent"><title>red 600 · L 57.7</title></circle>
+<circle cx="505.6" cy="173.8" r="7" fill="transparent"><title>red 700 · L 50.5</title></circle>
+<circle cx="570.4" cy="189.0" r="7" fill="transparent"><title>red 800 · L 44.4</title></circle>
+<circle cx="635.2" cy="201.0" r="7" fill="transparent"><title>red 900 · L 39.6</title></circle>
+<circle cx="700.0" cy="235.5" r="7" fill="transparent"><title>red 950 · L 25.8</title></circle>
+<polyline points="52.0,55.0 116.8,61.5 181.6,74.8 246.4,90.8 311.2,112.5 376.0,123.8 440.8,138.5 505.6,161.8 570.4,182.5 635.2,198.0 700.0,233.5" fill="none" stroke="#ff6900" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="52.0" cy="55.0" r="7" fill="transparent"><title>orange 50 · L 98.0</title></circle>
+<circle cx="116.8" cy="61.5" r="7" fill="transparent"><title>orange 100 · L 95.4</title></circle>
+<circle cx="181.6" cy="74.8" r="7" fill="transparent"><title>orange 200 · L 90.1</title></circle>
+<circle cx="246.4" cy="90.8" r="7" fill="transparent"><title>orange 300 · L 83.7</title></circle>
+<circle cx="311.2" cy="112.5" r="7" fill="transparent"><title>orange 400 · L 75.0</title></circle>
+<circle cx="376.0" cy="123.8" r="7" fill="transparent"><title>orange 500 · L 70.5</title></circle>
+<circle cx="440.8" cy="138.5" r="7" fill="transparent"><title>orange 600 · L 64.6</title></circle>
+<circle cx="505.6" cy="161.8" r="7" fill="transparent"><title>orange 700 · L 55.3</title></circle>
+<circle cx="570.4" cy="182.5" r="7" fill="transparent"><title>orange 800 · L 47.0</title></circle>
+<circle cx="635.2" cy="198.0" r="7" fill="transparent"><title>orange 900 · L 40.8</title></circle>
+<circle cx="700.0" cy="233.5" r="7" fill="transparent"><title>orange 950 · L 26.6</title></circle>
+<polyline points="52.0,53.2 116.8,59.5 181.6,69.0 246.4,80.2 311.2,93.0 376.0,107.8 440.8,133.5 505.6,161.3 570.4,181.8 635.2,196.5 700.0,230.3" fill="none" stroke="#fd9a00" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="52.0" cy="53.2" r="7" fill="transparent"><title>amber 50 · L 98.7</title></circle>
+<circle cx="116.8" cy="59.5" r="7" fill="transparent"><title>amber 100 · L 96.2</title></circle>
+<circle cx="181.6" cy="69.0" r="7" fill="transparent"><title>amber 200 · L 92.4</title></circle>
+<circle cx="246.4" cy="80.2" r="7" fill="transparent"><title>amber 300 · L 87.9</title></circle>
+<circle cx="311.2" cy="93.0" r="7" fill="transparent"><title>amber 400 · L 82.8</title></circle>
+<circle cx="376.0" cy="107.8" r="7" fill="transparent"><title>amber 500 · L 76.9</title></circle>
+<circle cx="440.8" cy="133.5" r="7" fill="transparent"><title>amber 600 · L 66.6</title></circle>
+<circle cx="505.6" cy="161.3" r="7" fill="transparent"><title>amber 700 · L 55.5</title></circle>
+<circle cx="570.4" cy="181.8" r="7" fill="transparent"><title>amber 800 · L 47.3</title></circle>
+<circle cx="635.2" cy="196.5" r="7" fill="transparent"><title>amber 900 · L 41.4</title></circle>
+<circle cx="700.0" cy="230.3" r="7" fill="transparent"><title>amber 950 · L 27.9</title></circle>
+<polyline points="52.0,53.2 116.8,56.8 181.6,63.8 246.4,73.8 311.2,87.0 376.0,101.3 440.8,129.8 505.6,161.5 570.4,181.0 635.2,194.8 700.0,228.5" fill="none" stroke="#efb100" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="52.0" cy="53.2" r="7" fill="transparent"><title>yellow 50 · L 98.7</title></circle>
+<circle cx="116.8" cy="56.8" r="7" fill="transparent"><title>yellow 100 · L 97.3</title></circle>
+<circle cx="181.6" cy="63.8" r="7" fill="transparent"><title>yellow 200 · L 94.5</title></circle>
+<circle cx="246.4" cy="73.8" r="7" fill="transparent"><title>yellow 300 · L 90.5</title></circle>
+<circle cx="311.2" cy="87.0" r="7" fill="transparent"><title>yellow 400 · L 85.2</title></circle>
+<circle cx="376.0" cy="101.3" r="7" fill="transparent"><title>yellow 500 · L 79.5</title></circle>
+<circle cx="440.8" cy="129.8" r="7" fill="transparent"><title>yellow 600 · L 68.1</title></circle>
+<circle cx="505.6" cy="161.5" r="7" fill="transparent"><title>yellow 700 · L 55.4</title></circle>
+<circle cx="570.4" cy="181.0" r="7" fill="transparent"><title>yellow 800 · L 47.6</title></circle>
+<circle cx="635.2" cy="194.8" r="7" fill="transparent"><title>yellow 900 · L 42.1</title></circle>
+<circle cx="700.0" cy="228.5" r="7" fill="transparent"><title>yellow 950 · L 28.6</title></circle>
+<polyline points="52.0,53.5 116.8,58.3 181.6,65.5 246.4,75.7 311.2,89.8 376.0,108.0 440.8,138.0 505.6,167.0 570.4,186.8 635.2,198.8 700.0,231.5" fill="none" stroke="#7ccf00" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="52.0" cy="53.5" r="7" fill="transparent"><title>lime 50 · L 98.6</title></circle>
+<circle cx="116.8" cy="58.3" r="7" fill="transparent"><title>lime 100 · L 96.7</title></circle>
+<circle cx="181.6" cy="65.5" r="7" fill="transparent"><title>lime 200 · L 93.8</title></circle>
+<circle cx="246.4" cy="75.7" r="7" fill="transparent"><title>lime 300 · L 89.7</title></circle>
+<circle cx="311.2" cy="89.8" r="7" fill="transparent"><title>lime 400 · L 84.1</title></circle>
+<circle cx="376.0" cy="108.0" r="7" fill="transparent"><title>lime 500 · L 76.8</title></circle>
+<circle cx="440.8" cy="138.0" r="7" fill="transparent"><title>lime 600 · L 64.8</title></circle>
+<circle cx="505.6" cy="167.0" r="7" fill="transparent"><title>lime 700 · L 53.2</title></circle>
+<circle cx="570.4" cy="186.8" r="7" fill="transparent"><title>lime 800 · L 45.3</title></circle>
+<circle cx="635.2" cy="198.8" r="7" fill="transparent"><title>lime 900 · L 40.5</title></circle>
+<circle cx="700.0" cy="231.5" r="7" fill="transparent"><title>lime 950 · L 27.4</title></circle>
+<polyline points="52.0,54.5 116.8,59.5 181.6,68.8 246.4,82.3 311.2,102.0 376.0,119.3 440.8,143.3 505.6,168.3 570.4,188.0 635.2,201.8 700.0,233.5" fill="none" stroke="#00c950" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="52.0" cy="54.5" r="7" fill="transparent"><title>green 50 · L 98.2</title></circle>
+<circle cx="116.8" cy="59.5" r="7" fill="transparent"><title>green 100 · L 96.2</title></circle>
+<circle cx="181.6" cy="68.8" r="7" fill="transparent"><title>green 200 · L 92.5</title></circle>
+<circle cx="246.4" cy="82.3" r="7" fill="transparent"><title>green 300 · L 87.1</title></circle>
+<circle cx="311.2" cy="102.0" r="7" fill="transparent"><title>green 400 · L 79.2</title></circle>
+<circle cx="376.0" cy="119.3" r="7" fill="transparent"><title>green 500 · L 72.3</title></circle>
+<circle cx="440.8" cy="143.3" r="7" fill="transparent"><title>green 600 · L 62.7</title></circle>
+<circle cx="505.6" cy="168.3" r="7" fill="transparent"><title>green 700 · L 52.7</title></circle>
+<circle cx="570.4" cy="188.0" r="7" fill="transparent"><title>green 800 · L 44.8</title></circle>
+<circle cx="635.2" cy="201.8" r="7" fill="transparent"><title>green 900 · L 39.3</title></circle>
+<circle cx="700.0" cy="233.5" r="7" fill="transparent"><title>green 950 · L 26.6</title></circle>
+<polyline points="52.0,55.2 116.8,62.5 181.6,73.8 246.4,88.8 311.2,108.8 376.0,126.0 440.8,151.0 505.6,173.0 570.4,192.0 635.2,205.5 700.0,234.5" fill="none" stroke="#00bc7d" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="52.0" cy="55.2" r="7" fill="transparent"><title>emerald 50 · L 97.9</title></circle>
+<circle cx="116.8" cy="62.5" r="7" fill="transparent"><title>emerald 100 · L 95.0</title></circle>
+<circle cx="181.6" cy="73.8" r="7" fill="transparent"><title>emerald 200 · L 90.5</title></circle>
+<circle cx="246.4" cy="88.8" r="7" fill="transparent"><title>emerald 300 · L 84.5</title></circle>
+<circle cx="311.2" cy="108.8" r="7" fill="transparent"><title>emerald 400 · L 76.5</title></circle>
+<circle cx="376.0" cy="126.0" r="7" fill="transparent"><title>emerald 500 · L 69.6</title></circle>
+<circle cx="440.8" cy="151.0" r="7" fill="transparent"><title>emerald 600 · L 59.6</title></circle>
+<circle cx="505.6" cy="173.0" r="7" fill="transparent"><title>emerald 700 · L 50.8</title></circle>
+<circle cx="570.4" cy="192.0" r="7" fill="transparent"><title>emerald 800 · L 43.2</title></circle>
+<circle cx="635.2" cy="205.5" r="7" fill="transparent"><title>emerald 900 · L 37.8</title></circle>
+<circle cx="700.0" cy="234.5" r="7" fill="transparent"><title>emerald 950 · L 26.2</title></circle>
+<polyline points="52.0,54.0 116.8,61.8 181.6,72.5 246.4,86.3 311.2,105.8 376.0,124.0 440.8,150.0 505.6,172.3 570.4,190.8 635.2,203.5 700.0,230.8" fill="none" stroke="#00bba7" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="52.0" cy="54.0" r="7" fill="transparent"><title>teal 50 · L 98.4</title></circle>
+<circle cx="116.8" cy="61.8" r="7" fill="transparent"><title>teal 100 · L 95.3</title></circle>
+<circle cx="181.6" cy="72.5" r="7" fill="transparent"><title>teal 200 · L 91.0</title></circle>
+<circle cx="246.4" cy="86.3" r="7" fill="transparent"><title>teal 300 · L 85.5</title></circle>
+<circle cx="311.2" cy="105.8" r="7" fill="transparent"><title>teal 400 · L 77.7</title></circle>
+<circle cx="376.0" cy="124.0" r="7" fill="transparent"><title>teal 500 · L 70.4</title></circle>
+<circle cx="440.8" cy="150.0" r="7" fill="transparent"><title>teal 600 · L 60.0</title></circle>
+<circle cx="505.6" cy="172.3" r="7" fill="transparent"><title>teal 700 · L 51.1</title></circle>
+<circle cx="570.4" cy="190.8" r="7" fill="transparent"><title>teal 800 · L 43.7</title></circle>
+<circle cx="635.2" cy="203.5" r="7" fill="transparent"><title>teal 900 · L 38.6</title></circle>
+<circle cx="700.0" cy="230.8" r="7" fill="transparent"><title>teal 950 · L 27.7</title></circle>
+<polyline points="52.0,54.0 116.8,61.0 181.6,70.8 246.4,83.8 311.2,102.8 376.0,121.3 440.8,147.8 505.6,170.0 570.4,187.5 635.2,200.5 700.0,224.5" fill="none" stroke="#00b8db" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="52.0" cy="54.0" r="7" fill="transparent"><title>cyan 50 · L 98.4</title></circle>
+<circle cx="116.8" cy="61.0" r="7" fill="transparent"><title>cyan 100 · L 95.6</title></circle>
+<circle cx="181.6" cy="70.8" r="7" fill="transparent"><title>cyan 200 · L 91.7</title></circle>
+<circle cx="246.4" cy="83.8" r="7" fill="transparent"><title>cyan 300 · L 86.5</title></circle>
+<circle cx="311.2" cy="102.8" r="7" fill="transparent"><title>cyan 400 · L 78.9</title></circle>
+<circle cx="376.0" cy="121.3" r="7" fill="transparent"><title>cyan 500 · L 71.5</title></circle>
+<circle cx="440.8" cy="147.8" r="7" fill="transparent"><title>cyan 600 · L 60.9</title></circle>
+<circle cx="505.6" cy="170.0" r="7" fill="transparent"><title>cyan 700 · L 52.0</title></circle>
+<circle cx="570.4" cy="187.5" r="7" fill="transparent"><title>cyan 800 · L 45.0</title></circle>
+<circle cx="635.2" cy="200.5" r="7" fill="transparent"><title>cyan 900 · L 39.8</title></circle>
+<circle cx="700.0" cy="224.5" r="7" fill="transparent"><title>cyan 950 · L 30.2</title></circle>
+<polyline points="52.0,55.8 116.8,62.3 181.6,74.8 246.4,93.0 311.2,113.5 376.0,128.8 440.8,153.0 505.6,175.0 570.4,189.3 635.2,202.3 700.0,226.8" fill="none" stroke="#00a6f4" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="52.0" cy="55.8" r="7" fill="transparent"><title>sky 50 · L 97.7</title></circle>
+<circle cx="116.8" cy="62.3" r="7" fill="transparent"><title>sky 100 · L 95.1</title></circle>
+<circle cx="181.6" cy="74.8" r="7" fill="transparent"><title>sky 200 · L 90.1</title></circle>
+<circle cx="246.4" cy="93.0" r="7" fill="transparent"><title>sky 300 · L 82.8</title></circle>
+<circle cx="311.2" cy="113.5" r="7" fill="transparent"><title>sky 400 · L 74.6</title></circle>
+<circle cx="376.0" cy="128.8" r="7" fill="transparent"><title>sky 500 · L 68.5</title></circle>
+<circle cx="440.8" cy="153.0" r="7" fill="transparent"><title>sky 600 · L 58.8</title></circle>
+<circle cx="505.6" cy="175.0" r="7" fill="transparent"><title>sky 700 · L 50.0</title></circle>
+<circle cx="570.4" cy="189.3" r="7" fill="transparent"><title>sky 800 · L 44.3</title></circle>
+<circle cx="635.2" cy="202.3" r="7" fill="transparent"><title>sky 900 · L 39.1</title></circle>
+<circle cx="700.0" cy="226.8" r="7" fill="transparent"><title>sky 950 · L 29.3</title></circle>
+<polyline points="52.0,57.5 116.8,67.0 181.6,79.5 246.4,97.7 311.2,123.3 376.0,144.3 440.8,163.5 505.6,178.0 570.4,194.0 635.2,205.3 700.0,229.5" fill="none" stroke="#2b7fff" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="52.0" cy="57.5" r="7" fill="transparent"><title>blue 50 · L 97.0</title></circle>
+<circle cx="116.8" cy="67.0" r="7" fill="transparent"><title>blue 100 · L 93.2</title></circle>
+<circle cx="181.6" cy="79.5" r="7" fill="transparent"><title>blue 200 · L 88.2</title></circle>
+<circle cx="246.4" cy="97.7" r="7" fill="transparent"><title>blue 300 · L 80.9</title></circle>
+<circle cx="311.2" cy="123.3" r="7" fill="transparent"><title>blue 400 · L 70.7</title></circle>
+<circle cx="376.0" cy="144.3" r="7" fill="transparent"><title>blue 500 · L 62.3</title></circle>
+<circle cx="440.8" cy="163.5" r="7" fill="transparent"><title>blue 600 · L 54.6</title></circle>
+<circle cx="505.6" cy="178.0" r="7" fill="transparent"><title>blue 700 · L 48.8</title></circle>
+<circle cx="570.4" cy="194.0" r="7" fill="transparent"><title>blue 800 · L 42.4</title></circle>
+<circle cx="635.2" cy="205.3" r="7" fill="transparent"><title>blue 900 · L 37.9</title></circle>
+<circle cx="700.0" cy="229.5" r="7" fill="transparent"><title>blue 950 · L 28.2</title></circle>
+<polyline points="52.0,59.5 116.8,67.5 181.6,82.5 246.4,103.8 311.2,131.8 376.0,153.8 440.8,172.3 505.6,185.8 570.4,200.5 635.2,210.3 700.0,235.8" fill="none" stroke="#615fff" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="52.0" cy="59.5" r="7" fill="transparent"><title>indigo 50 · L 96.2</title></circle>
+<circle cx="116.8" cy="67.5" r="7" fill="transparent"><title>indigo 100 · L 93.0</title></circle>
+<circle cx="181.6" cy="82.5" r="7" fill="transparent"><title>indigo 200 · L 87.0</title></circle>
+<circle cx="246.4" cy="103.8" r="7" fill="transparent"><title>indigo 300 · L 78.5</title></circle>
+<circle cx="311.2" cy="131.8" r="7" fill="transparent"><title>indigo 400 · L 67.3</title></circle>
+<circle cx="376.0" cy="153.8" r="7" fill="transparent"><title>indigo 500 · L 58.5</title></circle>
+<circle cx="440.8" cy="172.3" r="7" fill="transparent"><title>indigo 600 · L 51.1</title></circle>
+<circle cx="505.6" cy="185.8" r="7" fill="transparent"><title>indigo 700 · L 45.7</title></circle>
+<circle cx="570.4" cy="200.5" r="7" fill="transparent"><title>indigo 800 · L 39.8</title></circle>
+<circle cx="635.2" cy="210.3" r="7" fill="transparent"><title>indigo 900 · L 35.9</title></circle>
+<circle cx="700.0" cy="235.8" r="7" fill="transparent"><title>indigo 950 · L 25.7</title></circle>
+<polyline points="52.0,57.8 116.8,64.3 181.6,76.5 246.4,97.3 311.2,124.5 376.0,148.5 440.8,164.8 505.6,177.3 570.4,192.0 635.2,205.0 700.0,229.3" fill="none" stroke="#8e51ff" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="52.0" cy="57.8" r="7" fill="transparent"><title>violet 50 · L 96.9</title></circle>
+<circle cx="116.8" cy="64.3" r="7" fill="transparent"><title>violet 100 · L 94.3</title></circle>
+<circle cx="181.6" cy="76.5" r="7" fill="transparent"><title>violet 200 · L 89.4</title></circle>
+<circle cx="246.4" cy="97.3" r="7" fill="transparent"><title>violet 300 · L 81.1</title></circle>
+<circle cx="311.2" cy="124.5" r="7" fill="transparent"><title>violet 400 · L 70.2</title></circle>
+<circle cx="376.0" cy="148.5" r="7" fill="transparent"><title>violet 500 · L 60.6</title></circle>
+<circle cx="440.8" cy="164.8" r="7" fill="transparent"><title>violet 600 · L 54.1</title></circle>
+<circle cx="505.6" cy="177.3" r="7" fill="transparent"><title>violet 700 · L 49.1</title></circle>
+<circle cx="570.4" cy="192.0" r="7" fill="transparent"><title>violet 800 · L 43.2</title></circle>
+<circle cx="635.2" cy="205.0" r="7" fill="transparent"><title>violet 900 · L 38.0</title></circle>
+<circle cx="700.0" cy="229.3" r="7" fill="transparent"><title>violet 950 · L 28.3</title></circle>
+<polyline points="52.0,55.8 116.8,63.5 181.6,74.5 246.4,93.3 311.2,121.5 376.0,143.3 440.8,160.5 505.6,176.0 570.4,190.5 635.2,204.8 700.0,227.3" fill="none" stroke="#ad46ff" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="52.0" cy="55.8" r="7" fill="transparent"><title>purple 50 · L 97.7</title></circle>
+<circle cx="116.8" cy="63.5" r="7" fill="transparent"><title>purple 100 · L 94.6</title></circle>
+<circle cx="181.6" cy="74.5" r="7" fill="transparent"><title>purple 200 · L 90.2</title></circle>
+<circle cx="246.4" cy="93.3" r="7" fill="transparent"><title>purple 300 · L 82.7</title></circle>
+<circle cx="311.2" cy="121.5" r="7" fill="transparent"><title>purple 400 · L 71.4</title></circle>
+<circle cx="376.0" cy="143.3" r="7" fill="transparent"><title>purple 500 · L 62.7</title></circle>
+<circle cx="440.8" cy="160.5" r="7" fill="transparent"><title>purple 600 · L 55.8</title></circle>
+<circle cx="505.6" cy="176.0" r="7" fill="transparent"><title>purple 700 · L 49.6</title></circle>
+<circle cx="570.4" cy="190.5" r="7" fill="transparent"><title>purple 800 · L 43.8</title></circle>
+<circle cx="635.2" cy="204.8" r="7" fill="transparent"><title>purple 900 · L 38.1</title></circle>
+<circle cx="700.0" cy="227.3" r="7" fill="transparent"><title>purple 950 · L 29.1</title></circle>
+<polyline points="52.0,55.8 116.8,62.0 181.6,74.3 246.4,91.8 311.2,115.0 376.0,133.3 440.8,152.2 505.6,170.5 570.4,187.0 635.2,199.8 700.0,226.8" fill="none" stroke="#e12afb" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="52.0" cy="55.8" r="7" fill="transparent"><title>fuchsia 50 · L 97.7</title></circle>
+<circle cx="116.8" cy="62.0" r="7" fill="transparent"><title>fuchsia 100 · L 95.2</title></circle>
+<circle cx="181.6" cy="74.3" r="7" fill="transparent"><title>fuchsia 200 · L 90.3</title></circle>
+<circle cx="246.4" cy="91.8" r="7" fill="transparent"><title>fuchsia 300 · L 83.3</title></circle>
+<circle cx="311.2" cy="115.0" r="7" fill="transparent"><title>fuchsia 400 · L 74.0</title></circle>
+<circle cx="376.0" cy="133.3" r="7" fill="transparent"><title>fuchsia 500 · L 66.7</title></circle>
+<circle cx="440.8" cy="152.2" r="7" fill="transparent"><title>fuchsia 600 · L 59.1</title></circle>
+<circle cx="505.6" cy="170.5" r="7" fill="transparent"><title>fuchsia 700 · L 51.8</title></circle>
+<circle cx="570.4" cy="187.0" r="7" fill="transparent"><title>fuchsia 800 · L 45.2</title></circle>
+<circle cx="635.2" cy="199.8" r="7" fill="transparent"><title>fuchsia 900 · L 40.1</title></circle>
+<circle cx="700.0" cy="226.8" r="7" fill="transparent"><title>fuchsia 950 · L 29.3</title></circle>
+<polyline points="52.0,57.3 116.8,63.0 181.6,75.3 246.4,94.3 311.2,120.5 376.0,136.0 440.8,152.0 505.6,168.8 570.4,185.3 635.2,198.0 700.0,229.0" fill="none" stroke="#f6339a" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="52.0" cy="57.3" r="7" fill="transparent"><title>pink 50 · L 97.1</title></circle>
+<circle cx="116.8" cy="63.0" r="7" fill="transparent"><title>pink 100 · L 94.8</title></circle>
+<circle cx="181.6" cy="75.3" r="7" fill="transparent"><title>pink 200 · L 89.9</title></circle>
+<circle cx="246.4" cy="94.3" r="7" fill="transparent"><title>pink 300 · L 82.3</title></circle>
+<circle cx="311.2" cy="120.5" r="7" fill="transparent"><title>pink 400 · L 71.8</title></circle>
+<circle cx="376.0" cy="136.0" r="7" fill="transparent"><title>pink 500 · L 65.6</title></circle>
+<circle cx="440.8" cy="152.0" r="7" fill="transparent"><title>pink 600 · L 59.2</title></circle>
+<circle cx="505.6" cy="168.8" r="7" fill="transparent"><title>pink 700 · L 52.5</title></circle>
+<circle cx="570.4" cy="185.3" r="7" fill="transparent"><title>pink 800 · L 45.9</title></circle>
+<circle cx="635.2" cy="198.0" r="7" fill="transparent"><title>pink 900 · L 40.8</title></circle>
+<circle cx="700.0" cy="229.0" r="7" fill="transparent"><title>pink 950 · L 28.4</title></circle>
+<polyline points="52.0,57.8 116.8,64.8 181.6,77.0 246.4,97.5 311.2,122.0 376.0,138.8 440.8,153.5 505.6,171.5 570.4,186.3 635.2,197.5 700.0,232.3" fill="none" stroke="#ff2056" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="52.0" cy="57.8" r="7" fill="transparent"><title>rose 50 · L 96.9</title></circle>
+<circle cx="116.8" cy="64.8" r="7" fill="transparent"><title>rose 100 · L 94.1</title></circle>
+<circle cx="181.6" cy="77.0" r="7" fill="transparent"><title>rose 200 · L 89.2</title></circle>
+<circle cx="246.4" cy="97.5" r="7" fill="transparent"><title>rose 300 · L 81.0</title></circle>
+<circle cx="311.2" cy="122.0" r="7" fill="transparent"><title>rose 400 · L 71.2</title></circle>
+<circle cx="376.0" cy="138.8" r="7" fill="transparent"><title>rose 500 · L 64.5</title></circle>
+<circle cx="440.8" cy="153.5" r="7" fill="transparent"><title>rose 600 · L 58.6</title></circle>
+<circle cx="505.6" cy="171.5" r="7" fill="transparent"><title>rose 700 · L 51.4</title></circle>
+<circle cx="570.4" cy="186.3" r="7" fill="transparent"><title>rose 800 · L 45.5</title></circle>
+<circle cx="635.2" cy="197.5" r="7" fill="transparent"><title>rose 900 · L 41.0</title></circle>
+<circle cx="700.0" cy="232.3" r="7" fill="transparent"><title>rose 950 · L 27.1</title></circle>
+<line x1="52" x2="68" y1="294" y2="294" stroke="#fb2c36" stroke-width="3" stroke-linecap="round"/>
+<text x="74" y="298" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="11" fill="#2e3338">red</text>
+<line x1="144" x2="160" y1="294" y2="294" stroke="#ff6900" stroke-width="3" stroke-linecap="round"/>
+<text x="166" y="298" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="11" fill="#2e3338">orange</text>
+<line x1="236" x2="252" y1="294" y2="294" stroke="#fd9a00" stroke-width="3" stroke-linecap="round"/>
+<text x="258" y="298" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="11" fill="#2e3338">amber</text>
+<line x1="328" x2="344" y1="294" y2="294" stroke="#efb100" stroke-width="3" stroke-linecap="round"/>
+<text x="350" y="298" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="11" fill="#2e3338">yellow</text>
+<line x1="420" x2="436" y1="294" y2="294" stroke="#7ccf00" stroke-width="3" stroke-linecap="round"/>
+<text x="442" y="298" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="11" fill="#2e3338">lime</text>
+<line x1="512" x2="528" y1="294" y2="294" stroke="#00c950" stroke-width="3" stroke-linecap="round"/>
+<text x="534" y="298" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="11" fill="#2e3338">green</text>
+<line x1="604" x2="620" y1="294" y2="294" stroke="#00bc7d" stroke-width="3" stroke-linecap="round"/>
+<text x="626" y="298" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="11" fill="#2e3338">emerald</text>
+<line x1="52" x2="68" y1="314" y2="314" stroke="#00bba7" stroke-width="3" stroke-linecap="round"/>
+<text x="74" y="318" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="11" fill="#2e3338">teal</text>
+<line x1="144" x2="160" y1="314" y2="314" stroke="#00b8db" stroke-width="3" stroke-linecap="round"/>
+<text x="166" y="318" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="11" fill="#2e3338">cyan</text>
+<line x1="236" x2="252" y1="314" y2="314" stroke="#00a6f4" stroke-width="3" stroke-linecap="round"/>
+<text x="258" y="318" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="11" fill="#2e3338">sky</text>
+<line x1="328" x2="344" y1="314" y2="314" stroke="#2b7fff" stroke-width="3" stroke-linecap="round"/>
+<text x="350" y="318" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="11" fill="#2e3338">blue</text>
+<line x1="420" x2="436" y1="314" y2="314" stroke="#615fff" stroke-width="3" stroke-linecap="round"/>
+<text x="442" y="318" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="11" fill="#2e3338">indigo</text>
+<line x1="512" x2="528" y1="314" y2="314" stroke="#8e51ff" stroke-width="3" stroke-linecap="round"/>
+<text x="534" y="318" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="11" fill="#2e3338">violet</text>
+<line x1="604" x2="620" y1="314" y2="314" stroke="#ad46ff" stroke-width="3" stroke-linecap="round"/>
+<text x="626" y="318" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="11" fill="#2e3338">purple</text>
+<line x1="52" x2="68" y1="334" y2="334" stroke="#e12afb" stroke-width="3" stroke-linecap="round"/>
+<text x="74" y="338" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="11" fill="#2e3338">fuchsia</text>
+<line x1="144" x2="160" y1="334" y2="334" stroke="#f6339a" stroke-width="3" stroke-linecap="round"/>
+<text x="166" y="338" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="11" fill="#2e3338">pink</text>
+<line x1="236" x2="252" y1="334" y2="334" stroke="#ff2056" stroke-width="3" stroke-linecap="round"/>
+<text x="258" y="338" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="11" fill="#2e3338">rose</text>
+<text x="52" y="396" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="14" font-weight="700" fill="#2e3338">Ordinary Palette · lightness (OKLCH L), yellow is brighter on purpose</text>
+<line x1="52" x2="700" y1="612" y2="612" stroke="#f2f4f5" stroke-width="1"/>
+<text x="44" y="616" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">20</text>
+<line x1="52" x2="700" y1="562" y2="562" stroke="#f2f4f5" stroke-width="1"/>
+<text x="44" y="566" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">40</text>
+<line x1="52" x2="700" y1="512" y2="512" stroke="#f2f4f5" stroke-width="1"/>
+<text x="44" y="516" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">60</text>
+<line x1="52" x2="700" y1="462" y2="462" stroke="#f2f4f5" stroke-width="1"/>
+<text x="44" y="466" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">80</text>
+<line x1="52" x2="700" y1="412" y2="412" stroke="#f2f4f5" stroke-width="1"/>
+<text x="44" y="416" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">100</text>
+<line x1="52" x2="700" y1="612" y2="612" stroke="#d2d6db" stroke-width="1"/>
+<text x="52" y="630" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">50</text>
+<text x="124" y="630" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">100</text>
+<text x="196" y="630" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">200</text>
+<text x="268" y="630" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">300</text>
+<text x="340" y="630" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">400</text>
+<text x="412" y="630" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">500</text>
+<text x="484" y="630" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">600</text>
+<text x="556" y="630" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">700</text>
+<text x="628" y="630" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">800</text>
+<text x="700" y="630" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">900</text>
+<polyline points="52.0,420.7 124.0,430.0 196.0,446.4 268.0,464.0 340.0,483.3 412.0,504.4 484.0,523.9 556.0,542.7 628.0,561.5 700.0,579.4" fill="none" stroke="#e7388d" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="52.0" cy="420.7" r="7" fill="transparent"><title>pink 50 · L 96.5</title></circle>
+<circle cx="124.0" cy="430.0" r="7" fill="transparent"><title>pink 100 · L 92.8</title></circle>
+<circle cx="196.0" cy="446.4" r="7" fill="transparent"><title>pink 200 · L 86.2</title></circle>
+<circle cx="268.0" cy="464.0" r="7" fill="transparent"><title>pink 300 · L 79.2</title></circle>
+<circle cx="340.0" cy="483.3" r="7" fill="transparent"><title>pink 400 · L 71.5</title></circle>
+<circle cx="412.0" cy="504.4" r="7" fill="transparent"><title>pink 500 · L 63.0</title></circle>
+<circle cx="484.0" cy="523.9" r="7" fill="transparent"><title>pink 600 · L 55.3</title></circle>
+<circle cx="556.0" cy="542.7" r="7" fill="transparent"><title>pink 700 · L 47.7</title></circle>
+<circle cx="628.0" cy="561.5" r="7" fill="transparent"><title>pink 800 · L 40.2</title></circle>
+<circle cx="700.0" cy="579.4" r="7" fill="transparent"><title>pink 900 · L 33.1</title></circle>
+<polyline points="52.0,420.9 124.0,429.8 196.0,446.3 268.0,465.4 340.0,485.2 412.0,506.6 484.0,525.5 556.0,544.9 628.0,563.4 700.0,581.7" fill="none" stroke="#ee3635" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="52.0" cy="420.9" r="7" fill="transparent"><title>red 50 · L 96.4</title></circle>
+<circle cx="124.0" cy="429.8" r="7" fill="transparent"><title>red 100 · L 92.9</title></circle>
+<circle cx="196.0" cy="446.3" r="7" fill="transparent"><title>red 200 · L 86.3</title></circle>
+<circle cx="268.0" cy="465.4" r="7" fill="transparent"><title>red 300 · L 78.6</title></circle>
+<circle cx="340.0" cy="485.2" r="7" fill="transparent"><title>red 400 · L 70.7</title></circle>
+<circle cx="412.0" cy="506.6" r="7" fill="transparent"><title>red 500 · L 62.1</title></circle>
+<circle cx="484.0" cy="525.5" r="7" fill="transparent"><title>red 600 · L 54.6</title></circle>
+<circle cx="556.0" cy="544.9" r="7" fill="transparent"><title>red 700 · L 46.9</title></circle>
+<circle cx="628.0" cy="563.4" r="7" fill="transparent"><title>red 800 · L 39.4</title></circle>
+<circle cx="700.0" cy="581.7" r="7" fill="transparent"><title>red 900 · L 32.1</title></circle>
+<polyline points="52.0,420.9 124.0,430.1 196.0,446.2 268.0,460.8 340.0,476.3 412.0,497.6 484.0,517.2 556.0,535.9 628.0,554.3 700.0,572.2" fill="none" stroke="#ec5f00" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="52.0" cy="420.9" r="7" fill="transparent"><title>orange 50 · L 96.4</title></circle>
+<circle cx="124.0" cy="430.1" r="7" fill="transparent"><title>orange 100 · L 92.8</title></circle>
+<circle cx="196.0" cy="446.2" r="7" fill="transparent"><title>orange 200 · L 86.3</title></circle>
+<circle cx="268.0" cy="460.8" r="7" fill="transparent"><title>orange 300 · L 80.5</title></circle>
+<circle cx="340.0" cy="476.3" r="7" fill="transparent"><title>orange 400 · L 74.3</title></circle>
+<circle cx="412.0" cy="497.6" r="7" fill="transparent"><title>orange 500 · L 65.8</title></circle>
+<circle cx="484.0" cy="517.2" r="7" fill="transparent"><title>orange 600 · L 57.9</title></circle>
+<circle cx="556.0" cy="535.9" r="7" fill="transparent"><title>orange 700 · L 50.4</title></circle>
+<circle cx="628.0" cy="554.3" r="7" fill="transparent"><title>orange 800 · L 43.1</title></circle>
+<circle cx="700.0" cy="572.2" r="7" fill="transparent"><title>orange 900 · L 35.9</title></circle>
+<polyline points="52.0,420.6 124.0,425.3 196.0,431.8 268.0,439.5 340.0,446.9 412.0,455.9 484.0,470.6 556.0,487.1 628.0,505.8 700.0,529.8" fill="none" stroke="#feb700" stroke-width="2" stroke-dasharray="5 4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="52.0" cy="420.6" r="7" fill="transparent"><title>yellow 50 · L 96.5</title></circle>
+<circle cx="124.0" cy="425.3" r="7" fill="transparent"><title>yellow 100 · L 94.7</title></circle>
+<circle cx="196.0" cy="431.8" r="7" fill="transparent"><title>yellow 200 · L 92.1</title></circle>
+<circle cx="268.0" cy="439.5" r="7" fill="transparent"><title>yellow 300 · L 89.0</title></circle>
+<circle cx="340.0" cy="446.9" r="7" fill="transparent"><title>yellow 400 · L 86.1</title></circle>
+<circle cx="412.0" cy="455.9" r="7" fill="transparent"><title>yellow 500 · L 82.4</title></circle>
+<circle cx="484.0" cy="470.6" r="7" fill="transparent"><title>yellow 600 · L 76.5</title></circle>
+<circle cx="556.0" cy="487.1" r="7" fill="transparent"><title>yellow 700 · L 69.9</title></circle>
+<circle cx="628.0" cy="505.8" r="7" fill="transparent"><title>yellow 800 · L 62.5</title></circle>
+<circle cx="700.0" cy="529.8" r="7" fill="transparent"><title>yellow 900 · L 52.9</title></circle>
+<polyline points="52.0,421.2 124.0,429.9 196.0,446.5 268.0,462.2 340.0,481.0 412.0,502.3 484.0,524.7 556.0,541.0 628.0,559.6 700.0,576.6" fill="none" stroke="#739c00" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="52.0" cy="421.2" r="7" fill="transparent"><title>light-green 50 · L 96.3</title></circle>
+<circle cx="124.0" cy="429.9" r="7" fill="transparent"><title>light-green 100 · L 92.9</title></circle>
+<circle cx="196.0" cy="446.5" r="7" fill="transparent"><title>light-green 200 · L 86.2</title></circle>
+<circle cx="268.0" cy="462.2" r="7" fill="transparent"><title>light-green 300 · L 79.9</title></circle>
+<circle cx="340.0" cy="481.0" r="7" fill="transparent"><title>light-green 400 · L 72.4</title></circle>
+<circle cx="412.0" cy="502.3" r="7" fill="transparent"><title>light-green 500 · L 63.9</title></circle>
+<circle cx="484.0" cy="524.7" r="7" fill="transparent"><title>light-green 600 · L 54.9</title></circle>
+<circle cx="556.0" cy="541.0" r="7" fill="transparent"><title>light-green 700 · L 48.4</title></circle>
+<circle cx="628.0" cy="559.6" r="7" fill="transparent"><title>light-green 800 · L 41.0</title></circle>
+<circle cx="700.0" cy="576.6" r="7" fill="transparent"><title>light-green 900 · L 34.1</title></circle>
+<polyline points="52.0,421.4 124.0,430.0 196.0,446.2 268.0,461.8 340.0,481.6 412.0,502.1 484.0,524.5 556.0,540.9 628.0,559.5 700.0,577.2" fill="none" stroke="#21a65b" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="52.0" cy="421.4" r="7" fill="transparent"><title>green 50 · L 96.2</title></circle>
+<circle cx="124.0" cy="430.0" r="7" fill="transparent"><title>green 100 · L 92.8</title></circle>
+<circle cx="196.0" cy="446.2" r="7" fill="transparent"><title>green 200 · L 86.3</title></circle>
+<circle cx="268.0" cy="461.8" r="7" fill="transparent"><title>green 300 · L 80.1</title></circle>
+<circle cx="340.0" cy="481.6" r="7" fill="transparent"><title>green 400 · L 72.2</title></circle>
+<circle cx="412.0" cy="502.1" r="7" fill="transparent"><title>green 500 · L 64.0</title></circle>
+<circle cx="484.0" cy="524.5" r="7" fill="transparent"><title>green 600 · L 55.0</title></circle>
+<circle cx="556.0" cy="540.9" r="7" fill="transparent"><title>green 700 · L 48.4</title></circle>
+<circle cx="628.0" cy="559.5" r="7" fill="transparent"><title>green 800 · L 41.0</title></circle>
+<circle cx="700.0" cy="577.2" r="7" fill="transparent"><title>green 900 · L 33.9</title></circle>
+<polyline points="52.0,420.9 124.0,429.5 196.0,446.1 268.0,462.2 340.0,481.4 412.0,502.3 484.0,524.7 556.0,541.0 628.0,559.4 700.0,577.1" fill="none" stroke="#00a0a0" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="52.0" cy="420.9" r="7" fill="transparent"><title>cyan 50 · L 96.4</title></circle>
+<circle cx="124.0" cy="429.5" r="7" fill="transparent"><title>cyan 100 · L 93.0</title></circle>
+<circle cx="196.0" cy="446.1" r="7" fill="transparent"><title>cyan 200 · L 86.4</title></circle>
+<circle cx="268.0" cy="462.2" r="7" fill="transparent"><title>cyan 300 · L 79.9</title></circle>
+<circle cx="340.0" cy="481.4" r="7" fill="transparent"><title>cyan 400 · L 72.2</title></circle>
+<circle cx="412.0" cy="502.3" r="7" fill="transparent"><title>cyan 500 · L 63.9</title></circle>
+<circle cx="484.0" cy="524.7" r="7" fill="transparent"><title>cyan 600 · L 54.9</title></circle>
+<circle cx="556.0" cy="541.0" r="7" fill="transparent"><title>cyan 700 · L 48.4</title></circle>
+<circle cx="628.0" cy="559.4" r="7" fill="transparent"><title>cyan 800 · L 41.0</title></circle>
+<circle cx="700.0" cy="577.1" r="7" fill="transparent"><title>cyan 900 · L 34.0</title></circle>
+<polyline points="52.0,420.9 124.0,430.2 196.0,446.2 268.0,461.8 340.0,481.3 412.0,502.2 484.0,521.9 556.0,540.4 628.0,559.7 700.0,576.7" fill="none" stroke="#0097d3" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="52.0" cy="420.9" r="7" fill="transparent"><title>light-blue 50 · L 96.4</title></circle>
+<circle cx="124.0" cy="430.2" r="7" fill="transparent"><title>light-blue 100 · L 92.7</title></circle>
+<circle cx="196.0" cy="446.2" r="7" fill="transparent"><title>light-blue 200 · L 86.3</title></circle>
+<circle cx="268.0" cy="461.8" r="7" fill="transparent"><title>light-blue 300 · L 80.1</title></circle>
+<circle cx="340.0" cy="481.3" r="7" fill="transparent"><title>light-blue 400 · L 72.3</title></circle>
+<circle cx="412.0" cy="502.2" r="7" fill="transparent"><title>light-blue 500 · L 63.9</title></circle>
+<circle cx="484.0" cy="521.9" r="7" fill="transparent"><title>light-blue 600 · L 56.0</title></circle>
+<circle cx="556.0" cy="540.4" r="7" fill="transparent"><title>light-blue 700 · L 48.6</title></circle>
+<circle cx="628.0" cy="559.7" r="7" fill="transparent"><title>light-blue 800 · L 40.9</title></circle>
+<circle cx="700.0" cy="576.7" r="7" fill="transparent"><title>light-blue 900 · L 34.1</title></circle>
+<polyline points="52.0,420.9 124.0,430.0 196.0,446.3 268.0,464.5 340.0,483.5 412.0,504.7 484.0,524.6 556.0,543.1 628.0,561.9 700.0,579.2" fill="none" stroke="#2b84ff" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="52.0" cy="420.9" r="7" fill="transparent"><title>blue 50 · L 96.5</title></circle>
+<circle cx="124.0" cy="430.0" r="7" fill="transparent"><title>blue 100 · L 92.8</title></circle>
+<circle cx="196.0" cy="446.3" r="7" fill="transparent"><title>blue 200 · L 86.3</title></circle>
+<circle cx="268.0" cy="464.5" r="7" fill="transparent"><title>blue 300 · L 79.0</title></circle>
+<circle cx="340.0" cy="483.5" r="7" fill="transparent"><title>blue 400 · L 71.4</title></circle>
+<circle cx="412.0" cy="504.7" r="7" fill="transparent"><title>blue 500 · L 62.9</title></circle>
+<circle cx="484.0" cy="524.6" r="7" fill="transparent"><title>blue 600 · L 55.0</title></circle>
+<circle cx="556.0" cy="543.1" r="7" fill="transparent"><title>blue 700 · L 47.6</title></circle>
+<circle cx="628.0" cy="561.9" r="7" fill="transparent"><title>blue 800 · L 40.1</title></circle>
+<circle cx="700.0" cy="579.2" r="7" fill="transparent"><title>blue 900 · L 33.1</title></circle>
+<polyline points="52.0,420.5 124.0,429.8 196.0,446.5 268.0,466.9 340.0,486.2 412.0,507.4 484.0,527.1 556.0,545.9 628.0,564.4 700.0,581.9" fill="none" stroke="#8568f6" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="52.0" cy="420.5" r="7" fill="transparent"><title>purple 50 · L 96.6</title></circle>
+<circle cx="124.0" cy="429.8" r="7" fill="transparent"><title>purple 100 · L 92.9</title></circle>
+<circle cx="196.0" cy="446.5" r="7" fill="transparent"><title>purple 200 · L 86.2</title></circle>
+<circle cx="268.0" cy="466.9" r="7" fill="transparent"><title>purple 300 · L 78.0</title></circle>
+<circle cx="340.0" cy="486.2" r="7" fill="transparent"><title>purple 400 · L 70.3</title></circle>
+<circle cx="412.0" cy="507.4" r="7" fill="transparent"><title>purple 500 · L 61.8</title></circle>
+<circle cx="484.0" cy="527.1" r="7" fill="transparent"><title>purple 600 · L 54.0</title></circle>
+<circle cx="556.0" cy="545.9" r="7" fill="transparent"><title>purple 700 · L 46.5</title></circle>
+<circle cx="628.0" cy="564.4" r="7" fill="transparent"><title>purple 800 · L 39.0</title></circle>
+<circle cx="700.0" cy="581.9" r="7" fill="transparent"><title>purple 900 · L 32.1</title></circle>
+<polyline points="52.0,421.0 124.0,429.6 196.0,446.0 268.0,467.0 340.0,486.5 412.0,507.3 484.0,527.0 556.0,545.6 628.0,564.8 700.0,582.0" fill="none" stroke="#aa7a53" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="52.0" cy="421.0" r="7" fill="transparent"><title>brown 50 · L 96.4</title></circle>
+<circle cx="124.0" cy="429.6" r="7" fill="transparent"><title>brown 100 · L 93.0</title></circle>
+<circle cx="196.0" cy="446.0" r="7" fill="transparent"><title>brown 200 · L 86.4</title></circle>
+<circle cx="268.0" cy="467.0" r="7" fill="transparent"><title>brown 300 · L 78.0</title></circle>
+<circle cx="340.0" cy="486.5" r="7" fill="transparent"><title>brown 400 · L 70.2</title></circle>
+<circle cx="412.0" cy="507.3" r="7" fill="transparent"><title>brown 500 · L 61.9</title></circle>
+<circle cx="484.0" cy="527.0" r="7" fill="transparent"><title>brown 600 · L 54.0</title></circle>
+<circle cx="556.0" cy="545.6" r="7" fill="transparent"><title>brown 700 · L 46.6</title></circle>
+<circle cx="628.0" cy="564.8" r="7" fill="transparent"><title>brown 800 · L 38.9</title></circle>
+<circle cx="700.0" cy="582.0" r="7" fill="transparent"><title>brown 900 · L 32.0</title></circle>
+<line x1="52" x2="68" y1="656" y2="656" stroke="#e7388d" stroke-width="3" stroke-linecap="round"/>
+<text x="74" y="660" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="11" fill="#2e3338">pink</text>
+<line x1="144" x2="160" y1="656" y2="656" stroke="#ee3635" stroke-width="3" stroke-linecap="round"/>
+<text x="166" y="660" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="11" fill="#2e3338">red</text>
+<line x1="236" x2="252" y1="656" y2="656" stroke="#ec5f00" stroke-width="3" stroke-linecap="round"/>
+<text x="258" y="660" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="11" fill="#2e3338">orange</text>
+<line x1="328" x2="344" y1="656" y2="656" stroke="#feb700" stroke-width="3" stroke-dasharray="4 3" stroke-linecap="round"/>
+<text x="350" y="660" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="11" fill="#2e3338">yellow</text>
+<line x1="420" x2="436" y1="656" y2="656" stroke="#739c00" stroke-width="3" stroke-linecap="round"/>
+<text x="442" y="660" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="11" fill="#2e3338">light-green</text>
+<line x1="512" x2="528" y1="656" y2="656" stroke="#21a65b" stroke-width="3" stroke-linecap="round"/>
+<text x="534" y="660" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="11" fill="#2e3338">green</text>
+<line x1="604" x2="620" y1="656" y2="656" stroke="#00a0a0" stroke-width="3" stroke-linecap="round"/>
+<text x="626" y="660" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="11" fill="#2e3338">cyan</text>
+<line x1="52" x2="68" y1="676" y2="676" stroke="#0097d3" stroke-width="3" stroke-linecap="round"/>
+<text x="74" y="680" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="11" fill="#2e3338">light-blue</text>
+<line x1="144" x2="160" y1="676" y2="676" stroke="#2b84ff" stroke-width="3" stroke-linecap="round"/>
+<text x="166" y="680" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="11" fill="#2e3338">blue</text>
+<line x1="236" x2="252" y1="676" y2="676" stroke="#8568f6" stroke-width="3" stroke-linecap="round"/>
+<text x="258" y="680" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="11" fill="#2e3338">purple</text>
+<line x1="328" x2="344" y1="676" y2="676" stroke="#aa7a53" stroke-width="3" stroke-linecap="round"/>
+<text x="350" y="680" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="11" fill="#2e3338">brown</text>
+<text x="52" y="738" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="14" font-weight="700" fill="#2e3338">Lightness gap between families at each step, without yellow (L)</text>
+<line x1="52" x2="700" y1="920" y2="920" stroke="#d2d6db" stroke-width="1"/>
+<text x="44" y="924" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">0</text>
+<line x1="52" x2="700" y1="880" y2="880" stroke="#f2f4f5" stroke-width="1"/>
+<text x="44" y="884" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">5</text>
+<line x1="52" x2="700" y1="840" y2="840" stroke="#f2f4f5" stroke-width="1"/>
+<text x="44" y="844" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">10</text>
+<line x1="52" x2="700" y1="800" y2="800" stroke="#f2f4f5" stroke-width="1"/>
+<text x="44" y="804" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">15</text>
+<line x1="52" x2="700" y1="760" y2="760" stroke="#f2f4f5" stroke-width="1"/>
+<text x="44" y="764" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">20</text>
+<text x="84.4" y="938" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">50</text>
+<rect x="65.4" y="900.0" width="18" height="20.0" rx="2" fill="#afb5bb"><title>Tailwind CSS 50 · 2.5 L</title></rect>
+<text x="74.4" y="896.0" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" fill="#454b51">2.5</text>
+<rect x="85.4" y="917.1" width="18" height="2.9" rx="2" fill="#2b84ff"><title>Ordinary Palette 50 · 0.4 L</title></rect>
+<text x="94.4" y="913.1" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" fill="#454b51">0.4</text>
+<text x="149.2" y="938" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">100</text>
+<rect x="130.2" y="890.4" width="18" height="29.6" rx="2" fill="#afb5bb"><title>Tailwind CSS 100 · 3.7 L</title></rect>
+<text x="139.2" y="886.4" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" fill="#454b51">3.7</text>
+<rect x="150.2" y="918.0" width="18" height="2.0" rx="2" fill="#2b84ff"><title>Ordinary Palette 100 · 0.3 L</title></rect>
+<text x="159.2" y="914.0" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" fill="#454b51">0.3</text>
+<text x="214" y="938" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">200</text>
+<rect x="195.0" y="865.6" width="18" height="54.4" rx="2" fill="#afb5bb"><title>Tailwind CSS 200 · 6.8 L</title></rect>
+<text x="204.0" y="861.6" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" fill="#454b51">6.8</text>
+<rect x="215.0" y="918.4" width="18" height="1.6" rx="2" fill="#2b84ff"><title>Ordinary Palette 200 · 0.2 L</title></rect>
+<text x="224.0" y="914.4" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" fill="#454b51">0.2</text>
+<text x="278.79999999999995" y="938" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">300</text>
+<rect x="259.8" y="830.4" width="18" height="89.6" rx="2" fill="#afb5bb"><title>Tailwind CSS 300 · 11.2 L</title></rect>
+<text x="268.8" y="826.4" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" fill="#454b51">11.2</text>
+<rect x="279.8" y="900.3" width="18" height="19.7" rx="2" fill="#2b84ff"><title>Ordinary Palette 300 · 2.5 L</title></rect>
+<text x="288.8" y="896.3" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" fill="#454b51">2.5</text>
+<text x="343.59999999999997" y="938" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">400</text>
+<rect x="324.6" y="785.6" width="18" height="134.4" rx="2" fill="#afb5bb"><title>Tailwind CSS 400 · 16.8 L</title></rect>
+<text x="333.6" y="781.6" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" fill="#454b51">16.8</text>
+<rect x="344.6" y="887.6" width="18" height="32.4" rx="2" fill="#2b84ff"><title>Ordinary Palette 400 · 4.1 L</title></rect>
+<text x="353.6" y="883.6" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" fill="#454b51">4.1</text>
+<text x="408.4" y="938" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">500</text>
+<rect x="389.4" y="772.8" width="18" height="147.2" rx="2" fill="#afb5bb"><title>Tailwind CSS 500 · 18.4 L</title></rect>
+<text x="398.4" y="768.8" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" fill="#454b51">18.4</text>
+<rect x="409.4" y="888.5" width="18" height="31.5" rx="2" fill="#2b84ff"><title>Ordinary Palette 500 · 3.9 L</title></rect>
+<text x="418.4" y="884.5" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" fill="#454b51">3.9</text>
+<text x="473.2" y="938" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">600</text>
+<rect x="454.2" y="796.0" width="18" height="124.0" rx="2" fill="#afb5bb"><title>Tailwind CSS 600 · 15.5 L</title></rect>
+<text x="463.2" y="792.0" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" fill="#454b51">15.5</text>
+<rect x="474.2" y="888.3" width="18" height="31.7" rx="2" fill="#2b84ff"><title>Ordinary Palette 600 · 4.0 L</title></rect>
+<text x="483.2" y="884.3" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" fill="#454b51">4.0</text>
+<text x="538" y="938" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">700</text>
+<rect x="519.0" y="841.6" width="18" height="78.4" rx="2" fill="#afb5bb"><title>Tailwind CSS 700 · 9.8 L</title></rect>
+<text x="528.0" y="837.6" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" fill="#454b51">9.8</text>
+<rect x="539.0" y="888.1" width="18" height="31.9" rx="2" fill="#2b84ff"><title>Ordinary Palette 700 · 4.0 L</title></rect>
+<text x="548.0" y="884.1" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" fill="#454b51">4.0</text>
+<text x="602.8" y="938" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">800</text>
+<rect x="583.8" y="860.0" width="18" height="60.0" rx="2" fill="#afb5bb"><title>Tailwind CSS 800 · 7.5 L</title></rect>
+<text x="592.8" y="856.0" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" fill="#454b51">7.5</text>
+<rect x="603.8" y="886.6" width="18" height="33.4" rx="2" fill="#2b84ff"><title>Ordinary Palette 800 · 4.2 L</title></rect>
+<text x="612.8" y="882.6" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" fill="#454b51">4.2</text>
+<text x="667.6" y="938" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">900</text>
+<rect x="648.6" y="876.0" width="18" height="44.0" rx="2" fill="#afb5bb"><title>Tailwind CSS 900 · 5.5 L</title></rect>
+<text x="657.6" y="872.0" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" fill="#454b51">5.5</text>
+<rect x="668.6" y="888.8" width="18" height="31.2" rx="2" fill="#2b84ff"><title>Ordinary Palette 900 · 3.9 L</title></rect>
+<text x="677.6" y="884.8" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" fill="#454b51">3.9</text>
+<rect x="52" y="956" width="12" height="12" rx="2" fill="#afb5bb"/>
+<text x="70" y="966" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="11" fill="#2e3338">Tailwind CSS</text>
+<rect x="182" y="956" width="12" height="12" rx="2" fill="#2b84ff"/>
+<text x="200" y="966" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="11" fill="#2e3338">Ordinary Palette</text>
+</svg>
