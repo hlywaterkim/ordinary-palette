@@ -1,0 +1,1 @@
+{"compilerOptions":{"jsx":"react-jsx","module":"esnext","moduleResolution":"bundler","target":"es2022","paths":{"cn":["./src/cn.ts"]},"baseUrl":".","skipLibCheck":true,"allowImportingTsExtensions":true,"noEmit":true}}

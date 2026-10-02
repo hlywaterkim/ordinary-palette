@@ -1,0 +1,21 @@
+{
+  "name": "ordinary-palette-guide-images",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@tailwindcss/cli": "4.3.3",
+    "@types/react": "*",
+    "@types/react-dom": "*",
+    "class-variance-authority": "*",
+    "clsx": "*",
+    "esbuild": "*",
+    "lucide-react": "*",
+    "radix-ui": "*",
+    "react": "*",
+    "react-dom": "*",
+    "tailwind-merge": "*",
+    "tailwindcss": "4.3.3",
+    "tw-animate-css": "*",
+    "typescript": "*"
+  }
+}
