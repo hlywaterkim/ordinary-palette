@@ -128,9 +128,9 @@ export const green = {
   900: "#004422",
 } as const satisfies ColorScale;
 
-// Cyan at hue 195: aqua like #00ffff at the pale end, teal like #008080 at the dark end. Lighter than the other
+// Teal at hue 195: aqua at the pale end (like #00ffff), classic teal at the dark end (like #008080). Lighter than the other
 // families from 300, because this hue only holds chroma at high lightness in sRGB.
-export const cyan = {
+export const teal = {
   50: "#e7f7f7",
   100: "#cdf0ef",
   200: "#9be1e1",
@@ -143,7 +143,7 @@ export const cyan = {
   900: "#004141",
 } as const satisfies ColorScale;
 
-// Sky blue between cyan and blue. Hue runs 232–242, and from 300 it stays lighter than blue.
+// Sky blue between teal and blue. Hue runs 232–242, and from 300 it stays lighter than blue.
 export const lightBlue = {
   50: "#e8f6fc",
   100: "#d0ecfb",
@@ -340,7 +340,7 @@ export const darkGreen = {
   900: "#d4f0dd",
 } as const satisfies ColorScale;
 
-export const darkCyan = {
+export const darkTeal = {
   50: "#0e3231",
   100: "#004141",
   200: "#005353",
@@ -438,7 +438,7 @@ export const families = [
   "yellow",
   "light-green",
   "green",
-  "cyan",
+  "teal",
   "light-blue",
   "blue",
   "purple",
@@ -456,7 +456,7 @@ export const colors = {
   yellow,
   "light-green": lightGreen,
   green,
-  cyan,
+  teal,
   "light-blue": lightBlue,
   blue,
   purple,
@@ -474,7 +474,7 @@ export const darkColors = {
   yellow: darkYellow,
   "light-green": darkLightGreen,
   green: darkGreen,
-  cyan: darkCyan,
+  teal: darkTeal,
   "light-blue": darkLightBlue,
   blue: darkBlue,
   purple: darkPurple,
@@ -560,7 +560,7 @@ export const sourceHue = {
     "800": 153.58,
     "900": 153.62
   },
-  "cyan": {
+  "teal": {
     "50": 196.79,
     "100": 194.8,
     "200": 195.61,
@@ -708,7 +708,7 @@ export const sourceChroma = {
     "800": 0.1232,
     "900": 0.1122
   },
-  "cyan": {
+  "teal": {
     "50": 0.017,
     "100": 0.036,
     "200": 0.07,
@@ -794,7 +794,7 @@ export const sourceChroma = {
   }
 } as const;
 
-/** Dark-scale hue before gamut fitting. Each step takes the hue of the light step nearest in lightness for yellow, orange, light-green, cyan, light-blue, and blue. */
+/** Dark-scale hue before gamut fitting. Each step takes the hue of the light step nearest in lightness for yellow, orange, light-green, teal, light-blue, and blue. */
 export const darkSourceHue = {
   "pink": {
     "50": 355.74,
@@ -868,7 +868,7 @@ export const darkSourceHue = {
     "800": 154.46,
     "900": 155.4
   },
-  "cyan": {
+  "teal": {
     "50": 194.77,
     "100": 194.77,
     "200": 194.77,
@@ -1004,7 +1004,7 @@ export const darkSourceChroma = {
     "800": 0.078,
     "900": 0.039
   },
-  "cyan": {
+  "teal": {
     "50": 0.04,
     "100": 0.062,
     "200": 0.085,

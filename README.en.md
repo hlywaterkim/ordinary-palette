@@ -24,17 +24,21 @@ Every color keeps the same lightness at each step, so it's easy to build UI with
 
 ## Example UI
 
-A set of components (buttons, badges, alerts, a form, charts), built twice: once with Ordinary Palette and once with Tailwind CSS default colors. Both use the same step numbers (600 fills, 100 backgrounds with 800 text on badges, 500 in charts).
+The same UI built twice: with Tailwind CSS default colors (Before) and with Ordinary Palette (After). Both use the same step numbers (600 for buttons, 500 for charts, 800 text on a 100 background for badges).
 
-![The same components in Ordinary Palette and in Tailwind CSS](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/example-ui-compare.webp)
+![Before: Tailwind CSS, After: Ordinary Palette](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/example-ui-compare.webp)
 
 - **Buttons:** White text on a 600 fill reaches 4.5:1 in all six Ordinary Palette colors. In Tailwind, green (3.2:1), cyan (3.6:1), and orange (3.6:1) fall short, so each color needs its own step or text color.
-- **Charts:** At the same 500, Tailwind's orange, yellow, and cyan look clearly lighter than blue or pink, so the bars carry uneven weight. In Ordinary Palette the bars look equally bright, yellow aside.
-- **Badges and alerts:** Both read as 800 text on a 100 background (900 for yellow).
+- **Lightness of the same 500:** Grayscale makes the difference visible. In Tailwind the lightest and darkest of the six colors are 11.0 L apart; in Ordinary Palette they are 3.9 L apart. Mixing 500s in bars or charts does not leave one color louder or flatter than the rest.
+- **Badges:** 800 text on a 100 background reads well in both (6.4–7.5:1 in Tailwind, 6.9–8.2:1 in Ordinary Palette). There is no big difference here.
+
+A full screen of buttons, badges, alerts, a form, and charts:
+
+![Components built with Ordinary Palette: light](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/example-ui-light.webp)
+
+![Components built with Ordinary Palette: dark](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/example-ui-dark.webp)
 
 The dark scale keeps the same step structure (dark text on a 500 fill, 700 badge text).
-
-![Components built with the Ordinary Palette dark scale](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/example-ui-dark.webp)
 
 ## Install
 
@@ -55,7 +59,7 @@ darkBlue[500];
 whiteOpacity["40"];
 ```
 
-Each light color is also exported by name: `pink`, `red`, `orange`, `yellow`, `lightGreen`, `green`, `cyan`, `lightBlue`, `blue`, `purple`, `brown`, `coolGray`, `neutralGray`. Dark colors are `darkPink`, `darkRed`, `darkOrange`, `darkYellow`, `darkLightGreen`, `darkGreen`, `darkCyan`, `darkLightBlue`, `darkBlue`, `darkPurple`, `darkBrown`, `darkCoolGray`, `darkNeutralGray`, and all of them together are `darkColors`. The opacity scales are `whiteOpacity` and `blackOpacity`.
+Each light color is also exported by name: `pink`, `red`, `orange`, `yellow`, `lightGreen`, `green`, `teal`, `lightBlue`, `blue`, `purple`, `brown`, `coolGray`, `neutralGray`. Dark colors are `darkPink`, `darkRed`, `darkOrange`, `darkYellow`, `darkLightGreen`, `darkGreen`, `darkTeal`, `darkLightBlue`, `darkBlue`, `darkPurple`, `darkBrown`, `darkCoolGray`, `darkNeutralGray`, and all of them together are `darkColors`. The opacity scales are `whiteOpacity` and `blackOpacity`.
 
 ### CSS
 
@@ -80,7 +84,7 @@ CSS variables are named `--color-<color>-<step>` for light and `--color-dark-<co
 ```ts
 import palette from "ordinary-palette/colors.json" with { type: "json" };
 
-palette.cyan["500"];
+palette.teal["500"];
 palette.dark.blue["500"];
 ```
 
@@ -149,8 +153,8 @@ Yellow needs to be bright to look yellow, so it is deliberately lighter than the
 | yellow | ![yellow 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/families/yellow.svg) | Brighter than the shared curve from 100 on. 900 is a deep gold that works as text. |
 | light-green | ![light-green 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/families/light-green.svg) | Yellow-green between yellow and green. Dark steps lean green so they do not look olive. |
 | green | ![green 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/families/green.svg) | A clear green. |
-| cyan | ![cyan 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/families/cyan.svg) | From aqua to teal. Dark steps are less saturated because of the sRGB limit. |
-| light-blue | ![light-blue 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/families/light-blue.svg) | Sky blue between cyan and blue. |
+| teal | ![teal 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/families/teal.svg) | A blue-green at hue 195, from aqua to deep teal. Dark steps are less saturated because of the sRGB limit. |
+| light-blue | ![light-blue 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/families/light-blue.svg) | Sky blue between teal and blue. |
 | blue | ![blue 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/families/blue.svg) | The reference color for the shared lightness curve. |
 | purple | ![purple 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/families/purple.svg) | Slightly more violet than indigo. |
 | brown | ![brown 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/families/brown.svg) | A low-chroma warm brown between orange and gray. |
@@ -183,6 +187,10 @@ npm test
 ## Changelog
 
 0.2.0 is the current version, published on npm.
+
+### Next (not published yet)
+
+- Renamed `cyan` to `teal`: `colors.teal`, the `teal` export, `darkTeal`, `--color-teal-*`, and `--color-dark-teal-*` are the new names, and `cyan` is gone. This reverts the 0.2.0 rename of `teal` to `cyan`. The color values are unchanged.
 
 ### 0.2.0
 

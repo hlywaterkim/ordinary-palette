@@ -73,7 +73,7 @@ test("color families use steps 50–900 and no 950", () => {
     "yellow",
     "light-green",
     "green",
-    "cyan",
+    "teal",
     "light-blue",
     "blue",
     "purple",
@@ -307,8 +307,8 @@ test("steps after 500 stay apart and keep their chroma", () => {
     const chroma = steps.map((step) => oklch(colors[family][step]).c);
     const peak = Math.max(chroma[4], chroma[5], chroma[6]);
     assert.equal(Math.max(...chroma), peak, `${family} chroma should peak in 400–600`);
-    // 900 sits near L 33, where sRGB holds less chroma for cyan and green hues. The floor is half the peak,
-    // or whatever sRGB holds at that lightness and hue when that is lower (cyan).
+    // 900 sits near L 33, where sRGB holds less chroma for teal and green hues. The floor is half the peak,
+    // or whatever sRGB holds at that lightness and hue when that is lower (teal).
     const deep = oklch(colors[family][900]);
     const limit = Math.min(peak * 0.5, maxChroma(deep.l, deep.h) - 0.002);
     assert.ok(chroma[9] >= limit, `${family} 900 chroma ${chroma[9]} fell below 50% of peak ${peak}`);
@@ -325,11 +325,11 @@ test("blue, red, and orange reach the reference peak chroma", () => {
   }
 });
 
-test("light-blue is a sky blue between cyan and blue", () => {
+test("light-blue is a sky blue between teal and blue", () => {
   for (const step of [300, 400, 500, 600, 700, 800, 900] as const) {
     const sky = oklch(lightBlue[step]);
     const deep = oklch(blue[step]);
-    assert.ok(sky.h > oklch(colors.cyan[step]).h + 15 && sky.h < deep.h - 12, `light-blue ${step} hue ${sky.h} is not sky`);
+    assert.ok(sky.h > oklch(colors.teal[step]).h + 15 && sky.h < deep.h - 12, `light-blue ${step} hue ${sky.h} is not sky`);
   }
 });
 
@@ -352,13 +352,13 @@ test("orange and yellow reach Toss TDS chroma at 500", () => {
   }
 });
 
-test("light-green and cyan sit between their neighbours", () => {
+test("light-green and teal sit between their neighbours", () => {
   for (const step of [300, 400, 500, 600, 700, 800, 900] as const) {
     const leaf = oklch(colors["light-green"][step]);
     const green = oklch(colors.green[step]);
-    const cyan = oklch(colors.cyan[step]);
+    const teal = oklch(colors.teal[step]);
     assert.ok(leaf.h > oklch(yellow[step]).h + 32 && leaf.h < green.h - 20, `light-green ${step} hue ${leaf.h} is not a leaf green`);
-    assert.ok(cyan.h > green.h + 35 && cyan.h < oklch(lightBlue[step]).h - 15, `cyan ${step} hue ${cyan.h} is not cyan`);
+    assert.ok(teal.h > green.h + 35 && teal.h < oklch(lightBlue[step]).h - 15, `teal ${step} hue ${teal.h} is not teal`);
   }
 });
 

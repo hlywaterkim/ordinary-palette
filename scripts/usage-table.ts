@@ -139,7 +139,7 @@ function ratio(a: string, b: string): string {
 /** "쓸 때 알아둘 점" examples with live contrast numbers. */
 export function cautionExamples(): string {
   const ink = colors["cool-gray"][900];
-  const lightFamilies = (["orange", "yellow", "light-green", "cyan", "light-blue"] as const).filter((f) => chromaticFamilies.includes(f));
+  const lightFamilies = (["orange", "yellow", "light-green", "teal", "light-blue"] as const).filter((f) => chromaticFamilies.includes(f));
   const fillRows = lightFamilies.map((f) => `| ${f} 500 \`${colors[f][500]}\` | ✅ 어두운 글자 ${ratio(colors[f][500], ink)} | ❌ 흰 글자 ${ratio(colors[f][500], WHITE)} |`);
   const mid = (["pink", "red", "purple"] as const).map(
     (f) => `| ${f} | ⚠️ 500 \`${colors[f][500]}\` + 흰 글자 ${ratio(colors[f][500], WHITE)} | ✅ 600 \`${colors[f][600]}\` + 흰 글자 ${ratio(colors[f][600], WHITE)} |`,
@@ -150,7 +150,7 @@ export function cautionExamples(): string {
   const yellowRows = ([500, 700, 800, 900] as const).map(
     (s) => `| yellow ${s} \`${colors.yellow[s]}\` | ${contrast(colors.yellow[s], WHITE) >= 4.5 ? "✅" : "❌"} ${ratio(colors.yellow[s], WHITE)} | ${contrast(colors.yellow[s], colors.yellow[100]) >= 4.5 ? "✅" : "❌"} ${ratio(colors.yellow[s], colors.yellow[100])} |`,
   );
-  const tint = ["pink/red", "light-blue/blue", "cyan/light-blue"].map((pair) => {
+  const tint = ["pink/red", "light-blue/blue", "teal/light-blue"].map((pair) => {
     const [a, b] = pair.split("/") as [Family, Family];
     return `| ${pair} | 100끼리 ΔE ${visionDistance(colors[a][100], colors[b][100]).toFixed(3)} | 500끼리 ΔE ${visionDistance(colors[a][500], colors[b][500]).toFixed(3)} |`;
   });

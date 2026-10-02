@@ -24,17 +24,21 @@
 
 ## 예시 UI
 
-버튼, 뱃지, 알림, 폼, 차트 같은 컴포넌트를 모아 두고, 같은 화면을 Ordinary Palette와 Tailwind CSS 기본 컬러로 각각 만들었습니다. 두 화면은 스텝 번호까지 같습니다(채움색 600, 뱃지 100 배경에 800 글자, 차트 500).
+같은 UI를 Tailwind CSS 기본 컬러(Before)와 Ordinary Palette(After)로 만들어 비교했습니다. 두 쪽 모두 스텝 번호가 같습니다(버튼은 600, 차트는 500, 뱃지는 100 배경에 800 글자).
 
-![같은 컴포넌트를 Ordinary Palette와 Tailwind CSS로 만든 비교](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/example-ui-compare.webp)
+![Before: Tailwind CSS, After: Ordinary Palette](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/example-ui-compare.webp)
 
-- **버튼:** 600 위 흰 글자 대비가 Ordinary Palette는 6개 컬러 모두 4.5:1 이상입니다. Tailwind는 green(3.2:1), cyan(3.6:1), orange(3.6:1)가 못 미칩니다. 그래서 Tailwind에서는 컬러마다 스텝이나 글자색을 따로 골라야 합니다.
-- **차트:** 같은 500인데 Tailwind는 orange, yellow, cyan이 blue나 pink보다 확연히 밝아서 막대마다 무게가 다릅니다. Ordinary Palette는 yellow를 빼면 밝기가 같아 보입니다.
-- **뱃지·알림:** 둘 다 100 배경에 800 글자(yellow는 900)로 읽힙니다.
+- **버튼:** 600 위 흰 글자 대비가 Ordinary Palette는 6개 모두 4.5:1 이상입니다. Tailwind는 green(3.2:1), cyan(3.6:1), orange(3.6:1) 3개가 못 미칩니다. 컬러를 바꿀 때마다 스텝이나 글자색을 다시 골라야 합니다.
+- **같은 500의 밝기:** 회색조로 바꾸면 차이가 드러납니다. Tailwind는 가장 밝은 컬러와 가장 어두운 컬러가 11.0 L 차이이고, Ordinary Palette는 3.9 L입니다. 그래서 같은 500을 막대나 차트에 섞어 써도 한 컬러만 튀거나 가라앉지 않습니다.
+- **뱃지:** 100 배경에 800 글자는 둘 다 잘 읽힙니다(Tailwind 6.4–7.5:1, Ordinary Palette 6.9–8.2:1). 이 부분은 큰 차이가 없습니다.
 
-다크도 같은 스텝 구조입니다(채움색 500 위 어두운 글자, 뱃지 글자 700).
+버튼, 뱃지, 알림, 폼, 차트를 모은 전체 화면입니다.
 
-![Ordinary Palette 다크 스케일로 만든 컴포넌트](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/example-ui-dark.webp)
+![Ordinary Palette로 만든 컴포넌트 모음: 라이트](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/example-ui-light.webp)
+
+![Ordinary Palette로 만든 컴포넌트 모음: 다크](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/example-ui-dark.webp)
+
+다크는 같은 스텝 구조입니다(채움색 500 위 어두운 글자, 뱃지 글자 700). 요소별 스텝과 대비 수치는 [실제 화면 적용 예시](#실제-화면-적용-예시)에 있습니다.
 
 ## 설치
 
@@ -55,7 +59,7 @@ darkBlue[500];
 whiteOpacity["40"];
 ```
 
-라이트 컬러는 각각 이름으로도 export됩니다: `pink`, `red`, `orange`, `yellow`, `lightGreen`, `green`, `cyan`, `lightBlue`, `blue`, `purple`, `brown`, `coolGray`, `neutralGray`. 다크 컬러는 `darkPink`, `darkRed`, `darkOrange`, `darkYellow`, `darkLightGreen`, `darkGreen`, `darkCyan`, `darkLightBlue`, `darkBlue`, `darkPurple`, `darkBrown`, `darkCoolGray`, `darkNeutralGray`로 export되고, 한데 모은 `darkColors`도 있습니다. 투명도 스케일은 `whiteOpacity`, `blackOpacity`입니다. `yellowLightnessOffset`과 `darkLightness`는 아래에 적은 명도 숫자를 export합니다.
+라이트 컬러는 각각 이름으로도 export됩니다: `pink`, `red`, `orange`, `yellow`, `lightGreen`, `green`, `teal`, `lightBlue`, `blue`, `purple`, `brown`, `coolGray`, `neutralGray`. 다크 컬러는 `darkPink`, `darkRed`, `darkOrange`, `darkYellow`, `darkLightGreen`, `darkGreen`, `darkTeal`, `darkLightBlue`, `darkBlue`, `darkPurple`, `darkBrown`, `darkCoolGray`, `darkNeutralGray`로 export되고, 한데 모은 `darkColors`도 있습니다. 투명도 스케일은 `whiteOpacity`, `blackOpacity`입니다. `yellowLightnessOffset`과 `darkLightness`는 아래에 적은 명도 숫자를 export합니다.
 
 ### CSS
 
@@ -80,7 +84,7 @@ CSS 변수 이름은 라이트가 `--color-<컬러>-<스텝>`, 다크가 `--colo
 ```ts
 import palette from "ordinary-palette/colors.json" with { type: "json" };
 
-palette.cyan["500"];
+palette.teal["500"];
 palette.dark.blue["500"];
 ```
 
@@ -158,7 +162,7 @@ yellow는 밝아야 노랗게 보이는 컬러라서 일부러 공유 곡선보�
 | yellow | ![yellow 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/families/yellow.svg) | `#feb700` | `#f2ae00` |
 | light-green | ![light-green 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/families/light-green.svg) | `#739c00` | `#769f00` |
 | green | ![green 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/families/green.svg) | `#21a65b` | `#26a95e` |
-| cyan | ![cyan 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/families/cyan.svg) | `#00a0a0` | `#00a3a3` |
+| teal | ![teal 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/families/teal.svg) | `#00a0a0` | `#00a3a3` |
 | light-blue | ![light-blue 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/families/light-blue.svg) | `#0097d3` | `#009ad7` |
 | blue | ![blue 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/families/blue.svg) | `#2b84ff` | `#3388ff` |
 | purple | ![purple 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/families/purple.svg) | `#8568f6` | `#886bfa` |
@@ -171,8 +175,8 @@ yellow는 밝아야 노랗게 보이는 컬러라서 일부러 공유 곡선보�
 - **orange:** 500은 채도 0.19의 쨍한 주황(hue 44)으로, 당근 SEED carrot에 가까운 채도입니다. 주황은 노랑처럼 밝아야 쨍해지는 색이라 300부터 공유 곡선보다 조금 밝게(300은 +1.5 L, 400부터 +3 L) 두고, 짙어질수록 hue를 붉은 쪽으로 옮깁니다. red는 그만큼 3° 더 붉게 두어 정상 시각에서 두 색이 ΔE 0.07 이상 떨어집니다. 옅은 스텝은 살구색(hue 60) 쪽입니다.
 - **yellow:** 500·600에서 Toss TDS 채도 이상입니다. 50은 blue와 명도가 같고, 100부터는 blue보다 이만큼(OKLCH L) 밝습니다: 100 +1.9, 200 +5.8, 300 +10.0, 400 +14.7, 500 +19.5, 600 +21.6, 700 +22.4, 800 +22.4, 900 +19.8.
 - **light-green:** yellow와 green 사이의 연두(hue 124–133)입니다. 짙은 스텝이 올리브로 보이지 않게 600부터 초록 쪽으로 조금 기웁니다.
-- **cyan:** hue 195로 #00ffff 같은 아쿠아에서 #008080 같은 teal로 이어집니다. 이 hue는 밝아야 채도가 나와서, 명도를 맞춘 짙은 스텝은 다른 컬러보다 채도가 낮습니다(sRGB 한계).
-- **light-blue:** cyan과 blue 사이의 하늘색(hue 232–242)입니다.
+- **teal:** hue 195의 청록입니다. 옅은 스텝은 #00ffff 같은 아쿠아, 짙은 스텝은 #008080 같은 teal에 가깝습니다. 이 hue는 밝아야 채도가 나와서, 명도를 맞춘 짙은 스텝은 다른 컬러보다 채도가 낮습니다(sRGB 한계).
+- **light-blue:** teal과 blue 사이의 하늘색(hue 232–242)입니다.
 - **pink:** hue 356의 진짜 분홍이라 red와 구분됩니다.
 - **purple:** hue 288로 indigo보다 살짝 보라 쪽입니다.
 - **brown:** orange와 회색 사이의 채도 낮은 따뜻한 갈색(hue 56–64)입니다. 명도가 orange와 같아서, 채도를 더 낮추고 hue를 노란 쪽으로 옮겨 구분합니다.
@@ -204,7 +208,7 @@ yellow는 밝아야 노랗게 보이는 컬러라서 일부러 공유 곡선보�
 | yellow | 900 | 900 | 어두운 글자 9.4:1 | 900 | 800 |
 | light-green | 600 | 600 | 어두운 글자 5.1:1 | 700 | 500 |
 | green | 600 | 600 | 어두운 글자 5.2:1 | 700 | 500 |
-| cyan | 600 | 600 | 어두운 글자 5.1:1 | 700 | 500 |
+| teal | 600 | 600 | 어두운 글자 5.1:1 | 700 | 500 |
 | light-blue | 600 | 600 | 어두운 글자 5.0:1 | 700 | 500 |
 | blue | 600 | 600 | 어두운 글자 4.6:1 | 700 | 500 |
 | purple | 600 | 600 | 어두운 글자 4.1:1 | 700 | 500 |
@@ -220,7 +224,7 @@ yellow는 밝아야 노랗게 보이는 컬러라서 일부러 공유 곡선보�
 | yellow | 400 | 어두운 글자 8.9:1 | 500 |
 | light-green | 500 | 어두운 글자 5.6:1 | 600 |
 | green | 500 | 어두운 글자 5.7:1 | 600 |
-| cyan | 500 | 어두운 글자 5.6:1 | 600 |
+| teal | 500 | 어두운 글자 5.6:1 | 600 |
 | light-blue | 500 | 어두운 글자 5.4:1 | 600 |
 | blue | 500 | 어두운 글자 5.0:1 | 600 |
 | purple | 500 | 어두운 글자 4.6:1 | 700 |
@@ -235,7 +239,7 @@ yellow는 밝아야 노랗게 보이는 컬러라서 일부러 공유 곡선보�
 | orange 500 `#ec5f00` | ✅ 어두운 글자 4.8:1 | ❌ 흰 글자 3.4:1 |
 | yellow 500 `#feb700` | ✅ 어두운 글자 9.4:1 | ❌ 흰 글자 1.8:1 |
 | light-green 500 `#739c00` | ✅ 어두운 글자 5.1:1 | ❌ 흰 글자 3.2:1 |
-| cyan 500 `#00a0a0` | ✅ 어두운 글자 5.1:1 | ❌ 흰 글자 3.2:1 |
+| teal 500 `#00a0a0` | ✅ 어두운 글자 5.1:1 | ❌ 흰 글자 3.2:1 |
 | light-blue 500 `#0097d3` | ✅ 어두운 글자 5.0:1 | ❌ 흰 글자 3.3:1 |
 
 **2. pink·red·purple의 흰 글자 버튼은 600부터 씁니다.** 500은 크고 굵은 글자(3:1)에만 씁니다.
@@ -252,7 +256,7 @@ yellow는 밝아야 노랗게 보이는 컬러라서 일부러 공유 곡선보�
 | --- | --- | --- |
 | orange | ❌ 500 3.4:1 | ✅ 600 4.6:1 |
 | light-green | ❌ 500 3.2:1 | ✅ 600 4.7:1 |
-| cyan | ❌ 500 3.2:1 | ✅ 600 4.7:1 |
+| teal | ❌ 500 3.2:1 | ✅ 600 4.7:1 |
 | light-blue | ❌ 500 3.3:1 | ✅ 600 4.6:1 |
 
 **4. yellow를 글자로 쓸 때는 900만 씁니다.**
@@ -270,7 +274,7 @@ yellow는 밝아야 노랗게 보이는 컬러라서 일부러 공유 곡선보�
 | --- | --- | --- |
 | pink/red | 100끼리 ΔE 0.020 | 500끼리 ΔE 0.116 |
 | light-blue/blue | 100끼리 ΔE 0.011 | 500끼리 ΔE 0.091 |
-| cyan/light-blue | 100끼리 ΔE 0.023 | 500끼리 ΔE 0.090 |
+| teal/light-blue | 100끼리 ΔE 0.023 | 500끼리 ΔE 0.090 |
 
 **6. hover와 pressed 상태는 라이트에서 한 단계 어둡게(600 → 700), 다크에서 한 단계 밝게 씁니다.**
 
@@ -284,13 +288,13 @@ yellow는 밝아야 노랗게 보이는 컬러라서 일부러 공유 곡선보�
 | --- | --- |
 | 정상 시각 | 없음 |
 | 적색약 (protan) | orange/brown 0.057, light-green/green 0.052, blue/purple 0.046 |
-| 녹색약 (deutan) | pink/green 0.058, pink/cyan 0.041, red/orange 0.043, red/light-green 0.011, red/green 0.052, red/brown 0.044, orange/light-green 0.034, light-green/green 0.063, light-green/brown 0.055, green/brown 0.018, blue/purple 0.015 |
-| 청색약 (tritan) | pink/red 0.041, pink/orange 0.038, red/orange 0.036, green/cyan 0.017, green/light-blue 0.035, green/blue 0.053, cyan/light-blue 0.018, cyan/blue 0.038, light-blue/blue 0.023 |
+| 녹색약 (deutan) | pink/green 0.058, pink/teal 0.041, red/orange 0.043, red/light-green 0.011, red/green 0.052, red/brown 0.044, orange/light-green 0.034, light-green/green 0.063, light-green/brown 0.055, green/brown 0.018, blue/purple 0.015 |
+| 청색약 (tritan) | pink/red 0.041, pink/orange 0.038, red/orange 0.036, green/teal 0.017, green/light-blue 0.035, green/blue 0.053, teal/light-blue 0.018, teal/blue 0.038, light-blue/blue 0.023 |
 
-차트처럼 색만으로 구분해야 할 때 쓰기 좋은 500 순서: blue → orange → yellow → brown → cyan → pink. 앞에서부터 고르면 정상 시각과 세 가지 시뮬레이션 모두에서 서로 떨어진 최소 거리가 4색 ΔE 0.057, 5색 0.038, 6색 0.038입니다. 0.07보다 작아지는 개수부터는 색 외에 모양이나 라벨을 함께 씁니다.
+차트처럼 색만으로 구분해야 할 때 쓰기 좋은 500 순서: blue → orange → yellow → brown → teal → pink. 앞에서부터 고르면 정상 시각과 세 가지 시뮬레이션 모두에서 서로 떨어진 최소 거리가 4색 ΔE 0.057, 5색 0.038, 6색 0.038입니다. 0.07보다 작아지는 개수부터는 색 외에 모양이나 라벨을 함께 씁니다.
 
 - **성공과 오류를 red와 green만으로 구분하지 않습니다.** 녹색약(남성의 약 5%)에게는 red 500과 green 500이 거의 같아 보입니다. 아이콘(✓, !)이나 문구를 함께 씁니다.
-- 적색약에게는 red와 brown, 녹색약에게는 blue와 purple, 청색약에게는 cyan과 light-blue가 거의 같아 보입니다. 이 쌍을 나란히 쓸 때는 명도를 두 단계 이상 벌리거나(예: red 500과 brown 800) 라벨을 붙입니다.
+- 적색약에게는 red와 brown, 녹색약에게는 blue와 purple, 청색약에게는 teal과 light-blue가 거의 같아 보입니다. 이 쌍을 나란히 쓸 때는 명도를 두 단계 이상 벌리거나(예: red 500과 brown 800) 라벨을 붙입니다.
 - 유채색은 명도 곡선을 공유해서, 같은 스텝끼리는 명도 차이가 거의 없습니다. 색각 이상이 있으면 hue 차이만 남기 때문에 헷갈리는 조합이 많아집니다. 같은 스텝의 색을 여러 개 나란히 쓸 때는 스텝을 섞어 명도 차이를 만들거나 라벨을 붙입니다.
 
 ### 실제 화면 적용 예시
@@ -330,7 +334,7 @@ npm test
 - **형식:** 스텝은 50–900(950 없음), 색은 `#RRGGBB`, `colors.json`·`colors.css`·빌드 결과가 팔레트와 같은지.
 - **명도:** 50에서 900으로 떨어지는지, yellow·회색을 뺀 유채색이 blue 명도와 1.3 L 안인지(orange는 300 +1.5 L, 400부터 +3 L), blue 600 이후 스텝마다 6.5 L 이상 떨어지고 900이 L 35 이하인지.
 - **간격:** 200–900 인접 스텝이 라이트·다크 모두 ΔE OK 0.065–0.105인지.
-- **채도:** 400–600에서 가장 높은지, 900은 최고의 50% 이상인지(cyan처럼 sRGB가 못 담으면 한계까지), 600이 500을 넘지 않는지, 50–200 채도가 컬러끼리 같은지, blue·red·orange와 orange·yellow가 기준 채도에 닿는지.
+- **채도:** 400–600에서 가장 높은지, 900은 최고의 50% 이상인지(teal처럼 sRGB가 못 담으면 한계까지), 600이 500을 넘지 않는지, 50–200 채도가 컬러끼리 같은지, blue·red·orange와 orange·yellow가 기준 채도에 닿는지.
 - **hue:** 각 컬러의 hue, pink/red와 brown/orange 거리, 회색의 밝은 쪽, neutral-gray 채도 0.
 - **대비:** 700 위 흰 글자와 100 위 800 글자, yellow 900 글자.
 - **다크:** 방향(어두운 50 → 밝은 900), 다크 50 배경색, 다크 최고 채도가 라이트의 90% 이상인지.
@@ -340,6 +344,10 @@ npm test
 ## 변경 기록
 
 0.2.0이 현재 버전이며 npm에 배포되어 있습니다.
+
+### 다음 버전 (아직 배포 전)
+
+- `cyan`을 `teal`로 바꿨습니다. `colors.teal`, `teal` export, `darkTeal`, `--color-teal-*`, `--color-dark-teal-*`가 새 이름이고, `cyan`은 더 이상 없습니다. 0.2.0에서 `teal`을 `cyan`으로 바꿨던 것을 되돌린 것입니다. 색값은 그대로입니다.
 
 ### 0.2.0
 
