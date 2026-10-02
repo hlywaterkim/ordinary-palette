@@ -115,7 +115,7 @@ test("lightness falls from 50 to 900 and chroma humps", () => {
   for (const step of [50, 100, 200] as const) {
     const target = oklch(blue[step]).l;
     for (const family of chromatic) {
-      // Yellow shares only step 50. Its 100 and 200 sit lighter so Toss-level chroma fits.
+      // Yellow shares only step 50. Its 100 and 200 sit lighter so high chroma fits in sRGB.
       if (family === "yellow" && step !== 50) continue;
       const { l } = oklch(colors[family][step]);
       assert.ok(Math.abs(l - target) <= 0.4, `${family} ${step} L ${l} misses shared pale ${target}`);
@@ -316,8 +316,8 @@ test("steps after 500 stay apart and keep their chroma", () => {
 });
 
 test("blue, red, and orange reach the reference peak chroma", () => {
-  // Lowest peak among SEED, Toss TDS, and Montage for the same hue.
-  // Orange sits at 0.174, the sRGB limit for hue 50 at the aligned 500 lightness, just under Montage's 0.176.
+  // Peak chroma floors that keep dark steps from collapsing to brown.
+  // Orange sits at 0.174, the sRGB limit for hue 50 at the aligned 500 lightness.
   const floor = { blue: 0.198, red: 0.219, orange: 0.17 } as const;
   for (const [family, minimum] of Object.entries(floor) as Array<[keyof typeof floor, number]>) {
     const peak = Math.max(...steps.map((step) => oklch(colors[family][step]).c));
@@ -341,13 +341,12 @@ test("yellow carries strong chroma throughout", () => {
   assert.ok(chroma[9] >= 0.1, `yellow 900 chroma ${chroma[9]} reads as brown`);
 });
 
-test("orange and yellow reach Toss TDS chroma at 500", () => {
-  // Toss TDS orange 500 and yellow 500 chroma, measured from @toss/tds-colors.
+test("orange and yellow stay vivid at 500", () => {
   const floor = { orange: 0.173, yellow: 0.154 } as const;
   for (const [family, minimum] of Object.entries(floor) as Array<[keyof typeof floor, number]>) {
     for (const step of [500] as const) {
       const { c } = oklch(colors[family][step]);
-      assert.ok(c >= minimum, `${family} ${step} chroma ${c.toFixed(3)} is below Toss ${minimum}`);
+      assert.ok(c >= minimum, `${family} ${step} chroma ${c.toFixed(3)} is below ${minimum}`);
     }
   }
 });
@@ -556,7 +555,7 @@ test("assets branch swatch images match the palette", (t) => {
 });
 
 test("tint steps 50–200 carry the same chroma across families", () => {
-  // Toss's first complaint: the same 100 looked blotchy across hues. Yellow and the low-chroma brown keep their own tints.
+  // The same 100 should not look blotchy across hues. Yellow and the low-chroma brown keep their own tints.
   const tinted = families.filter((family) => !["yellow", "brown", "cool-gray", "neutral-gray"].includes(family));
   for (const [label, scale] of [["light", colors], ["dark", darkColors]] as const) {
     for (const step of [50, 100, 200] as const) {

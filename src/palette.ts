@@ -70,7 +70,7 @@ export const red = {
   900: "#660006",
 } as const satisfies ColorScale;
 
-// Orange is vivid at 500 (hue 44, chroma about 0.19, close to SEED carrot) and sits 3 L above the shared curve from 400, since orange only turns vivid when light. Pale steps lean toward apricot (hue 60), dark steps toward 42.
+// Orange is vivid at 500 (hue 44, chroma about 0.19) and sits 3 L above the shared curve from 400, since orange only turns vivid when light. Pale steps lean toward apricot (hue 60), dark steps toward 42.
 export const orange = {
   50: "#fcf1e8",
   100: "#fae2d0",
@@ -85,7 +85,7 @@ export const orange = {
 } as const satisfies ColorScale;
 
 // Yellow shares only step 50 with the other color families. From 100 it sits lighter, so chroma
-// reaches the Toss TDS level (about 0.165 at 500) inside sRGB and pale steps read yellow, not beige.
+// stays high (about 0.165 at 500) inside sRGB and pale steps read yellow, not beige.
 // From 500, hue leans toward amber but stays within 15° of step 50. Steps 600–900 fall faster, so 900 is a deep
 // gold that carries 4.5:1 text on white and on yellow 100.
 export const yellow = {
