@@ -22,24 +22,6 @@ Every color keeps the same lightness at each step, so it's easy to build UI with
 - **Checked by tests:** `npm test` checks lightness spacing, chroma, and contrast on every run.
 - **Palette only:** There are no semantic tokens such as primary, surface, or text. Put your own design system on top.
 
-## Example UI
-
-The same UI built twice: with Tailwind CSS default colors (Before) and with Ordinary Palette (After). Both use the same step numbers (600 for buttons, 500 for charts, 800 text on a 100 background for badges).
-
-![Before: Tailwind CSS, After: Ordinary Palette](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/example-ui-compare.webp)
-
-- **Buttons:** White text on a 600 fill reaches 4.5:1 in all six Ordinary Palette colors. In Tailwind, green (3.2:1), cyan (3.6:1), and orange (3.6:1) fall short, so each color needs its own step or text color.
-- **Lightness of the same 500:** Grayscale makes the difference visible. In Tailwind the lightest and darkest of the six colors are 11.0 L apart; in Ordinary Palette they are 3.9 L apart. Mixing 500s in bars or charts does not leave one color louder or flatter than the rest.
-- **Badges:** 800 text on a 100 background reads well in both (6.4–7.5:1 in Tailwind, 6.9–8.2:1 in Ordinary Palette). There is no big difference here.
-
-A full screen of buttons, badges, alerts, a form, and charts:
-
-![Components built with Ordinary Palette: light](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/example-ui-light.webp)
-
-![Components built with Ordinary Palette: dark](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/example-ui-dark.webp)
-
-The dark scale keeps the same step structure (dark text on a 500 fill, 700 badge text).
-
 ## Install
 
 ```bash
@@ -174,6 +156,36 @@ The palette has no semantic tokens, and it will not add them. These are measured
 - **Same step, similar colors:** Because the colors share lightness, some same-step pairs are hard to tell apart with color vision deficiency. Add a label or icon, or mix steps.
 
 The full guide, with measured contrast tables, color vision simulation, and screen examples, is in the [Korean README](README.md#스텝-사용-가이드).
+
+## Things to know
+
+What the measured numbers mean when you build with the steps. Contrast is WCAG 2.
+
+On a 500 fill of a light color (orange, yellow, light-green, teal, light-blue), put dark text, not white.
+
+![Dark text and white text on a light color's 500](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/guide-1.webp)
+
+White text on pink, red, and purple buttons starts at 600. Use 500 only for large, bold text (3:1).
+
+![White text on 500 and 600 of pink, red, and purple](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/guide-2.webp)
+
+A lone icon on white takes 600 or darker. Icons need 3:1, but 500 sits at 3.2–3.4:1 with almost no margin, and 600 clears 4.5:1.
+
+![Icons on 500 and 600 of orange, light-green, teal, light-blue](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/guide-3.webp)
+
+Use only yellow 900 for yellow text.
+
+![Yellow 500, 700, 800, and 900 as text on white and on yellow 100](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/guide-4.webp)
+
+Do not tell categories apart by the 50 or 100 tint alone. Pale tints look almost the same across colors, so add 700–800 text or an icon on top.
+
+![Categories shown by tint alone, by 500 fill, and by tint with text and icon](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/guide-5.webp)
+
+Hover and pressed go one step darker in light (600 → 700) and one step lighter in dark.
+
+![Hover and pressed states in light and dark](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/guide-6.webp)
+
+The tables behind these images are in the [Korean README](README.md#쓸-때-알아둘-점).
 
 ## Development
 

@@ -22,24 +22,6 @@
 - **테스트로 검증:** 명도 간격, 채도, 대비 기준을 `npm test`가 매번 검사합니다.
 - **기본 팔레트만:** primary·surface·text 같은 시맨틱 토큰은 없습니다. 각자의 디자인 시스템 위에 얹어 씁니다.
 
-## 예시 UI
-
-같은 UI를 Tailwind CSS 기본 컬러(Before)와 Ordinary Palette(After)로 만들어 비교했습니다. 두 쪽 모두 스텝 번호가 같습니다(버튼은 600, 차트는 500, 뱃지는 100 배경에 800 글자).
-
-![Before: Tailwind CSS, After: Ordinary Palette](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/example-ui-compare.webp)
-
-- **버튼:** 600 위 흰 글자 대비가 Ordinary Palette는 6개 모두 4.5:1 이상입니다. Tailwind는 green(3.2:1), cyan(3.6:1), orange(3.6:1) 3개가 못 미칩니다. 컬러를 바꿀 때마다 스텝이나 글자색을 다시 골라야 합니다.
-- **같은 500의 밝기:** 회색조로 바꾸면 차이가 드러납니다. Tailwind는 가장 밝은 컬러와 가장 어두운 컬러가 11.0 L 차이이고, Ordinary Palette는 3.9 L입니다. 그래서 같은 500을 막대나 차트에 섞어 써도 한 컬러만 튀거나 가라앉지 않습니다.
-- **뱃지:** 100 배경에 800 글자는 둘 다 잘 읽힙니다(Tailwind 6.4–7.5:1, Ordinary Palette 6.9–8.2:1). 이 부분은 큰 차이가 없습니다.
-
-버튼, 뱃지, 알림, 폼, 차트를 모은 전체 화면입니다.
-
-![Ordinary Palette로 만든 컴포넌트 모음: 라이트](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/example-ui-light.webp)
-
-![Ordinary Palette로 만든 컴포넌트 모음: 다크](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/example-ui-dark.webp)
-
-다크는 같은 스텝 구조입니다(채움색 500 위 어두운 글자, 뱃지 글자 700). 요소별 스텝과 대비 수치는 [실제 화면 적용 예시](#실제-화면-적용-예시)에 있습니다.
-
 ## 설치
 
 ```bash
@@ -234,6 +216,8 @@ yellow는 밝아야 노랗게 보이는 컬러라서 일부러 공유 곡선보�
 
 **1. 밝은 컬러의 500 배경에는 어두운 글자를 올립니다.** 어두운 글자는 cool-gray 900입니다.
 
+![밝은 컬러의 500 배경: 어두운 글자와 흰 글자 비교](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/guide-1.webp)
+
 | 배경 | 어두운 글자 | 흰 글자 |
 | --- | --- | --- |
 | orange 500 `#ec5f00` | ✅ 어두운 글자 4.8:1 | ❌ 흰 글자 3.4:1 |
@@ -244,22 +228,28 @@ yellow는 밝아야 노랗게 보이는 컬러라서 일부러 공유 곡선보�
 
 **2. pink·red·purple의 흰 글자 버튼은 600부터 씁니다.** 500은 크고 굵은 글자(3:1)에만 씁니다.
 
+![pink·red·purple: 500과 600 위 흰 글자 비교](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/guide-2.webp)
+
 | 컬러 | 500 | 600 |
 | --- | --- | --- |
 | pink | ⚠️ 500 `#e7388d` + 흰 글자 3.9:1 | ✅ 600 `#ca1476` + 흰 글자 5.4:1 |
 | red | ⚠️ 500 `#ee3635` + 흰 글자 4.0:1 | ✅ 600 `#d20b1b` + 흰 글자 5.5:1 |
 | purple | ⚠️ 500 `#8568f6` + 흰 글자 4.0:1 | ✅ 600 `#6e4fdb` + 흰 글자 5.5:1 |
 
-**3. 흰 배경 위 단독 아이콘은 600 이상을 씁니다.** 아이콘은 3:1이 기준입니다.
+**3. 흰 배경 위 단독 아이콘은 600 이상을 씁니다.** 아이콘 기준은 3:1이지만 500은 3.2–3.4:1로 여유가 거의 없고, 600은 4.5:1을 넘습니다.
+
+![흰 배경 위 단독 아이콘: 500과 600 비교](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/guide-3.webp)
 
 | 컬러 | 500 아이콘 | 600 아이콘 |
 | --- | --- | --- |
-| orange | ❌ 500 3.4:1 | ✅ 600 4.6:1 |
-| light-green | ❌ 500 3.2:1 | ✅ 600 4.7:1 |
-| teal | ❌ 500 3.2:1 | ✅ 600 4.7:1 |
-| light-blue | ❌ 500 3.3:1 | ✅ 600 4.6:1 |
+| orange | ⚠️ 500 3.4:1 | ✅ 600 4.6:1 |
+| light-green | ⚠️ 500 3.2:1 | ✅ 600 4.7:1 |
+| teal | ⚠️ 500 3.2:1 | ✅ 600 4.7:1 |
+| light-blue | ⚠️ 500 3.3:1 | ✅ 600 4.6:1 |
 
 **4. yellow를 글자로 쓸 때는 900만 씁니다.**
+
+![yellow 글자: 500·700·800·900 비교](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/guide-4.webp)
 
 | 글자 | 흰 배경 위 | yellow 100 위 |
 | --- | --- | --- |
@@ -270,13 +260,16 @@ yellow는 밝아야 노랗게 보이는 컬러라서 일부러 공유 곡선보�
 
 **5. 50·100 같은 옅은 색만으로 카테고리를 구분하지 않습니다.** 옅은 색은 컬러끼리 거의 같아 보입니다(ΔE 0.03 미만). 그 위에 700–800 글자나 아이콘을 함께 올립니다.
 
+![50·100 틴트만으로 구분한 카테고리](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/guide-5.webp)
+
 | 컬러 | 100 | 500 |
 | --- | --- | --- |
 | pink/red | 100끼리 ΔE 0.020 | 500끼리 ΔE 0.116 |
 | light-blue/blue | 100끼리 ΔE 0.011 | 500끼리 ΔE 0.091 |
 | teal/light-blue | 100끼리 ΔE 0.023 | 500끼리 ΔE 0.090 |
-
 **6. hover와 pressed 상태는 라이트에서 한 단계 어둡게(600 → 700), 다크에서 한 단계 밝게 씁니다.**
+
+![hover와 pressed: 라이트는 한 단계 어둡게, 다크는 한 단계 밝게](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/guide-6.webp)
 
 ### 색각 이상 시뮬레이션
 
