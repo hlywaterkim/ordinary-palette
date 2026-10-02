@@ -2,14 +2,23 @@ import { mkdir, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { colors, darkColors, families, steps } from "../src/palette.ts";
-import { contrast, lightnessChroma, simulate, VISION_LABEL, type Vision } from "./usage-table.ts";
+import {
+  OWN_CHROMATIC,
+  TAILWIND_FAMILIES,
+  TAILWIND_STEPS,
+  ownSpread,
+  tailwindHex,
+  tailwindLightness,
+  tailwindSpread,
+  tailwindVersion,
+} from "./tailwind-compare.ts";
+import { ASSETS_URL, contrast, lightnessChroma, simulate, VISION_LABEL, type Vision } from "./usage-table.ts";
 
 // SVG swatches for the README. GitHub strips inline styles, so the README shows color through these images.
 // They are built into docs/ (ignored by git) and published on the assets branch by scripts/update-assets.sh,
 // so main holds only the palette.
 
-/** Where the README loads the published images from. */
-export const ASSETS_URL = "https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/";
+export { ASSETS_URL };
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const FONT = "ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif";
@@ -23,8 +32,57 @@ function ink(fill: string): string {
   return contrast(fill, DARK_INK) >= contrast(fill, LIGHT_INK) ? DARK_INK : LIGHT_INK;
 }
 
+/**
+ * Path data for a rounded rectangle with Figma-style corner smoothing (0.6 is Figma's iOS preset, Apple's squircle).
+ * A short circular arc sits between two Bézier curves that ease the curvature in over (1 + smoothing) × radius along
+ * each edge. Same construction as the cover and as figma-squircle.
+ */
+function squircle(x: number, y: number, width: number, height: number, radius: number, smoothing = 0.6): string {
+  const rad = (deg: number) => (deg * Math.PI) / 180;
+  const budget = Math.min(width, height) / 2;
+  const r = Math.min(radius, budget);
+  const sm = Math.max(0, Math.min(smoothing, budget / r - 1));
+  const p = Math.min((1 + sm) * r, budget);
+  const arcMeasure = 90 * (1 - sm);
+  const arc = Math.sin(rad(arcMeasure / 2)) * r * Math.SQRT2;
+  const alpha = (90 - arcMeasure) / 2;
+  const p3ToP4 = r * Math.tan(rad(alpha / 2));
+  const beta = 45 * sm;
+  const c = p3ToP4 * Math.cos(rad(beta));
+  const d = c * Math.tan(rad(beta));
+  const b = (p - arc - c - d) / 3;
+  const a = 2 * b;
+  const n = (v: number) => String(Math.round(v * 100) / 100);
+  const rel = (...v: number[]) => v.map(n).join(" ");
+  return [
+    `M${rel(x + width - p, y)}`,
+    `c${rel(a, 0, a + b, 0, a + b + c, d)}`,
+    `a${rel(r, r)} 0 0 1 ${rel(arc, arc)}`,
+    `c${rel(d, c, d, b + c, d, a + b + c)}`,
+    `L${rel(x + width, y + height - p)}`,
+    `c${rel(0, a, 0, a + b, -d, a + b + c)}`,
+    `a${rel(r, r)} 0 0 1 ${rel(-arc, arc)}`,
+    `c${rel(-c, d, -(b + c), d, -(a + b + c), d)}`,
+    `L${rel(x + p, y + height)}`,
+    `c${rel(-a, 0, -(a + b), 0, -(a + b + c), -d)}`,
+    `a${rel(r, r)} 0 0 1 ${rel(-arc, -arc)}`,
+    `c${rel(-d, -c, -d, -(b + c), -d, -(a + b + c))}`,
+    `L${rel(x, y + p)}`,
+    `c${rel(0, -a, 0, -(a + b), d, -(a + b + c))}`,
+    `a${rel(r, r)} 0 0 1 ${rel(arc, -arc)}`,
+    `c${rel(c, -d, b + c, -d, a + b + c, -d)}`,
+    "Z",
+  ].join("");
+}
+
+/** A filled rounded rectangle with smoothed corners; children (like a <title>) go inside the path. */
+function roundedRect(x: number, y: number, width: number, height: number, radius: number, fill: string, inner = ""): string {
+  const d = squircle(x, y, width, height, radius);
+  return inner ? `<path d="${d}" fill="${fill}">${inner}</path>` : `<path d="${d}" fill="${fill}"/>`;
+}
+
 function svg(width: number, height: number, body: string, background: string): string {
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">\n<rect width="${width}" height="${height}" rx="12" fill="${background}"/>\n${body}</svg>\n`;
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">\n${roundedRect(0, 0, width, height, 12, background)}\n${body}</svg>\n`;
 }
 
 function paletteGrid(scales: Record<string, Scale>, background: string, label: string): string {
@@ -52,7 +110,7 @@ function paletteGrid(scales: Record<string, Scale>, background: string, label: s
       const fill = scales[family][step];
       const x = left + index * cell;
       parts.push(
-        `<rect x="${x}" y="${y}" width="${cell - gap}" height="${rowHeight - gap}" rx="6" fill="${fill}"/>`,
+        roundedRect(x, y, cell - gap, rowHeight - gap, 6, fill),
         `<text x="${x + 7}" y="${y + rowHeight - gap - 9}" font-family="${MONO}" font-size="10" fill="${ink(fill)}">${fill}</text>`,
       );
     });
@@ -71,7 +129,7 @@ function familyStrip(family: (typeof families)[number]): string {
     })
     .join("\n");
   const width = steps.length * cell;
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">\n<clipPath id="r"><rect width="${width}" height="${height}" rx="5"/></clipPath>\n<g clip-path="url(#r)">\n${body}\n</g>\n</svg>\n`;
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">\n<clipPath id="r"><path d="${squircle(0, 0, width, height, 5)}"/></clipPath>\n<g clip-path="url(#r)">\n${body}\n</g>\n</svg>\n`;
 }
 
 function visionStrip(): string {
@@ -92,7 +150,7 @@ function visionStrip(): string {
     parts.push(`<text x="16" y="${y + rowHeight / 2 + 2}" font-family="${FONT}" font-size="12" font-weight="600" fill="${DARK_INK}">${label}</text>`);
     chromatic.forEach((family, index) => {
       const hex = colors[family][500];
-      parts.push(`<rect x="${left + index * cell}" y="${y}" width="${cell - 4}" height="${rowHeight - 4}" rx="6" fill="${vision ? simulate(hex, vision) : hex}"/>`);
+      parts.push(roundedRect(left + index * cell, y, cell - 4, rowHeight - 4, 6, vision ? simulate(hex, vision) : hex));
     });
   });
   chromatic.forEach((family, index) => {
@@ -158,6 +216,112 @@ function curveChart(scales: Record<string, Scale>, metric: Metric, dark: boolean
   return svg(width, height, `${parts.join("\n")}\n`, background);
 }
 
+type Line = { name: string; color: string; values: number[]; dashed?: boolean };
+
+/** One lightness panel: a line per family, steps along the bottom, a legend underneath. Returns the SVG parts and its height. */
+function lightnessPanel(title: string, stepLabels: readonly number[], lines: Line[], top: number): { parts: string[]; height: number } {
+  const plot = { left: 52, right: 700, top: top + 30, bottom: top + 230 };
+  const [min, max] = [20, 100];
+  const x = (index: number) => plot.left + (index * (plot.right - plot.left)) / (stepLabels.length - 1);
+  const y = (value: number) => plot.bottom - ((value - min) / (max - min)) * (plot.bottom - plot.top);
+  const parts: string[] = [
+    `<text x="${plot.left}" y="${top + 14}" font-family="${FONT}" font-size="14" font-weight="700" fill="${colors["cool-gray"][800]}">${title}</text>`,
+  ];
+  for (const tick of [20, 40, 60, 80, 100]) {
+    parts.push(
+      `<line x1="${plot.left}" x2="${plot.right}" y1="${y(tick)}" y2="${y(tick)}" stroke="${colors["cool-gray"][100]}" stroke-width="1"/>`,
+      `<text x="${plot.left - 8}" y="${y(tick) + 4}" text-anchor="end" font-family="${MONO}" font-size="10" fill="${colors["cool-gray"][600]}">${tick}</text>`,
+    );
+  }
+  parts.push(`<line x1="${plot.left}" x2="${plot.right}" y1="${plot.bottom}" y2="${plot.bottom}" stroke="${colors["cool-gray"][300]}" stroke-width="1"/>`);
+  stepLabels.forEach((step, index) => {
+    parts.push(`<text x="${x(index)}" y="${plot.bottom + 18}" text-anchor="middle" font-family="${MONO}" font-size="10" fill="${colors["cool-gray"][600]}">${step}</text>`);
+  });
+  for (const line of lines) {
+    const points = line.values.map((value, index) => `${x(index).toFixed(1)},${y(value).toFixed(1)}`).join(" ");
+    const dash = line.dashed ? ' stroke-dasharray="5 4"' : "";
+    parts.push(`<polyline points="${points}" fill="none" stroke="${line.color}" stroke-width="2"${dash} stroke-linejoin="round" stroke-linecap="round"/>`);
+    line.values.forEach((value, index) => {
+      parts.push(`<circle cx="${x(index).toFixed(1)}" cy="${y(value).toFixed(1)}" r="7" fill="transparent"><title>${line.name} ${stepLabels[index]} · L ${value.toFixed(1)}</title></circle>`);
+    });
+  }
+  const perRow = 7;
+  const legendTop = plot.bottom + 44;
+  lines.forEach((line, index) => {
+    const lx = plot.left + (index % perRow) * 92;
+    const ly = legendTop + Math.floor(index / perRow) * 20;
+    const dash = line.dashed ? ' stroke-dasharray="4 3"' : "";
+    parts.push(
+      `<line x1="${lx}" x2="${lx + 16}" y1="${ly}" y2="${ly}" stroke="${line.color}" stroke-width="3"${dash} stroke-linecap="round"/>`,
+      `<text x="${lx + 22}" y="${ly + 4}" font-family="${FONT}" font-size="11" fill="${colors["cool-gray"][800]}">${line.name}</text>`,
+    );
+  });
+  return { parts, height: legendTop + Math.ceil(lines.length / perRow) * 20 - top };
+}
+
+/** Lightness of Tailwind CSS v4 and of this palette, stacked on one axis, with the per-step gap as bars underneath. */
+function tailwindComparison(): string {
+  const width = 720;
+  const tailwindLines: Line[] = TAILWIND_FAMILIES.map((family) => ({
+    name: family,
+    color: tailwindHex(family, 500),
+    values: TAILWIND_STEPS.map((step) => tailwindLightness(family, step)),
+  }));
+  const ownLines: Line[] = OWN_CHROMATIC.map((family) => ({
+    name: family,
+    color: colors[family][500],
+    values: steps.map((step) => lightnessChroma(colors[family][step]).l),
+    dashed: family === "yellow",
+  }));
+  const parts: string[] = [];
+  const first = lightnessPanel(`Tailwind CSS v${tailwindVersion()} · lightness (OKLCH L)`, TAILWIND_STEPS, tailwindLines, 20);
+  parts.push(...first.parts);
+  const secondTop = 20 + first.height + 28;
+  const second = lightnessPanel("Ordinary Palette · lightness (OKLCH L), yellow is brighter on purpose", steps, ownLines, secondTop);
+  parts.push(...second.parts);
+
+  const barTop = secondTop + second.height + 28;
+  const plot = { left: 52, right: 700, top: barTop + 36, bottom: barTop + 196 };
+  const maxGap = 20;
+  const y = (value: number) => plot.bottom - (value / maxGap) * (plot.bottom - plot.top);
+  const slot = (plot.right - plot.left) / steps.length;
+  const barWidth = 18;
+  parts.push(
+    `<text x="${plot.left}" y="${barTop + 14}" font-family="${FONT}" font-size="14" font-weight="700" fill="${colors["cool-gray"][800]}">Lightness gap between colors at each step, without yellow (L)</text>`,
+  );
+  for (const tick of [0, 5, 10, 15, 20]) {
+    parts.push(
+      `<line x1="${plot.left}" x2="${plot.right}" y1="${y(tick)}" y2="${y(tick)}" stroke="${colors["cool-gray"][tick === 0 ? 300 : 100]}" stroke-width="1"/>`,
+      `<text x="${plot.left - 8}" y="${y(tick) + 4}" text-anchor="end" font-family="${MONO}" font-size="10" fill="${colors["cool-gray"][600]}">${tick}</text>`,
+    );
+  }
+  const bars: Array<[string, (step: (typeof steps)[number]) => number, number]> = [
+    ["Tailwind CSS", (step) => tailwindSpread(step), -barWidth - 1],
+    ["Ordinary Palette", (step) => ownSpread(step), 1],
+  ];
+  const barColors = [colors["cool-gray"][400], colors.blue[500]];
+  steps.forEach((step, index) => {
+    const center = plot.left + slot * (index + 0.5);
+    parts.push(`<text x="${center}" y="${plot.bottom + 18}" text-anchor="middle" font-family="${MONO}" font-size="10" fill="${colors["cool-gray"][600]}">${step}</text>`);
+    bars.forEach(([name, gap, offset], barIndex) => {
+      const value = gap(step);
+      parts.push(
+        roundedRect(center + offset, y(value), barWidth, plot.bottom - y(value), 2, barColors[barIndex], `<title>${name} ${step} · ${value.toFixed(1)} L</title>`),
+        `<text x="${(center + offset + barWidth / 2).toFixed(1)}" y="${(y(value) - 4).toFixed(1)}" text-anchor="middle" font-family="${MONO}" font-size="9" fill="${colors["cool-gray"][700]}">${value.toFixed(1)}</text>`,
+      );
+    });
+  });
+  const legendY = plot.bottom + 44;
+  bars.forEach(([name], index) => {
+    const lx = plot.left + index * 130;
+    parts.push(
+      roundedRect(lx, legendY - 8, 12, 12, 2, barColors[index]),
+      `<text x="${lx + 18}" y="${legendY + 2}" font-family="${FONT}" font-size="11" fill="${colors["cool-gray"][800]}">${name}</text>`,
+    );
+  });
+  return svg(width, legendY + 24, `${parts.join("\n")}\n`, "#ffffff");
+}
+
 /** Every README swatch file, keyed by path relative to the repository root. */
 export function swatchFiles(): Record<string, string> {
   const files: Record<string, string> = {
@@ -166,6 +330,7 @@ export function swatchFiles(): Record<string, string> {
     "docs/color-vision.svg": visionStrip(),
     "docs/curve-light-lightness.svg": curveChart(colors, "l", false),
     "docs/curve-dark-lightness.svg": curveChart(darkColors, "l", true),
+    "docs/compare-tailwind-lightness.svg": tailwindComparison(),
   };
   for (const family of families) files[`docs/families/${family}.svg`] = familyStrip(family);
   return files;

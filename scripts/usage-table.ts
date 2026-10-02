@@ -1,5 +1,8 @@
 import { colors, darkColors, families, steps } from "../src/palette.ts";
 
+/** Where the README loads the published images from. */
+export const ASSETS_URL = "https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/";
+
 type Step = (typeof steps)[number];
 
 const WHITE = "#ffffff";
@@ -36,7 +39,7 @@ export function usageTables(): string {
   const darkInk = darkColors["cool-gray"][50];
 
   const light = [
-    "| 가족 | 흰 배경 위 글자 | 흰 글자를 올리는 채움색 | 500 채움색에 맞는 글자 | 100 틴트 위 뱃지 글자 | 흰 배경 위 아이콘 |",
+    "| 컬러 | 흰 배경 위 글자 | 흰 글자 버튼 배경 | 500 배경 위 글자 | 100 배경 위 뱃지 글자 | 흰 배경 위 아이콘 |",
     "| --- | --- | --- | --- | --- | --- |",
     ...chromatic.map((family) => {
       const scale = colors[family];
@@ -52,7 +55,7 @@ export function usageTables(): string {
   ];
 
   const dark = [
-    "| 가족 | 다크 50 위 글자 | 500 채움색에 맞는 글자 | 다크 100 틴트 위 뱃지 글자 |",
+    "| 컬러 | 다크 50 위 글자 | 500 배경 위 글자 | 다크 100 배경 위 뱃지 글자 |",
     "| --- | --- | --- | --- |",
     ...chromatic.map((family) => {
       const scale = darkColors[family];
@@ -139,49 +142,59 @@ function ratio(a: string, b: string): string {
 /** "쓸 때 알아둘 점" examples with live contrast numbers. */
 export function cautionExamples(): string {
   const ink = colors["cool-gray"][900];
-  const lightFamilies = (["orange", "yellow", "light-green", "cyan", "light-blue"] as const).filter((f) => chromaticFamilies.includes(f));
+  const lightFamilies = (["orange", "yellow", "light-green", "teal", "light-blue"] as const).filter((f) => chromaticFamilies.includes(f));
   const fillRows = lightFamilies.map((f) => `| ${f} 500 \`${colors[f][500]}\` | ✅ 어두운 글자 ${ratio(colors[f][500], ink)} | ❌ 흰 글자 ${ratio(colors[f][500], WHITE)} |`);
   const mid = (["pink", "red", "purple"] as const).map(
     (f) => `| ${f} | ⚠️ 500 \`${colors[f][500]}\` + 흰 글자 ${ratio(colors[f][500], WHITE)} | ✅ 600 \`${colors[f][600]}\` + 흰 글자 ${ratio(colors[f][600], WHITE)} |`,
   );
   const icon = lightFamilies.filter((f) => f !== "yellow").map(
-    (f) => `| ${f} | ❌ 500 ${ratio(colors[f][500], WHITE)} | ✅ 600 ${ratio(colors[f][600], WHITE)} |`,
+    (f) => `| ${f} | ⚠️ 500 ${ratio(colors[f][500], WHITE)} | ✅ 600 ${ratio(colors[f][600], WHITE)} |`,
   );
   const yellowRows = ([500, 700, 800, 900] as const).map(
     (s) => `| yellow ${s} \`${colors.yellow[s]}\` | ${contrast(colors.yellow[s], WHITE) >= 4.5 ? "✅" : "❌"} ${ratio(colors.yellow[s], WHITE)} | ${contrast(colors.yellow[s], colors.yellow[100]) >= 4.5 ? "✅" : "❌"} ${ratio(colors.yellow[s], colors.yellow[100])} |`,
   );
-  const tint = ["pink/red", "light-blue/blue", "cyan/light-blue"].map((pair) => {
+  const tint = ["pink/red", "light-blue/blue", "teal/light-blue"].map((pair) => {
     const [a, b] = pair.split("/") as [Family, Family];
     return `| ${pair} | 100끼리 ΔE ${visionDistance(colors[a][100], colors[b][100]).toFixed(3)} | 500끼리 ΔE ${visionDistance(colors[a][500], colors[b][500]).toFixed(3)} |`;
   });
   return [
-    "**1. 밝은 가족의 500 채움색에는 어두운 글자를 올립니다.** 어두운 글자는 cool-gray 900입니다.",
+    "**1. 밝은 컬러의 500 배경에는 어두운 글자를 올립니다.** 어두운 글자는 cool-gray 900입니다.",
     "",
-    "| 채움색 | 어두운 글자 | 흰 글자 |",
+    `![밝은 컬러의 500 배경: 어두운 글자와 흰 글자 비교](${ASSETS_URL}docs/guide-1.webp)`,
+    "",
+    "| 배경 | 어두운 글자 | 흰 글자 |",
     "| --- | --- | --- |",
     ...fillRows,
     "",
     "**2. pink·red·purple의 흰 글자 버튼은 600부터 씁니다.** 500은 크고 굵은 글자(3:1)에만 씁니다.",
     "",
-    "| 가족 | 500 | 600 |",
+    `![pink·red·purple: 500과 600 위 흰 글자 비교](${ASSETS_URL}docs/guide-2.webp)`,
+    "",
+    "| 컬러 | 500 | 600 |",
     "| --- | --- | --- |",
     ...mid,
     "",
-    "**3. 흰 배경 위 단독 아이콘은 600 이상을 씁니다.** 아이콘은 3:1이 기준입니다.",
+    "**3. 흰 배경 위 단독 아이콘은 600 이상을 씁니다.** 아이콘 기준은 3:1이지만 500은 3.2–3.4:1로 여유가 거의 없고, 600은 4.5:1을 넘습니다.",
     "",
-    "| 가족 | 500 아이콘 | 600 아이콘 |",
+    `![흰 배경 위 단독 아이콘: 500과 600 비교](${ASSETS_URL}docs/guide-3.webp)`,
+    "",
+    "| 컬러 | 500 아이콘 | 600 아이콘 |",
     "| --- | --- | --- |",
     ...icon,
     "",
     "**4. yellow를 글자로 쓸 때는 900만 씁니다.**",
     "",
+    `![yellow 글자: 500·700·800·900 비교](${ASSETS_URL}docs/guide-4.webp)`,
+    "",
     "| 글자 | 흰 배경 위 | yellow 100 위 |",
     "| --- | --- | --- |",
     ...yellowRows,
     "",
-    "**5. 50·100 틴트만으로 카테고리를 구분하지 않습니다.** 옅은 틴트는 가족끼리 거의 같아 보입니다(ΔE 0.03 미만). 틴트 위에 700–800 글자나 아이콘을 함께 올립니다.",
+    "**5. 50·100 같은 옅은 색만으로 카테고리를 구분하지 않습니다.** 옅은 색은 컬러끼리 거의 같아 보입니다(ΔE 0.03 미만). 그 위에 700–800 글자나 아이콘을 함께 올립니다.",
     "",
-    "| 가족 | 틴트 | 채움색 |",
+    `![50·100 틴트만으로 구분한 카테고리](${ASSETS_URL}docs/guide-5.webp)`,
+    "",
+    "| 컬러 | 100 | 500 |",
     "| --- | --- | --- |",
     ...tint,
     "",
