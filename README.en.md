@@ -198,9 +198,9 @@ npm test
 
 ## Changelog
 
-0.2.0 is the current version, published on npm.
+0.3.0 is the current version.
 
-### Next (not published yet)
+### 0.3.0
 
 - Renamed `cyan` to `teal`: `colors.teal`, the `teal` export, `darkTeal`, `--color-teal-*`, and `--color-dark-teal-*` are the new names, and `cyan` is gone. This reverts the 0.2.0 rename of `teal` to `cyan`. The color values are unchanged.
 
