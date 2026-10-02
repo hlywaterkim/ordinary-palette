@@ -12,7 +12,7 @@ def ratio(a,b):
 
 FAM=["red","orange","yellow","green","cyan","sky","blue","purple","pink","gray","stone"]  # roles
 # role -> (ordinary family, tailwind family)
-MAP={"red":("red","red"),"orange":("orange","orange"),"yellow":("yellow","yellow"),"green":("green","green"),"cyan":("cyan","cyan"),
+MAP={"red":("red","red"),"orange":("orange","orange"),"yellow":("yellow","yellow"),"green":("green","green"),"teal":("teal","cyan"),
      "sky":("light-blue","sky"),"blue":("blue","blue"),"purple":("purple","purple"),"pink":("pink","pink"),"gray":("cool-gray","slate"),"brown":("brown","stone")}
 STEPS=[50,100,200,300,400,500,600,700,800,900]
 def vars_for(kind):
@@ -41,7 +41,7 @@ ic_chev=I('<path d="m6 9 6 6 6-6"/>',14)
 def board(kind,title,sub):
     theme='dark' if kind=='dark' else 'light'
     # contrast of white (or dark ink in dark) on the 600 (500 in dark) fill, the "color button" row
-    btn_roles=["blue","green","red","purple","cyan","orange"]
+    btn_roles=["blue","green","red","purple","teal","orange"]
     buttons=[]
     for r in btn_roles:
         step=500 if kind=="dark" else 600
@@ -52,9 +52,9 @@ def board(kind,title,sub):
         ok=rt>=4.5
         buttons.append(f'<div class="cb"><span class="btn solid" style="background:var(--{r}-{step});color:var(--on-fill)">{r}</span><span class="ratio {"ok" if ok else "bad"}">{"✓" if ok else "✕"} {rt:.1f}:1</span></div>')
     buttons="".join(buttons)
-    bars=[("blue",86,"2,140"),("orange",64,"1,620"),("yellow",48,"1,180"),("brown",36,"890"),("cyan",27,"670"),("pink",18,"450")]
+    bars=[("blue",86,"2,140"),("orange",64,"1,620"),("yellow",48,"1,180"),("brown",36,"890"),("teal",27,"670"),("pink",18,"450")]
     bar_html="".join(f'<div class="bar-row"><span>{n}</span><div class="track"><div class="fill" style="width:{w}%;background:var(--{n}-500)"></div></div><b>{v}</b></div>' for n,w,v in bars)
-    rows=[("Olivia Martin","OM","purple","Paid","green","$1,999.00"),("Jackson Lee","JL","cyan","Pending","yellow","$39.00"),("Isabella Nguyen","IN","pink","Failed","red","$299.00")]
+    rows=[("Olivia Martin","OM","purple","Paid","green","$1,999.00"),("Jackson Lee","JL","teal","Pending","yellow","$39.00"),("Isabella Nguyen","IN","pink","Failed","red","$299.00")]
     row_html="".join(f'<div class="trow"><span class="av" style="background:var(--{c}-100);color:var(--{c}-800)">{i}</span><span class="nm">{n}</span><span class="badge {b}">{s}</span><span class="amt">{a}</span></div>' for n,i,c,s,b,a in rows)
     return f'''<section class="board {theme} {kind}-{theme}">
 <div class="bh"><div><h1>{title}</h1><p>{sub}</p></div></div>

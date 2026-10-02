@@ -337,137 +337,7 @@ body{width:1280px;padding:24px;background:#e9ecef;font-family:Pretendard,-apple-
 .av{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:700}
 .nm{color:var(--title);font-weight:600} .amt{text-align:right;color:var(--title);font-variant-numeric:tabular-nums;font-weight:600}
 
-body{gap:0}
-.wrapb{width:1232px}
-.board2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.side{padding:20px;border-radius:20px;background:#fff;display:flex;flex-direction:column;gap:14px;--card:var(--gray-50);--line:var(--gray-200);--title:var(--gray-900);--body:var(--gray-700);--muted:var(--gray-600)}
-.tag{font-size:20px;font-weight:800;color:var(--title);margin-bottom:2px}
-.side.before .tag::before{content:"Before";font-size:12px;letter-spacing:.06em;text-transform:uppercase;background:var(--gray-200);color:var(--gray-800);border-radius:999px;padding:4px 10px;margin-right:10px;vertical-align:3px}
-.side.after .tag::before{content:"After";font-size:12px;letter-spacing:.06em;text-transform:uppercase;background:var(--blue-100);color:var(--blue-800);border-radius:999px;padding:4px 10px;margin-right:10px;vertical-align:3px}
-.cbs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.cb .btn{height:40px;font-size:14px}
-.pill{font-size:13px;font-weight:700;border-radius:999px;padding:3px 0;text-align:center;font-variant-numeric:tabular-nums}
-.pill.ok{background:var(--green-100);color:var(--green-800)} .pill.bad{background:var(--red-100);color:var(--red-800)}
-.sum{margin-top:12px;font-size:14px;color:var(--body)} .sum b{font-size:18px} .sum b.ok{color:var(--green-700)} .sum b.bad{color:var(--red-700)}
-.seg{display:grid;grid-template-columns:repeat(6,1fr);height:46px;border-radius:10px;overflow:hidden}
-.seg.gs{filter:grayscale(1);margin-top:8px}
-.labs{display:grid;grid-template-columns:repeat(6,1fr);font-size:12px;color:var(--muted);margin-top:6px;text-align:center;font-variant-numeric:tabular-nums}
-.br{display:grid;grid-template-columns:60px 1fr;gap:10px;align-items:center;font-size:13px;margin-top:8px;color:var(--body)}
-.grays{filter:grayscale(1);margin-top:10px;opacity:1}.grays .br span{visibility:hidden}
-.grays::before{content:"Grayscale";display:block;font-size:12px;color:var(--muted);filter:none}
-.grays .br{margin-top:6px}
-
-.side.before{ --red-50: #fef2f2;
---red-100: #ffe2e2;
---red-200: #ffc9c9;
---red-300: #ffa2a2;
---red-400: #ff6467;
---red-500: #fb2c36;
---red-600: #e7000b;
---red-700: #c10007;
---red-800: #9f0712;
---red-900: #82181a;
---orange-50: #fff7ed;
---orange-100: #ffedd4;
---orange-200: #ffd6a7;
---orange-300: #ffb86a;
---orange-400: #ff8904;
---orange-500: #ff6900;
---orange-600: #f54900;
---orange-700: #ca3500;
---orange-800: #9f2d00;
---orange-900: #7e2a0c;
---yellow-50: #fefce8;
---yellow-100: #fef9c2;
---yellow-200: #fff085;
---yellow-300: #ffdf20;
---yellow-400: #fcc800;
---yellow-500: #efb100;
---yellow-600: #d08700;
---yellow-700: #a65f00;
---yellow-800: #894b00;
---yellow-900: #733e0a;
---green-50: #f0fdf4;
---green-100: #dcfce7;
---green-200: #b9f8cf;
---green-300: #7bf1a8;
---green-400: #05df72;
---green-500: #00c950;
---green-600: #00a63e;
---green-700: #008236;
---green-800: #016630;
---green-900: #0d542b;
---teal-50: #ecfeff;
---teal-100: #cefafe;
---teal-200: #a2f4fd;
---teal-300: #53eafd;
---teal-400: #00d3f2;
---teal-500: #00b8db;
---teal-600: #0092b8;
---teal-700: #007595;
---teal-800: #005f78;
---teal-900: #104e64;
---sky-50: #f0f9ff;
---sky-100: #dff2fe;
---sky-200: #b8e6fe;
---sky-300: #74d4ff;
---sky-400: #00bcff;
---sky-500: #00a6f4;
---sky-600: #0084d1;
---sky-700: #0069a8;
---sky-800: #00598a;
---sky-900: #024a70;
---blue-50: #eff6ff;
---blue-100: #dbeafe;
---blue-200: #bedbff;
---blue-300: #8ec5ff;
---blue-400: #51a2ff;
---blue-500: #2b7fff;
---blue-600: #155dfc;
---blue-700: #1447e6;
---blue-800: #193cb8;
---blue-900: #1c398e;
---purple-50: #faf5ff;
---purple-100: #f3e8ff;
---purple-200: #e9d4ff;
---purple-300: #dab2ff;
---purple-400: #c27aff;
---purple-500: #ad46ff;
---purple-600: #9810fa;
---purple-700: #8200db;
---purple-800: #6e11b0;
---purple-900: #59168b;
---pink-50: #fdf2f8;
---pink-100: #fce7f3;
---pink-200: #fccee8;
---pink-300: #fda5d5;
---pink-400: #fb64b6;
---pink-500: #f6339a;
---pink-600: #e60076;
---pink-700: #c6005c;
---pink-800: #a3004c;
---pink-900: #861043;
---gray-50: #f8fafc;
---gray-100: #f1f5f9;
---gray-200: #e2e8f0;
---gray-300: #cad5e2;
---gray-400: #90a1b9;
---gray-500: #62748e;
---gray-600: #45556c;
---gray-700: #314158;
---gray-800: #1d293d;
---gray-900: #0f172b;
---brown-50: #fafaf9;
---brown-100: #f5f5f4;
---brown-200: #e7e5e4;
---brown-300: #d6d3d1;
---brown-400: #a6a09b;
---brown-500: #79716b;
---brown-600: #57534d;
---brown-700: #44403b;
---brown-800: #292524;
---brown-900: #1c1917; }
-.side.after{ --red-50: var(--color-red-50);
+.board.ordinary-light{ --red-50: var(--color-red-50);
 --red-100: var(--color-red-100);
 --red-200: var(--color-red-200);
 --red-300: var(--color-red-300);
@@ -576,18 +446,40 @@ body{gap:0}
 --brown-600: var(--color-brown-600);
 --brown-700: var(--color-brown-700);
 --brown-800: var(--color-brown-800);
---brown-900: var(--color-brown-900); }</style></head><body><div class="board2"><div class="side before"><div class="tag">Tailwind CSS v4</div>
-<div class="card"><h2>White text on a 600 button</h2><div class="cbs"><div class="cb"><span class="btn solid" style="background:var(--blue-600);color:#fff">blue</span><span class="pill ok">✓ 5.2:1</span></div><div class="cb"><span class="btn solid" style="background:var(--green-600);color:#fff">green</span><span class="pill bad">✕ 3.2:1</span></div><div class="cb"><span class="btn solid" style="background:var(--red-600);color:#fff">red</span><span class="pill ok">✓ 4.8:1</span></div><div class="cb"><span class="btn solid" style="background:var(--purple-600);color:#fff">purple</span><span class="pill ok">✓ 5.5:1</span></div><div class="cb"><span class="btn solid" style="background:var(--teal-600);color:#fff">cyan</span><span class="pill bad">✕ 3.6:1</span></div><div class="cb"><span class="btn solid" style="background:var(--orange-600);color:#fff">orange</span><span class="pill bad">✕ 3.6:1</span></div></div>
- <div class="sum"><b class="bad">3 / 6</b> reach 4.5:1</div></div>
-<div class="card"><h2>The same 500, in color and in grayscale</h2>
- <div class="seg"><span style="background:var(--blue-500)"></span><span style="background:var(--green-500)"></span><span style="background:var(--red-500)"></span><span style="background:var(--purple-500)"></span><span style="background:var(--teal-500)"></span><span style="background:var(--orange-500)"></span></div><div class="seg gs"><span style="background:var(--blue-500)"></span><span style="background:var(--green-500)"></span><span style="background:var(--red-500)"></span><span style="background:var(--purple-500)"></span><span style="background:var(--teal-500)"></span><span style="background:var(--orange-500)"></span></div><div class="labs"><span>L 62</span><span>L 73</span><span>L 64</span><span>L 62</span><span>L 72</span><span>L 70</span></div>
- <div class="sum">Lightness gap <b class="bad">11.0 L</b></div></div>
-<div class="card"><h2>Badges: 800 text on 100</h2><div class="row wrap"><span class="badge" style="background:var(--blue-100);color:var(--blue-800)">blue</span><span class="badge" style="background:var(--green-100);color:var(--green-800)">green</span><span class="badge" style="background:var(--red-100);color:var(--red-800)">red</span><span class="badge" style="background:var(--purple-100);color:var(--purple-800)">purple</span><span class="badge" style="background:var(--teal-100);color:var(--teal-800)">cyan</span><span class="badge" style="background:var(--orange-100);color:var(--orange-800)">orange</span></div><div class="sum">Contrast 6.4–7.5:1</div></div>
-</div><div class="side after"><div class="tag">Ordinary Palette</div>
-<div class="card"><h2>White text on a 600 button</h2><div class="cbs"><div class="cb"><span class="btn solid" style="background:var(--blue-600);color:#fff">blue</span><span class="pill ok">✓ 5.0:1</span></div><div class="cb"><span class="btn solid" style="background:var(--green-600);color:#fff">green</span><span class="pill ok">✓ 4.5:1</span></div><div class="cb"><span class="btn solid" style="background:var(--red-600);color:#fff">red</span><span class="pill ok">✓ 5.5:1</span></div><div class="cb"><span class="btn solid" style="background:var(--purple-600);color:#fff">purple</span><span class="pill ok">✓ 5.5:1</span></div><div class="cb"><span class="btn solid" style="background:var(--teal-600);color:#fff">teal</span><span class="pill ok">✓ 4.7:1</span></div><div class="cb"><span class="btn solid" style="background:var(--orange-600);color:#fff">orange</span><span class="pill ok">✓ 4.6:1</span></div></div>
- <div class="sum"><b class="ok">6 / 6</b> reach 4.5:1</div></div>
-<div class="card"><h2>The same 500, in color and in grayscale</h2>
- <div class="seg"><span style="background:var(--blue-500)"></span><span style="background:var(--green-500)"></span><span style="background:var(--red-500)"></span><span style="background:var(--purple-500)"></span><span style="background:var(--teal-500)"></span><span style="background:var(--orange-500)"></span></div><div class="seg gs"><span style="background:var(--blue-500)"></span><span style="background:var(--green-500)"></span><span style="background:var(--red-500)"></span><span style="background:var(--purple-500)"></span><span style="background:var(--teal-500)"></span><span style="background:var(--orange-500)"></span></div><div class="labs"><span>L 63</span><span>L 64</span><span>L 62</span><span>L 62</span><span>L 64</span><span>L 66</span></div>
- <div class="sum">Lightness gap <b class="ok">3.9 L</b></div></div>
-<div class="card"><h2>Badges: 800 text on 100</h2><div class="row wrap"><span class="badge" style="background:var(--blue-100);color:var(--blue-800)">blue</span><span class="badge" style="background:var(--green-100);color:var(--green-800)">green</span><span class="badge" style="background:var(--red-100);color:var(--red-800)">red</span><span class="badge" style="background:var(--purple-100);color:var(--purple-800)">purple</span><span class="badge" style="background:var(--teal-100);color:var(--teal-800)">teal</span><span class="badge" style="background:var(--orange-100);color:var(--orange-800)">orange</span></div><div class="sum">Contrast 6.9–8.2:1</div></div>
-</div></div></body></html>
+--brown-900: var(--color-brown-900); }</style></head><body><section class="board light ordinary-light">
+<div class="bh"><div><h1>Ordinary Palette</h1><p>Buttons, badges, alerts, a form, tabs, and charts built from the palette</p></div></div>
+<div class="grid">
+<div class="col">
+ <div class="card"><h2>Buttons</h2>
+  <div class="row"><span class="btn solid" style="background:var(--blue-600);color:var(--on-fill)">Primary</span><span class="btn out">Outline</span><span class="btn ghost">Ghost</span><span class="btn solid" style="background:var(--red-600);color:var(--on-fill)">Delete</span></div>
+  <div class="cap">600 fill, white text, contrast per color</div>
+  <div class="cbs"><div class="cb"><span class="btn solid" style="background:var(--blue-600);color:var(--on-fill)">blue</span><span class="ratio ok">✓ 5.0:1</span></div><div class="cb"><span class="btn solid" style="background:var(--green-600);color:var(--on-fill)">green</span><span class="ratio ok">✓ 4.5:1</span></div><div class="cb"><span class="btn solid" style="background:var(--red-600);color:var(--on-fill)">red</span><span class="ratio ok">✓ 5.5:1</span></div><div class="cb"><span class="btn solid" style="background:var(--purple-600);color:var(--on-fill)">purple</span><span class="ratio ok">✓ 5.5:1</span></div><div class="cb"><span class="btn solid" style="background:var(--teal-600);color:var(--on-fill)">teal</span><span class="ratio ok">✓ 4.7:1</span></div><div class="cb"><span class="btn solid" style="background:var(--orange-600);color:var(--on-fill)">orange</span><span class="ratio ok">✓ 4.6:1</span></div></div></div>
+ <div class="card"><h2>Badges</h2><div class="row wrap">
+  <span class="badge green"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Success</span><span class="badge yellow">Warning</span><span class="badge red">Error</span><span class="badge sky">Info</span><span class="badge purple">Beta</span><span class="badge gray">Archived</span></div></div>
+ <div class="card"><h2>Alerts</h2><div class="stack">
+  <div class="alert sky"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5v.01"/></svg><div><b>Heads up</b><br>A new version is available.</div></div>
+  <div class="alert yellow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2.5 20h19L12 3Z"/><path d="M12 10v4.5M12 17.5v.01"/></svg><div><b>Warning</b><br>Your trial ends in 3 days.</div></div>
+  <div class="alert red"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m9 9 6 6M15 9l-6 6"/></svg><div><b>Error</b><br>Payment could not be processed.</div></div></div></div>
+</div>
+<div class="col">
+ <div class="card"><h2>Create project</h2><p class="muted">Deploy your new project in one click.</p>
+  <label>Name</label><div class="input">ordinary-app</div>
+  <label>Framework</label><div class="input sel">Next.js<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></div>
+  <label>Email</label><div class="input invalid">hello@ordinary</div><div class="error">Enter a valid email address</div>
+  <div class="row ctl"><span class="check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><span>Accept terms</span><span class="switch"><i></i></span><span>Notify me</span></div>
+  <div class="row end"><span class="btn out">Cancel</span><span class="btn solid" style="background:var(--blue-600);color:var(--on-fill)">Deploy</span></div></div>
+ <div class="card"><h2>Tabs and progress</h2>
+  <div class="tabs"><span class="on">Overview</span><span>Analytics</span><span>Reports</span></div>
+  <div class="prog"><span>Storage</span><div class="track"><div class="fill" style="width:72%;background:var(--blue-500)"></div></div><b>72%</b></div>
+  <div class="prog"><span>Build</span><div class="track"><div class="fill" style="width:100%;background:var(--green-500)"></div></div><b>100%</b></div>
+  <div class="prog"><span>Bandwidth</span><div class="track"><div class="fill" style="width:38%;background:var(--orange-500)"></div></div><b>38%</b></div></div>
+ <div class="card toast"><svg style='color:var(--green-600)' width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8 12.5 3 3 5-6"/></svg><div><b>Deployment ready</b><br><span class="muted">ordinary-app is live. <a>View site</a></span></div></div>
+</div>
+<div class="col">
+ <div class="card"><div class="head"><h2>Signups by channel</h2><span class="muted">Last 7 days</span></div><div class="bars"><div class="bar-row"><span>blue</span><div class="track"><div class="fill" style="width:86%;background:var(--blue-500)"></div></div><b>2,140</b></div><div class="bar-row"><span>orange</span><div class="track"><div class="fill" style="width:64%;background:var(--orange-500)"></div></div><b>1,620</b></div><div class="bar-row"><span>yellow</span><div class="track"><div class="fill" style="width:48%;background:var(--yellow-500)"></div></div><b>1,180</b></div><div class="bar-row"><span>brown</span><div class="track"><div class="fill" style="width:36%;background:var(--brown-500)"></div></div><b>890</b></div><div class="bar-row"><span>teal</span><div class="track"><div class="fill" style="width:27%;background:var(--teal-500)"></div></div><b>670</b></div><div class="bar-row"><span>pink</span><div class="track"><div class="fill" style="width:18%;background:var(--pink-500)"></div></div><b>450</b></div></div></div>
+ <div class="two">
+  <div class="card stat"><span class="muted">Revenue</span><div class="v">$45,231</div><span class="badge green"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"/></svg>20.1%</span></div>
+  <div class="card stat"><span class="muted">Churn</span><div class="v">2.4%</div><span class="badge red"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5.5 12.5 12 19l6.5-6.5"/></svg>0.6%p</span></div></div>
+ <div class="card"><h2>Recent sales</h2><div class="table"><div class="trow"><span class="av" style="background:var(--purple-100);color:var(--purple-800)">OM</span><span class="nm">Olivia Martin</span><span class="badge green">Paid</span><span class="amt">$1,999.00</span></div><div class="trow"><span class="av" style="background:var(--teal-100);color:var(--teal-800)">JL</span><span class="nm">Jackson Lee</span><span class="badge yellow">Pending</span><span class="amt">$39.00</span></div><div class="trow"><span class="av" style="background:var(--pink-100);color:var(--pink-800)">IN</span><span class="nm">Isabella Nguyen</span><span class="badge red">Failed</span><span class="amt">$299.00</span></div></div></div>
+</div>
+</div></section></body></html>
