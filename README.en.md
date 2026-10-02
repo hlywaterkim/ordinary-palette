@@ -72,7 +72,7 @@ palette.dark.blue["500"];
 
 ## Figma
 
-A Figma Community file and a way to import Variables will come later.
+Duplicate the [Figma Community file](https://www.figma.com/community/file/1687689861175606930) to get the palette as Variables. The `Ordinary Palette` collection mirrors the CSS names: `blue/500` for light, `dark/blue/500` for dark, `white-opacity/40` for opacity, with `var(--color-blue-500)` set as the code syntax. Swatch pages for light, dark, and opacity are included.
 
 ## Full palette
 
