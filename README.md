@@ -72,7 +72,7 @@ palette.dark.blue["500"];
 
 ## Figma에서 쓰기
 
-Figma Community 파일과 Variables로 가져오는 방법은 나중에 제공합니다.
+[Figma Community 파일](https://www.figma.com/community/file/1687689861175606930)을 복제하면 팔레트가 Variables로 들어 있습니다. 컬렉션 `Ordinary Palette`에 라이트 `blue/500`, 다크 `dark/blue/500`, 투명도 `white-opacity/40`처럼 CSS 변수 이름과 같은 구조로 있고, Code syntax에 `var(--color-blue-500)`가 적혀 있습니다. 라이트·다크·투명도 스와치 페이지도 함께 있습니다.
 
 ## 전체 팔레트
 
