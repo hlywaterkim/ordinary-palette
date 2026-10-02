@@ -32,8 +32,57 @@ function ink(fill: string): string {
   return contrast(fill, DARK_INK) >= contrast(fill, LIGHT_INK) ? DARK_INK : LIGHT_INK;
 }
 
+/**
+ * Path data for a rounded rectangle with Figma-style corner smoothing (0.6 is Figma's iOS preset, Apple's squircle).
+ * A short circular arc sits between two Bézier curves that ease the curvature in over (1 + smoothing) × radius along
+ * each edge. Same construction as the cover and as figma-squircle.
+ */
+function squircle(x: number, y: number, width: number, height: number, radius: number, smoothing = 0.6): string {
+  const rad = (deg: number) => (deg * Math.PI) / 180;
+  const budget = Math.min(width, height) / 2;
+  const r = Math.min(radius, budget);
+  const sm = Math.max(0, Math.min(smoothing, budget / r - 1));
+  const p = Math.min((1 + sm) * r, budget);
+  const arcMeasure = 90 * (1 - sm);
+  const arc = Math.sin(rad(arcMeasure / 2)) * r * Math.SQRT2;
+  const alpha = (90 - arcMeasure) / 2;
+  const p3ToP4 = r * Math.tan(rad(alpha / 2));
+  const beta = 45 * sm;
+  const c = p3ToP4 * Math.cos(rad(beta));
+  const d = c * Math.tan(rad(beta));
+  const b = (p - arc - c - d) / 3;
+  const a = 2 * b;
+  const n = (v: number) => String(Math.round(v * 100) / 100);
+  const rel = (...v: number[]) => v.map(n).join(" ");
+  return [
+    `M${rel(x + width - p, y)}`,
+    `c${rel(a, 0, a + b, 0, a + b + c, d)}`,
+    `a${rel(r, r)} 0 0 1 ${rel(arc, arc)}`,
+    `c${rel(d, c, d, b + c, d, a + b + c)}`,
+    `L${rel(x + width, y + height - p)}`,
+    `c${rel(0, a, 0, a + b, -d, a + b + c)}`,
+    `a${rel(r, r)} 0 0 1 ${rel(-arc, arc)}`,
+    `c${rel(-c, d, -(b + c), d, -(a + b + c), d)}`,
+    `L${rel(x + p, y + height)}`,
+    `c${rel(-a, 0, -(a + b), 0, -(a + b + c), -d)}`,
+    `a${rel(r, r)} 0 0 1 ${rel(-arc, -arc)}`,
+    `c${rel(-d, -c, -d, -(b + c), -d, -(a + b + c))}`,
+    `L${rel(x, y + p)}`,
+    `c${rel(0, -a, 0, -(a + b), d, -(a + b + c))}`,
+    `a${rel(r, r)} 0 0 1 ${rel(arc, -arc)}`,
+    `c${rel(c, -d, b + c, -d, a + b + c, -d)}`,
+    "Z",
+  ].join("");
+}
+
+/** A filled rounded rectangle with smoothed corners; children (like a <title>) go inside the path. */
+function roundedRect(x: number, y: number, width: number, height: number, radius: number, fill: string, inner = ""): string {
+  const d = squircle(x, y, width, height, radius);
+  return inner ? `<path d="${d}" fill="${fill}">${inner}</path>` : `<path d="${d}" fill="${fill}"/>`;
+}
+
 function svg(width: number, height: number, body: string, background: string): string {
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">\n<rect width="${width}" height="${height}" rx="12" fill="${background}"/>\n${body}</svg>\n`;
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">\n${roundedRect(0, 0, width, height, 12, background)}\n${body}</svg>\n`;
 }
 
 function paletteGrid(scales: Record<string, Scale>, background: string, label: string): string {
@@ -61,7 +110,7 @@ function paletteGrid(scales: Record<string, Scale>, background: string, label: s
       const fill = scales[family][step];
       const x = left + index * cell;
       parts.push(
-        `<rect x="${x}" y="${y}" width="${cell - gap}" height="${rowHeight - gap}" rx="6" fill="${fill}"/>`,
+        roundedRect(x, y, cell - gap, rowHeight - gap, 6, fill),
         `<text x="${x + 7}" y="${y + rowHeight - gap - 9}" font-family="${MONO}" font-size="10" fill="${ink(fill)}">${fill}</text>`,
       );
     });
@@ -80,7 +129,7 @@ function familyStrip(family: (typeof families)[number]): string {
     })
     .join("\n");
   const width = steps.length * cell;
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">\n<clipPath id="r"><rect width="${width}" height="${height}" rx="5"/></clipPath>\n<g clip-path="url(#r)">\n${body}\n</g>\n</svg>\n`;
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">\n<clipPath id="r"><path d="${squircle(0, 0, width, height, 5)}"/></clipPath>\n<g clip-path="url(#r)">\n${body}\n</g>\n</svg>\n`;
 }
 
 function visionStrip(): string {
@@ -101,7 +150,7 @@ function visionStrip(): string {
     parts.push(`<text x="16" y="${y + rowHeight / 2 + 2}" font-family="${FONT}" font-size="12" font-weight="600" fill="${DARK_INK}">${label}</text>`);
     chromatic.forEach((family, index) => {
       const hex = colors[family][500];
-      parts.push(`<rect x="${left + index * cell}" y="${y}" width="${cell - 4}" height="${rowHeight - 4}" rx="6" fill="${vision ? simulate(hex, vision) : hex}"/>`);
+      parts.push(roundedRect(left + index * cell, y, cell - 4, rowHeight - 4, 6, vision ? simulate(hex, vision) : hex));
     });
   });
   chromatic.forEach((family, index) => {
@@ -238,7 +287,7 @@ function tailwindComparison(): string {
   const slot = (plot.right - plot.left) / steps.length;
   const barWidth = 18;
   parts.push(
-    `<text x="${plot.left}" y="${barTop + 14}" font-family="${FONT}" font-size="14" font-weight="700" fill="${colors["cool-gray"][800]}">Lightness gap between families at each step, without yellow (L)</text>`,
+    `<text x="${plot.left}" y="${barTop + 14}" font-family="${FONT}" font-size="14" font-weight="700" fill="${colors["cool-gray"][800]}">Lightness gap between colors at each step, without yellow (L)</text>`,
   );
   for (const tick of [0, 5, 10, 15, 20]) {
     parts.push(
@@ -257,7 +306,7 @@ function tailwindComparison(): string {
     bars.forEach(([name, gap, offset], barIndex) => {
       const value = gap(step);
       parts.push(
-        `<rect x="${(center + offset).toFixed(1)}" y="${y(value).toFixed(1)}" width="${barWidth}" height="${(plot.bottom - y(value)).toFixed(1)}" rx="2" fill="${barColors[barIndex]}"><title>${name} ${step} · ${value.toFixed(1)} L</title></rect>`,
+        roundedRect(center + offset, y(value), barWidth, plot.bottom - y(value), 2, barColors[barIndex], `<title>${name} ${step} · ${value.toFixed(1)} L</title>`),
         `<text x="${(center + offset + barWidth / 2).toFixed(1)}" y="${(y(value) - 4).toFixed(1)}" text-anchor="middle" font-family="${MONO}" font-size="9" fill="${colors["cool-gray"][700]}">${value.toFixed(1)}</text>`,
       );
     });
@@ -266,7 +315,7 @@ function tailwindComparison(): string {
   bars.forEach(([name], index) => {
     const lx = plot.left + index * 130;
     parts.push(
-      `<rect x="${lx}" y="${legendY - 8}" width="12" height="12" rx="2" fill="${barColors[index]}"/>`,
+      roundedRect(lx, legendY - 8, 12, 12, 2, barColors[index]),
       `<text x="${lx + 18}" y="${legendY + 2}" font-family="${FONT}" font-size="11" fill="${colors["cool-gray"][800]}">${name}</text>`,
     );
   });
