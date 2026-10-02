@@ -6,7 +6,7 @@ GitHub: https://github.com/hlywaterkim/ordinary-palette
 
 ## 지금 상태
 
-패키지 `ordinary-palette` 0.3.0, MIT. `prepublishOnly`가 `npm test`(빌드 포함)를 돌린다. 라이트·다크 스케일과 white/black opacity가 있다. 최신 곡선은 `main`에 푸시되어 있다. npm에 0.2.0을 배포했다(2026-09-24). 0.3.0은 버전만 올렸고 npm에는 아직 배포하지 않았다(이 환경에 npm 로그인이 없다). 배포하려면 `npm test` 후 `npm publish`.
+패키지 `ordinary-palette` 0.3.0, MIT. `prepublishOnly`가 `npm test`(빌드 포함)를 돌린다. 라이트·다크 스케일과 white/black opacity가 있다. 최신 곡선은 `main`에 푸시되어 있다. npm에 0.2.0(2026-09-24), 0.3.0(2026-10-02)을 배포했다(`latest`는 0.3.0). 이 환경에는 npm 로그인이 없어서 배포는 로컬에서 한다. 새 버전을 배포하려면 버전을 올리고 `npm test` 후 `npm publish`.
 
 README 순서: 특징 → 설치 → 사용법 → Figma에서 쓰기(추후 제공) → 전체 팔레트 → Tailwind CSS와 비교 → 명도·채도 설계 → 컬러 목록 → 스텝 사용 가이드 → 개발 → 변경 기록 → 라이선스. 예전 '만든 이유'와 '예시 UI' 절은 지웠다. 상단에 npm 버전·월간 다운로드 배지가 있다. 영어판도 같은 절을 두고, 가이드 표 대신 요약과 한국어 링크를 둔다. README 글에는 '가족', '채움색', '시맨틱 역할'처럼 실무에서 안 쓰는 말을 쓰지 않는다(가족 → 컬러, 유색 가족 → 유채색, 채움색 → 배경색, 영어는 family → color). 이 문서의 '가족'은 작업 메모용이다.
 
