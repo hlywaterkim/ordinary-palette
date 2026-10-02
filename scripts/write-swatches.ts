@@ -2,6 +2,16 @@ import { mkdir, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { colors, darkColors, families, steps } from "../src/palette.ts";
+import {
+  OWN_CHROMATIC,
+  TAILWIND_FAMILIES,
+  TAILWIND_STEPS,
+  ownSpread,
+  tailwindHex,
+  tailwindLightness,
+  tailwindSpread,
+  tailwindVersion,
+} from "./tailwind-compare.ts";
 import { contrast, lightnessChroma, simulate, VISION_LABEL, type Vision } from "./usage-table.ts";
 
 // SVG swatches for the README. GitHub strips inline styles, so the README shows color through these images.
@@ -158,6 +168,112 @@ function curveChart(scales: Record<string, Scale>, metric: Metric, dark: boolean
   return svg(width, height, `${parts.join("\n")}\n`, background);
 }
 
+type Line = { name: string; color: string; values: number[]; dashed?: boolean };
+
+/** One lightness panel: a line per family, steps along the bottom, a legend underneath. Returns the SVG parts and its height. */
+function lightnessPanel(title: string, stepLabels: readonly number[], lines: Line[], top: number): { parts: string[]; height: number } {
+  const plot = { left: 52, right: 700, top: top + 30, bottom: top + 230 };
+  const [min, max] = [20, 100];
+  const x = (index: number) => plot.left + (index * (plot.right - plot.left)) / (stepLabels.length - 1);
+  const y = (value: number) => plot.bottom - ((value - min) / (max - min)) * (plot.bottom - plot.top);
+  const parts: string[] = [
+    `<text x="${plot.left}" y="${top + 14}" font-family="${FONT}" font-size="14" font-weight="700" fill="${colors["cool-gray"][800]}">${title}</text>`,
+  ];
+  for (const tick of [20, 40, 60, 80, 100]) {
+    parts.push(
+      `<line x1="${plot.left}" x2="${plot.right}" y1="${y(tick)}" y2="${y(tick)}" stroke="${colors["cool-gray"][100]}" stroke-width="1"/>`,
+      `<text x="${plot.left - 8}" y="${y(tick) + 4}" text-anchor="end" font-family="${MONO}" font-size="10" fill="${colors["cool-gray"][600]}">${tick}</text>`,
+    );
+  }
+  parts.push(`<line x1="${plot.left}" x2="${plot.right}" y1="${plot.bottom}" y2="${plot.bottom}" stroke="${colors["cool-gray"][300]}" stroke-width="1"/>`);
+  stepLabels.forEach((step, index) => {
+    parts.push(`<text x="${x(index)}" y="${plot.bottom + 18}" text-anchor="middle" font-family="${MONO}" font-size="10" fill="${colors["cool-gray"][600]}">${step}</text>`);
+  });
+  for (const line of lines) {
+    const points = line.values.map((value, index) => `${x(index).toFixed(1)},${y(value).toFixed(1)}`).join(" ");
+    const dash = line.dashed ? ' stroke-dasharray="5 4"' : "";
+    parts.push(`<polyline points="${points}" fill="none" stroke="${line.color}" stroke-width="2"${dash} stroke-linejoin="round" stroke-linecap="round"/>`);
+    line.values.forEach((value, index) => {
+      parts.push(`<circle cx="${x(index).toFixed(1)}" cy="${y(value).toFixed(1)}" r="7" fill="transparent"><title>${line.name} ${stepLabels[index]} · L ${value.toFixed(1)}</title></circle>`);
+    });
+  }
+  const perRow = 7;
+  const legendTop = plot.bottom + 44;
+  lines.forEach((line, index) => {
+    const lx = plot.left + (index % perRow) * 92;
+    const ly = legendTop + Math.floor(index / perRow) * 20;
+    const dash = line.dashed ? ' stroke-dasharray="4 3"' : "";
+    parts.push(
+      `<line x1="${lx}" x2="${lx + 16}" y1="${ly}" y2="${ly}" stroke="${line.color}" stroke-width="3"${dash} stroke-linecap="round"/>`,
+      `<text x="${lx + 22}" y="${ly + 4}" font-family="${FONT}" font-size="11" fill="${colors["cool-gray"][800]}">${line.name}</text>`,
+    );
+  });
+  return { parts, height: legendTop + Math.ceil(lines.length / perRow) * 20 - top };
+}
+
+/** Lightness of Tailwind CSS v4 and of this palette, stacked on one axis, with the per-step gap as bars underneath. */
+function tailwindComparison(): string {
+  const width = 720;
+  const tailwindLines: Line[] = TAILWIND_FAMILIES.map((family) => ({
+    name: family,
+    color: tailwindHex(family, 500),
+    values: TAILWIND_STEPS.map((step) => tailwindLightness(family, step)),
+  }));
+  const ownLines: Line[] = OWN_CHROMATIC.map((family) => ({
+    name: family,
+    color: colors[family][500],
+    values: steps.map((step) => lightnessChroma(colors[family][step]).l),
+    dashed: family === "yellow",
+  }));
+  const parts: string[] = [];
+  const first = lightnessPanel(`Tailwind CSS v${tailwindVersion()} · lightness (OKLCH L)`, TAILWIND_STEPS, tailwindLines, 20);
+  parts.push(...first.parts);
+  const secondTop = 20 + first.height + 28;
+  const second = lightnessPanel("Ordinary Palette · lightness (OKLCH L), yellow is brighter on purpose", steps, ownLines, secondTop);
+  parts.push(...second.parts);
+
+  const barTop = secondTop + second.height + 28;
+  const plot = { left: 52, right: 700, top: barTop + 36, bottom: barTop + 196 };
+  const maxGap = 20;
+  const y = (value: number) => plot.bottom - (value / maxGap) * (plot.bottom - plot.top);
+  const slot = (plot.right - plot.left) / steps.length;
+  const barWidth = 18;
+  parts.push(
+    `<text x="${plot.left}" y="${barTop + 14}" font-family="${FONT}" font-size="14" font-weight="700" fill="${colors["cool-gray"][800]}">Lightness gap between families at each step, without yellow (L)</text>`,
+  );
+  for (const tick of [0, 5, 10, 15, 20]) {
+    parts.push(
+      `<line x1="${plot.left}" x2="${plot.right}" y1="${y(tick)}" y2="${y(tick)}" stroke="${colors["cool-gray"][tick === 0 ? 300 : 100]}" stroke-width="1"/>`,
+      `<text x="${plot.left - 8}" y="${y(tick) + 4}" text-anchor="end" font-family="${MONO}" font-size="10" fill="${colors["cool-gray"][600]}">${tick}</text>`,
+    );
+  }
+  const bars: Array<[string, (step: (typeof steps)[number]) => number, number]> = [
+    ["Tailwind CSS", (step) => tailwindSpread(step), -barWidth - 1],
+    ["Ordinary Palette", (step) => ownSpread(step), 1],
+  ];
+  const barColors = [colors["cool-gray"][400], colors.blue[500]];
+  steps.forEach((step, index) => {
+    const center = plot.left + slot * (index + 0.5);
+    parts.push(`<text x="${center}" y="${plot.bottom + 18}" text-anchor="middle" font-family="${MONO}" font-size="10" fill="${colors["cool-gray"][600]}">${step}</text>`);
+    bars.forEach(([name, gap, offset], barIndex) => {
+      const value = gap(step);
+      parts.push(
+        `<rect x="${(center + offset).toFixed(1)}" y="${y(value).toFixed(1)}" width="${barWidth}" height="${(plot.bottom - y(value)).toFixed(1)}" rx="2" fill="${barColors[barIndex]}"><title>${name} ${step} · ${value.toFixed(1)} L</title></rect>`,
+        `<text x="${(center + offset + barWidth / 2).toFixed(1)}" y="${(y(value) - 4).toFixed(1)}" text-anchor="middle" font-family="${MONO}" font-size="9" fill="${colors["cool-gray"][700]}">${value.toFixed(1)}</text>`,
+      );
+    });
+  });
+  const legendY = plot.bottom + 44;
+  bars.forEach(([name], index) => {
+    const lx = plot.left + index * 130;
+    parts.push(
+      `<rect x="${lx}" y="${legendY - 8}" width="12" height="12" rx="2" fill="${barColors[index]}"/>`,
+      `<text x="${lx + 18}" y="${legendY + 2}" font-family="${FONT}" font-size="11" fill="${colors["cool-gray"][800]}">${name}</text>`,
+    );
+  });
+  return svg(width, legendY + 24, `${parts.join("\n")}\n`, "#ffffff");
+}
+
 /** Every README swatch file, keyed by path relative to the repository root. */
 export function swatchFiles(): Record<string, string> {
   const files: Record<string, string> = {
@@ -166,6 +282,7 @@ export function swatchFiles(): Record<string, string> {
     "docs/color-vision.svg": visionStrip(),
     "docs/curve-light-lightness.svg": curveChart(colors, "l", false),
     "docs/curve-dark-lightness.svg": curveChart(darkColors, "l", true),
+    "docs/compare-tailwind-lightness.svg": tailwindComparison(),
   };
   for (const family of families) files[`docs/families/${family}.svg`] = familyStrip(family);
   return files;

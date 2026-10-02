@@ -25,6 +25,7 @@ import {
   yellow,
   yellowLightnessOffset,
 } from "../src/palette.ts";
+import { compareTable, ownSpread, tailwindSpread } from "../scripts/tailwind-compare.ts";
 import { guideBlocks } from "../scripts/usage-table.ts";
 import { ASSETS_URL, swatchFiles } from "../scripts/write-swatches.ts";
 
@@ -505,6 +506,20 @@ test("README guide tables match the palette", () => {
   const readme = readFileSync(new URL("../README.md", import.meta.url), "utf8");
   for (const block of guideBlocks()) {
     assert.ok(readme.includes(block), `README guide is stale: run scripts/usage-table.ts\n${block.slice(0, 80)}`);
+  }
+});
+
+test("README Tailwind comparison tables match the palette", () => {
+  for (const [file, language] of [["README.md", "ko"], ["README.en.md", "en"]] as const) {
+    const text = readFileSync(new URL(`../${file}`, import.meta.url), "utf8");
+    assert.ok(text.includes(compareTable(language)), `${file} comparison is stale: run scripts/tailwind-compare.ts`);
+  }
+});
+
+test("shared lightness curve stays flatter than Tailwind's from 400 to 800", () => {
+  // The comparison chart is the README's argument; it must stay true if either palette changes.
+  for (const step of [400, 500, 600, 700, 800] as const) {
+    assert.ok(ownSpread(step) < tailwindSpread(step), `step ${step}: ours ${ownSpread(step)} vs Tailwind ${tailwindSpread(step)}`);
   }
 });
 

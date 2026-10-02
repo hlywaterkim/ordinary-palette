@@ -8,7 +8,7 @@ GitHub: https://github.com/hlywaterkim/ordinary-palette
 
 패키지 `ordinary-palette` 0.2.0, MIT. `prepublishOnly`가 `npm test`(빌드 포함)를 돌린다. 라이트·다크 스케일과 white/black opacity가 있다. 최신 곡선은 `main`에 푸시되어 있다. npm에 0.2.0을 배포했다(2026-09-24). 다음 배포는 버전을 올려서 한다.
 
-README 순서: 특징 → 만든 이유 → 설치 → 사용법 → Figma에서 쓰기(추후 제공) → 한눈에 보기 → 곡선의 성격 → 가족 → 스텝 사용 가이드 → 개발 → 변경 기록 → 라이선스. 상단에 npm 버전·월간 다운로드 배지가 있다. 영어판도 같은 절을 두고, 가이드 표 대신 요약과 한국어 링크를 둔다.
+README 순서: 특징 → 예시 UI → 설치 → 사용법 → Figma에서 쓰기(추후 제공) → 전체 팔레트 → Tailwind CSS와 비교 → 명도·채도 설계 → 컬러 목록 → 스텝 사용 가이드 → 개발 → 변경 기록 → 라이선스. 예전 '만든 이유' 절은 지웠다. 상단에 npm 버전·월간 다운로드 배지가 있다. 영어판도 같은 절을 두고, 가이드 표 대신 요약과 한국어 링크를 둔다. README 글에는 '가족', '채움색', '시맨틱 역할'처럼 실무에서 안 쓰는 말을 쓰지 않는다(가족 → 컬러, 유색 가족 → 유채색, 채움색 → 배경색, 영어는 family → color). 이 문서의 '가족'은 작업 메모용이다.
 
 가족: pink, red, orange, yellow, light-green, green, cyan, light-blue, blue, purple, brown, cool-gray, neutral-gray. (예전 이름: lime → light-green, teal → cyan, cloudy-blue → light-blue)
 
@@ -37,6 +37,8 @@ README 순서: 특징 → 만든 이유 → 설치 → 사용법 → Figma에서
 - `README.md`(한국어, 기본), `README.en.md`(영어) — 가족, 스텝, 곡선이 바뀌면 둘 다 같이 고친다. 상단은 커버, 태그라인, npm 배지, 라이선스 배지, 언어 링크 순서다. 영어판은 가이드 표 대신 요약과 한국어 링크를 둔다
 - `scripts/write-swatches.ts` — README 색 이미지(`docs/palette-*.svg`, `docs/families/*.svg`, `docs/color-vision.svg`, 명도 곡선 `docs/curve-*-lightness.svg`)를 `docs/`에 만든다. `npm run build`가 함께 돌린다. README는 `assets` 브랜치의 이미지를 `ASSETS_URL`(raw.githubusercontent.com) 주소로 불러온다. 색이 바뀌면 `scripts/update-assets.sh`로 빌드해서 `assets` 브랜치에 커밋·푸시한다. `npm test`는 두 README가 모든 이미지를 가리키는지 보고, `assets` 브랜치를 받아 둔 경우 그 이미지가 팔레트와 같은지도 본다
 - `assets` 브랜치의 `design/cover.html` — ORDINARY 시리즈 커버(`docs/cover.webp`, 소셜 프리뷰 `docs/social-preview.jpg`). Figma에서 받은 `design/bg.svg`(파란 방사형 그라디언트)와 `design/logo.svg`(흰 워드마크, 2560 프레임 기준 크기로 가운데 정렬한 뒤 시각 보정으로 오른쪽 23px. 왼쪽 O·P가 무겁고 `Palette.`가 짧아 글자 무게 중심이 박스 가운데보다 45px 왼쪽이라 그 절반만 옮긴다) 위에 글로우, 할레이션(로고 둘레 주황 번짐 + 밝은 곳의 따뜻한 넓은 글로우), 렌즈 색수차, 필름 그레인, Bayer 디더를 이 순서로 올린다. 고정 시드라 같은 파일은 늘 같은 이미지다. 캔버스가 자기 픽셀을 읽으므로 `design/`을 http로 띄워서 `.cover`를 1280×640에서 `body[data-ready]` 뒤에 렌더링한다. README 커버는 모서리가 radius 32px에 Figma식 corner smoothing 60%(iOS 프리셋, 애플 스퀴클)라 투명 배경이 필요해서 device scale 2로 렌더링해 WebP 90으로 저장한다. 소셜 프리뷰는 GitHub가 직접 모서리를 깎으므로 `cover.html?radius=0`을 scale 1·JPEG 92(1MB 이하)로 저장한다
+- `scripts/tailwind-compare.ts` — README "Tailwind CSS와 비교"의 표와 문장을 만든다. Tailwind 값은 devDependency `tailwindcss`(정확한 버전 고정)의 `theme.css`에서 빌드 때 읽기만 하고 repo에 복사하지 않는다. 같은 스크립트의 명도 차이로 `docs/compare-tailwind-lightness.svg`(`write-swatches.ts`가 만든다)를 그린다. `npm test`가 두 README의 표를 검사하고, 400–800에서 우리 곡선이 Tailwind보다 평평한지도 본다. Tailwind를 올리면 표와 차트가 바뀌므로 README 표를 다시 만들고 `scripts/update-assets.sh`를 돌린다
+- `assets` 브랜치의 `design/example-ui.html` — README "예시 UI" 이미지(`docs/example-ui.webp`)의 원본이다. `src/colors.css`를 `<style>` 맨 위에 그대로 붙이고 라이트·다크 두 화면을 1280px 폭에 그린다. 글꼴은 Pretendard(Regular·Medium·SemiBold·Bold woff2를 `@font-face`로 주입해서 렌더링한다. 글꼴 파일은 커밋하지 않는다). Chromium으로 device scale 2에 렌더링해 WebP 90으로 저장한다. 팔레트 색이 바뀌면 `:root` 블록을 새 `src/colors.css`로 바꿔서 다시 렌더링한다
 - `scripts/usage-table.ts` — README "스텝 사용 가이드"의 표와 수치(유색 가족, 쓸 때 알아둘 점, 색각 이상 시뮬레이션, 실제 화면 예시)를 만든다. 색이 바뀌면 다시 돌려 README 표를 바꾼다(`npm test`가 어긋나면 실패)
 
 `npm test`는 빌드 후 테스트를 돌린다. 미리보기(`examples/preview`)는 `main`에서 뺐고 `assets` 브랜치에 보관만 한다.

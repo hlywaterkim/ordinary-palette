@@ -31,6 +31,7 @@
   },
   "devDependencies": {
     "colorjs.io": "^0.7.1",
+    "tailwindcss": "4.3.3",
     "typescript": "^5.9.2"
   },
   "keywords": [

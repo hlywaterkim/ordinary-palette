@@ -16,15 +16,17 @@ Every color keeps the same lightness at each step, so it's easy to build UI with
 
 ## Features
 
-- **Same lightness across colors and steps:** The chromatic families share one lightness curve, so blue 500 and green 500 look equally bright. 13 families × 10 steps (50–900), in light and dark scales.
-- **Each step has a job:** 50–200 are backgrounds. 600 is text on white and a fill for white text. White text on 700 and 800 text on 100 reach 4.5:1 or more (for yellow, 900 is the text step).
-- **Dark keeps the same jobs:** The dark scale runs the other way, so a step does the same work in both modes. It does not reuse light hex values.
-- **Rules locked in by tests:** `npm test` checks lightness spacing, chroma, and contrast on every run.
-- **Raw palette only:** There are no semantic roles such as primary, surface, or text. Put your own design system on top.
+- **Same lightness across colors and steps:** The colored scales share one lightness curve, so blue 500 and green 500 look equally bright. 13 colors × 10 steps (50–900), in light and dark scales.
+- **Each step has a purpose:** 50–200 are backgrounds. 600 is text on white and the background for a button with white text. White text on 700 and 800 text on 100 reach 4.5:1 or more (for yellow, 900 is the text step).
+- **Dark keeps the same purposes:** The dark scale runs the other way, so a step does the same work in both modes. It does not reuse light hex values.
+- **Checked by tests:** `npm test` checks lightness spacing, chroma, and contrast on every run.
+- **Palette only:** There are no semantic tokens such as primary, surface, or text. Put your own design system on top.
 
-## Why
+## Example UI
 
-Made so vibe coding gets consistent color: the same step looks equally bright across families. One reason the project started is Toss's article on rebuilding the TDS color system, [달리는 기차 바퀴 칠하기](https://toss.tech/article/43385) (a color-system update after seven years). The shared lightness curve follows that article. The hex values are original.
+![Example screens built with Ordinary Palette, in light and dark](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/example-ui.webp)
+
+A screen with cards, a form, and an alert, built only from Ordinary Palette steps. Backgrounds are cool-gray, the primary button is blue 600 (500 in dark), badges are 800 text on a 100 background (700 in dark), and the bars are the 500 steps of blue → orange → yellow → brown → cyan → pink.
 
 ## Install
 
@@ -45,7 +47,7 @@ darkBlue[500];
 whiteOpacity["40"];
 ```
 
-Each light family is also exported by name: `pink`, `red`, `orange`, `yellow`, `lightGreen`, `green`, `cyan`, `lightBlue`, `blue`, `purple`, `brown`, `coolGray`, `neutralGray`. Dark families are `darkPink`, `darkRed`, `darkOrange`, `darkYellow`, `darkLightGreen`, `darkGreen`, `darkCyan`, `darkLightBlue`, `darkBlue`, `darkPurple`, `darkBrown`, `darkCoolGray`, `darkNeutralGray`, and all of them together are `darkColors`. The opacity scales are `whiteOpacity` and `blackOpacity`.
+Each light color is also exported by name: `pink`, `red`, `orange`, `yellow`, `lightGreen`, `green`, `cyan`, `lightBlue`, `blue`, `purple`, `brown`, `coolGray`, `neutralGray`. Dark colors are `darkPink`, `darkRed`, `darkOrange`, `darkYellow`, `darkLightGreen`, `darkGreen`, `darkCyan`, `darkLightBlue`, `darkBlue`, `darkPurple`, `darkBrown`, `darkCoolGray`, `darkNeutralGray`, and all of them together are `darkColors`. The opacity scales are `whiteOpacity` and `blackOpacity`.
 
 ### CSS
 
@@ -63,7 +65,7 @@ Each light family is also exported by name: `pink`, `red`, `orange`, `yellow`, `
 }
 ```
 
-CSS variables are named `--color-<family>-<step>` for light and `--color-dark-<family>-<step>` for dark, for example `--color-cool-gray-500`, `--color-dark-cool-gray-500`, `--color-light-blue-500`, `--color-white-opacity-40`, and `--color-black-opacity-05`.
+CSS variables are named `--color-<color>-<step>` for light and `--color-dark-<color>-<step>` for dark, for example `--color-cool-gray-500`, `--color-dark-cool-gray-500`, `--color-light-blue-500`, `--color-white-opacity-40`, and `--color-black-opacity-05`.
 
 ### JSON
 
@@ -78,17 +80,48 @@ palette.dark.blue["500"];
 
 A Figma Community file and a way to import Variables will come later.
 
-## At a glance
+## Full palette
 
-![Light scale: 13 families × 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/palette-light.svg)
+![Light scale: 13 colors × 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/palette-light.svg)
 
-![Dark scale: 13 families × 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/palette-dark.svg)
+![Dark scale: 13 colors × 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/palette-dark.svg)
 
-## How the curves behave
+## Compared with Tailwind CSS
 
-- **Lightness:** 50 is the lightest and 900 the darkest. Every chromatic family except yellow sits within about 1 L of blue at each step (orange runs up to 3 L lighter), so the same step looks equally bright across families. From 200 to 900, each step is a similar visual change, with a slightly larger drop before 500. 50–200 are background tints, so they sit closer together on purpose.
-- **Chroma:** Low at 50, highest at 400–600, and it does not collapse at 900, so dark steps keep their family color. 600 is never more saturated than 500, so 500 reads as the main step.
-- **Light tints:** 50–200 share lightness and chroma across chromatic families, so a row of different 100s looks even. Yellow shares 50 only and is brighter from 100 on.
+In Tailwind CSS (v4) every color has its own lightness curve, so the same step is not equally bright across colors. In Ordinary Palette the colored scales share one curve. The chart plots the lightness (OKLCH L) of Tailwind's 17 default colors (grays left out) and Ordinary Palette's 11 colored scales on the same axis.
+
+![Lightness of Tailwind CSS and Ordinary Palette](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/compare-tailwind-lightness.svg)
+
+| Step | Tailwind CSS | Ordinary Palette |
+| --- | --- | --- |
+| 50 | 2.5 | 0.4 |
+| 100 | 3.7 | 0.3 |
+| 200 | 6.8 | 0.2 |
+| 300 | 11.2 | 2.5 |
+| 400 | 16.8 | 4.1 |
+| 500 | 18.4 | 3.9 |
+| 600 | 15.5 | 4.0 |
+| 700 | 9.8 | 4.0 |
+| 800 | 7.5 | 4.2 |
+| 900 | 5.5 | 3.9 |
+
+The table shows the lightness (OKLCH L) gap between the lightest and darkest color at each step. Yellow is left out of both, and a smaller gap means the same step looks equally bright across colors.
+
+That keeps contrast steady across colors too. White text on a 600 fill reaches 4.5:1 in 8 of 16 Tailwind colors and 10 of 10 Ordinary colors (yellow excluded).
+
+In UI work this means:
+
+- **Swapping a color keeps the contrast.** Changing a button from blue 600 to green 600 or purple 600 keeps white text at 4.5:1 or more (yellow excluded), so you do not re-pick text colors per color.
+- **Several colors on one screen stay balanced.** Badges or chart bars from the same step do not leave one color looking louder or flatter than the rest.
+- **Dark mode has the same structure.** The dark scale also gives the same step nearly the same lightness.
+
+Yellow needs to be bright to look yellow, so it is deliberately lighter than the shared curve and is left out of the comparison. Equal lightness also means colors differ only in hue, which is harder to tell apart with color vision deficiency; see the [Korean README](README.md#색각-이상-시뮬레이션) for what to do when you place same-step colors side by side. Tailwind's values are read from the `tailwindcss@4.3.3` package for the comparison only and are not copied into this palette.
+
+## How the scales are built
+
+- **Lightness:** 50 is the lightest and 900 the darkest. Every colored scale except yellow sits within about 1 L of blue at each step (orange runs up to 3 L lighter), so the same step looks equally bright across colors. From 200 to 900, each step is a similar visual change, with a slightly larger drop before 500. 50–200 are background tints, so they sit closer together on purpose.
+- **Chroma:** Low at 50, highest at 400–600, and it does not collapse at 900, so dark steps keep their own color. 600 is never more saturated than 500, so 500 reads as the main step.
+- **Background steps (50–200):** They share lightness and chroma across colored scales, so a row of different 100s looks even. Yellow shares 50 only and is brighter from 100 on.
 - **Grays:** Start lighter (L 98) with three steps above L 93 for surfaces and borders. cool-gray 900 is the dark body text color. neutral-gray has cool-gray's lightness with zero chroma.
 - **Dark scale:** Dark 50 is a dark tinted background, dark 500 is close to light 500 in lightness, and dark 900 is a light tint for text.
 - **Visual correction:** Lightness stays on the shared curve. Where colors still look off (for example, saturated blue and purple look brighter), only chroma and hue are adjusted, so contrast does not change.
@@ -98,9 +131,9 @@ A Figma Community file and a way to import Variables will come later.
 
 ![Dark lightness curve](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/curve-dark-lightness.svg)
 
-## Families
+## Colors
 
-| Family | 50 → 900 | Character |
+| Color | 50 → 900 | Character |
 | --- | --- | --- |
 | pink | ![pink 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/families/pink.svg) | A true pink (hue 356), kept apart from red. |
 | red | ![red 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/families/red.svg) | A little redder than orange so the two stay apart. |
@@ -110,23 +143,23 @@ A Figma Community file and a way to import Variables will come later.
 | green | ![green 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/families/green.svg) | A clear green. |
 | cyan | ![cyan 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/families/cyan.svg) | From aqua to teal. Dark steps are less saturated because of the sRGB limit. |
 | light-blue | ![light-blue 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/families/light-blue.svg) | Sky blue between cyan and blue. |
-| blue | ![blue 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/families/blue.svg) | The reference family for the shared lightness curve. |
+| blue | ![blue 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/families/blue.svg) | The reference color for the shared lightness curve. |
 | purple | ![purple 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/families/purple.svg) | Slightly more violet than indigo. |
 | brown | ![brown 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/families/brown.svg) | A low-chroma warm brown between orange and gray. |
 | cool-gray | ![cool-gray 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/families/cool-gray.svg) | A slightly cool gray for surfaces, borders, and text. |
 | neutral-gray | ![neutral-gray 50–900](https://raw.githubusercontent.com/hlywaterkim/ordinary-palette/assets/docs/families/neutral-gray.svg) | cool-gray's lightness with zero chroma. |
 
-Every family has the steps 50, 100, 200, 300, 400, 500, 600, 700, 800, 900 in both light and dark.
+Every color has the steps 50, 100, 200, 300, 400, 500, 600, 700, 800, 900 in both light and dark.
 
 ## Step guide
 
-The palette has no semantic roles, and it will not add them. These are measured starting points, not rules (WCAG 2 contrast: 4.5:1 for text, 3:1 for icons and input borders).
+The palette has no semantic tokens, and it will not add them. These are measured starting points, not rules (WCAG 2 contrast: 4.5:1 for text, 3:1 for icons and input borders).
 
 - **Grays (light):** 50 and 100 for page and card backgrounds, 200 for dividers, 300 for visible borders, 500 for input borders, 600 for secondary text, 800–900 for body text.
 - **Grays (dark):** Dark 50–200 for backgrounds, dark 500 for input borders, dark 600 for secondary text, dark 800–900 for body text.
-- **Chromatic families (light):** 600 for text on white and as a fill for white text, 700 for badge text on a 100 tint, 500 for icons on white. For yellow, use 900 for text and 800 for icons.
-- **Chromatic families (dark):** Dark 500 for text on dark backgrounds.
-- **Same step, similar colors:** Because families share lightness, some same-step pairs are hard to tell apart with color vision deficiency. Add a label or icon, or mix steps.
+- **Colored scales (light):** 600 for text on white and as the background for white text, 700 for badge text on a 100 tint, 500 for icons on white. For yellow, use 900 for text and 800 for icons.
+- **Colored scales (dark):** Dark 500 for text on dark backgrounds.
+- **Same step, similar colors:** Because the colors share lightness, some same-step pairs are hard to tell apart with color vision deficiency. Add a label or icon, or mix steps.
 
 The full guide, with measured contrast tables, color vision simulation, and screen examples, is in the [Korean README](README.md#스텝-사용-가이드).
 
@@ -137,7 +170,7 @@ npm install
 npm test
 ```
 
-`npm test` builds the package and then checks the palette rules: step format, lightness, spacing, chroma, family hue, contrast, the dark scale, visual correction, and whether the README tables match the palette and the README points to every swatch image. When the `assets` branch is fetched, it also checks that those images match the palette.
+`npm test` builds the package and then checks the palette rules: step format, lightness, spacing, chroma, each color's hue, contrast, the dark scale, visual correction, and whether the README tables match the palette and the README points to every swatch image. When the `assets` branch is fetched, it also checks that those images match the palette.
 
 ## Changelog
 
@@ -145,15 +178,15 @@ npm test
 
 ### 0.2.0
 
-- Renamed families: `lime` → `light-green`, `teal` → `cyan`, `cloudy-blue` → `light-blue`.
-- Added the `brown` family.
-- Chromatic families share one lightness curve. Yellow and the grays stay on their own.
-- For every chromatic family except yellow, 600 is text on white and a fill for white text. Yellow text is 900.
+- Renamed colors: `lime` → `light-green`, `teal` → `cyan`, `cloudy-blue` → `light-blue`.
+- Added the `brown` color.
+- The colored scales share one lightness curve. Yellow and the grays stay on their own.
+- For every colored scale except yellow, 600 is text on white and the background for white text. Yellow text is 900.
 - The 0.1.0 hex values were not kept.
 
 ### 0.1.0
 
-- Twelve families (`lime`, `teal`, `cloudy-blue`, no brown), steps 50–900, light and dark scales, and white/black opacity.
+- Twelve colors (`lime`, `teal`, `cloudy-blue`, no brown), steps 50–900, light and dark scales, and white/black opacity.
 - JavaScript, CSS variables, and JSON.
 
 ## License
