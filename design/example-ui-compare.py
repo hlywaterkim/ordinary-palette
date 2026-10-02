@@ -37,8 +37,8 @@ def col(kind,label,tag):
 CSS2=CSS+'''
 body{gap:0}
 .wrapb{width:1232px}
-.board2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.side{padding:20px;border-radius:20px;background:#fff;display:flex;flex-direction:column;gap:14px;--card:var(--gray-50);--line:var(--gray-200);--title:var(--gray-900);--body:var(--gray-700);--muted:var(--gray-600)}
+.board2{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.side{padding:12px;background:#fff;display:flex;flex-direction:column;gap:34px;--card:var(--gray-50);--line:var(--gray-200);--title:var(--gray-900);--body:var(--gray-700);--muted:var(--gray-600)}
 .tag{font-size:20px;font-weight:800;color:var(--title);margin-bottom:2px}
 .side.before .tag::before{content:"Before";font-size:12px;letter-spacing:.06em;text-transform:uppercase;background:var(--gray-200);color:var(--gray-800);border-radius:999px;padding:4px 10px;margin-right:10px;vertical-align:3px}
 .side.after .tag::before{content:"After";font-size:12px;letter-spacing:.06em;text-transform:uppercase;background:var(--blue-100);color:var(--blue-800);border-radius:999px;padding:4px 10px;margin-right:10px;vertical-align:3px}
