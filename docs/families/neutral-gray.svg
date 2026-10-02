@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="280" height="22" viewBox="0 0 280 22">
-<clipPath id="r"><rect width="280" height="22" rx="5"/></clipPath>
+<clipPath id="r"><path d="M272 0c2.8 0 4.2 0 5.27 0.54a5 5 0 0 1 2.19 2.19c0.54 1.07 0.54 2.47 0.54 5.27L280 14c0 2.8 0 4.2 -0.54 5.27a5 5 0 0 1 -2.19 2.19c-1.07 0.54 -2.47 0.54 -5.27 0.54L8 22c-2.8 0 -4.2 0 -5.27 -0.54a5 5 0 0 1 -2.19 -2.19c-0.54 -1.07 -0.54 -2.47 -0.54 -5.27L0 8c0 -2.8 0 -4.2 0.54 -5.27a5 5 0 0 1 2.19 -2.19c1.07 -0.54 2.47 -0.54 5.27 -0.54Z"/></clipPath>
 <g clip-path="url(#r)">
 <rect x="0" y="0" width="29" height="22" fill="#f8f8f8"/>
 <rect x="28" y="0" width="29" height="22" fill="#f3f3f3"/>

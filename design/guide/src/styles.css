@@ -46,3 +46,7 @@
   --ring: var(--color-blue-500);
 }
 body { background: #fff; font-family: var(--font-sans); -webkit-font-smoothing: antialiased; color: var(--foreground); }
+
+@layer base {
+  * { border-color: var(--border); }
+}

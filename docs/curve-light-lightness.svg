@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="720" height="422" viewBox="0 0 720 422">
-<rect width="720" height="422" rx="12" fill="#ffffff"/>
+<path d="M700.8 0c6.72 0 10.08 0 12.65 1.31a12 12 0 0 1 5.24 5.24c1.31 2.57 1.31 5.93 1.31 12.65L720 402.8c0 6.72 0 10.08 -1.31 12.65a12 12 0 0 1 -5.24 5.24c-2.57 1.31 -5.93 1.31 -12.65 1.31L19.2 422c-6.72 0 -10.08 0 -12.65 -1.31a12 12 0 0 1 -5.24 -5.24c-1.31 -2.57 -1.31 -5.93 -1.31 -12.65L0 19.2c0 -6.72 0 -10.08 1.31 -12.65a12 12 0 0 1 5.24 -5.24c2.57 -1.31 5.93 -1.31 12.65 -1.31Z" fill="#ffffff"/>
 <text x="52" y="26" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="14" font-weight="700" fill="#2e3338">라이트 · 명도 (OKLCH L)</text>
 <line x1="52" x2="700" y1="330" y2="330" stroke="#f2f4f5" stroke-width="1"/>
 <text x="44" y="334" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">20</text>

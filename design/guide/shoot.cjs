@@ -1,4 +1,5 @@
 const { chromium } = require(process.env.PW);
+const smooth = require("fs").readFileSync(__dirname + "/smooth.js", "utf8");
 (async () => {
   const dir = process.argv[2];
   const b = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium-1194/chrome-linux/chrome" });
@@ -9,6 +10,7 @@ const { chromium } = require(process.env.PW);
     await p.addStyleTag({ content: css });
     await p.evaluate(() => document.fonts.ready);
     await p.waitForTimeout(300);
+    await p.evaluate(smooth);
     await (await p.$("#root > div")).screenshot({ path: `out/scene${n}.png` });
   }
   await b.close();

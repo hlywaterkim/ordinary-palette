@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="720" height="988" viewBox="0 0 720 988">
-<rect width="720" height="988" rx="12" fill="#ffffff"/>
+<path d="M700.8 0c6.72 0 10.08 0 12.65 1.31a12 12 0 0 1 5.24 5.24c1.31 2.57 1.31 5.93 1.31 12.65L720 968.8c0 6.72 0 10.08 -1.31 12.65a12 12 0 0 1 -5.24 5.24c-2.57 1.31 -5.93 1.31 -12.65 1.31L19.2 988c-6.72 0 -10.08 0 -12.65 -1.31a12 12 0 0 1 -5.24 -5.24c-1.31 -2.57 -1.31 -5.93 -1.31 -12.65L0 19.2c0 -6.72 0 -10.08 1.31 -12.65a12 12 0 0 1 5.24 -5.24c2.57 -1.31 5.93 -1.31 12.65 -1.31Z" fill="#ffffff"/>
 <text x="52" y="34" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="14" font-weight="700" fill="#2e3338">Tailwind CSS v4.3.3 · lightness (OKLCH L)</text>
 <line x1="52" x2="700" y1="250" y2="250" stroke="#f2f4f5" stroke-width="1"/>
 <text x="44" y="254" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">20</text>
@@ -426,7 +426,7 @@
 <text x="258" y="680" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="11" fill="#2e3338">purple</text>
 <line x1="328" x2="344" y1="676" y2="676" stroke="#aa7a53" stroke-width="3" stroke-linecap="round"/>
 <text x="350" y="680" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="11" fill="#2e3338">brown</text>
-<text x="52" y="738" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="14" font-weight="700" fill="#2e3338">Lightness gap between families at each step, without yellow (L)</text>
+<text x="52" y="738" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="14" font-weight="700" fill="#2e3338">Lightness gap between colors at each step, without yellow (L)</text>
 <line x1="52" x2="700" y1="920" y2="920" stroke="#d2d6db" stroke-width="1"/>
 <text x="44" y="924" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">0</text>
 <line x1="52" x2="700" y1="880" y2="880" stroke="#f2f4f5" stroke-width="1"/>
@@ -438,57 +438,57 @@
 <line x1="52" x2="700" y1="760" y2="760" stroke="#f2f4f5" stroke-width="1"/>
 <text x="44" y="764" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">20</text>
 <text x="84.4" y="938" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">50</text>
-<rect x="65.4" y="900.0" width="18" height="20.0" rx="2" fill="#afb5bb"><title>Tailwind CSS 50 · 2.5 L</title></rect>
+<path d="M80.2 900c1.12 0 1.68 0 2.11 0.22a2 2 0 0 1 0.87 0.87c0.22 0.43 0.22 0.99 0.22 2.11L83.4 916.8c0 1.12 0 1.68 -0.22 2.11a2 2 0 0 1 -0.87 0.87c-0.43 0.22 -0.99 0.22 -2.11 0.22L68.6 920c-1.12 0 -1.68 0 -2.11 -0.22a2 2 0 0 1 -0.87 -0.87c-0.22 -0.43 -0.22 -0.99 -0.22 -2.11L65.4 903.2c0 -1.12 0 -1.68 0.22 -2.11a2 2 0 0 1 0.87 -0.87c0.43 -0.22 0.99 -0.22 2.11 -0.22Z" fill="#afb5bb"><title>Tailwind CSS 50 · 2.5 L</title></path>
 <text x="74.4" y="896.0" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" fill="#454b51">2.5</text>
-<rect x="85.4" y="917.1" width="18" height="2.9" rx="2" fill="#2b84ff"><title>Ordinary Palette 50 · 0.4 L</title></rect>
+<path d="M101.93 917.06c0 0 0 0 0 0a1.47 1.47 0 0 1 1.47 1.47c0 0 0 0 0 0L103.4 918.53c0 0 0 0 0 0a1.47 1.47 0 0 1 -1.47 1.47c0 0 0 0 0 0L86.87 920c0 0 0 0 0 0a1.47 1.47 0 0 1 -1.47 -1.47c0 0 0 0 0 0L85.4 918.53c0 0 0 0 0 0a1.47 1.47 0 0 1 1.47 -1.47c0 0 0 0 0 0Z" fill="#2b84ff"><title>Ordinary Palette 50 · 0.4 L</title></path>
 <text x="94.4" y="913.1" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" fill="#454b51">0.4</text>
 <text x="149.2" y="938" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">100</text>
-<rect x="130.2" y="890.4" width="18" height="29.6" rx="2" fill="#afb5bb"><title>Tailwind CSS 100 · 3.7 L</title></rect>
+<path d="M145 890.4c1.12 0 1.68 0 2.11 0.22a2 2 0 0 1 0.87 0.87c0.22 0.43 0.22 0.99 0.22 2.11L148.2 916.8c0 1.12 0 1.68 -0.22 2.11a2 2 0 0 1 -0.87 0.87c-0.43 0.22 -0.99 0.22 -2.11 0.22L133.4 920c-1.12 0 -1.68 0 -2.11 -0.22a2 2 0 0 1 -0.87 -0.87c-0.22 -0.43 -0.22 -0.99 -0.22 -2.11L130.2 893.6c0 -1.12 0 -1.68 0.22 -2.11a2 2 0 0 1 0.87 -0.87c0.43 -0.22 0.99 -0.22 2.11 -0.22Z" fill="#afb5bb"><title>Tailwind CSS 100 · 3.7 L</title></path>
 <text x="139.2" y="886.4" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" fill="#454b51">3.7</text>
-<rect x="150.2" y="918.0" width="18" height="2.0" rx="2" fill="#2b84ff"><title>Ordinary Palette 100 · 0.3 L</title></rect>
+<path d="M167.19 917.98c0 0 0 0 0 0a1.01 1.01 0 0 1 1.01 1.01c0 0 0 0 0 0L168.2 918.99c0 0 0 0 0 0a1.01 1.01 0 0 1 -1.01 1.01c0 0 0 0 0 0L151.21 920c0 0 0 0 0 0a1.01 1.01 0 0 1 -1.01 -1.01c0 0 0 0 0 0L150.2 918.99c0 0 0 0 0 0a1.01 1.01 0 0 1 1.01 -1.01c0 0 0 0 0 0Z" fill="#2b84ff"><title>Ordinary Palette 100 · 0.3 L</title></path>
 <text x="159.2" y="914.0" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" fill="#454b51">0.3</text>
 <text x="214" y="938" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">200</text>
-<rect x="195.0" y="865.6" width="18" height="54.4" rx="2" fill="#afb5bb"><title>Tailwind CSS 200 · 6.8 L</title></rect>
+<path d="M209.8 865.6c1.12 0 1.68 0 2.11 0.22a2 2 0 0 1 0.87 0.87c0.22 0.43 0.22 0.99 0.22 2.11L213 916.8c0 1.12 0 1.68 -0.22 2.11a2 2 0 0 1 -0.87 0.87c-0.43 0.22 -0.99 0.22 -2.11 0.22L198.2 920c-1.12 0 -1.68 0 -2.11 -0.22a2 2 0 0 1 -0.87 -0.87c-0.22 -0.43 -0.22 -0.99 -0.22 -2.11L195 868.8c0 -1.12 0 -1.68 0.22 -2.11a2 2 0 0 1 0.87 -0.87c0.43 -0.22 0.99 -0.22 2.11 -0.22Z" fill="#afb5bb"><title>Tailwind CSS 200 · 6.8 L</title></path>
 <text x="204.0" y="861.6" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" fill="#454b51">6.8</text>
-<rect x="215.0" y="918.4" width="18" height="1.6" rx="2" fill="#2b84ff"><title>Ordinary Palette 200 · 0.2 L</title></rect>
+<path d="M232.22 918.43c0 0 0 0 0 0a0.78 0.78 0 0 1 0.78 0.78c0 0 0 0 0 0L233 919.22c0 0 0 0 0 0a0.78 0.78 0 0 1 -0.78 0.78c0 0 0 0 0 0L215.78 920c0 0 0 0 0 0a0.78 0.78 0 0 1 -0.78 -0.78c0 0 0 0 0 0L215 919.22c0 0 0 0 0 0a0.78 0.78 0 0 1 0.78 -0.78c0 0 0 0 0 0Z" fill="#2b84ff"><title>Ordinary Palette 200 · 0.2 L</title></path>
 <text x="224.0" y="914.4" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" fill="#454b51">0.2</text>
 <text x="278.79999999999995" y="938" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">300</text>
-<rect x="259.8" y="830.4" width="18" height="89.6" rx="2" fill="#afb5bb"><title>Tailwind CSS 300 · 11.2 L</title></rect>
+<path d="M274.6 830.4c1.12 0 1.68 0 2.11 0.22a2 2 0 0 1 0.87 0.87c0.22 0.43 0.22 0.99 0.22 2.11L277.8 916.8c0 1.12 0 1.68 -0.22 2.11a2 2 0 0 1 -0.87 0.87c-0.43 0.22 -0.99 0.22 -2.11 0.22L263 920c-1.12 0 -1.68 0 -2.11 -0.22a2 2 0 0 1 -0.87 -0.87c-0.22 -0.43 -0.22 -0.99 -0.22 -2.11L259.8 833.6c0 -1.12 0 -1.68 0.22 -2.11a2 2 0 0 1 0.87 -0.87c0.43 -0.22 0.99 -0.22 2.11 -0.22Z" fill="#afb5bb"><title>Tailwind CSS 300 · 11.2 L</title></path>
 <text x="268.8" y="826.4" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" fill="#454b51">11.2</text>
-<rect x="279.8" y="900.3" width="18" height="19.7" rx="2" fill="#2b84ff"><title>Ordinary Palette 300 · 2.5 L</title></rect>
+<path d="M294.6 900.33c1.12 0 1.68 0 2.11 0.22a2 2 0 0 1 0.87 0.87c0.22 0.43 0.22 0.99 0.22 2.11L297.8 916.8c0 1.12 0 1.68 -0.22 2.11a2 2 0 0 1 -0.87 0.87c-0.43 0.22 -0.99 0.22 -2.11 0.22L283 920c-1.12 0 -1.68 0 -2.11 -0.22a2 2 0 0 1 -0.87 -0.87c-0.22 -0.43 -0.22 -0.99 -0.22 -2.11L279.8 903.53c0 -1.12 0 -1.68 0.22 -2.11a2 2 0 0 1 0.87 -0.87c0.43 -0.22 0.99 -0.22 2.11 -0.22Z" fill="#2b84ff"><title>Ordinary Palette 300 · 2.5 L</title></path>
 <text x="288.8" y="896.3" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" fill="#454b51">2.5</text>
 <text x="343.59999999999997" y="938" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">400</text>
-<rect x="324.6" y="785.6" width="18" height="134.4" rx="2" fill="#afb5bb"><title>Tailwind CSS 400 · 16.8 L</title></rect>
+<path d="M339.4 785.6c1.12 0 1.68 0 2.11 0.22a2 2 0 0 1 0.87 0.87c0.22 0.43 0.22 0.99 0.22 2.11L342.6 916.8c0 1.12 0 1.68 -0.22 2.11a2 2 0 0 1 -0.87 0.87c-0.43 0.22 -0.99 0.22 -2.11 0.22L327.8 920c-1.12 0 -1.68 0 -2.11 -0.22a2 2 0 0 1 -0.87 -0.87c-0.22 -0.43 -0.22 -0.99 -0.22 -2.11L324.6 788.8c0 -1.12 0 -1.68 0.22 -2.11a2 2 0 0 1 0.87 -0.87c0.43 -0.22 0.99 -0.22 2.11 -0.22Z" fill="#afb5bb"><title>Tailwind CSS 400 · 16.8 L</title></path>
 <text x="333.6" y="781.6" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" fill="#454b51">16.8</text>
-<rect x="344.6" y="887.6" width="18" height="32.4" rx="2" fill="#2b84ff"><title>Ordinary Palette 400 · 4.1 L</title></rect>
+<path d="M359.4 887.59c1.12 0 1.68 0 2.11 0.22a2 2 0 0 1 0.87 0.87c0.22 0.43 0.22 0.99 0.22 2.11L362.6 916.8c0 1.12 0 1.68 -0.22 2.11a2 2 0 0 1 -0.87 0.87c-0.43 0.22 -0.99 0.22 -2.11 0.22L347.8 920c-1.12 0 -1.68 0 -2.11 -0.22a2 2 0 0 1 -0.87 -0.87c-0.22 -0.43 -0.22 -0.99 -0.22 -2.11L344.6 890.79c0 -1.12 0 -1.68 0.22 -2.11a2 2 0 0 1 0.87 -0.87c0.43 -0.22 0.99 -0.22 2.11 -0.22Z" fill="#2b84ff"><title>Ordinary Palette 400 · 4.1 L</title></path>
 <text x="353.6" y="883.6" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" fill="#454b51">4.1</text>
 <text x="408.4" y="938" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">500</text>
-<rect x="389.4" y="772.8" width="18" height="147.2" rx="2" fill="#afb5bb"><title>Tailwind CSS 500 · 18.4 L</title></rect>
+<path d="M404.2 772.8c1.12 0 1.68 0 2.11 0.22a2 2 0 0 1 0.87 0.87c0.22 0.43 0.22 0.99 0.22 2.11L407.4 916.8c0 1.12 0 1.68 -0.22 2.11a2 2 0 0 1 -0.87 0.87c-0.43 0.22 -0.99 0.22 -2.11 0.22L392.6 920c-1.12 0 -1.68 0 -2.11 -0.22a2 2 0 0 1 -0.87 -0.87c-0.22 -0.43 -0.22 -0.99 -0.22 -2.11L389.4 776c0 -1.12 0 -1.68 0.22 -2.11a2 2 0 0 1 0.87 -0.87c0.43 -0.22 0.99 -0.22 2.11 -0.22Z" fill="#afb5bb"><title>Tailwind CSS 500 · 18.4 L</title></path>
 <text x="398.4" y="768.8" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" fill="#454b51">18.4</text>
-<rect x="409.4" y="888.5" width="18" height="31.5" rx="2" fill="#2b84ff"><title>Ordinary Palette 500 · 3.9 L</title></rect>
+<path d="M424.2 888.53c1.12 0 1.68 0 2.11 0.22a2 2 0 0 1 0.87 0.87c0.22 0.43 0.22 0.99 0.22 2.11L427.4 916.8c0 1.12 0 1.68 -0.22 2.11a2 2 0 0 1 -0.87 0.87c-0.43 0.22 -0.99 0.22 -2.11 0.22L412.6 920c-1.12 0 -1.68 0 -2.11 -0.22a2 2 0 0 1 -0.87 -0.87c-0.22 -0.43 -0.22 -0.99 -0.22 -2.11L409.4 891.73c0 -1.12 0 -1.68 0.22 -2.11a2 2 0 0 1 0.87 -0.87c0.43 -0.22 0.99 -0.22 2.11 -0.22Z" fill="#2b84ff"><title>Ordinary Palette 500 · 3.9 L</title></path>
 <text x="418.4" y="884.5" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" fill="#454b51">3.9</text>
 <text x="473.2" y="938" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">600</text>
-<rect x="454.2" y="796.0" width="18" height="124.0" rx="2" fill="#afb5bb"><title>Tailwind CSS 600 · 15.5 L</title></rect>
+<path d="M469 796c1.12 0 1.68 0 2.11 0.22a2 2 0 0 1 0.87 0.87c0.22 0.43 0.22 0.99 0.22 2.11L472.2 916.8c0 1.12 0 1.68 -0.22 2.11a2 2 0 0 1 -0.87 0.87c-0.43 0.22 -0.99 0.22 -2.11 0.22L457.4 920c-1.12 0 -1.68 0 -2.11 -0.22a2 2 0 0 1 -0.87 -0.87c-0.22 -0.43 -0.22 -0.99 -0.22 -2.11L454.2 799.2c0 -1.12 0 -1.68 0.22 -2.11a2 2 0 0 1 0.87 -0.87c0.43 -0.22 0.99 -0.22 2.11 -0.22Z" fill="#afb5bb"><title>Tailwind CSS 600 · 15.5 L</title></path>
 <text x="463.2" y="792.0" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" fill="#454b51">15.5</text>
-<rect x="474.2" y="888.3" width="18" height="31.7" rx="2" fill="#2b84ff"><title>Ordinary Palette 600 · 4.0 L</title></rect>
+<path d="M489 888.26c1.12 0 1.68 0 2.11 0.22a2 2 0 0 1 0.87 0.87c0.22 0.43 0.22 0.99 0.22 2.11L492.2 916.8c0 1.12 0 1.68 -0.22 2.11a2 2 0 0 1 -0.87 0.87c-0.43 0.22 -0.99 0.22 -2.11 0.22L477.4 920c-1.12 0 -1.68 0 -2.11 -0.22a2 2 0 0 1 -0.87 -0.87c-0.22 -0.43 -0.22 -0.99 -0.22 -2.11L474.2 891.46c0 -1.12 0 -1.68 0.22 -2.11a2 2 0 0 1 0.87 -0.87c0.43 -0.22 0.99 -0.22 2.11 -0.22Z" fill="#2b84ff"><title>Ordinary Palette 600 · 4.0 L</title></path>
 <text x="483.2" y="884.3" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" fill="#454b51">4.0</text>
 <text x="538" y="938" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">700</text>
-<rect x="519.0" y="841.6" width="18" height="78.4" rx="2" fill="#afb5bb"><title>Tailwind CSS 700 · 9.8 L</title></rect>
+<path d="M533.8 841.6c1.12 0 1.68 0 2.11 0.22a2 2 0 0 1 0.87 0.87c0.22 0.43 0.22 0.99 0.22 2.11L537 916.8c0 1.12 0 1.68 -0.22 2.11a2 2 0 0 1 -0.87 0.87c-0.43 0.22 -0.99 0.22 -2.11 0.22L522.2 920c-1.12 0 -1.68 0 -2.11 -0.22a2 2 0 0 1 -0.87 -0.87c-0.22 -0.43 -0.22 -0.99 -0.22 -2.11L519 844.8c0 -1.12 0 -1.68 0.22 -2.11a2 2 0 0 1 0.87 -0.87c0.43 -0.22 0.99 -0.22 2.11 -0.22Z" fill="#afb5bb"><title>Tailwind CSS 700 · 9.8 L</title></path>
 <text x="528.0" y="837.6" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" fill="#454b51">9.8</text>
-<rect x="539.0" y="888.1" width="18" height="31.9" rx="2" fill="#2b84ff"><title>Ordinary Palette 700 · 4.0 L</title></rect>
+<path d="M553.8 888.12c1.12 0 1.68 0 2.11 0.22a2 2 0 0 1 0.87 0.87c0.22 0.43 0.22 0.99 0.22 2.11L557 916.8c0 1.12 0 1.68 -0.22 2.11a2 2 0 0 1 -0.87 0.87c-0.43 0.22 -0.99 0.22 -2.11 0.22L542.2 920c-1.12 0 -1.68 0 -2.11 -0.22a2 2 0 0 1 -0.87 -0.87c-0.22 -0.43 -0.22 -0.99 -0.22 -2.11L539 891.32c0 -1.12 0 -1.68 0.22 -2.11a2 2 0 0 1 0.87 -0.87c0.43 -0.22 0.99 -0.22 2.11 -0.22Z" fill="#2b84ff"><title>Ordinary Palette 700 · 4.0 L</title></path>
 <text x="548.0" y="884.1" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" fill="#454b51">4.0</text>
 <text x="602.8" y="938" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">800</text>
-<rect x="583.8" y="860.0" width="18" height="60.0" rx="2" fill="#afb5bb"><title>Tailwind CSS 800 · 7.5 L</title></rect>
+<path d="M598.6 860c1.12 0 1.68 0 2.11 0.22a2 2 0 0 1 0.87 0.87c0.22 0.43 0.22 0.99 0.22 2.11L601.8 916.8c0 1.12 0 1.68 -0.22 2.11a2 2 0 0 1 -0.87 0.87c-0.43 0.22 -0.99 0.22 -2.11 0.22L587 920c-1.12 0 -1.68 0 -2.11 -0.22a2 2 0 0 1 -0.87 -0.87c-0.22 -0.43 -0.22 -0.99 -0.22 -2.11L583.8 863.2c0 -1.12 0 -1.68 0.22 -2.11a2 2 0 0 1 0.87 -0.87c0.43 -0.22 0.99 -0.22 2.11 -0.22Z" fill="#afb5bb"><title>Tailwind CSS 800 · 7.5 L</title></path>
 <text x="592.8" y="856.0" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" fill="#454b51">7.5</text>
-<rect x="603.8" y="886.6" width="18" height="33.4" rx="2" fill="#2b84ff"><title>Ordinary Palette 800 · 4.2 L</title></rect>
+<path d="M618.6 886.59c1.12 0 1.68 0 2.11 0.22a2 2 0 0 1 0.87 0.87c0.22 0.43 0.22 0.99 0.22 2.11L621.8 916.8c0 1.12 0 1.68 -0.22 2.11a2 2 0 0 1 -0.87 0.87c-0.43 0.22 -0.99 0.22 -2.11 0.22L607 920c-1.12 0 -1.68 0 -2.11 -0.22a2 2 0 0 1 -0.87 -0.87c-0.22 -0.43 -0.22 -0.99 -0.22 -2.11L603.8 889.79c0 -1.12 0 -1.68 0.22 -2.11a2 2 0 0 1 0.87 -0.87c0.43 -0.22 0.99 -0.22 2.11 -0.22Z" fill="#2b84ff"><title>Ordinary Palette 800 · 4.2 L</title></path>
 <text x="612.8" y="882.6" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" fill="#454b51">4.2</text>
 <text x="667.6" y="938" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#61686f">900</text>
-<rect x="648.6" y="876.0" width="18" height="44.0" rx="2" fill="#afb5bb"><title>Tailwind CSS 900 · 5.5 L</title></rect>
+<path d="M663.4 876c1.12 0 1.68 0 2.11 0.22a2 2 0 0 1 0.87 0.87c0.22 0.43 0.22 0.99 0.22 2.11L666.6 916.8c0 1.12 0 1.68 -0.22 2.11a2 2 0 0 1 -0.87 0.87c-0.43 0.22 -0.99 0.22 -2.11 0.22L651.8 920c-1.12 0 -1.68 0 -2.11 -0.22a2 2 0 0 1 -0.87 -0.87c-0.22 -0.43 -0.22 -0.99 -0.22 -2.11L648.6 879.2c0 -1.12 0 -1.68 0.22 -2.11a2 2 0 0 1 0.87 -0.87c0.43 -0.22 0.99 -0.22 2.11 -0.22Z" fill="#afb5bb"><title>Tailwind CSS 900 · 5.5 L</title></path>
 <text x="657.6" y="872.0" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" fill="#454b51">5.5</text>
-<rect x="668.6" y="888.8" width="18" height="31.2" rx="2" fill="#2b84ff"><title>Ordinary Palette 900 · 3.9 L</title></rect>
+<path d="M683.4 888.83c1.12 0 1.68 0 2.11 0.22a2 2 0 0 1 0.87 0.87c0.22 0.43 0.22 0.99 0.22 2.11L686.6 916.8c0 1.12 0 1.68 -0.22 2.11a2 2 0 0 1 -0.87 0.87c-0.43 0.22 -0.99 0.22 -2.11 0.22L671.8 920c-1.12 0 -1.68 0 -2.11 -0.22a2 2 0 0 1 -0.87 -0.87c-0.22 -0.43 -0.22 -0.99 -0.22 -2.11L668.6 892.03c0 -1.12 0 -1.68 0.22 -2.11a2 2 0 0 1 0.87 -0.87c0.43 -0.22 0.99 -0.22 2.11 -0.22Z" fill="#2b84ff"><title>Ordinary Palette 900 · 3.9 L</title></path>
 <text x="677.6" y="884.8" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" fill="#454b51">3.9</text>
-<rect x="52" y="956" width="12" height="12" rx="2" fill="#afb5bb"/>
+<path d="M60.8 956c1.12 0 1.68 0 2.11 0.22a2 2 0 0 1 0.87 0.87c0.22 0.43 0.22 0.99 0.22 2.11L64 964.8c0 1.12 0 1.68 -0.22 2.11a2 2 0 0 1 -0.87 0.87c-0.43 0.22 -0.99 0.22 -2.11 0.22L55.2 968c-1.12 0 -1.68 0 -2.11 -0.22a2 2 0 0 1 -0.87 -0.87c-0.22 -0.43 -0.22 -0.99 -0.22 -2.11L52 959.2c0 -1.12 0 -1.68 0.22 -2.11a2 2 0 0 1 0.87 -0.87c0.43 -0.22 0.99 -0.22 2.11 -0.22Z" fill="#afb5bb"/>
 <text x="70" y="966" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="11" fill="#2e3338">Tailwind CSS</text>
-<rect x="182" y="956" width="12" height="12" rx="2" fill="#2b84ff"/>
+<path d="M190.8 956c1.12 0 1.68 0 2.11 0.22a2 2 0 0 1 0.87 0.87c0.22 0.43 0.22 0.99 0.22 2.11L194 964.8c0 1.12 0 1.68 -0.22 2.11a2 2 0 0 1 -0.87 0.87c-0.43 0.22 -0.99 0.22 -2.11 0.22L185.2 968c-1.12 0 -1.68 0 -2.11 -0.22a2 2 0 0 1 -0.87 -0.87c-0.22 -0.43 -0.22 -0.99 -0.22 -2.11L182 959.2c0 -1.12 0 -1.68 0.22 -2.11a2 2 0 0 1 0.87 -0.87c0.43 -0.22 0.99 -0.22 2.11 -0.22Z" fill="#2b84ff"/>
 <text x="200" y="966" font-family="ui-sans-serif, system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif" font-size="11" fill="#2e3338">Ordinary Palette</text>
 </svg>
